@@ -1,0 +1,3 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Desafio DPI — EL-X VET</title></head><body><div id="status">Carregando Desafio DPI…</div><script>
+(async()=>{try{const urls=["/game/part01.txt","/game/part02.txt","/game/part03.txt","/game/part04.txt","/game/part05.txt","/game/part06.txt","/game/part07.txt","/game/part08.txt"];const html=(await Promise.all(urls.map(u=>fetch(u).then(r=>{if(!r.ok)throw Error(u);return r.text()})))).join("");document.open();document.write(html);document.close()}catch(e){document.getElementById("status").textContent="Erro ao carregar o Desafio DPI: "+e.message}})();
+</script></body></html>
