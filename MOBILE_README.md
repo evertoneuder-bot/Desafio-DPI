@@ -46,3 +46,5 @@ Este branch não altera a main. A publicação web continua independente.
 5. preparar assinatura e AAB;
 6. preparar projeto iOS e TestFlight;
 7. somente depois publicar nas lojas.
+
+CI: Android debug build enabled on push to mobile-capacitor.
