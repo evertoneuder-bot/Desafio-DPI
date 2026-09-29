@@ -1,6 +1,9 @@
 name: Android debug APK
 
 on:
+  push:
+    branches:
+      - mobile-capacitor
   workflow_dispatch:
 
 jobs:
