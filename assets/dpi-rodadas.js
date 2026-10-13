@@ -34,6 +34,29 @@ window.miniResult=function(ok,title,detail,pts){
  }
  feedback.appendChild(next);
 };
+
+// Preserve scientific correctness when varying the position of quiz alternatives.
+const oldRender=window.renderQ;
+if(typeof oldRender==="function")window.renderQ=function(){
+ try{
+  const q=state.qs[state.i];
+  if(q&&!q.dpiShuffled){
+   const fields=["alternativa_a","alternativa_b","alternativa_c","alternativa_d"];
+   const labels=["A","B","C","D"];
+   const correct=labels.indexOf(String(q.letra_correta).trim().toUpperCase());
+   if(correct>=0&&fields.every(k=>typeof q[k]==="string")){
+    const order=[0,1,2,3];
+    for(let i=3;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+    const shuffled={...q,dpiShuffled:true};
+    order.forEach((from,to)=>{shuffled[fields[to]]=q[fields[from]];});
+    shuffled.letra_correta=labels[order.indexOf(correct)];
+    state.qs[state.i]=shuffled;
+   }
+  }
+ }catch(e){console.warn("DPI: alternativas originais preservadas",e);}
+ return oldRender.apply(this,arguments);
+};
+
 const originalChallenges=window.challenges;
 if(typeof originalChallenges==="function")window.challenges=function(...args){session=null;locked=false;return originalChallenges.apply(this,args);};
 window.addEventListener("click",function(ev){const target=ev.target.closest("button");if(target&&/^(SAIR|← DESAFIOS|VOLTAR|INÍCIO)$/.test((target.textContent||"").trim())){session=null;locked=false;}});
