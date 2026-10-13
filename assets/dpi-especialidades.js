@@ -29,7 +29,23 @@ window.dpiSaveQuizProposal=function(){
  catch(e){out.textContent="Não foi possível salvar a proposta neste aparelho.";}
 };
 
-window.dpiChooseStudyArea=function(){window.shell("FAÇA SEU PRÓPRIO JOGO",'<p>Todo conhecimento pode virar um desafio. Escolha seu universo e aprenda jogando!</p><button class="btn" onclick="dpiProporQuiz(\'veterinária\')">⚕ EL-X VET — MEDICINA VETERINÁRIA</button><button class="btn secondary" onclick="dpiProporQuiz(\'outras áreas\')">🎓 OUTRAS ÁREAS EL-X — CRIE SEU JOGO!</button><p class="muted">Cada área EL-X terá biblioteca própria: EL-X VET, EL-X Psicologia, EL-X Direito e outras. Propostas pessoais são privadas por padrão.</p><button class="btn secondary" onclick="dpiEspecialidades()">← VOLTAR</button>');};
+window.dpiChooseStudyArea=function(){window.shell("FAÇA SEU PRÓPRIO JOGO",'<p>Todo conhecimento pode virar um desafio. Escolha seu universo e aprenda jogando!</p><button class="btn" onclick="dpiProporQuiz(\'veterinária\')">⚕ EL-X VET — MEDICINA VETERINÁRIA</button><button class="btn secondary" onclick="dpiProporQuiz(\'outras áreas\')">🎓 OUTRAS ÁREAS EL-X — CRIE SEU JOGO!</button><p class="muted">Cada área EL-X terá biblioteca própria: EL-X VET, EL-X Psicologia, EL-X Direito e outras. Propostas pessoais são privadas por padrão.</p><button class="btn secondary" onclick="dpiStudySources()">📚 CONSULTAR BIBLIOTECAS E FONTES</button><button class="btn secondary" onclick="dpiEspecialidades()">← VOLTAR</button>');};
+
+// Curated institutional sources: external links only; no copyrighted PDFs are hosted.
+const dpiSources=[
+ {area:"Psicologia",title:"Psychology 2e — OpenStax",url:"https://assets.openstax.org/oscms-prodcms/media/documents/Psychology2e_WEB.pdf",type:"Livro em PDF",lang:"Inglês"},
+ {area:"Psicologia",title:"A Psicologia no Brasil: Formação e Institucionalização — SciELO",url:"https://www.scielo.br/j/pcp/a/XmdwcMFLTjHZzNL3KG7pC9D/abstract/?lang=pt",type:"Artigo com PDF",lang:"Português"},
+ {area:"Direito",title:"Constituição Federal — Biblioteca Digital do Senado (edição 2026)",url:"https://www2.senado.leg.br/jspui/handle/id/864911",type:"Livro em PDF",lang:"Português"},
+ {area:"Direito",title:"Código Civil — texto oficial compilado",url:"https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm",type:"Texto legal oficial (HTML)",lang:"Português"},
+ {area:"Nutrição",title:"What are healthy diets? — OMS/FAO (2024)",url:"https://www.who.int/publications/i/item/9789240101876",type:"Relatório com PDF",lang:"Inglês"},
+ {area:"Nutrição",title:"Dietary Reference Intakes — National Academies Press",url:"https://nap.nationalacademies.org/collection/57/dietary-reference-intakes",type:"Livros com PDF",lang:"Inglês"}
+];
+window.dpiStudySources=function(){
+ const esc=escapeHTML;
+ const html='<p>Referências oficiais para consulta. Os arquivos permanecem nos sites dos autores e instituições; nenhum documento é copiado para a biblioteca do jogo.</p>'+["Psicologia","Direito","Nutrição"].map(area=>'<section><h3>EL-X '+esc(area)+'</h3>'+dpiSources.filter(x=>x.area===area).map(x=>'<p><a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.title)+'</a><br><small>'+esc(x.type)+' · '+esc(x.lang)+'</small></p>').join('')+'</section>').join('')+'<button class="btn secondary" onclick="dpiChooseStudyArea()">← VOLTAR</button>';
+ window.shell("BIBLIOTECAS DE ESTUDO — FONTES CONFIÁVEIS",html);
+};
+
 const old=window.challenges;
 if(typeof old==="function")window.challenges=function(){old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p)return;const btn=document.createElement("button");btn.className="btn";btn.textContent="📚 ESPECIALIDADES VETERINÁRIAS";btn.onclick=()=>window.dpiEspecialidades();const nav=p.querySelector(".navrow");if(nav)nav.before(btn);else p.appendChild(btn);};
 })();
