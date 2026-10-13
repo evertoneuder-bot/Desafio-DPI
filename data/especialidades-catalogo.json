@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "status": "catalogo_em_desenvolvimento",
+  "libraryPolicy": {
+    "shared": "Biblioteca Científica DPI",
+    "sourceRequired": true,
+    "publication": "somente questoes com referencias validadas",
+    "questionsPerMinigame": 10
+  },
+  "categories": {
+    "Clínica e especialidades": [
+      "Oncologia",
+      "Dermatologia",
+      "Endocrinologia",
+      "Nefrologia",
+      "Urologia",
+      "Cardiologia",
+      "Neurologia",
+      "Gastroenterologia",
+      "Hepatologia",
+      "Pneumologia",
+      "Hematologia",
+      "Infectologia",
+      "Imunologia",
+      "Reumatologia",
+      "Geriatria",
+      "Pediatria",
+      "Medicina felina",
+      "Medicina de animais exóticos"
+    ],
+    "Procedimentos e diagnóstico": [
+      "Diagnóstico por imagem",
+      "Radiologia",
+      "Ultrassonografia",
+      "Tomografia computadorizada",
+      "Ressonância magnética",
+      "Patologia clínica",
+      "Citopatologia",
+      "Histopatologia",
+      "Anestesiologia",
+      "Cirurgia de tecidos moles",
+      "Ortopedia",
+      "Odontologia",
+      "Oftalmologia",
+      "Otologia",
+      "Endoscopia"
+    ],
+    "Urgências e cuidados": [
+      "Emergência e terapia intensiva",
+      "Toxicologia",
+      "Traumatologia",
+      "Medicina transfusional",
+      "Controle da dor",
+      "Cuidados paliativos",
+      "Nutrição clínica",
+      "Reabilitação e fisioterapia",
+      "Comportamento e bem-estar"
+    ],
+    "Reprodução e saúde coletiva": [
+      "Reprodução e obstetrícia",
+      "Neonatologia",
+      "Medicina preventiva",
+      "Parasitologia",
+      "Zoonoses e saúde única",
+      "Epidemiologia",
+      "Medicina veterinária legal"
+    ]
+  }
+}
