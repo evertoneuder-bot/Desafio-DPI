@@ -3,6 +3,7 @@
 "use strict";
 const names={miniLightning:"Relâmpago",miniTarget:"Alvo",miniElimination:"Eliminação",miniAssociation:"Associação",miniHangman:"Forca",miniCrossword:"Palavras Cruzadas",miniDiagnosis:"Feche o Diagnóstico"};
 const originalResult=window.miniResult;
+let locked=false;
 if(typeof originalResult!=="function")return;
 let session=null;
 for(const name of Object.keys(names)){
@@ -14,7 +15,8 @@ for(const name of Object.keys(names)){
  };
 }
 window.miniResult=function(ok,title,detail,pts){
- if(!session||session.finished)return originalResult.apply(this,arguments);
+ if(!session||session.finished||locked)return;
+ locked=true;
  session.round++;if(ok)session.correct++;
  originalResult.apply(this,arguments);
  const panel=document.querySelector("#internal .panel");if(!panel)return;
@@ -24,12 +26,12 @@ window.miniResult=function(ok,title,detail,pts){
  const next=document.createElement("button");next.className="btn";
  if(session.round>=10){
   session.finished=true;next.textContent="CONCLUIR DESAFIO";
-  next.onclick=()=>{const summary=session;session=null;window.shell("DESAFIO CONCLUÍDO",'<h2>'+summary.correct+'/10 acertos</h2><p>Você concluiu '+names[summary.name]+'.</p><button class="btn" onclick="challenges()">VOLTAR AOS DESAFIOS</button>');};
+  next.onclick=()=>{const summary=session;session=null;locked=false;window.shell("DESAFIO CONCLUÍDO",'<h2>'+summary.correct+'/10 acertos</h2><p>Você concluiu '+names[summary.name]+'.</p><button class="btn" onclick="challenges()">VOLTAR AOS DESAFIOS</button>');};
  }else{
   next.textContent="PRÓXIMA QUESTÃO";
-  next.onclick=()=>{const fn=window[session.name];if(typeof fn==="function")fn();};
+  next.onclick=()=>{locked=false;const fn=window[session.name];if(typeof fn==="function")fn();};
  }
  feedback.appendChild(next);
 };
-window.addEventListener("click",function(ev){const target=ev.target.closest("button");if(target&&/^(SAIR|← DESAFIOS|VOLTAR|INÍCIO)$/.test((target.textContent||"").trim()))session=null;});
+window.addEventListener("click",function(ev){const target=ev.target.closest("button");if(target&&/^(SAIR|← DESAFIOS|VOLTAR|INÍCIO)$/.test((target.textContent||"").trim())){session=null;locked=false;}});
 })();
