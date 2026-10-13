@@ -1,0 +1,19 @@
+/* Desafio DPI: efeitos visuais leves, sem alterar layout ou lógica de jogo. */
+@media (prefers-reduced-motion: no-preference) {
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]) {transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;}
+  button:not(:disabled):active, [role="button"]:not([aria-disabled="true"]):active {transform:scale(.97);}
+  button:not(:disabled):focus-visible, [role="button"]:focus-visible {outline:2px solid #71c7ff;outline-offset:3px;}
+  .dpi-anim-acerto {animation:dpi-acerto .5s ease-out both;}
+  .dpi-anim-erro {animation:dpi-erro .32s ease-in-out both;}
+  .dpi-anim-alvo {animation:dpi-alvo 2.6s ease-in-out infinite;}
+  .dpi-anim-conexao {animation:dpi-conexao .6s ease-out both;}
+  .dpi-anim-patinhas {animation:dpi-patinhas .55s ease-out both;}
+  @keyframes dpi-acerto {0%{filter:brightness(1);transform:scale(1)}45%{filter:brightness(1.32);transform:scale(1.035)}100%{filter:brightness(1);transform:scale(1)}}
+  @keyframes dpi-erro {0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  @keyframes dpi-alvo {0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+  @keyframes dpi-conexao {from{opacity:.35;filter:brightness(1.5)}to{opacity:1;filter:brightness(1)}}
+  @keyframes dpi-patinhas {from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+}
+@media (prefers-reduced-motion: reduce) {
+  .dpi-anim-acerto,.dpi-anim-erro,.dpi-anim-alvo,.dpi-anim-conexao,.dpi-anim-patinhas {animation:none!important;transition:none!important;}
+}
