@@ -31,6 +31,33 @@ window.dpiSetVoiceVolume=v=>{volume=Math.max(0,Math.min(1,Number(v)/100));localS
 window.dpiReadSample=()=>narrate(pickCasual("welcome"),false);
 window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");};
 casualAudio=localStorage.getItem("dpi-casual-audio")!=="0";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
+
+const introText="Ei, que bom te ver por aqui! Eu vou ser seu parceiro de estudos no Desafio DPI, da EL-X VET. Você pode escolher desafios, explorar especialidades e criar seu próprio jogo a partir de um assunto ou material de estudo. Nos desafios, são dez perguntas por rodada. Se quiser, pode responder falando naturalmente, ou usar os botões da tela. Eu leio a pergunta quando você pedir, mas não vou ficar lendo todos os menus. A qualquer momento, você pode ajustar a voz e o volume. E olha: se um material ainda não tiver sido validado, a gente avisa. Pronto pra começar? Escolhe um desafio e vamos juntos!";
+let introSpoken=false;
+function welcome(){
+ if(introSpoken||!casualAudio)return;
+ introSpoken=true;
+ try{sessionStorage.setItem("dpi-welcome-spoken","1");}catch(e){}
+ narrate(introText,false);
+}
+function homeIntro(){
+ const home=document.getElementById("home");
+ if(!home||!home.classList.contains("on")||document.getElementById("dpi-welcome-guide"))return;
+ const btn=document.createElement("button");btn.type="button";btn.id="dpi-welcome-guide";btn.className="btn secondary";btn.textContent="🎙️ OI! ME EXPLICA COMO JOGAR";
+ btn.onclick=()=>{introSpoken=false;welcome();};
+ home.appendChild(btn);
+}
+try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
+document.addEventListener("pointerdown",function(ev){
+ if(introSpoken||!casualAudio)return;
+ if(ev.target.closest("input,select,textarea,#dpi-mic-answer"))return;
+ const home=document.getElementById("home");
+ if(home&&home.classList.contains("on"))welcome();
+},{once:true});
+const introObserver=new MutationObserver(homeIntro);
+introObserver.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
+homeIntro();
+
 const old=window.challenges;
 if(typeof old==="function")window.challenges=function(){old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p)return;const b=document.createElement("button");b.className="btn secondary";b.textContent="🔊 VOZ E LEITURA";b.onclick=window.dpiVoiceSettings;p.appendChild(b);};
 document.addEventListener("click",e=>{if(e.target.closest("#dpi-read-question"))window.dpiReadQuestion();});
