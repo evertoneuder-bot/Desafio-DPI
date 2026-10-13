@@ -3,7 +3,12 @@
 "use strict";
 const synth=window.speechSynthesis;
 if(!synth)return;
-let enabled=false,voiceName="",volume=0.9;
+let voiceName="",volume=0.9;
+const casual={welcome:["Bora jogar?","Preparado para o próximo desafio?","Vamos nessa!"],correct:["Boa! Acertou essa.","Mandou bem! Vamos pra próxima?","Isso aí! Mais um acerto."],incorrect:["Quase! Vamos entender essa.","Não foi dessa vez. Seguimos juntos!","Boa tentativa. Confira a explicação."],next:["Próxima pergunta!","Vamos pra próxima?","Seguimos!"],finish:["Desafio concluído! Mandou bem por chegar até aqui.","Terminamos essa rodada! Quer tentar outra?"]};
+let lastCasual=-1;
+function pickCasual(kind){const arr=casual[kind]||[];if(!arr.length)return "";lastCasual=(lastCasual+1)%arr.length;return arr[lastCasual];}
+function narrate(text,scientific){if(!text)return;synth.cancel();const u=new SpeechSynthesisUtterance(String(text).trim());u.lang="pt-BR";u.rate=scientific?.94:1.04;u.pitch=scientific?1:1.06;u.volume=volume;const v=preferred();if(v)u.voice=v;synth.speak(u);}
+window.dpiNarrate=function(kind,scientificText){if(kind==="question"||kind==="scientific"){narrate(scientificText,true);return;}if(kind==="explanation"){narrate(scientificText,true);return;}narrate(pickCasual(kind),false);};
 const preferred=()=>{const voices=synth.getVoices().filter(v=>/^pt[-_]BR$/i.test(v.lang));return voices.find(v=>v.name===voiceName)||voices.find(v=>/natural|neural|premium/i.test(v.name))||voices[0]||null;};
 window.dpiReadQuestion=function(){
  const el=document.querySelector(".question-text")||document.querySelector(".miniStage > p");
@@ -23,7 +28,7 @@ window.dpiVoiceSettings=function(){
 };
 window.dpiChooseVoice=v=>{voiceName=v;localStorage.setItem("dpi-voice-name",v);};
 window.dpiSetVoiceVolume=v=>{volume=Math.max(0,Math.min(1,Number(v)/100));localStorage.setItem("dpi-voice-volume",String(volume));};
-window.dpiReadSample=()=>{synth.cancel();const u=new SpeechSynthesisUtterance("Bem-vindo ao Desafio DPI. Conhecimento veterinário em jogo!");u.lang="pt-BR";u.volume=volume;u.rate=.94;const v=preferred();if(v)u.voice=v;synth.speak(u);};
+window.dpiReadSample=()=>window.dpiNarrate("welcome");
 voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Number(localStorage.getItem("dpi-voice-volume")||".9");
 const old=window.challenges;
 if(typeof old==="function")window.challenges=function(){old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p)return;const b=document.createElement("button");b.className="btn secondary";b.textContent="🔊 VOZ E LEITURA";b.onclick=window.dpiVoiceSettings;p.appendChild(b);};
