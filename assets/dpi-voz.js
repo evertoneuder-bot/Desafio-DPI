@@ -30,17 +30,14 @@ window.dpiChooseVoice=v=>{voiceName=v;localStorage.setItem("dpi-voice-name",v);}
 window.dpiSetVoiceVolume=v=>{volume=Math.max(0,Math.min(1,Number(v)/100));localStorage.setItem("dpi-voice-volume",String(volume));};
 window.dpiReadSample=()=>narrate(pickCasual("welcome"),false);
 window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");};
-casualAudio=localStorage.getItem("dpi-casual-audio")==="1";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
+casualAudio=localStorage.getItem("dpi-casual-audio")!=="0";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
 const old=window.challenges;
 if(typeof old==="function")window.challenges=function(){old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p)return;const b=document.createElement("button");b.className="btn secondary";b.textContent="🔊 VOZ E LEITURA";b.onclick=window.dpiVoiceSettings;p.appendChild(b);};
 document.addEventListener("click",e=>{if(e.target.closest("#dpi-read-question"))window.dpiReadQuestion();});
 const observer=new MutationObserver(()=>{const el=document.querySelector(".question-text")||document.querySelector(".miniStage > p");if(!el||document.getElementById("dpi-read-question"))return;const b=document.createElement("button");b.id="dpi-read-question";b.className="btn secondary";b.textContent="🔊 LER PERGUNTA";el.after(b);});
 observer.observe(document.body,{subtree:true,childList:true});
 // Keep scientific questions verbatim; never narrate full screens or navigation.
-const originalSpeak=window.speak;
-if(typeof originalSpeak==="function")window.speak=function(text){
- const q=document.querySelector(".question-text");
- if(q&&String(text).trim()===q.textContent.trim())return window.dpiNarrate("question",text);
- return; // Suppress unsolicited narration of interface text.
-};
+// The original quiz speak() is lexical; use a capture-phase click handler for
+// short interface feedback without attempting to read entire screens.
+document.addEventListener("click",function(e){const btn=e.target.closest("button");if(!btn)return;const t=(btn.textContent||"").trim();if(t==="PRÓXIMO →"&&casualAudio)window.dpiNarrate("next");},true);
 })();
