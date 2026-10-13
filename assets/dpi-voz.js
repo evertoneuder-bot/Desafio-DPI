@@ -36,4 +36,11 @@ if(typeof old==="function")window.challenges=function(){old.apply(this,arguments
 document.addEventListener("click",e=>{if(e.target.closest("#dpi-read-question"))window.dpiReadQuestion();});
 const observer=new MutationObserver(()=>{const el=document.querySelector(".question-text")||document.querySelector(".miniStage > p");if(!el||document.getElementById("dpi-read-question"))return;const b=document.createElement("button");b.id="dpi-read-question";b.className="btn secondary";b.textContent="🔊 LER PERGUNTA";el.after(b);});
 observer.observe(document.body,{subtree:true,childList:true});
+// Keep scientific questions verbatim; never narrate full screens or navigation.
+const originalSpeak=window.speak;
+if(typeof originalSpeak==="function")window.speak=function(text){
+ const q=document.querySelector(".question-text");
+ if(q&&String(text).trim()===q.textContent.trim())return window.dpiNarrate("question",text);
+ return; // Suppress unsolicited narration of interface text.
+};
 })();
