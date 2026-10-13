@@ -4,11 +4,14 @@
 const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
 
 let recognition=null,active=false;
+let currentQuestion="";
 function stop(){if(recognition){try{recognition.stop();}catch(e){}}active=false;}
 function attach(){
  const question=document.querySelector("#internal .question-text");
  if(!question||document.getElementById("dpi-answer-by-voice"))return;
  const panel=document.querySelector("#internal .panel");if(!panel)return;
+ const questionText=(question.textContent||"").trim();
+ if(currentQuestion!==questionText){stop();currentQuestion=questionText;}
  const wrap=document.createElement("section");wrap.id="dpi-answer-by-voice";
  wrap.style.cssText="margin:12px 0;padding:12px;border:1px solid #607d8b;border-radius:12px";
  wrap.innerHTML='<button type="button" class="btn secondary" id="dpi-mic-answer">🎙️ RESPONDER COM MINHAS PALAVRAS</button><p class="muted">Explique com suas palavras. Respostas longas são bem-vindas. A transcrição não recebe nota automática nesta versão.</p><textarea id="dpi-answer-transcript" rows="3" aria-label="Minha resposta por voz" style="width:100%;box-sizing:border-box" placeholder="Sua resposta aparece aqui; você pode corrigir o texto."></textarea><p id="dpi-mic-status" role="status" class="muted"></p>';
