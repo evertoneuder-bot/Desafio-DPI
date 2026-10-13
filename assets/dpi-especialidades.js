@@ -29,7 +29,7 @@ window.dpiSaveQuizProposal=function(){
  catch(e){out.textContent="Não foi possível salvar a proposta neste aparelho.";}
 };
 
-window.dpiChooseStudyArea=function(){window.shell("FAÇA SEU PRÓPRIO JOGO",'<p>Todo conhecimento pode virar um desafio. Escolha seu universo e aprenda jogando!</p><button class="btn" onclick="dpiProporQuiz(\'veterinária\')">🐾 ELX-VET — MEDICINA VETERINÁRIA</button><button class="btn secondary" onclick="dpiProporQuiz(\'outras áreas\')">🎓 OUTRAS ÁREAS ELX — CRIE SEU JOGO!</button><p class="muted">Cada área ELX terá biblioteca própria: ELX-VET, ELX-Psicologia, ELX-Direito e outras. Propostas pessoais são privadas por padrão.</p><button class="btn secondary" onclick="dpiEspecialidades()">← VOLTAR</button>');};
+window.dpiChooseStudyArea=function(){window.shell("FAÇA SEU PRÓPRIO JOGO",'<p>Todo conhecimento pode virar um desafio. Escolha seu universo e aprenda jogando!</p><button class="btn" onclick="dpiProporQuiz(\'veterinária\')">⚕ LX-VET — MEDICINA VETERINÁRIA</button><button class="btn secondary" onclick="dpiProporQuiz(\'outras áreas\')">🎓 OUTRAS ÁREAS LX — CRIE SEU JOGO!</button><p class="muted">Cada área LX terá biblioteca própria: LX-VET, LX-Psicologia, LX-Direito e outras. Propostas pessoais são privadas por padrão.</p><button class="btn secondary" onclick="dpiEspecialidades()">← VOLTAR</button>');};
 const old=window.challenges;
 if(typeof old==="function")window.challenges=function(){old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p)return;const btn=document.createElement("button");btn.className="btn";btn.textContent="📚 ESPECIALIDADES VETERINÁRIAS";btn.onclick=()=>window.dpiEspecialidades();const nav=p.querySelector(".navrow");if(nav)nav.before(btn);else p.appendChild(btn);};
 })();
