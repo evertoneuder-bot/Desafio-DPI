@@ -58,6 +58,24 @@ const introObserver=new MutationObserver(homeIntro);
 introObserver.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
 homeIntro();
 
+
+/* Silent visual guide: moves between visible menu options, never intercepts taps. */
+(function(){
+ let mascot=null,index=0,lastMove=0;
+ function update(){
+  if(!document.body)return;
+  if(!mascot){mascot=document.createElement("div");mascot.id="dpi-menu-mascot";mascot.setAttribute("aria-hidden","true");mascot.innerHTML='<span class="dpi-mascot-face">🐶</span>';document.body.appendChild(mascot);}
+  const options=Array.from(document.querySelectorAll("#internal .panel button, #home button, #internal .panel [role=button]")).filter(el=>{const r=el.getBoundingClientRect();return r.width>30&&r.height>20&&r.top>=0&&r.bottom<=innerHeight&&r.left>=0&&r.right<=innerWidth;});
+  if(!options.length){mascot.hidden=true;return;}
+  mascot.hidden=false;
+  const now=Date.now();if(now-lastMove<3400)return;lastMove=now;
+  const target=options[index++%options.length],r=target.getBoundingClientRect();
+  const x=Math.min(innerWidth-45,Math.max(2,r.left-48)),y=Math.min(innerHeight-50,Math.max(2,r.top+(r.height-36)/2));
+  mascot.style.left=x+"px";mascot.style.top=y+"px";
+ }
+ document.addEventListener("DOMContentLoaded",()=>{update();setInterval(update,1100);});
+})();
+
 const old=window.challenges;
 if(typeof old==="function")window.challenges=function(){old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p)return;const b=document.createElement("button");b.className="btn secondary";b.textContent="🔊 VOZ E LEITURA";b.onclick=window.dpiVoiceSettings;p.appendChild(b);};
 document.addEventListener("click",e=>{if(e.target.closest("#dpi-read-question"))window.dpiReadQuestion();});
