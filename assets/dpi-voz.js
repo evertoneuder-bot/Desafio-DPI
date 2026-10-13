@@ -7,10 +7,10 @@ let voiceName="",volume=0.9,casualAudio=false,activeUtterance=null;
 const casual={welcome:["Bora jogar?","Preparado para o próximo desafio?","Vamos nessa!"],correct:["Boa! Acertou essa.","Mandou bem! Vamos pra próxima?","Isso aí! Mais um acerto."],incorrect:["Quase! Vamos entender essa.","Não foi dessa vez. Seguimos juntos!","Boa tentativa. Confira a explicação."],next:["Próxima pergunta!","Vamos pra próxima?","Seguimos!"],finish:["Desafio concluído! Mandou bem por chegar até aqui.","Terminamos essa rodada! Quer tentar outra?"]};
 let lastCasual=-1;
 function pickCasual(kind){const arr=casual[kind]||[];if(!arr.length)return "";lastCasual=(lastCasual+1)%arr.length;return arr[lastCasual];}
-function narrate(text,scientific){if(!text)return;synth.cancel();const u=new SpeechSynthesisUtterance(String(text).trim());u.lang="pt-BR";u.rate=scientific?.94:1.04;u.pitch=scientific?1:1.06;u.volume=volume;const v=preferred();if(v)u.voice=v;activeUtterance=u;synth.speak(u);}
+function narrate(text,scientific){if(!text||!casualAudio)return;synth.cancel();const u=new SpeechSynthesisUtterance(String(text).trim());u.lang="pt-BR";u.rate=scientific?.94:1.04;u.pitch=scientific?1:1.06;u.volume=volume;const v=preferred();if(v)u.voice=v;activeUtterance=u;synth.speak(u);}
 window.dpiNarrate=function(kind,scientificText){if(kind!=="question"&&kind!=="scientific"&&kind!=="explanation"&&!casualAudio)return;if(kind==="question"||kind==="scientific"){narrate(scientificText,true);return;}if(kind==="explanation"){narrate(scientificText,true);return;}narrate(pickCasual(kind),false);};
 const preferred=()=>{const voices=synth.getVoices().filter(v=>/^pt[-_]BR$/i.test(v.lang));return voices.find(v=>v.name===voiceName)||voices.find(v=>/natural|neural|premium/i.test(v.name))||voices[0]||null;};
-window.dpiReadQuestion=function(){
+window.dpiReadQuestion=function(){if(!casualAudio)return;
  const el=document.querySelector(".question-text")||document.querySelector(".miniStage > p");
  if(!el)return;
  synth.cancel();
@@ -24,13 +24,13 @@ window.dpiReadQuestion=function(){
 window.dpiVoiceSettings=function(){
  const voices=synth.getVoices().filter(v=>/^pt[-_]BR$/i.test(v.lang));
  const list=voices.map(v=>'<option value="'+v.name.replace(/"/g,"&quot;")+'" '+(v.name===voiceName?'selected':'')+'>'+v.name.replace(/</g,"&lt;")+'</option>').join("");
- window.shell("VOZ E LEITURA",'<p>Escolha uma voz em português brasileiro disponível no dispositivo.</p><label><input type="checkbox" '+(casualAudio?'checked':'')+' onchange="dpiToggleCasual(this.checked)"> Narração casual durante as partidas</label><p></p><label>Voz</label><select id="dpi-voice-choice" style="width:100%;padding:10px" onchange="dpiChooseVoice(this.value)">'+list+'</select><p><label>Volume da leitura</label><input aria-label="Volume da leitura" type="range" min="0" max="100" value="'+Math.round(volume*100)+'" oninput="dpiSetVoiceVolume(this.value)"></p><button class="btn" onclick="dpiReadSample()">TESTAR VOZ</button><button class="btn secondary" onclick="challenges()">VOLTAR</button><p class="muted">Vozes gravadas de Everton e Fernanda dependem da integração de áudio autorizada. Esta opção usa as vozes do dispositivo.</p>');
+ window.shell("VOZ E LEITURA",'<p>Escolha uma voz em português brasileiro disponível no dispositivo.</p><label><input type="checkbox" '+(casualAudio?'checked':'')+' onchange="dpiToggleCasual(this.checked)"> Ativar voz e narração (desativada até você ligar)</label><p></p><label>Voz</label><select id="dpi-voice-choice" style="width:100%;padding:10px" onchange="dpiChooseVoice(this.value)">'+list+'</select><p><label>Volume da leitura</label><input aria-label="Volume da leitura" type="range" min="0" max="100" value="'+Math.round(volume*100)+'" oninput="dpiSetVoiceVolume(this.value)"></p><button class="btn" onclick="dpiReadSample()">TESTAR VOZ</button><button class="btn secondary" onclick="challenges()">VOLTAR</button><p class="muted">Vozes gravadas de Everton e Fernanda dependem da integração de áudio autorizada. Esta opção usa as vozes do dispositivo.</p>');
 };
 window.dpiChooseVoice=v=>{voiceName=v;localStorage.setItem("dpi-voice-name",v);};
 window.dpiSetVoiceVolume=v=>{volume=Math.max(0,Math.min(1,Number(v)/100));localStorage.setItem("dpi-voice-volume",String(volume));};
-window.dpiReadSample=()=>narrate(pickCasual("welcome"),false);
-window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");};
-casualAudio=localStorage.getItem("dpi-casual-audio")!=="0";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
+window.dpiReadSample=()=>{if(!casualAudio)return;narrate(pickCasual("welcome"),false);};
+window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(!casualAudio){synth.cancel();introSpoken=true;}else{introSpoken=false;}};
+casualAudio=localStorage.getItem("dpi-casual-audio")==="1";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
 
 const introText="Ei, que bom te ver por aqui! Eu vou ser seu parceiro de estudos no Desafio DPI, da EL-X VET. Você pode escolher desafios, explorar especialidades e criar seu próprio jogo a partir de um assunto ou material de estudo. Nos desafios, são dez perguntas por rodada. Se quiser, pode responder falando naturalmente, ou usar os botões da tela. Eu leio a pergunta quando você pedir, mas não vou ficar lendo todos os menus. A qualquer momento, você pode ajustar a voz e o volume. E olha: se um material ainda não tiver sido validado, a gente avisa. Pronto pra começar? Escolhe um desafio e vamos juntos!";
 let introSpoken=false;
@@ -44,7 +44,7 @@ function homeIntro(){
  const home=document.getElementById("home");
  if(!home||!home.classList.contains("on")||document.getElementById("dpi-welcome-guide"))return;
  const btn=document.createElement("button");btn.type="button";btn.id="dpi-welcome-guide";btn.className="btn secondary";btn.textContent="🎙️ OI! ME EXPLICA COMO JOGAR";
- btn.onclick=()=>{introSpoken=false;welcome();};
+ btn.onclick=()=>{if(!casualAudio){window.dpiVoiceSettings();return;}introSpoken=false;welcome();};
  home.appendChild(btn);
 }
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
