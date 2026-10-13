@@ -64,14 +64,14 @@ homeIntro();
  let mascot=null,index=0,lastMove=0;
  function update(){
   if(!document.body)return;
-  if(!mascot){mascot=document.createElement("div");mascot.id="dpi-menu-mascot";mascot.setAttribute("aria-hidden","true");mascot.innerHTML='<span class="dpi-mascot-face">🐶</span>';document.body.appendChild(mascot);}
+  if(!mascot){mascot=document.createElement("div");mascot.id="dpi-menu-mascot";mascot.setAttribute("aria-hidden","true");mascot.innerHTML='<span class="dpi-mascot-face" title="Everton">🐶</span><span class="dpi-mascot-face" title="Fernanda">🐱</span>';document.body.appendChild(mascot);}
   const options=Array.from(document.querySelectorAll("#internal .panel button, #home button, #internal .panel [role=button]")).filter(el=>{const r=el.getBoundingClientRect();return r.width>30&&r.height>20&&r.top>=0&&r.bottom<=innerHeight&&r.left>=0&&r.right<=innerWidth;});
   if(!options.length){mascot.hidden=true;return;}
   mascot.hidden=false;
   const now=Date.now();if(now-lastMove<3400)return;lastMove=now;
   const target=options[index++%options.length],r=target.getBoundingClientRect();
   const x=Math.min(innerWidth-45,Math.max(2,r.left-48)),y=Math.min(innerHeight-50,Math.max(2,r.top+(r.height-36)/2));
-  mascot.style.left=x+"px";mascot.style.top=y+"px";
+  mascot.style.left=x+"px";mascot.style.top=y+"px";mascot.dataset.guide=index%2?"Everton":"Fernanda";
  }
  document.addEventListener("DOMContentLoaded",()=>{update();setInterval(update,1100);});
 })();
