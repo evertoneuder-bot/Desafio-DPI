@@ -18,11 +18,12 @@ function attach(){
  button.addEventListener("click",()=>{
   if(active){stop();status.textContent="Gravação encerrada. Você pode revisar a transcrição.";button.textContent="🎙️ RESPONDER COM MINHAS PALAVRAS";return;}
   if(recognition)stop();
+  if(window.speechSynthesis)window.speechSynthesis.cancel();
   recognition=new Recognition();recognition.lang="pt-BR";recognition.continuous=true;recognition.interimResults=true;
   const prefix=textarea.value.trim();let finalized="";
   recognition.onresult=ev=>{let interim="";finalized="";for(let i=0;i<ev.results.length;i++){const t=ev.results[i][0].transcript;if(ev.results[i].isFinal)finalized+=t+" ";else interim+=t;}textarea.value=[prefix,finalized.trim(),interim.trim()].filter(Boolean).join(" ");};
   recognition.onerror=ev=>{active=false;button.textContent="🎙️ RESPONDER COM MINHAS PALAVRAS";status.textContent=ev.error==="not-allowed"?"Microfone não autorizado. Você ainda pode digitar a resposta.":"Não foi possível reconhecer a fala. Tente novamente ou digite.";};
-  recognition.onend=()=>{active=false;button.textContent="🎙️ RESPONDER COM MINHAS PALAVRAS";};
+  recognition.onend=()=>{active=false;button.textContent="🎙️ RESPONDER COM MINHAS PALAVRAS";if(!status.textContent.includes("não")&&!status.textContent.includes("indisponível"))status.textContent="Transcrição encerrada. Revise o texto antes de continuar.";};
   try{recognition.start();active=true;button.textContent="■ PARAR GRAVAÇÃO";status.textContent="Pode falar naturalmente. Não precisa repetir o texto da alternativa.";}catch(e){status.textContent="Microfone indisponível neste dispositivo.";}
  });
 }
