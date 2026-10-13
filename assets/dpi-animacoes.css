@@ -17,3 +17,9 @@
 @media (prefers-reduced-motion: reduce) {
   .dpi-anim-acerto,.dpi-anim-erro,.dpi-anim-alvo,.dpi-anim-conexao,.dpi-anim-patinhas {animation:none!important;transition:none!important;}
 }
+
+/* Animated menu guide: visual-only, pointer-transparent and reduced-motion aware. */
+#dpi-menu-mascot{position:fixed;z-index:20;left:12px;top:20%;font-size:35px;line-height:1;pointer-events:none;user-select:none;transition:transform .8s ease,left .8s ease,top .8s ease;filter:drop-shadow(0 3px 5px #0005)}
+#dpi-menu-mascot[hidden]{display:none}
+@media(prefers-reduced-motion:no-preference){#dpi-menu-mascot .dpi-mascot-face{display:block;animation:dpi-mascot-bob 2s ease-in-out infinite}@keyframes dpi-mascot-bob{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-9px) rotate(5deg)}}}
+@media(prefers-reduced-motion:reduce){#dpi-menu-mascot{transition:none!important}#dpi-menu-mascot .dpi-mascot-face{animation:none!important}}
