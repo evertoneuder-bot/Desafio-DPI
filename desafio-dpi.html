@@ -9,7 +9,7 @@ let html=parts.join("").replace(/reconhecimento veterinário em jogo/gi,"Conheci
 html=html.replace(/<title>[^<]*<\/title>/i,"<title>EL-X Medicina Veterinária — EL-X DPI</title>");
 const headClose=/<\/head\s*>/i;
 if(headClose.test(html)) html=html.replace(headClose,'<link rel="stylesheet" href="/assets/dpi-animacoes.css"></head>');
-html=html.replace(/<\/body\s*>/i,'<script src="/assets/dpi-rodadas.js"><\/script><script src="/assets/dpi-especialidades.js"><\/script><script src="/assets/dpi-voz.js"><\/script><script src="/assets/dpi-resposta-voz.js"><\/script><script src="/assets/elx-plantao.js"><\/script></body>');
+html=html.replace(/<\/body\s*>/i,'<script src="/assets/dpi-rodadas.js"><\/script><script src="/assets/dpi-especialidades.js"><\/script><script src="/assets/dpi-voz.js"><\/script><script src="/assets/dpi-resposta-voz.js"><\/script><script src="/assets/elx-plantao.js"><\/script><script src="/assets/dpi-final-nav.js"><\/script></body>');
 document.open();document.write(html);document.close();
 }catch(e){document.getElementById("status").textContent="Erro ao carregar EL-X DPI: "+e.message;console.error(e)}})();
 </script></body></html>
