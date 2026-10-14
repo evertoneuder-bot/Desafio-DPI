@@ -2,7 +2,7 @@
 (function(){
 "use strict";
 const synth=window.speechSynthesis;
-if(!synth||typeof window.SpeechSynthesisUtterance!=="function")return;
+if(!synth||typeof window.SpeechSynthesisUtterance!=="function"){document.documentElement.classList.add("dpi-no-speech");return;}
 let voiceName="",volume=0.9,casualAudio=false,activeUtterance=null,speechSerial=0;
 const casual={welcome:["Bora jogar?","Preparado para o próximo desafio?","Vamos nessa!"],correct:["Boa! Acertou essa.","Mandou bem! Vamos pra próxima?","Isso aí! Mais um acerto."],incorrect:["Quase! Vamos entender essa.","Não foi dessa vez. Seguimos juntos!","Boa tentativa. Confira a explicação."],next:["Próxima pergunta!","Vamos pra próxima?","Seguimos!"],finish:["Desafio concluído! Mandou bem por chegar até aqui.","Terminamos essa rodada! Quer tentar outra?"]};
 let lastCasual=-1;
