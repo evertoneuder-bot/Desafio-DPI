@@ -4,14 +4,13 @@
 const names={miniLightning:"Relâmpago",miniTarget:"Alvo",miniElimination:"Eliminação",miniAssociation:"Associação",miniHangman:"Forca",miniCrossword:"Palavras Cruzadas",miniDiagnosis:"Feche o Diagnóstico"};
 const originalResult=window.miniResult;
 let locked=false;
-let advancing=false;
 if(typeof originalResult!=="function")return;
 let session=null;
 for(const name of Object.keys(names)){
  const original=window[name];
  if(typeof original!=="function")continue;
  window[name]=function(...args){
-  if(!session||session.name!==name||session.finished){session={name,round:0,correct:0,finished:false};locked=false;advancing=false;}
+  if(!session||session.name!==name||session.finished){session={name,round:0,correct:0,finished:false};locked=false;}
   return original.apply(this,args);
  };
 }
@@ -31,7 +30,7 @@ window.miniResult=function(ok,title,detail,pts){
   next.onclick=()=>{if(!session)return;next.disabled=true;const summary=session;session=null;locked=false;if(typeof window.dpiNarrate==="function")window.dpiNarrate("finish");window.shell("DESAFIO CONCLUÍDO",'<h2>'+summary.correct+'/10 acertos</h2><p>Você concluiu '+names[summary.name]+'.</p><button class="btn" onclick="challenges()">VOLTAR AOS DESAFIOS</button>');};
  }else{
   next.textContent="PRÓXIMA QUESTÃO";
-  next.onclick=()=>{if(!session||!locked)return;const name=session.name;locked=false;advancing=true;next.disabled=true;if(typeof window.dpiNarrate==="function")window.dpiNarrate("next");const fn=window[name];if(typeof fn==="function")fn();advancing=false;};
+  next.onclick=()=>{if(!session||!locked)return;const name=session.name;locked=false;next.disabled=true;if(typeof window.dpiNarrate==="function")window.dpiNarrate("next");const fn=window[name];if(typeof fn==="function")fn();};
  }
  feedback.appendChild(next);
 };
