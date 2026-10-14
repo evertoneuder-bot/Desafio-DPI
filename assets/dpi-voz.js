@@ -95,7 +95,7 @@ homeIntro();
 
 
 const old=window.challenges;
-if(typeof old==="function")window.challenges=function(){old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p)return;const b=document.createElement("button");b.className="btn secondary";b.textContent="🔊 VOZ E LEITURA";b.onclick=window.dpiVoiceSettings;p.appendChild(b);};
+if(typeof old==="function")window.challenges=function(){const result=old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p||p.querySelector("#dpi-voice-settings-button"))return result;const b=document.createElement("button");b.id="dpi-voice-settings-button";b.type="button";b.className="btn secondary";b.textContent="🔊 VOZ E LEITURA";b.onclick=window.dpiVoiceSettings;p.appendChild(b);return result;};
 document.addEventListener("click",e=>{if(e.target.closest("#dpi-read-question"))window.dpiReadQuestion();});
 const observer=new MutationObserver(()=>{const el=document.querySelector(".question-text")||document.querySelector(".miniStage > p");if(!el||document.getElementById("dpi-read-question"))return;const b=document.createElement("button");b.id="dpi-read-question";b.className="btn secondary";b.textContent="🔊 LER PERGUNTA";el.after(b);});
 observer.observe(document.body,{subtree:true,childList:true});
