@@ -32,7 +32,7 @@ window.dpiReadSample=()=>{if(!casualAudio)return;narrate(pickCasual("welcome"),f
 window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(!casualAudio){++speechSerial;synth.cancel();document.body?.classList.remove("dpi-mascots-speaking");introSpoken=true;const bgm=window.bgm;if(bgm&&typeof bgm.pause==="function")bgm.pause();}else{introSpoken=false;}};
 casualAudio=localStorage.getItem("dpi-casual-audio")!=="0";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
 
-const introText="Ei, que bom te ver por aqui! Eu vou ser seu parceiro de estudos no Desafio DPI, da EL-X VET. Você pode escolher desafios, explorar especialidades e criar seu próprio jogo a partir de um assunto ou material de estudo. Nos desafios, são dez perguntas por rodada. Se quiser, pode responder falando naturalmente, ou usar os botões da tela. Eu leio a pergunta quando você pedir, mas não vou ficar lendo todos os menus. A qualquer momento, você pode ajustar a voz e o volume. E olha: se um material ainda não tiver sido validado, a gente avisa. Pronto pra começar? Escolhe um desafio e vamos juntos!";
+const introText="Ei, que bom te ver! Everton e Fernanda estão aqui para jogar com você no EL-X VET. Escolha um desafio, explore especialidades e divirta-se aprendendo. Cada rodada tem dez perguntas. Você pode responder pelos botões e, quando disponível, usar sua voz. Para ouvir uma pergunta, é só pedir. Você controla o áudio a qualquer momento. Bora começar?";
 let introSpoken=false;
 function welcome(){
  if(introSpoken||!casualAudio)return;
@@ -50,7 +50,7 @@ function homeIntro(){
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
 document.addEventListener("pointerdown",function(ev){
  if(introSpoken||!casualAudio)return;
- if(ev.target.closest("input,select,textarea,#dpi-mic-answer"))return;
+ if(ev.target.closest("input,select,textarea,#dpi-mic-answer,#dpi-welcome-guide"))return;
  const home=document.getElementById("home");
  if(home&&home.classList.contains("on"))welcome();
 });
