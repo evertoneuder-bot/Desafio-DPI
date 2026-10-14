@@ -85,7 +85,7 @@ function syncHomeVoiceButton(){
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
 // Attempt welcome on home automatically; a browser may require a first gesture.
 
-const introObserver=new MutationObserver(homeIntro);
+const introObserver=new MutationObserver(()=>{homeIntro();if(!introSpoken&&document.getElementById("home")?.classList.contains("on"))welcome();});
 introObserver.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
 homeIntro();
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>{homeIntro();welcome();},{once:true});else welcome();
