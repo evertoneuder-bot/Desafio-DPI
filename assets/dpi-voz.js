@@ -99,7 +99,7 @@ if(typeof old==="function")window.challenges=function(){const result=old.apply(t
 document.addEventListener("click",e=>{if(e.target.closest("#dpi-read-question"))window.dpiReadQuestion();});
 const syncQuestionButton=()=>{const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden"&&node.textContent.trim()&&!node.closest("[hidden],[aria-hidden=\"true\"]"));if(!el){document.getElementById("dpi-read-question")?.remove();return;}const existing=document.getElementById("dpi-read-question");if(existing){if(existing.previousElementSibling!==el)el.after(existing);return;}const b=document.createElement("button");b.type="button";b.id="dpi-read-question";b.className="btn secondary";b.textContent="🔊 LER PERGUNTA";el.after(b);};
 const observer=new MutationObserver(syncQuestionButton);
-observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["hidden","aria-hidden","class"]});
+observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:["hidden","aria-hidden","class"]});
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",syncQuestionButton,{once:true});else syncQuestionButton();
 // Keep scientific questions verbatim; never narrate full screens or navigation.
 // The original quiz speak() is lexical; use a capture-phase click handler for
