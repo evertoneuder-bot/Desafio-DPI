@@ -62,6 +62,7 @@ function syncHomeVoiceButton(){
  if(!toggle)return;
  toggle.textContent=casualAudio?"🔊 DESLIGAR VOZ":"🔇 LIGAR VOZ";
  toggle.setAttribute("aria-pressed",String(casualAudio));
+ toggle.setAttribute("title",casualAudio?"Desativar toda a narração":"Ativar narração");
 }
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
 document.addEventListener("pointerdown",function(ev){
