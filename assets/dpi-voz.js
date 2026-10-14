@@ -18,7 +18,7 @@ window.dpiReadQuestion=function(){if(!casualAudio)return;
  const voice=preferred();if(voice)utter.voice=voice;
  const bgm=window.bgm;const previous=bgm&&typeof bgm.volume==="number"?bgm.volume:null;
  if(previous!==null)bgm.volume=Math.min(previous,.025);
- document.body?.classList.add("dpi-mascots-speaking");utter.onend=utter.onerror=()=>{if(previous!==null)bgm.volume=previous;if(serial===speechSerial)document.body?.classList.remove("dpi-mascots-speaking");};
+ document.body?.classList.add("dpi-mascots-speaking");utter.onend=utter.onerror=()=>{if(previous!==null&&serial===speechSerial)bgm.volume=previous;if(serial===speechSerial)document.body?.classList.remove("dpi-mascots-speaking");};
  activeUtterance=utter;synth.speak(utter);
 };
 window.dpiVoiceSettings=function(){
@@ -29,7 +29,7 @@ window.dpiVoiceSettings=function(){
 window.dpiChooseVoice=v=>{voiceName=v;localStorage.setItem("dpi-voice-name",v);};
 window.dpiSetVoiceVolume=v=>{volume=Math.max(0,Math.min(1,Number(v)/100));localStorage.setItem("dpi-voice-volume",String(volume));};
 window.dpiReadSample=()=>{if(!casualAudio)return;narrate(pickCasual("welcome"),false);};
-window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(!casualAudio){++speechSerial;synth.cancel();document.body?.classList.remove("dpi-mascots-speaking");introSpoken=true;}else{introSpoken=false;}};
+window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(!casualAudio){++speechSerial;synth.cancel();document.body?.classList.remove("dpi-mascots-speaking");introSpoken=true;const bgm=window.bgm;if(bgm&&typeof bgm.pause==="function")bgm.pause();}else{introSpoken=false;}};
 casualAudio=localStorage.getItem("dpi-casual-audio")!=="0";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
 
 const introText="Ei, que bom te ver por aqui! Eu vou ser seu parceiro de estudos no Desafio DPI, da EL-X VET. Você pode escolher desafios, explorar especialidades e criar seu próprio jogo a partir de um assunto ou material de estudo. Nos desafios, são dez perguntas por rodada. Se quiser, pode responder falando naturalmente, ou usar os botões da tela. Eu leio a pergunta quando você pedir, mas não vou ficar lendo todos os menus. A qualquer momento, você pode ajustar a voz e o volume. E olha: se um material ainda não tiver sido validado, a gente avisa. Pronto pra começar? Escolhe um desafio e vamos juntos!";
