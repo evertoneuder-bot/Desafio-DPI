@@ -23,3 +23,12 @@
 #dpi-menu-mascot[hidden]{display:none}
 @media(prefers-reduced-motion:no-preference){#dpi-menu-mascot .dpi-mascot-face{display:block;animation:dpi-mascot-bob 2s ease-in-out infinite}@keyframes dpi-mascot-bob{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-9px) rotate(5deg)}}}
 @media(prefers-reduced-motion:reduce){#dpi-menu-mascot{transition:none!important}#dpi-menu-mascot .dpi-mascot-face{animation:none!important}}
+
+/* Give each host a distinct speaking reaction, without animating when muted. */
+#dpi-menu-mascot{display:flex;align-items:flex-end;gap:5px}
+#dpi-menu-mascot .dpi-mascot-face:nth-child(2){animation-delay:.3s}
+@media(prefers-reduced-motion:no-preference){
+ body.dpi-mascots-speaking #dpi-menu-mascot .dpi-mascot-face:first-child{animation:dpi-mascot-talk .38s ease-in-out infinite alternate}
+ body.dpi-mascots-speaking #dpi-menu-mascot .dpi-mascot-face:nth-child(2){animation:dpi-mascot-talk .46s ease-in-out infinite alternate-reverse}
+ @keyframes dpi-mascot-talk{from{transform:translateY(0) scale(1)}to{transform:translateY(-5px) scale(1.09)}}
+}
