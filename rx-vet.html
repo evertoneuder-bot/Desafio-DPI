@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>EL-X VET — RX Conhecimentos</title></head>
+<body><div id="status">Carregando RX Conhecimentos…</div>
+<script>
+(async()=>{try{
+const urls=["/game/part01.txt","/game/part02.txt","/game/part03.txt","/game/part04.txt","/game/part05.txt","/game/part06.txt","/game/part07.txt","/game/part08.txt"];
+const parts=await Promise.all(urls.map(async u=>{const r=await fetch(u);if(!r.ok)throw Error("Arquivo indisponível: "+u);return r.text()}));
+let html=parts.join("").replace(/reconhecimento veterinário em jogo/gi,"Conhecimento em jogo");
+const headClose=/<\/head\s*>/i;
+if(headClose.test(html)) html=html.replace(headClose,'<link rel="stylesheet" href="/assets/dpi-animacoes.css"></head>');
+html=html.replace(/<\/body\s*>/i,'<script src="/assets/dpi-rodadas.js"><\/script><script src="/assets/dpi-especialidades.js"><\/script><script src="/assets/dpi-voz.js"><\/script><script src="/assets/dpi-resposta-voz.js"><\/script></body>');
+document.open();document.write(html);document.close();
+}catch(e){document.getElementById("status").textContent="Erro ao carregar RX Conhecimentos: "+e.message;console.error(e)}})();
+</script></body></html>
