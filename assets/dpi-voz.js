@@ -29,7 +29,7 @@ window.dpiVoiceSettings=function(){
 window.dpiChooseVoice=v=>{voiceName=v;localStorage.setItem("dpi-voice-name",v);};
 window.dpiSetVoiceVolume=v=>{volume=Math.max(0,Math.min(1,Number(v)/100));localStorage.setItem("dpi-voice-volume",String(volume));};
 window.dpiReadSample=()=>{if(!casualAudio)return;narrate(pickCasual("welcome"),false);};
-window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(!casualAudio){++speechSerial;synth.cancel();document.body?.classList.remove("dpi-mascots-speaking");introSpoken=true;const bgm=window.bgm;if(bgm&&typeof bgm.pause==="function")bgm.pause();}else{introSpoken=false;}};
+window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(!casualAudio){++speechSerial;synth.cancel();document.body?.classList.remove("dpi-mascots-speaking");introSpoken=true;const bgm=window.bgm;if(bgm&&typeof bgm.pause==="function")bgm.pause();}else{introSpoken=false;}syncHomeVoiceButton();};
 casualAudio=localStorage.getItem("dpi-casual-audio")!=="0";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
 
 const introText="Ei, que bom te ver! Everton e Fernanda estão aqui para jogar com você no EL-X VET. Escolha um desafio, explore especialidades e divirta-se aprendendo. Cada rodada tem dez perguntas. Você pode responder pelos botões e, quando disponível, usar sua voz. Para ouvir uma pergunta, é só pedir. Você controla o áudio a qualquer momento. Bora começar?";
@@ -46,6 +46,20 @@ function homeIntro(){
  const btn=document.createElement("button");btn.type="button";btn.id="dpi-welcome-guide";btn.className="btn secondary";btn.textContent="🎙️ OI! ME EXPLICA COMO JOGAR";
  btn.onclick=()=>{if(!casualAudio){window.dpiVoiceSettings();return;}introSpoken=false;welcome();};
  home.appendChild(btn);
+ if(!document.getElementById("dpi-home-voice-toggle")){
+  const toggle=document.createElement("button");
+  toggle.type="button";toggle.id="dpi-home-voice-toggle";toggle.className="btn secondary";
+  toggle.setAttribute("aria-label","Ligar ou desligar a voz");
+  toggle.onclick=()=>{window.dpiToggleCasual(!casualAudio);syncHomeVoiceButton();};
+  home.appendChild(toggle);
+ }
+ syncHomeVoiceButton();
+}
+function syncHomeVoiceButton(){
+ const toggle=document.getElementById("dpi-home-voice-toggle");
+ if(!toggle)return;
+ toggle.textContent=casualAudio?"🔊 DESLIGAR VOZ":"🔇 LIGAR VOZ";
+ toggle.setAttribute("aria-pressed",String(casualAudio));
 }
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
 document.addEventListener("pointerdown",function(ev){
