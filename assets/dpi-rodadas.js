@@ -56,7 +56,12 @@ function showReference(q){
  if(question)question.insertAdjacentElement("afterend",link);
 }
 const refObserver=new MutationObserver(()=>{
- const q=(typeof state!=="undefined"&&state.qs&&state.qs[state.i])||window._lgQ||window._tgQ||window._dgQ;
+ const panel=document.querySelector("#internal .panel");
+ if(!panel)return;
+ const text=(panel.querySelector(".question-text,.miniStage > p")?.textContent||"").trim();
+ if(!text)return;
+ const candidates=[typeof state!=="undefined"&&state.qs&&state.qs[state.i],window._lgQ,window._tgQ,window._dgQ].filter(Boolean);
+ const q=candidates.find(item=>text.includes(String(item.pergunta||"").trim())&&String(item.pergunta||"").trim());
  showReference(q);
 });
 refObserver.observe(document.body,{childList:true,subtree:true});
