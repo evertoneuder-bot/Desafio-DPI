@@ -41,7 +41,7 @@ function referenceFor(q){
  if(!q||typeof q!=="object")return null;
  const raw=q.referencia_url||q.fonte_url||q.url_referencia||q.doi_url||q.bibliografia_url;
  if(typeof raw!=="string")return null;
- try{const u=new URL(raw,location.origin);if(u.protocol!=="https:"&&u.protocol!=="http:")return null;return u.href;}catch(e){return null;}
+ try{const u=new URL(raw,location.origin);if(u.protocol!=="https:"&&u.protocol!=="http:")return null;if(u.username||u.password)return null;if(u.origin===location.origin&&!u.pathname.startsWith("/biblioteca/")&&!u.pathname.startsWith("/data/biblioteca/"))return null;return u.href;}catch(e){return null;}
 }
 function showReference(q){
  const url=referenceFor(q),panel=document.querySelector("#internal .panel");
