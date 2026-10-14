@@ -28,7 +28,7 @@ function narrate(text,scientific){if(!text||!casualAudio)return;synth.cancel();c
 window.dpiNarrate=function(kind,scientificText){if(kind!=="question"&&kind!=="scientific"&&kind!=="explanation"&&!casualAudio)return;if(kind==="question"||kind==="scientific"){narrate(scientificText,true);return;}if(kind==="explanation"){narrate(scientificText,true);return;}narrate(pickCasual(kind),false);};
 const preferred=()=>{const voices=synth.getVoices().filter(v=>/^pt[-_]BR$/i.test(v.lang));return voices.find(v=>v.name===voiceName)||voices.find(v=>/natural|neural|premium/i.test(v.name))||voices[0]||null;};
 window.dpiReadQuestion=function(){if(!casualAudio)return;
- const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden");
+ const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden"&&node.textContent.trim());
  if(!el||!el.textContent.trim())return;
  synth.cancel();const serial=++speechSerial;
  const utter=new SpeechSynthesisUtterance(el.textContent.trim());utter.lang="pt-BR";utter.rate=0.94;utter.pitch=1;utter.volume=volume;
@@ -97,7 +97,7 @@ homeIntro();
 const old=window.challenges;
 if(typeof old==="function")window.challenges=function(){const result=old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p||p.querySelector("#dpi-voice-settings-button"))return result;const b=document.createElement("button");b.id="dpi-voice-settings-button";b.type="button";b.className="btn secondary";b.textContent="🔊 VOZ E LEITURA";b.onclick=window.dpiVoiceSettings;p.appendChild(b);return result;};
 document.addEventListener("click",e=>{if(e.target.closest("#dpi-read-question"))window.dpiReadQuestion();});
-const syncQuestionButton=()=>{const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden");if(!el){document.getElementById("dpi-read-question")?.remove();return;}const existing=document.getElementById("dpi-read-question");if(existing){if(existing.previousElementSibling!==el)el.after(existing);return;}const b=document.createElement("button");b.type="button";b.id="dpi-read-question";b.className="btn secondary";b.textContent="🔊 LER PERGUNTA";el.after(b);};
+const syncQuestionButton=()=>{const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden"&&node.textContent.trim());if(!el){document.getElementById("dpi-read-question")?.remove();return;}const existing=document.getElementById("dpi-read-question");if(existing){if(existing.previousElementSibling!==el)el.after(existing);return;}const b=document.createElement("button");b.type="button";b.id="dpi-read-question";b.className="btn secondary";b.textContent="🔊 LER PERGUNTA";el.after(b);};
 const observer=new MutationObserver(syncQuestionButton);
 observer.observe(document.body,{subtree:true,childList:true});
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",syncQuestionButton,{once:true});else syncQuestionButton();
