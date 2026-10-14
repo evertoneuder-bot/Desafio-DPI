@@ -78,7 +78,8 @@ function homeIntro(){
 function syncHomeVoiceButton(){
  const toggle=document.getElementById("dpi-home-voice-toggle");
  if(!toggle)return;
- toggle.textContent=casualAudio?"🔊 DESLIGAR VOZ":"🔇 LIGAR VOZ";
+ const label=casualAudio?"🔊 DESLIGAR VOZ":"🔇 LIGAR VOZ";
+ if(toggle.textContent!==label)toggle.textContent=label;
  toggle.setAttribute("aria-pressed",String(casualAudio));
  toggle.setAttribute("title",casualAudio?"Desativar toda a narração":"Ativar narração");
 }
