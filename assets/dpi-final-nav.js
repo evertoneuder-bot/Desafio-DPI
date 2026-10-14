@@ -11,7 +11,7 @@ function sourceRows(){
 function bibliography(){const rows=sourceRows();window.shell?.("BIBLIOGRAFIA DPI",'<p>Fontes bibliográficas associadas às questões do Desafio DPI.</p><ul class="dpi-bibliography-list">'+(rows||"<li>As referências aparecem junto às explicações das questões.</li>")+'</ul><button class="btn secondary" onclick="showHome()">← VOLTAR AO DPI</button>')}
 function patch(){
  const home=document.getElementById("home");if(!home)return;
- for(const b of home.querySelectorAll("button")){
+ for(const b of document.querySelectorAll("button")){
   const text=(b.textContent||"").trim().toLowerCase();
   if(/fechar o caso|fechar caso/.test(text)&&!b.dataset.dpiAction){b.dataset.dpiAction="plantao";b.textContent="PLANTÃO";b.setAttribute("aria-label","Abrir Plantão veterinário")}
   else if(/minhas conquistas/.test(text)&&!b.dataset.dpiAction){b.dataset.dpiAction="minigames";b.textContent="MINI JOGOS";b.setAttribute("aria-label","Abrir mini jogos")}
