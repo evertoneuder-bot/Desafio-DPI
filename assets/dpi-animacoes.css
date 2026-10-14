@@ -23,26 +23,263 @@
 #dpi-menu-mascot[hidden]{display:none}
 @media(prefers-reduced-motion:no-preference){#dpi-menu-mascot .dpi-mascot-face{display:block;animation:dpi-mascot-bob 2s ease-in-out infinite}@keyframes dpi-mascot-bob{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-9px) rotate(5deg)}}}
 @media(prefers-reduced-motion:reduce){#dpi-menu-mascot{transition:none!important}#dpi-menu-mascot .dpi-mascot-face{animation:none!important}}
+/* Both original mascots, without changing the approved interface's flow. */
+#dpi-menu-mascot{display:flex;align-items:flex-end;width:120px;height:64px;font-size:16px;filter:drop-shadow(0 3px 5px #0005)}
+#dpi-menu-mascot .dpi-mascot-face{display:block;width:54px;height:62px;background-image:url('/assets/mascotes-oficiais.png');background-repeat:no-repeat;background-size:200% 200%;flex-shrink:0}
+#dpi-menu-mascot .dpi-everton{background-position:0 0}
+#dpi-menu-mascot .dpi-fernanda{background-position:100% 0;animation-delay:-1s}
+#dpi-menu-mascot .dpi-mascot-pointer{font-size:18px;align-self:center;color:#fff}
+@media(prefers-reduced-motion:no-preference){#dpi-menu-mascot[data-reaction] .dpi-mascot-face{animation:dpi-mascot-cheer .65s ease}#dpi-menu-mascot[data-speaking="male"] .dpi-everton,#dpi-menu-mascot[data-speaking="female"] .dpi-fernanda{animation:dpi-mascot-bob .4s ease-in-out infinite}@keyframes dpi-mascot-cheer{50%{transform:translateY(-12px) rotate(8deg)}}}
+/* Living-character scene, independent of pointer position. */
+#elx-character-stage{position:fixed;left:10px;bottom:max(10px,env(safe-area-inset-bottom));z-index:25;width:210px;pointer-events:none;filter:drop-shadow(0 4px 4px #0006)}
+.elx-actors{display:flex;align-items:flex-end;height:132px;justify-content:center}
+.elx-actor{display:block;width:104px;height:117px;pointer-events:none}
+.elx-sprite{display:block;width:100%;height:100%;background-image:url('/assets/mascotes-personagens-v2.png');background-size:300% 400%;background-repeat:no-repeat;background-position:var(--pose-position)}
+.elx-scene-label{font:600 11px/1.3 system-ui,sans-serif;margin:3px 0;text-align:center;color:#fff;background:#03243fed;border-radius:9px;padding:4px 7px}
+.elx-stage-collapse,.elx-guide-request{pointer-events:auto;background:#052a49;color:#fff;border:1px solid #607d8b;border-radius:9px;font:600 11px system-ui,sans-serif;padding:5px 8px}
+.elx-stage-collapse{position:absolute;right:0;top:0;min-width:28px;min-height:28px}
+.elx-guide-request{display:block;margin:auto}
+.elx-recolhido{width:30px!important;height:30px!important}.elx-recolhido .elx-actors,.elx-recolhido .elx-scene-label,.elx-recolhido .elx-guide-request{display:none}
+.elx-themed-sprite{display:none;width:130px;height:130px;background-image:url('/assets/mascotes-tematicos-v1.png');background-size:300% 200%;background-position:var(--theme-x) 0%;background-repeat:no-repeat}
+#elx-character-stage:not([data-theme="vet"]) .elx-actor{display:none}#elx-character-stage:not([data-theme="vet"]) .elx-themed-sprite{display:block}#elx-character-stage[data-themed-pose="point"] .elx-themed-sprite{background-position:var(--theme-x) 100%}
+@media(prefers-reduced-motion:no-preference){.elx-actor[data-pose="idle"]{animation:elx-breathe 3s ease-in-out infinite}.elx-actor[data-persona="female"]{animation-delay:-1.5s}.elx-actor[data-pose="talk"] .elx-sprite{animation:elx-speaking .55s steps(1) infinite}.elx-actor[data-pose="celebrate"]{animation:elx-happy .5s ease-in-out 3}@keyframes elx-breathe{50%{transform:translateY(-3px)}}@keyframes elx-speaking{0%,100%{background-position:var(--talk-position)}50%{background-position:var(--idle-position)}}@keyframes elx-happy{50%{transform:translateY(-10px) rotate(3deg)}}}
+@media(max-width:500px){#elx-character-stage{width:166px;left:6px}.elx-actors{height:103px}.elx-actor{width:81px;height:91px}.elx-themed-sprite{width:103px;height:103px}.elx-scene-label{font-size:10px}.elx-guide-request{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.elx-actor,.elx-sprite{animation:none!important}}
 
-/* Give each host a distinct speaking reaction, without animating when muted. */
-#dpi-menu-mascot{display:flex;align-items:flex-end;gap:5px}
-#dpi-menu-mascot .dpi-mascot-face:nth-child(2){animation-delay:.3s}
+.elx-mute-button{position:fixed;right:10px;bottom:max(10px,env(safe-area-inset-bottom));z-index:30;min-height:42px;border-radius:12px;border:1px solid #607d8b;background:#052a49;color:#fff;font:600 12px system-ui,sans-serif;padding:8px 12px}
+#elx-conversation{position:fixed;right:10px;bottom:max(59px,calc(env(safe-area-inset-bottom) + 49px));z-index:29;width:min(280px,calc(100vw - 20px));background:#03243ff5;border:1px solid #607d8b;border-radius:12px;padding:8px;color:#fff;font:12px system-ui,sans-serif}
+#elx-conversation summary{cursor:pointer;padding:4px}#elx-conversation input{width:100%;box-sizing:border-box;margin:6px 0;padding:8px;border-radius:8px}#elx-conversation p{margin:6px 0;line-height:1.35}#elx-conversation button{border-radius:8px;background:#052a49;color:#fff;border:1px solid #607d8b;padding:7px}
+.hsl-study-brand img{display:block;max-width:240px;max-height:88px;width:auto;height:auto;margin:10px auto;object-fit:contain}
+.elx-themed-sprite{width:87px;height:130px}@media(max-width:500px){.elx-themed-sprite{width:69px;height:103px}}
+.hsl-study-brand{padding:12px;background:#f7f5f0;border-radius:12px;color:#262b34}
+body.elx-portal-on>header,body.elx-portal-on>main,body.elx-portal-on>footer{display:none!important}
+#elx-first-screen{min-height:100vh;box-sizing:border-box;padding:25px 14px 180px;background:radial-gradient(ellipse at 50% 35%,#07476a 0%,#03243f 62%,#02162c 100%);color:#fff;font-family:inherit}
+#elx-first-screen[hidden]{display:none}.elx-portal-intro{text-align:center}.elx-portal-kicker{color:#62ef42;letter-spacing:.2em;font-weight:800;font-size:18px;margin:0 0 7px}.elx-portal-intro h1{font-size:clamp(25px,4vw,38px);margin:6px 0}.elx-portal-intro p{font-size:13px}
+.elx-area-orbit{display:grid;grid-template-columns:1fr 1.4fr 1fr;grid-template-rows:auto auto auto auto;gap:5px 15px;max-width:580px;margin:18px auto 10px;align-items:center;justify-items:center}
+.elx-round{border:0;background:none;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;padding:4px;cursor:pointer;font:inherit;gap:7px}
+.elx-round-logo{display:flex;flex-direction:column;align-items:center;justify-content:center;width:86px;height:86px;border:2px solid #23d7f2;border-radius:50%;background:#03243f;box-shadow:0 0 15px #23d7f233;overflow:hidden}
+.elx-logo-mark{width:63px;height:63px;background-image:url('/assets/marca-elx-original.png');background-size:125px auto;background-position:center -1px;background-repeat:no-repeat}.elx-round-logo strong{font-size:13px;letter-spacing:.05em}
+.elx-round--vet{grid-row:2;grid-column:2}.elx-round--vet .elx-round-logo{width:146px;height:146px;border:3px solid #62ef42;box-shadow:0 0 30px #62ef4244}.elx-portal-vet{width:135px;max-width:none;height:auto}.elx-round--vet .elx-area-name{font-size:20px;font-weight:900}.elx-round small{font-size:10px;color:#a4d9ed}
+.elx-round--human{grid-row:1;grid-column:1}.elx-round--psych{grid-row:1;grid-column:3}.elx-round--agro{grid-row:3;grid-column:1}.elx-round--nutrition{grid-row:3;grid-column:3}.elx-round--law{grid-row:4;grid-column:2}.elx-round--law .elx-round-logo{width:122px;height:122px;background:#f7f5f0;border-color:#d7d7d7;box-shadow:0 0 20px #ffffff24}.elx-portal-hsl{width:110px;height:auto;max-width:none}.elx-area-name{text-align:center;font-size:12px;line-height:1.3;font-weight:700;max-width:160px}.elx-round:focus-visible .elx-round-logo{outline:3px solid #fff;outline-offset:4px}.elx-portal-note{max-width:520px;margin:18px auto 0;text-align:center;font-size:11px;color:#aad0e0;line-height:1.5}
+.elx-back-to-areas{position:fixed;left:8px;top:max(8px,env(safe-area-inset-top));z-index:32;background:#052a49;color:#fff;border:1px solid #607d8b;border-radius:9px;padding:7px;font:600 11px system-ui}.elx-back-to-areas[hidden]{display:none}.elx-area-current{display:none}.elx-legal-header{background:#f7f5f0;border-radius:10px;padding:6px}.elx-portal-on .elx-area-launcher{display:none!important}
+@media(min-width:750px){.elx-round-logo{width:112px;height:112px}.elx-round--vet .elx-round-logo{width:185px;height:185px}.elx-round--law .elx-round-logo{width:146px;height:146px}.elx-area-orbit{gap:0 25px}.elx-portal-vet{width:165px}}
+@media(max-width:370px){.elx-round-logo{width:74px;height:74px}.elx-round--vet .elx-round-logo{width:124px;height:124px}.elx-portal-vet{width:112px}.elx-area-name{font-size:11px}.elx-area-orbit{gap:6px}.elx-round--law .elx-round-logo{width:106px;height:106px}.elx-portal-hsl{width:96px}}
+.elx-theme-request{pointer-events:auto;display:block;margin:4px auto 0;background:#052a49;color:#fff;border:1px solid #607d8b;border-radius:9px;font:600 10px system-ui;padding:5px 8px}.elx-recolhido .elx-theme-request{display:none}
 @media(prefers-reduced-motion:no-preference){
- body.dpi-mascots-speaking #dpi-menu-mascot .dpi-mascot-face:first-child{animation:dpi-mascot-talk .38s ease-in-out infinite alternate}
- body.dpi-mascots-speaking #dpi-menu-mascot .dpi-mascot-face:nth-child(2){animation:dpi-mascot-talk .46s ease-in-out infinite alternate-reverse}
- @keyframes dpi-mascot-talk{from{transform:translateY(0) scale(1)}to{transform:translateY(-5px) scale(1.09)}}
+ .elx-round-logo{animation:elx-logo-float 5.6s ease-in-out infinite;transition:transform .25s ease,box-shadow .25s ease}
+ .elx-round--human .elx-round-logo{animation-delay:-.6s}.elx-round--psych .elx-round-logo{animation-delay:-2.5s}.elx-round--agro .elx-round-logo{animation-delay:-3.8s}.elx-round--nutrition .elx-round-logo{animation-delay:-1.7s}.elx-round--law .elx-round-logo{animation-delay:-3s}
+ .elx-round--vet .elx-round-logo{animation:elx-logo-center 4.8s ease-in-out infinite}
+ .elx-round:active .elx-round-logo{animation:none;transform:scale(.95);box-shadow:0 0 28px #ffffff70}
+ .elx-round:hover .elx-round-logo{filter:brightness(1.08)}
+ @keyframes elx-logo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px);box-shadow:0 0 25px #23d7f255}}
+ @keyframes elx-logo-center{0%,100%{transform:translateY(0);box-shadow:0 0 24px #62ef4244}50%{transform:translateY(-4px);box-shadow:0 0 38px #62ef4280}}
+}
+@media(prefers-reduced-motion:reduce){.elx-round-logo{animation:none!important;transition:none!important}}
+/* First screen exclusively fills the viewport; the app is restored only on entry. */
+body.elx-portal-on{display:block!important;width:100%;min-height:100dvh}
+body.elx-portal-on>.app,.app[hidden]{display:none!important}
+#elx-first-screen{width:100%;max-width:none;min-height:100dvh}
+.hsl-game-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:12px 0}.hsl-game-grid .action{cursor:pointer}.hsl-game-grid .action small{display:block;font-size:10px;margin-top:6px}.hsl-case-file{padding:10px;border:1px solid #607d8b;border-radius:12px;background:#03243f}.hsl-case-file p{font-size:12px;line-height:1.5}.hsl-case-stages{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}.hsl-case-stages span{display:grid;place-items:center;width:25px;height:25px;border:1px solid #607d8b;border-radius:50%;font-size:11px;color:#b9dce4}.hsl-prison-scene{position:relative;height:175px;background:linear-gradient(#052a49,#064765);border:1px solid #607d8b;border-radius:16px;overflow:hidden;text-align:center;padding:12px}.hsl-prison-sign{font-size:12px;letter-spacing:.15em;color:#fff}.hsl-prison-door{width:70px;height:100px;margin:12px auto 0;background:repeating-linear-gradient(90deg,#031b37 0 7px,#658898 7px 11px,#031b37 11px 18px);border:6px solid #718797;border-bottom:0;border-radius:5px 5px 0 0}.hsl-prison-caption{position:absolute;bottom:9px;left:0;right:0;color:#b9dce4;font-size:9px}.headerbrand.elx-legal-header{background:#f7f5f0!important;border-radius:8px!important;object-position:center!important}
+/* Same official pair in every area. Only wardrobe changes. */
+#elx-character-stage[data-wardrobe="law"] .elx-sprite{background-image:url('/assets/mascotes-personagens-direito-v1.png')}
+#elx-character-stage .elx-actor{display:block}
+
+.elx-library-card{padding:14px;margin:12px 0;border:1px solid #237387;border-radius:14px;background:#082b3c}.elx-library-card a{color:#a9efdf;overflow-wrap:anywhere}.elx-library-card summary{cursor:pointer;padding:10px 0}.elx-draft-label{padding:9px;border-radius:8px;background:#493b15;color:#ffe7a1}
+
+.elx-more-areas{max-width:860px;margin:28px auto 0;text-align:center}.elx-more-areas h2{font-size:24px}.elx-more-areas label{display:block;font-size:13px;margin-bottom:8px}.elx-more-areas input{box-sizing:border-box;width:min(100%,460px);padding:12px;border:1px solid #32899e;border-radius:12px;background:#062d45;color:white;font:inherit}.elx-more-areas input::placeholder{color:#a8c9d4}#elx-search-count{font-size:12px;color:#acd8e5}.elx-more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 12px}.elx-more-grid .elx-round[hidden]{display:none}.elx-more-grid .elx-round{justify-content:flex-start}.elx-more-grid .elx-round-logo{animation-delay:-1.4s}.elx-more-grid .elx-round:nth-child(3n) .elx-round-logo{animation-delay:-3s}.elx-more-grid .elx-round:nth-child(3n+1) .elx-round-logo{animation-delay:-.5s}@media(min-width:750px){.elx-more-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}@media(max-width:370px){.elx-more-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Teachers: a larger stage in the portal, compact help during the original game. */
+body.elx-portal-on #elx-character-stage{position:relative;left:auto;bottom:auto;width:min(680px,100%);margin:16px auto 24px;filter:drop-shadow(0 7px 12px #0005)}
+body.elx-portal-on .elx-actors{height:200px;justify-content:space-between;position:relative;z-index:2;padding:0 15px}
+body.elx-portal-on .elx-actor{width:175px;height:197px}
+.elx-blackboard{display:none;box-sizing:border-box;border:9px solid #715038;border-radius:12px;background:#163c35;color:#f7fff7;padding:14px 20px;text-align:left;font:15px/1.5 system-ui;box-shadow:inset 0 0 25px #0004;position:relative}
+body.elx-portal-on .elx-blackboard{display:none;margin-bottom:-115px;min-height:168px;padding:14px 175px 22px}
+.elx-blackboard strong{font-size:12px;letter-spacing:.04em;color:#bce5d1}.elx-blackboard p{margin:10px 0;white-space:pre-wrap;overflow-wrap:anywhere}.elx-chalk{position:absolute;bottom:5px;right:30px;width:25px;height:4px;background:#fff;border-radius:2px}
+body:not(.elx-portal-on) #elx-character-stage.elx-teaching .elx-blackboard{display:block;max-height:180px;overflow:auto;font-size:12px;padding:10px;border-width:5px}
+body.elx-portal-on #elx-character-stage.elx-teaching .elx-blackboard{display:block;width:100%;min-height:88px;max-height:104px;margin:0 auto -64px;padding:9px 125px 10px 12px;font-size:12px;position:relative;z-index:1}
+body:not(.elx-portal-on) #elx-character-stage{width:240px}
+.elx-recolhido .elx-blackboard{display:none!important}.elx-professor-target{outline:3px solid #c7ff9a!important;outline-offset:5px;box-shadow:0 0 20px #7bff8555}
+@media(prefers-reduced-motion:no-preference){#elx-character-stage[data-teacher="male"] .elx-actor[data-persona="male"],#elx-character-stage[data-teacher="female"] .elx-actor[data-persona="female"]{transition:transform .4s;transform:translateX(10px)}.elx-professor-target{animation:dpi-alvo 1.8s ease-in-out 2}}
+@media(max-width:500px){body.elx-portal-on .elx-actors{height:167px;padding:0}body.elx-portal-on .elx-actor{width:135px;height:152px}body.elx-portal-on .elx-blackboard{padding:12px 18px;min-height:145px;margin:0 0 -35px;font-size:13px}body:not(.elx-portal-on) #elx-character-stage{width:170px}body:not(.elx-portal-on) .elx-blackboard{max-height:130px!important}}
+
+.elx-voice-request{pointer-events:auto;display:block;margin:8px auto 0;min-height:44px;padding:8px 12px;border:1px solid #607d8b;border-radius:9px;background:#052a49;color:#fff;font:600 12px system-ui;cursor:pointer}.elx-recolhido .elx-voice-request{display:none}#elx-conversation{box-sizing:border-box}#elx-conversation[open]{max-height:65dvh;overflow:auto}#elx-conversation button{min-height:40px}#elx-conversation input{font-size:16px}#elx-conversation-reply{padding:8px;border-left:3px solid #62ef42}
+
+/* Presenter gestures tied to speech and board activity, with a listening partner. */
+@media(prefers-reduced-motion:no-preference){body.elx-portal-on #elx-character-stage[data-presentation="presenting"][data-active-persona="male"] .elx-actor[data-persona="male"]{animation:elx-present-left 2.8s ease-in-out infinite}body.elx-portal-on #elx-character-stage[data-presentation="presenting"][data-active-persona="female"] .elx-actor[data-persona="female"]{animation:elx-present-right 2.8s ease-in-out infinite}#elx-character-stage[data-active-persona="male"] .elx-actor[data-persona="female"],#elx-character-stage[data-active-persona="female"] .elx-actor[data-persona="male"]{animation:elx-listen-nod 3.8s ease-in-out infinite}.elx-teaching:not([data-notice="true"]) .elx-chalk{animation:elx-chalk-move 2s ease-in-out infinite}@keyframes elx-present-left{0%,100%{transform:translateX(0) rotate(0)}40%{transform:translateX(16px) rotate(-2deg)}70%{transform:translateX(8px) translateY(-3px)}}@keyframes elx-present-right{0%,100%{transform:translateX(0) rotate(0)}40%{transform:translateX(-16px) rotate(2deg)}70%{transform:translateX(-8px) translateY(-3px)}}@keyframes elx-listen-nod{0%,65%,100%{transform:rotate(0)}72%{transform:rotate(2deg)}80%{transform:rotate(-1deg)}}@keyframes elx-chalk-move{50%{transform:translateX(-20px)}}}
+
+.elx-academic-menu{display:grid;gap:12px;margin:16px 0}.elx-academic-menu small{display:block;white-space:normal;line-height:1.4;margin-top:6px}.elx-academic-progress{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0;font-size:12px}.elx-academic-progress progress{flex:1;min-width:80px;accent-color:#62ef42}.elx-academic-reference{font-size:11px;line-height:1.5;overflow-wrap:anywhere}.elx-academic-reference a{color:#acf1df}.elx-academic-association{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}.elx-concept-card{border:2px solid #32899e;border-radius:14px;padding:14px;background:#062d45}.elx-concept-card span{display:block;text-align:center;font-size:30px;color:#62ef42}.elx-concept-options .btn{white-space:normal}@media(max-width:500px){.elx-academic-association{grid-template-columns:1fr}.elx-concept-card .question-text{font-size:15px}}
+/* Grouped portal only: the original veterinary interface is unchanged. */
+body.elx-portal-on #elx-first-screen{background:radial-gradient(ellipse at 12% 10%,#283d68 0,transparent 50%),radial-gradient(ellipse at 90% 60%,#402951 0,transparent 55%),#111c31;padding:35px clamp(16px,4vw,48px) 50px;color:#f4f4ff}
+#elx-first-screen .elx-portal-intro{max-width:900px;margin:auto;text-align:left}#elx-first-screen .elx-portal-kicker{color:#c2c8ee;font-size:11px;letter-spacing:.15em}#elx-first-screen .elx-portal-intro h1{font-size:clamp(29px,4vw,46px);line-height:1.1;max-width:680px}#elx-first-screen .elx-portal-intro p{color:#d7d7e5;font-size:15px}
+.elx-group-grid{max-width:1080px;margin:26px auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px}.elx-group-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:11px;padding:20px 17px;border:1px solid #ffffff18;border-radius:22px;background:linear-gradient(145deg,#ffffff10,#ffffff03);color:#fff;font:inherit;cursor:pointer;min-height:215px;transition:transform .25s,border-color .25s,box-shadow .25s}.elx-group-card:before{content:'';position:absolute;width:120px;height:120px;right:-50px;top:-50px;border-radius:50%;background:var(--group-color);opacity:.09}.elx-group-card strong{font-size:17px}.elx-group-card small{color:#c6c9d9;font-size:12px;line-height:1.5}.elx-group-icon{color:var(--group-color);width:40px;height:40px;padding:9px;border-radius:14px;background:#ffffff09}.elx-group-icon svg{width:100%;height:100%}.elx-group-count{margin-top:auto;font-size:11px;color:var(--group-color)}.elx-group-card[aria-pressed=true]{border-color:var(--group-color);box-shadow:0 0 26px #ffffff0b;transform:translateY(-4px)}.elx-group-card:active{transform:scale(.97)}.elx-group-card:focus-visible,.elx-course-card:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.elx-course-explorer{max-width:1080px;margin:auto;padding:22px;border-radius:24px;border:1px solid #ffffff16;background:#0c152c80}.elx-course-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.elx-course-heading h2{font-size:20px}.elx-course-heading button{background:transparent;border:1px solid #7980a2;border-radius:10px;padding:8px;color:#dddfff;cursor:pointer}.elx-course-explorer label{display:block;font-size:12px;color:#c4c9dd;margin-bottom:8px}.elx-course-explorer input{box-sizing:border-box;width:100%;max-width:580px;background:#202e48;color:#fff;border:1px solid #4c5c80;border-radius:13px;padding:13px;font:inherit}.elx-course-explorer input::placeholder{color:#bec6de}#elx-course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.elx-course-card{display:flex;align-items:center;text-align:left;gap:14px;border:1px solid #ffffff16;border-radius:16px;background:#ffffff05;padding:15px;color:#fff;font:inherit;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}.elx-course-card strong{display:block;font-size:15px}.elx-course-card small{display:block;color:#b9c4da;font-size:11px;margin-top:6px}.elx-course-card .elx-course-mark{width:52px;height:52px;flex:none;color:var(--group-color);display:flex;align-items:center;justify-content:center}.elx-course-mark svg{width:31px;height:31px}.elx-course-mark img{max-width:100%;max-height:100%;object-fit:contain}.elx-course-mark .elx-law-mark{background:#f5f3ed;border-radius:50%;padding:5px;box-sizing:border-box}.elx-course-signature{border-color:#b8bed452;background:linear-gradient(120deg,#ffffff0b,#ffffff02)}.elx-course-arrow{margin-left:auto;color:var(--group-color)}.elx-course-card:active{transform:scale(.98)}
+@media(hover:hover){.elx-group-card:hover{transform:translateY(-6px);border-color:var(--group-color);box-shadow:0 14px 25px #0003}.elx-group-card:hover .elx-group-icon{transform:rotate(-7deg) scale(1.08);transition:transform .25s}.elx-course-card:hover{transform:translateY(-3px);border-color:var(--group-color);box-shadow:0 5px 18px #0003}.elx-course-card:hover .elx-course-mark{transform:scale(1.1);transition:transform .25s}}
+@media(max-width:900px){.elx-group-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.elx-group-card{min-height:185px}}@media(max-width:540px){.elx-group-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.elx-group-card{min-height:165px;padding:16px 13px}.elx-group-card:last-child{grid-column:1/-1;min-height:110px}.elx-group-card strong{font-size:15px}.elx-course-explorer{padding:16px}#elx-course-grid{grid-template-columns:1fr}.elx-course-heading h2{font-size:17px}.elx-course-card{min-height:65px}}
+@media(prefers-reduced-motion:reduce){.elx-group-card,.elx-course-card,.elx-group-icon,.elx-course-mark{transition:none!important;transform:none!important}}
+#elx-character-stage .elx-actor[hidden]{display:none!important}#elx-character-stage .elx-actors{justify-content:center}#elx-character-stage .elx-persona-label{display:flex;align-items:center;justify-content:center;gap:7px;font:600 11px system-ui;color:#e0f2ff;margin:7px}#elx-character-stage .elx-persona-select{background:#192e45;border:1px solid #527388;border-radius:8px;color:#fff;padding:5px;font:inherit}
+#elx-character-stage[data-wardrobe="field"] .elx-sprite{background-image:url('/assets/mascotes-agronomia-v1.png')}#elx-character-stage[data-wardrobe="sports"] .elx-sprite{background-image:url('/assets/mascotes-esporte-v1.png')}.elx-recolhido .elx-persona-label{display:none!important}
+/* Short rolling captions replace the old full board; only the mascot overlay changes. */
+#elx-character-stage .elx-blackboard,body:not(.elx-portal-on) #elx-character-stage.elx-teaching .elx-blackboard,body.elx-portal-on #elx-character-stage.elx-teaching .elx-blackboard{background:#233047ed;border:1px solid #6f86a066;border-radius:16px;min-height:0;max-height:120px;margin:0 auto 4px;padding:12px 15px;box-shadow:0 5px 15px #0002;width:100%;font:14px/1.5 system-ui;overflow:hidden}#elx-character-stage .elx-blackboard strong{font-size:10px;color:#bbc7dc;letter-spacing:.06em}#elx-character-stage .elx-blackboard p{margin:7px 0 0;white-space:pre-line;line-height:1.5;min-height:3em;max-height:4.5em;overflow:hidden}#elx-character-stage .elx-chalk{display:none!important}body.elx-portal-on #elx-character-stage{width:min(500px,100%);margin:12px auto 18px}body.elx-portal-on #elx-character-stage .elx-actors{height:160px}body.elx-portal-on #elx-character-stage .elx-actor{width:137px;height:154px}@media(max-width:500px){#elx-character-stage .elx-blackboard{font-size:12px;padding:9px 11px}body.elx-portal-on #elx-character-stage .elx-actors{height:130px}body.elx-portal-on #elx-character-stage .elx-actor{width:113px;height:127px}}
+
+#elx-character-stage .elx-persona-label,#elx-character-stage .elx-persona-select{pointer-events:auto;min-height:44px}#elx-character-stage .elx-approved-request,#elx-character-stage .elx-audio-settings{pointer-events:auto;min-height:40px;display:block;margin:5px auto;background:#052a49;color:#fff;border:1px solid #607d8b;border-radius:9px;padding:6px 10px;font:600 12px system-ui;cursor:pointer}.elx-recolhido .elx-approved-request,.elx-recolhido .elx-audio-settings{display:none!important}
+
+#elx-conversation{top:12px;bottom:auto;right:10px;width:auto;max-width:min(280px,calc(100vw - 20px));padding:5px 9px;border-radius:10px;background:#03243fed;font-size:11px}#elx-conversation[open]{width:min(280px,calc(100vw - 20px));max-height:65dvh;overflow:auto;padding:10px}#elx-conversation[hidden]{display:none!important}#elx-conversation>summary{cursor:pointer;min-height:32px;display:flex;align-items:center;gap:6px;list-style:none}#elx-conversation>summary::before{content:"◌";font-size:18px}#elx-conversation>summary::-webkit-details-marker{display:none}
+
+/* Articulated health rig: stable textures, interpolated SVG joints. */
+#elx-character-stage[data-articulated="true"] .elx-sprite{display:none!important}#elx-character-stage[data-articulated="true"] .elx-actor{animation:none!important;transform:none!important;transition:none!important}#elx-character-stage .elx-rig{display:none;width:100%;height:100%;overflow:visible;pointer-events:none}#elx-character-stage[data-articulated="true"] .elx-rig{display:block}
+
+/* Compact and readable area navigation; one fixed switcher beside voice. */
+.elx-group-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.elx-group-card{min-height:168px;padding:17px;gap:9px}
+.elx-group-card strong{font-size:18px}
+.elx-group-card small{font-size:14px;line-height:1.45}
+.elx-group-count{font-size:13px}
+.elx-course-explorer[hidden]{display:none!important}
+.elx-course-explorer label{font-size:15px}
+.elx-course-explorer input{font-size:16px;min-height:48px}
+.elx-course-card{min-height:72px}
+.elx-course-card strong{font-size:17px}
+.elx-course-card small{font-size:13px;line-height:1.4}
+.elx-course-heading button,.elx-matter-proposal{min-height:44px;font:600 14px/1.35 system-ui,sans-serif;cursor:pointer}
+.elx-matter-proposal{width:100%;margin:10px 0;padding:12px;border:1px solid #45d6db;border-radius:12px;background:#10263e;color:#fff}
+.elx-back-to-areas{position:fixed;left:auto;top:auto;right:calc(10px + 104px + 8px);bottom:max(10px,env(safe-area-inset-bottom));z-index:33;min-width:104px;min-height:44px;padding:8px 12px;border-radius:12px;font:600 13px system-ui,sans-serif;cursor:pointer;box-shadow:0 3px 12px #0006}
+.elx-portal-on .elx-back-to-areas{display:none!important}
+.dpi-ranking-periods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 18px}
+.dpi-ranking-periods button{min-height:46px;border:1px solid #36637a;border-radius:13px;background:linear-gradient(180deg,#123a59,#082943);color:#eaf8ff;font:700 14px system-ui,sans-serif;cursor:pointer}
+.dpi-ranking-periods button[aria-current="page"]{border-color:#62ef42;background:linear-gradient(180deg,#194d45,#0b3440);box-shadow:0 0 0 2px #62ef4230}
+.dpi-ranking-dashboard{display:grid;gap:16px;margin:14px 0 20px}
+.dpi-ranking-category{margin:0;padding:15px;border:1px solid #ffffff20;border-radius:16px;background:linear-gradient(145deg,#0c2c43,#071d31)}
+.dpi-ranking-category h3{margin:0 0 12px;font-size:16px;line-height:1.35;color:#d8f6ff}
+.dpi-ranking-list{display:grid;gap:8px;list-style:none;margin:0;padding:0}
+.dpi-ranking-row{display:flex;align-items:center;gap:12px;min-height:58px;padding:8px 11px;border:1px solid #ffffff16;border-radius:12px;background:#ffffff08}
+.dpi-ranking-position{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;background:#143c58;color:#62ef42;font-weight:800}
+.dpi-ranking-player{display:grid;gap:3px;min-width:0}
+.dpi-ranking-player strong{overflow-wrap:anywhere;color:#fff;font-size:15px}
+.dpi-ranking-player small{color:#b9d5df;font-size:11px}
+.dpi-ranking-points{margin-left:auto;white-space:nowrap;color:#62ef42;font-weight:800;font-size:14px}
+@media(max-width:540px){
+ body.elx-portal-on #elx-first-screen{padding:20px 14px 36px}
+ #elx-first-screen .elx-portal-intro h1{font-size:clamp(27px,8vw,34px)}
+ #elx-first-screen .elx-portal-intro p{font-size:16px;line-height:1.45}
+ .elx-group-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:18px auto}
+ .elx-group-card{min-height:146px;padding:14px 12px;border-radius:17px;gap:8px}
+ .elx-group-card:last-child{grid-column:auto;min-height:146px}
+ .elx-group-card strong{font-size:17px;line-height:1.2}
+ .elx-group-card small{font-size:14px;line-height:1.35}
+ .elx-group-count{font-size:12px}
+ .elx-group-icon{width:36px;height:36px}
+ .elx-course-explorer{padding:14px;border-radius:18px}
+ .elx-course-heading{align-items:flex-start;flex-direction:column}
+ .elx-course-heading h2{font-size:20px}
+ #elx-course-grid{grid-template-columns:1fr;gap:9px}
+ .elx-course-card{min-height:76px;padding:12px;gap:12px}
+ .elx-course-card strong{font-size:17px}
+ .elx-course-card small{font-size:14px}
+ .elx-back-to-areas{right:calc(8px + 98px + 7px);bottom:max(8px,env(safe-area-inset-bottom));min-width:98px;min-height:46px;font-size:12px}
+ .elx-mute-button{right:8px;bottom:max(8px,env(safe-area-inset-bottom));min-height:46px;font-size:12px}
+ .panel p,.miniStage p{font-size:16px;line-height:1.5}
+ .panel button,.miniStage button{min-height:48px;font-size:16px;line-height:1.3;white-space:normal}
+ .panel .muted,.miniStage .muted{font-size:14px;line-height:1.45}
+ .dpi-ranking-periods{gap:7px}
+ .dpi-ranking-periods button{min-height:48px;font-size:13px}
+ .dpi-ranking-category{padding:13px}
+ .dpi-ranking-category h3{font-size:16px}
+ .dpi-ranking-row{min-height:60px;gap:10px;padding:8px}
+ .dpi-ranking-player strong{font-size:15px}
+ .dpi-ranking-player small{font-size:12px}
+ .dpi-ranking-points{font-size:14px}
 }
 
-/* Smoother mascot movement and subtle pointing toward the current menu item. */
-@media (prefers-reduced-motion:no-preference){
- #dpi-menu-mascot{transition:left 1.45s cubic-bezier(.25,.75,.3,1),top 1.45s cubic-bezier(.25,.75,.3,1);will-change:left,top}
- #dpi-menu-mascot .dpi-mascot-face{transform-origin:50% 85%}
- #dpi-menu-mascot:not([hidden])::after{content:"➜";position:absolute;right:-17px;top:4px;font-size:16px;opacity:.65;animation:dpi-guide-point 1.8s ease-in-out infinite}
- @keyframes dpi-guide-point{0%,100%{transform:translateX(0);opacity:.4}50%{transform:translateX(5px);opacity:.9}}
-}
-@media(max-width:520px){#dpi-menu-mascot{font-size:26px;gap:2px;filter:drop-shadow(0 2px 3px #0004)}}
-@media(prefers-reduced-motion:reduce){#dpi-menu-mascot::after{animation:none!important}}
+/* School subject paths and verified public-exam notices. */
+.elx-catalog-kicker{color:#9fd9ff;font-size:12px;font-weight:700;letter-spacing:.08em}
+.elx-notices{max-width:1080px;margin:34px auto 0;padding:24px;border:1px solid #ffffff18;border-radius:22px;background:linear-gradient(150deg,#142641,#0d1b32);color:#f4f4ff}
+.elx-notices-heading{display:flex;align-items:end;justify-content:space-between;gap:16px}
+.elx-notices-heading h2{margin:4px 0;font-size:clamp(22px,3vw,30px)}
+.elx-notices-heading>span,.elx-notices-disclaimer{font-size:13px;color:#c4ccdf}
+.elx-notices-disclaimer{line-height:1.5}
+.elx-notice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.elx-notice-card{padding:18px;border:1px solid #ffffff1b;border-radius:17px;background:#ffffff08}
+.elx-notice-card h3{margin:13px 0 6px;font-size:18px}
+.elx-notice-card p{font-size:14px;line-height:1.48;color:#d7deec}
+.elx-notice-status{display:inline-block;padding:6px 9px;border-radius:99px;background:#16453f;color:#b9f3dc;font-size:12px;font-weight:700}
+.elx-notice-card details{margin:13px 0;border-top:1px solid #ffffff18;padding-top:10px}
+.elx-notice-card summary{min-height:36px;color:#c3f3ea;font-weight:700;cursor:pointer}
+.elx-notice-card ul{padding-left:20px;color:#dfe5ef;font-size:13px;line-height:1.55}
+.elx-notice-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.elx-notice-links a{display:inline-flex;align-items:center;min-height:42px;padding:0 13px;border-radius:11px;border:1px solid #5b81a5;color:#dff3ff;text-decoration:none;font-weight:700}
+.elx-notice-links a:hover{background:#ffffff12}
+@media(max-width:620px){.elx-notices{padding:17px 14px;margin-top:24px}.elx-notices-heading{align-items:flex-start;flex-direction:column;gap:4px}.elx-notice-grid{grid-template-columns:1fr;gap:11px}.elx-notice-card{padding:15px}.elx-notice-card h3{font-size:17px}.elx-notice-card p{font-size:15px;line-height:1.5}}
 
-/* Approved mascot artwork slots; retain the lightweight fallback until files arrive. */
-#dpi-menu-mascot .dpi-mascot-face img{display:block;width:clamp(34px,5vw,72px);height:clamp(34px,5vw,72px);object-fit:contain;pointer-events:none}
-@media(max-width:520px){#dpi-menu-mascot .dpi-mascot-face img{width:38px;height:38px}}
+/* Plantão: clear hierarchy, compact actions, readable touch targets. */
+.vet-duty{max-width:740px;margin:8px auto;padding:clamp(16px,3vw,28px);border:1px solid #23d7f2;border-radius:22px;background:radial-gradient(ellipse at 50% 0,#105d75 0,#07324f 56%,#031c35 100%);box-shadow:0 12px 36px #00142688;color:#effaff;overflow:hidden}
+.vet-duty h2{font-size:clamp(22px,3vw,32px);line-height:1.15;margin:14px 0 10px}
+.vet-duty>p{font-size:clamp(15px,1.5vw,18px);line-height:1.5}
+.vet-duty-alert,.vet-duty-progress{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:11px 14px;border:1px solid #4dc6dc66;border-radius:14px;background:#001f34aa}
+.vet-duty-siren{font-size:29px;animation:vetSiren 1s ease-in-out infinite alternate}
+.vet-duty-bag{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:11px;background:#0b4560;font-size:13px}
+.vet-duty-bag svg{width:30px;height:36px;flex:0 0 30px}
+.vet-duty-bag small{font-size:11px;color:#c1e8ef}
+.vet-duty-meter{height:8px;background:#001728;border-radius:10px;overflow:hidden;margin:12px 0}
+.vet-duty-meter i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#65ed49,#00d5ed);transition:width .35s ease}
+.vet-duty-hint,.vet-duty-explanation{padding:13px 15px;border-left:4px solid #ffc83d;border-radius:8px;background:#ffffff0b;line-height:1.55}
+.vet-duty-explanation{border-left-color:#25d8ee}
+.vet-duty-note{font-size:12px!important;color:#b3d5e1;padding:8px 10px;background:#001c3180;border-radius:9px}
+.vet-duty-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.vet-duty-choice{height:auto;min-height:72px;white-space:normal;line-height:1.35;text-align:left;padding:16px!important;border:1px solid #35cce3!important;background:linear-gradient(135deg,#075673,#0b8291)!important}
+.vet-duty .btn{min-height:48px;margin:6px 8px 0 0;white-space:normal}
+.vet-duty-mascots{display:flex;justify-content:center;align-items:flex-end;gap:18px;min-height:92px;margin:8px 0}
+.vet-duty-dog{position:relative;display:inline-block;width:148px;height:148px;background-image:url('/assets/mascotes-oficiais.png');background-size:200% 200%;background-position:0 0;background-repeat:no-repeat;filter:drop-shadow(0 8px 5px #00101f88);animation:vetDogBreath 1.7s ease-in-out infinite}
+.vet-duty-dog-alive.vet-duty-floating{animation:vetSavedHop .72s ease-in-out infinite alternate}
+.vet-duty-dog-angel{background-position:0 100%;animation:vetAngelFloat 2s ease-in-out infinite}
+.vet-duty-dog-angel.vet-duty-xeyes:after{content:'×  ×';position:absolute;top:36%;left:34%;color:#26303a;font-size:20px;font-weight:900;letter-spacing:7px;text-shadow:0 0 2px #fff}
+.vet-duty-dog-fading{filter:grayscale(.8) opacity(.65) drop-shadow(0 5px 4px #00101f88);animation:vetDogBreath 2.6s ease-in-out infinite}
+.vet-duty-helper{font-size:53px;animation:vetHelperWave 1.6s ease-in-out infinite alternate}
+.vet-duty-outcome{text-align:center;padding:12px}
+.vet-duty-outcome h2{margin:4px 0}
+.vet-duty-outcome p{font-size:16px;line-height:1.45}
+.vet-duty-outcome .vet-duty-dog{width:208px;height:208px}
+.vet-duty-bag.large{margin:12px auto;padding:10px 14px}
+.vet-duty-halo{position:relative;display:block;width:110px;height:36px;margin:0 auto -12px;border:6px solid #ffe77a;border-radius:50%;box-shadow:0 0 15px #ffd35a;transform:rotate(-8deg);animation:vetHaloFloat 1.8s ease-in-out infinite}
+.vet-duty-feedback{font-weight:800;padding:10px 13px;border-radius:9px}
+.vet-duty-feedback.good{background:#123e30;color:#a9ff92}
+.vet-duty-feedback.retry{background:#483916;color:#ffe78a}
+.vet-duty-shortcut{margin:10px 0;padding:10px;border:1px solid #23d7f266;border-radius:14px;background:#062b46}
+.vet-duty-shortcut .btn{width:100%;white-space:normal}
+@keyframes vetSiren{from{transform:rotate(-9deg) scale(.92);filter:drop-shadow(0 0 2px #f55)}to{transform:rotate(9deg) scale(1.08);filter:drop-shadow(0 0 12px #f33)}}
+@keyframes vetDogBreath{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-5px) rotate(1deg)}}
+@keyframes vetHelperWave{from{transform:rotate(-5deg)}to{transform:rotate(7deg)}}
+@keyframes vetSavedHop{from{transform:translateY(0) rotate(-4deg)}to{transform:translateY(-13px) rotate(4deg)}}
+@keyframes vetAngelFloat{0%,100%{transform:translateY(0);opacity:.82}50%{transform:translateY(-14px);opacity:1}}
+@keyframes vetHaloFloat{0%,100%{transform:translateY(0) scale(.96)}50%{transform:translateY(-8px) scale(1.08)}}
+@media(max-width:600px){.vet-duty{margin:0;padding:15px;border-radius:16px}.vet-duty-options{grid-template-columns:1fr;gap:9px}.vet-duty-choice{min-height:62px}.vet-duty .btn{width:100%;margin:8px 0 0;font-size:15px}.vet-duty-alert,.vet-duty-progress{align-items:flex-start}.vet-duty-siren{font-size:26px}.vet-duty-dog{width:124px;height:124px}.vet-duty-outcome .vet-duty-dog{width:174px;height:174px}.vet-duty-outcome{padding:5px}}
+@media(prefers-reduced-motion:reduce){.vet-duty-siren,.vet-duty-dog,.vet-duty-helper,.vet-duty-halo{animation:none!important}.vet-duty-meter i{transition:none}}
+body:not(.elx-portal-on) #elx-character-stage{width:286px;transition:left .42s ease,top .42s ease,width .35s ease,box-shadow .3s ease}
+body:not(.elx-portal-on) #elx-character-stage .elx-actors{height:174px}
+body:not(.elx-portal-on) #elx-character-stage .elx-actor{width:150px;height:169px}
+#elx-character-stage.elx-guide-docked{padding:8px;border:1px solid #38cfe1;border-radius:16px;background:#03243feb;box-shadow:0 12px 32px #001525a8;backdrop-filter:blur(8px)}
+#elx-character-stage.elx-guide-docked .elx-actors{height:128px}
+#elx-character-stage.elx-guide-docked .elx-actor{width:112px;height:126px}
+body:not(.elx-portal-on) #elx-character-stage.elx-guide-docked .elx-voice-request,body:not(.elx-portal-on) #elx-character-stage.elx-guide-docked .elx-approved-request,body:not(.elx-portal-on) #elx-character-stage.elx-guide-docked .elx-audio-settings{font-size:11px}
+@media(max-width:600px){body:not(.elx-portal-on) #elx-character-stage{width:min(210px,54vw);left:6px;bottom:max(6px,env(safe-area-inset-bottom))}body:not(.elx-portal-on) #elx-character-stage .elx-actors{height:145px}body:not(.elx-portal-on) #elx-character-stage .elx-actor{width:128px;height:144px}body:not(.elx-portal-on) #elx-character-stage .elx-voice-request{font-size:11px;padding:6px 7px}#elx-character-stage.elx-guide-docked{width:min(184px,48vw)!important}.elx-recolhido .elx-actors{height:0!important}}
+@media(prefers-reduced-motion:reduce){body:not(.elx-portal-on) #elx-character-stage{transition:none}#elx-character-stage.elx-guide-docked{backdrop-filter:none}}
+
+/* One global entry point for player-owned material. */
+.elx-portal-actions{display:flex;align-items:center;gap:10px;margin:14px 0}
+#elx-first-screen #elx-make-game{display:inline-grid;place-items:center;min-width:48px;min-height:48px;width:48px;padding:0;border-radius:50%;font-size:22px;background:#26334a;border-color:#91a4c7}
+#elx-first-screen #elx-make-game:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.elx-private-materials{display:grid;gap:10px;margin:14px 0}
+.elx-private-materials input{max-width:100%;min-height:44px;padding:10px;border:1px solid #73839e;border-radius:10px;background:#111c31;color:#fff}
+.elx-private-materials label{font-weight:700}
+.elx-private-materials [data-play],.elx-private-materials [data-remove]{min-height:42px;margin:5px 5px 5px 0;white-space:normal}
+.elx-final-diagram{margin:14px auto;padding:14px;border:1px solid #607d8b;border-radius:16px;background:#0b2638;color:#fff;text-align:center;max-width:640px}
+.elx-final-root{display:inline-block;padding:10px 16px;border:1px solid #72d4cc;border-radius:999px;background:#16494b}
+.elx-final-diagram ul{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;list-style:none;padding:14px 0 0;margin:0}
+.elx-final-node{padding:8px 12px;border:1px solid #607d8b;border-radius:12px;background:#162f48;max-width:100%;overflow-wrap:anywhere}
+.elx-final-organogram ul{display:grid;justify-content:stretch;gap:7px}
+.elx-final-organogram .elx-final-node[data-parent]{margin-left:clamp(0px,calc(var(--depth,1)*16px),80px);text-align:left}
+.elx-final-outcome{padding:10px;border-radius:10px;background:#16494b}
+.elx-map-terms{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.elx-map-term[aria-pressed=true]{background:#16494b;border-color:#72d4cc;box-shadow:0 0 0 2px #72d4cc55}
+.elx-map-links{display:grid;gap:7px;list-style:none;padding:0}
+.elx-map-links li{padding:9px 12px;border-radius:10px;background:#162f48}
+@media(max-width:600px){.elx-portal-actions{gap:8px}.elx-private-materials [data-play],.elx-private-materials [data-remove]{width:100%;margin:5px 0}}
