@@ -124,12 +124,13 @@
       const text=clean(raw), called=/(^| )(everton|fernanda)( |$)/.test(text);
       if(!called)return;
       let reply;
-      if(/dpi|diagnostico por imagem|raio ?x| radiografia/.test(text))reply="DPI é uma trilha da Medicina Veterinária. Entre em Medicina Veterinária para acessar Diagnóstico por Imagem, RX e os outros desafios da área.";
-      else if(/direito|hsl|helder|advocacia|audiencia/.test(text))reply="A área de Direito fica em HSL Direito. É só abrir essa área para entrar nos desafios jurídicos e consultar as referências disponíveis.";
-      else if(/medicina humana|medicina/.test(text))reply="Medicina Humana aparece entre as áreas da plataforma. Abra a opção Medicina para ver a trilha quando o conteúdo estiver disponível.";
-      else if(/agronomia|arquitetura|portugues|concurso|fundamental|medio|escola|monte meu jogo|monte seu jogo|estudo dirigido/.test(text))reply="A plataforma organiza os desafios por profissão e área. Para estudar um assunto seu, use Monte seu jogo dentro da trilha correspondente; o material pessoal fica restrito ao seu perfil.";
-      else if(/como comec|como usar|como funciona|ajuda|comecar|comecar/.test(text))reply="Escolha sua profissão nos blocos abaixo. Cada curso reúne suas especialidades e modalidades; depois é só abrir o desafio que você quer jogar.";
-      else reply="Eu explico a plataforma e as funções do jogo. Para uma dúvida de conteúdo, entre na área correspondente: respondo usando apenas a biblioteca vinculada àquele curso.";
+      if(/dpi|diagnostico por imagem|raio ?x|radiografia/.test(text))reply="Diagnóstico por Imagem é uma área da Medicina Veterinária. Abra Medicina Veterinária para localizar os desafios de DPI e RX; esta tela inicial só orienta a navegação.";
+      else if(/direito|hsl|helder|advocacia|audiencia/.test(text))reply="A área de Direito fica em HSL Direito. Abra essa área para ver os desafios jurídicos e as referências disponíveis.";
+      else if(/medicina humana|medicina/.test(text))reply="Medicina Humana aparece entre as áreas. Nesta versão, a opção está identificada como em organização.";
+      else if(/agronomia|arquitetura|portugues|concurso|fundamental|medio|escola/.test(text))reply="Essa área aparece no planejamento da plataforma, mas ainda está identificada como em organização nesta versão.";
+      else if(/monte meu jogo|monte seu jogo|estudo dirigido/.test(text))reply="Não encontrei Monte seu jogo habilitado nesta tela inicial. Posso te orientar pelas áreas que já estão disponíveis.";
+      else if(/como comec|como usar|como funciona|ajuda|comecar/.test(text))reply="Escolha uma profissão nos blocos abaixo. Cada curso reúne suas áreas e modalidades disponíveis; depois, abra o desafio que quer jogar.";
+      else reply="Nesta tela inicial, eu posso orientar a navegação e explicar os recursos visíveis. Para conteúdo de estudo, consulte apenas as fontes vinculadas à biblioteca do curso; não invento respostas quando não há fonte acessível.";
       message.textContent=reply;say(reply);
     };
     const startListening=()=>{
