@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Helder Soares Advocacia | Audiência — Desafio DPI</title><style>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Helder Soares Advocacia | Audiência — RX Conhecimentos</title><style>
 /* Tema isolado da área jurídica: não altera assets nem CSS dos demais cursos. */
 :root{--curso-fundo:#161719;--curso-painel:#262326;--curso-acento:#9f303b;--curso-texto:#f6f1ee;--curso-borda:#75545a;--curso-link:#f2b7bf}
 body{background:var(--curso-fundo)!important;color:var(--curso-texto)!important}
@@ -37,9 +37,9 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 @keyframes hsl-talk{from{transform:translateY(0) rotate(-5deg)}to{transform:translateY(-5px) rotate(5deg)}}
 @media(prefers-reduced-motion:reduce){#hsl-mascot,#hsl-guide.speaking #hsl-mascot{animation:none}}
 @media(max-width:500px){#hsl-guide{gap:8px}#hsl-mascot{flex-basis:70px;transform:scale(.8)}#hsl-dialog p{font-size:.88rem}}
-</style></head><body><main><header class="hsl-brand"><img src="https://hsladv.com.br/wp-content/uploads/2026/09/logotipo_transparente1-scaled.png" alt="Helder Soares Advocacia" loading="lazy"><div><strong>Helder Soares Advocacia</strong><span>Clareza · Estratégia · Patrimônio</span></div></header><h1>⚖️ Audiência — EL-X Direito</h1><p class="muted">Prévia experimental · conteúdo editorial em revisão · não substitui orientação jurídica profissional</p>
+</style></head><body><main><header class="hsl-brand"><img src="https://hsladv.com.br/wp-content/uploads/2026/09/logotipo_transparente1-scaled.png" alt="Helder Soares Advocacia" loading="lazy"><div><strong>Helder Soares Advocacia</strong><span>Clareza · Estratégia · Patrimônio</span></div></header><h1>⚖️ Direito — Audiência</h1><p class="muted">Prévia experimental · conteúdo editorial em revisão · não substitui orientação jurídica profissional</p>
 <section id="setup"><div class="controls"><label>Modalidade<select id="mode"><option value="quiz">Desafio geral</option><option value="lightning">Minijogo Relâmpago</option><option value="elimination">Minijogo Eliminação</option><option value="plantao">Audiência — simulação criminal (protótipo)</option></select></label><label>Disciplina<select id="area"><option value="todas">Todas as áreas</option></select></label><label>Nível<select id="level"><option value="todos">Misto</option><option value="iniciante">Iniciante</option><option value="intermediario">Intermediário</option><option value="avancado">Avançado</option></select></label><label>Extensão<select id="length"><option value="10">10 perguntas</option><option value="25">25 perguntas</option><option value="50">50 perguntas</option></select></label></div><button id="start">INICIAR DESAFIO</button><p id="setupStatus" role="status"></p></section>
-<section id="stage" hidden><p id="progress" class="stat" role="status"></p><div id="bar" aria-hidden="true"><div id="fill"></div></div><h2 id="question"></h2><div id="choices" role="group" aria-label="Alternativas"></div><div id="feedback" role="status" aria-live="polite"></div><div id="source" aria-label="Fonte da resposta"></div><button id="next" hidden>PRÓXIMA</button><button id="restart">VOLTAR À SELEÇÃO</button></section><p><a href="/">Voltar ao Desafio DPI</a></p></main>
+<section id="stage" hidden><p id="progress" class="stat" role="status"></p><div id="bar" aria-hidden="true"><div id="fill"></div></div><h2 id="question"></h2><div id="choices" role="group" aria-label="Alternativas"></div><div id="feedback" role="status" aria-live="polite"></div><div id="source" aria-label="Fonte da resposta"></div><button id="next" hidden>PRÓXIMA</button><button id="restart">VOLTAR À SELEÇÃO</button></section></main>
 <nav class="hsl-contacts" aria-label="Contatos do escritório">
 <a href="https://hsladv.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Site institucional" title="Site"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"/></svg></a>
 <a href="https://hsladv.com.br/imobiliario/" target="_blank" rel="noopener noreferrer" aria-label="Direito Imobiliário" title="Imobiliário"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8v10H3zM9 21v-7h6v7"/></svg></a>
@@ -69,7 +69,7 @@ setup.parentNode.insertBefore(guide,setup);
 const voice=guide.querySelector("#hsl-voice"),speech=guide.querySelector("#hsl-speech");
 let enabled=false,last="",speaking=false;
 const intros={
-quiz:"Bem-vindo ao EL-X Direito! Escolha área, nível e 10, 25 ou 50 perguntas. Após cada resposta, confira a explicação e a fonte oficial.",
+quiz:"Bem-vindo ao curso de Direito! Escolha área, nível e 10, 25 ou 50 perguntas. Após cada resposta, confira a explicação e a fonte oficial.",
 lightning:"No Relâmpago, responda rapidamente às questões. A explicação e a fonte aparecem após cada escolha.",
 elimination:"Na Eliminação, examine as alternativas e tente manter a sequência de acertos. Consulte a justificativa legal a cada etapa.",
 plantao:"Bem-vindo à Audiência! Você vai enfrentar dez etapas de fundamentação jurídica. Esta prévia ainda não reproduz uma audiência criminal completa nem decide prisão ou liberdade."
