@@ -42,10 +42,12 @@ function welcome(){
 }
 function homeIntro(){
  const home=document.getElementById("home");
- if(!home||!home.classList.contains("on")||document.getElementById("dpi-welcome-guide"))return;
+ if(!home||!home.classList.contains("on"))return;
+ if(!document.getElementById("dpi-welcome-guide")){
  const btn=document.createElement("button");btn.type="button";btn.id="dpi-welcome-guide";btn.className="btn secondary";btn.textContent="🎙️ OI! ME EXPLICA COMO JOGAR";
  btn.onclick=()=>{if(!casualAudio){window.dpiVoiceSettings();return;}introSpoken=false;welcome();};
  home.appendChild(btn);
+ }
  if(!document.getElementById("dpi-home-voice-toggle")){
   const toggle=document.createElement("button");
   toggle.type="button";toggle.id="dpi-home-voice-toggle";toggle.className="btn secondary";
@@ -64,7 +66,7 @@ function syncHomeVoiceButton(){
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
 document.addEventListener("pointerdown",function(ev){
  if(introSpoken||!casualAudio)return;
- if(ev.target.closest("input,select,textarea,#dpi-mic-answer,#dpi-welcome-guide"))return;
+ if(ev.target.closest("input,select,textarea,#dpi-mic-answer,#dpi-welcome-guide,#dpi-home-voice-toggle"))return;
  const home=document.getElementById("home");
  if(home&&home.classList.contains("on"))welcome();
 });
