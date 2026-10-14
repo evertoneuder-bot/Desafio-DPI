@@ -1,14 +1,22 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Desafio DPI — EL-X VET</title></head>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Desafio DPI — Plataforma Multidisciplinar</title></head>
 <body><div id="status">Carregando Desafio DPI…</div>
 <script>
 (async()=>{try{
 const urls=["/game/part01.txt","/game/part02.txt","/game/part03.txt","/game/part04.txt","/game/part05.txt","/game/part06.txt","/game/part07.txt","/game/part08.txt"];
 const parts=await Promise.all(urls.map(async u=>{const r=await fetch(u);if(!r.ok)throw Error("Arquivo indisponível: "+u);return r.text()}));
-let html=parts.join("").replace(/reconhecimento veterinário em jogo/gi,"Conhecimento veterinário em jogo");
+let html=parts.join("").replace(/reconhecimento veterinário em jogo/gi,"Conhecimento em jogo");
 const headClose=/<\/head\s*>/i;
 if(headClose.test(html)) html=html.replace(headClose,'<link rel="stylesheet" href="/assets/dpi-animacoes.css"></head>');
 html=html.replace(/<\/body\s*>/i,'<script src="/assets/dpi-rodadas.js"><\/script><script src="/assets/dpi-especialidades.js"><\/script><script src="/assets/dpi-voz.js"><\/script><script src="/assets/dpi-resposta-voz.js"><\/script></body>');
+// Open with the multidisciplinary portal, not the veterinary legacy home.
+const portal='<section id="dpi-portal" style="min-height:100vh;background:linear-gradient(135deg,#052c43,#07516b);color:white;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:24px"><div style="width:min(680px,100%);text-align:center"><h1 style="font-size:clamp(2rem,7vw,4rem);margin-bottom:8px">DESAFIO DPI</h1><p style="font-size:1.3rem">Conhecimento em jogo. Explore profissões, ciência e desafios!</p><p>Everton e Fernanda apresentam uma plataforma de aprendizagem multidisciplinar.</p><div style="display:grid;gap:14px;margin-top:28px"><button id="dpi-enter-vet" style="padding:19px;border-radius:14px;background:#10a9b5;color:white;border:1px solid #9ce9ed;font-size:1.1rem;font-weight:bold;cursor:pointer">🐾 Saúde animal — EL-X VET</button><button id="dpi-enter-law" style="padding:19px;border-radius:14px;background:#0a7895;color:white;border:1px solid #9ce9ed;font-size:1.1rem;font-weight:bold;cursor:pointer">⚖️ Direito — EL-X Direito</button><button id="dpi-enter-other" style="padding:19px;border-radius:14px;background:#0a7895;color:white;border:1px solid #9ce9ed;font-size:1.1rem;font-weight:bold;cursor:pointer">🎓 Outras áreas e bibliotecas</button></div></div></section>';
 document.open();document.write(html);document.close();
+const root=document.createElement("div");root.innerHTML=portal;document.body.appendChild(root);
+const app=Array.from(document.body.children).filter(el=>el!==root&&el.tagName!=="SCRIPT");app.forEach(el=>el.style.display="none");
+function enter(area){root.remove();app.forEach(el=>el.style.display="");if(area==="other"&&typeof window.dpiChooseStudyArea==="function")window.dpiChooseStudyArea();else if(area==="law"&&typeof window.dpiProporQuiz==="function")window.dpiProporQuiz("Direito");}
+root.querySelector("#dpi-enter-vet").onclick=()=>enter("vet");
+root.querySelector("#dpi-enter-law").onclick=()=>enter("law");
+root.querySelector("#dpi-enter-other").onclick=()=>enter("other");
 }catch(e){document.getElementById("status").textContent="Erro ao carregar o Desafio DPI: "+e.message;console.error(e)}})();
 </script></body></html>
