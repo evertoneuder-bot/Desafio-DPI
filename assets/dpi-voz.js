@@ -55,7 +55,7 @@ let introSpoken=false;
 function welcome(){
  if(introSpoken||!casualAudio)return;
  introSpoken=true;
- try{sessionStorage.setItem("dpi-welcome-spoken","1");}catch(e){}
+ // Only mark as played for this session after a user-initiated audio attempt.
  narrate(introText,false);
 }
 function homeIntro(){
@@ -84,7 +84,7 @@ function syncHomeVoiceButton(){
  const tip=casualAudio?"Desativar toda a narração":"Ativar narração";
  if(toggle.getAttribute("title")!==tip)toggle.setAttribute("title",tip);
 }
-try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
+// The welcome may be blocked by autoplay policies; keep it available on every new page load.
 // Attempt welcome on home automatically; a browser may require a first gesture.
 
 let introRefreshQueued=false;
