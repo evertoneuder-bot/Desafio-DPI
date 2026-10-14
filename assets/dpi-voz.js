@@ -50,7 +50,7 @@ window.dpiReadSample=()=>{if(!casualAudio)return;narrate(pickCasual("welcome"),f
 window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(typeof state!=="undefined")state.voice=casualAudio;if(!casualAudio){++speechSerial;restoreBgm();synth.cancel();document.body?.classList.remove("dpi-mascots-speaking");introSpoken=true;}else{introSpoken=false;}syncHomeVoiceButton();};
 casualAudio=localStorage.getItem("dpi-casual-audio")!=="0";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
 
-const introText="Ei, que bom te ver! Everton e Fernanda estão aqui para jogar com você no EL-X VET. Escolha um desafio, explore especialidades e divirta-se aprendendo. Cada rodada tem dez perguntas. Você pode responder pelos botões e, quando disponível, usar sua voz. Para ouvir uma pergunta, é só pedir. Você controla o áudio a qualquer momento. Bora começar?";
+const introText="Oi! Bem-vindo ao Desafio DPI! Aqui você aprende jogando em diferentes áreas do conhecimento, como Saúde, Direito, Ciências, Tecnologia, Educação e muito mais. Eu sou Everton, e a Fernanda também vai acompanhar seus desafios. Escolha uma área, explore os jogos e responda falando ou tocando na tela. Vamos descobrir o que você sabe?";
 let introSpoken=false;
 function welcome(){
  if(introSpoken||!casualAudio)return;
@@ -83,21 +83,17 @@ function syncHomeVoiceButton(){
  toggle.setAttribute("title",casualAudio?"Desativar toda a narração":"Ativar narração");
 }
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
-// A welcome explanation is spoken only after an explicit tap on the guide button.
+// Attempt welcome on home automatically; a browser may require a first gesture.
 
 const introObserver=new MutationObserver(homeIntro);
 introObserver.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
 homeIntro();
-
-
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>{homeIntro();welcome();},{once:true});else welcome();
 
 const old=window.challenges;
 if(typeof old==="function")window.challenges=function(){const result=old.apply(this,arguments);const p=document.querySelector("#internal .panel");if(!p||p.querySelector("#dpi-voice-settings-button"))return result;const b=document.createElement("button");b.id="dpi-voice-settings-button";b.type="button";b.className="btn secondary";b.textContent="🔊 VOZ E LEITURA";b.onclick=window.dpiVoiceSettings;p.appendChild(b);return result;};
-document.addEventListener("click",e=>{if(e.target.closest("#dpi-read-question"))window.dpiReadQuestion();});
-const syncQuestionButton=()=>{const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden"&&node.textContent.trim()&&!node.closest("[hidden],[aria-hidden=\"true\"]"));if(!el){document.getElementById("dpi-read-question")?.remove();return;}const existing=document.getElementById("dpi-read-question");if(existing){if(existing.previousElementSibling!==el)el.after(existing);return;}const b=document.createElement("button");b.type="button";b.id="dpi-read-question";b.className="btn secondary";b.textContent="🔊 LER PERGUNTA";el.after(b);};
-const observer=new MutationObserver(syncQuestionButton);
-observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:["hidden","aria-hidden","class"]});
-if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",syncQuestionButton,{once:true});else syncQuestionButton();
+// Questions are narrated by the voice mode; no redundant read-question button.
+document.getElementById("dpi-read-question")?.remove();
 // Keep scientific questions verbatim; never narrate full screens or navigation.
 // The original quiz speak() is lexical; use a capture-phase click handler for
 // short interface feedback without attempting to read entire screens.
