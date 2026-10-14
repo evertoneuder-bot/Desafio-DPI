@@ -107,7 +107,6 @@
   <script>
     (()=>{const toast=document.getElementById('notice');let timer;document.querySelectorAll('[data-course]').forEach(button=>button.addEventListener('click',()=>{toast.textContent=button.dataset.course+' está em organização. A trilha será aberta quando conteúdo e referências estiverem validados.';toast.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove('show'),3600)}));})();
 
-  <script>
   (()=>{"use strict";
     const stage=document.getElementById("elx-assistant"), message=document.getElementById("assistant-message"), toggle=document.getElementById("assistant-toggle");
     const Synth=window.speechSynthesis, Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
@@ -163,8 +162,6 @@
     });
     if(!Synth||!Recognition){toggle.setAttribute("aria-label","Ativar apresentação falada; reconhecimento de voz depende do navegador");}
   })();
-  </script>
-
   </script>
 </body>
 </html>
