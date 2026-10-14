@@ -73,7 +73,7 @@ homeIntro();
   const x=Math.min(innerWidth-45,Math.max(2,r.left-48)),y=Math.min(innerHeight-50,Math.max(2,r.top+(r.height-36)/2));
   mascot.style.left=x+"px";mascot.style.top=y+"px";mascot.dataset.guide=index%2?"Everton":"Fernanda";
  }
- document.addEventListener("DOMContentLoaded",()=>{update();setInterval(update,1100);});
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>{update();setInterval(update,1100);},{once:true});else{update();setInterval(update,1100);}
 })();
 
 const old=window.challenges;
