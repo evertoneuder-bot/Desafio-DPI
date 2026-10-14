@@ -32,3 +32,13 @@
  body.dpi-mascots-speaking #dpi-menu-mascot .dpi-mascot-face:nth-child(2){animation:dpi-mascot-talk .46s ease-in-out infinite alternate-reverse}
  @keyframes dpi-mascot-talk{from{transform:translateY(0) scale(1)}to{transform:translateY(-5px) scale(1.09)}}
 }
+
+/* Smoother mascot movement and subtle pointing toward the current menu item. */
+@media (prefers-reduced-motion:no-preference){
+ #dpi-menu-mascot{transition:left 1.45s cubic-bezier(.25,.75,.3,1),top 1.45s cubic-bezier(.25,.75,.3,1);will-change:left,top}
+ #dpi-menu-mascot .dpi-mascot-face{transform-origin:50% 85%}
+ #dpi-menu-mascot:not([hidden])::after{content:"➜";position:absolute;right:-17px;top:4px;font-size:16px;opacity:.65;animation:dpi-guide-point 1.8s ease-in-out infinite}
+ @keyframes dpi-guide-point{0%,100%{transform:translateX(0);opacity:.4}50%{transform:translateX(5px);opacity:.9}}
+}
+@media(max-width:520px){#dpi-menu-mascot{font-size:26px;gap:2px;filter:drop-shadow(0 2px 3px #0004)}}
+@media(prefers-reduced-motion:reduce){#dpi-menu-mascot::after{animation:none!important}}
