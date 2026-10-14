@@ -42,3 +42,7 @@
 }
 @media(max-width:520px){#dpi-menu-mascot{font-size:26px;gap:2px;filter:drop-shadow(0 2px 3px #0004)}}
 @media(prefers-reduced-motion:reduce){#dpi-menu-mascot::after{animation:none!important}}
+
+/* Approved mascot artwork slots; retain the lightweight fallback until files arrive. */
+#dpi-menu-mascot .dpi-mascot-face img{display:block;width:clamp(34px,5vw,72px);height:clamp(34px,5vw,72px);object-fit:contain;pointer-events:none}
+@media(max-width:520px){#dpi-menu-mascot .dpi-mascot-face img{width:38px;height:38px}}
