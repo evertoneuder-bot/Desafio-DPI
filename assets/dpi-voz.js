@@ -80,8 +80,9 @@ function syncHomeVoiceButton(){
  if(!toggle)return;
  const label=casualAudio?"🔊 DESLIGAR VOZ":"🔇 LIGAR VOZ";
  if(toggle.textContent!==label)toggle.textContent=label;
- toggle.setAttribute("aria-pressed",String(casualAudio));
- toggle.setAttribute("title",casualAudio?"Desativar toda a narração":"Ativar narração");
+ if(toggle.getAttribute("aria-pressed")!==String(casualAudio))toggle.setAttribute("aria-pressed",String(casualAudio));
+ const tip=casualAudio?"Desativar toda a narração":"Ativar narração";
+ if(toggle.getAttribute("title")!==tip)toggle.setAttribute("title",tip);
 }
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
 // Attempt welcome on home automatically; a browser may require a first gesture.
