@@ -2,6 +2,12 @@
 (function(){
 "use strict";
 const names={miniLightning:"Relâmpago",miniTarget:"Alvo",miniElimination:"Eliminação",miniAssociation:"Associação",miniHangman:"Forca",miniCrossword:"Palavras Cruzadas",miniDiagnosis:"Feche o Diagnóstico"};
+// Clinical case demonstration must not be mistaken for a validated emergency simulator.
+if(typeof window.caseView==="function"){
+ window.caseView=function(){
+  if(typeof window.shell==="function")window.shell("PLANTÃO VETERINÁRIO",'<p>O simulador clínico completo ainda está em validação. Nenhuma conduta de emergência será apresentada como caso científico sem revisão e fonte verificável.</p><button class="btn" onclick="challenges()">VOLTAR AOS DESAFIOS</button>');
+ };
+}
 const originalResult=window.miniResult;
 let locked=false;
 if(typeof originalResult!=="function")return;
