@@ -20,22 +20,23 @@
 
 const synth=window.speechSynthesis;
 if(!synth||typeof window.SpeechSynthesisUtterance!=="function"){document.documentElement.classList.add("dpi-no-speech");const init=()=>{const home=document.getElementById("home");if(!home||document.getElementById("dpi-no-speech-note"))return;const note=document.createElement("p");note.id="dpi-no-speech-note";note.className="muted";note.setAttribute("role","status");note.textContent="A narração não está disponível neste navegador. Você pode continuar jogando com os botões da tela.";home.appendChild(note);};if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();return;}
-let voiceName="",volume=0.9,casualAudio=false,activeUtterance=null,speechSerial=0;
+let voiceName="",volume=0.9,casualAudio=false,activeUtterance=null,speechSerial=0,duckedBgm=null,originalBgmVolume=null;
+function restoreBgm(){if(duckedBgm&&originalBgmVolume!==null)duckedBgm.volume=originalBgmVolume;duckedBgm=null;originalBgmVolume=null;}
 const casual={welcome:["Bora jogar?","Preparado para o próximo desafio?","Vamos nessa!"],correct:["Boa! Acertou essa.","Mandou bem! Vamos pra próxima?","Isso aí! Mais um acerto."],incorrect:["Quase! Vamos entender essa.","Não foi dessa vez. Seguimos juntos!","Boa tentativa. Confira a explicação."],next:["Próxima pergunta!","Vamos pra próxima?","Seguimos!"],finish:["Desafio concluído! Mandou bem por chegar até aqui.","Terminamos essa rodada! Quer tentar outra?"]};
 let lastCasual=-1;
 function pickCasual(kind){const arr=casual[kind]||[];if(!arr.length)return "";lastCasual=(lastCasual+1)%arr.length;return arr[lastCasual];}
-function narrate(text,scientific){if(!text||!casualAudio)return;synth.cancel();const serial=++speechSerial;const u=new SpeechSynthesisUtterance(String(text).trim());u.lang="pt-BR";u.rate=scientific?.94:1.04;u.pitch=scientific?1:1.06;u.volume=volume;const v=preferred();if(v)u.voice=v;activeUtterance=u;document.body?.classList.add("dpi-mascots-speaking");u.onend=u.onerror=()=>{if(serial===speechSerial)document.body?.classList.remove("dpi-mascots-speaking");};synth.speak(u);}
+function narrate(text,scientific){if(!text||!casualAudio)return;restoreBgm();synth.cancel();const serial=++speechSerial;const u=new SpeechSynthesisUtterance(String(text).trim());u.lang="pt-BR";u.rate=scientific?.94:1.04;u.pitch=scientific?1:1.06;u.volume=volume;const v=preferred();if(v)u.voice=v;activeUtterance=u;document.body?.classList.add("dpi-mascots-speaking");u.onend=u.onerror=()=>{if(serial===speechSerial)document.body?.classList.remove("dpi-mascots-speaking");};synth.speak(u);}
 window.dpiNarrate=function(kind,scientificText){if(kind!=="question"&&kind!=="scientific"&&kind!=="explanation"&&!casualAudio)return;if(kind==="question"||kind==="scientific"){narrate(scientificText,true);return;}if(kind==="explanation"){narrate(scientificText,true);return;}narrate(pickCasual(kind),false);};
 const preferred=()=>{const voices=synth.getVoices().filter(v=>/^pt[-_]BR$/i.test(v.lang));return voices.find(v=>v.name===voiceName)||voices.find(v=>/natural|neural|premium/i.test(v.name))||voices[0]||null;};
 window.dpiReadQuestion=function(){if(!casualAudio)return;
  const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden"&&node.textContent.trim()&&!node.closest("[hidden],[aria-hidden=\"true\"]"));
  if(!el||!el.textContent.trim())return;
- synth.cancel();const serial=++speechSerial;
+ restoreBgm();synth.cancel();const serial=++speechSerial;
  const utter=new SpeechSynthesisUtterance(el.textContent.trim());utter.lang="pt-BR";utter.rate=0.94;utter.pitch=1;utter.volume=volume;
  const voice=preferred();if(voice)utter.voice=voice;
  const bgm=window.bgm;const previous=bgm&&typeof bgm.volume==="number"?bgm.volume:null;
- if(previous!==null)bgm.volume=Math.min(previous,.025);
- document.body?.classList.add("dpi-mascots-speaking");utter.onend=utter.onerror=()=>{if(previous!==null&&serial===speechSerial)bgm.volume=previous;if(serial===speechSerial)document.body?.classList.remove("dpi-mascots-speaking");};
+ if(previous!==null){duckedBgm=bgm;originalBgmVolume=previous;bgm.volume=Math.min(previous,.025);}
+ document.body?.classList.add("dpi-mascots-speaking");utter.onend=utter.onerror=()=>{if(serial===speechSerial)restoreBgm();if(serial===speechSerial)document.body?.classList.remove("dpi-mascots-speaking");};
  activeUtterance=utter;synth.speak(utter);
 };
 window.dpiVoiceSettings=function(){
@@ -46,7 +47,7 @@ window.dpiVoiceSettings=function(){
 window.dpiChooseVoice=v=>{voiceName=v;localStorage.setItem("dpi-voice-name",v);};
 window.dpiSetVoiceVolume=v=>{volume=Math.max(0,Math.min(1,Number(v)/100));localStorage.setItem("dpi-voice-volume",String(volume));};
 window.dpiReadSample=()=>{if(!casualAudio)return;narrate(pickCasual("welcome"),false);};
-window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(!casualAudio){++speechSerial;synth.cancel();document.body?.classList.remove("dpi-mascots-speaking");introSpoken=true;const bgm=window.bgm;if(bgm&&typeof bgm.pause==="function")bgm.pause();}else{introSpoken=false;}syncHomeVoiceButton();};
+window.dpiToggleCasual=function(checked){casualAudio=!!checked;localStorage.setItem("dpi-casual-audio",casualAudio?"1":"0");if(!casualAudio){++speechSerial;restoreBgm();synth.cancel();document.body?.classList.remove("dpi-mascots-speaking");introSpoken=true;const bgm=window.bgm;if(bgm&&typeof bgm.pause==="function")bgm.pause();}else{introSpoken=false;}syncHomeVoiceButton();};
 casualAudio=localStorage.getItem("dpi-casual-audio")!=="0";voiceName=localStorage.getItem("dpi-voice-name")||"";volume=Math.max(0,Math.min(1,Number(localStorage.getItem("dpi-voice-volume")||".9")||0));
 
 const introText="Ei, que bom te ver! Everton e Fernanda estão aqui para jogar com você no EL-X VET. Escolha um desafio, explore especialidades e divirta-se aprendendo. Cada rodada tem dez perguntas. Você pode responder pelos botões e, quando disponível, usar sua voz. Para ouvir uma pergunta, é só pedir. Você controla o áudio a qualquer momento. Bora começar?";
