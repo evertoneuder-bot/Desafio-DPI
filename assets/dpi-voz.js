@@ -12,7 +12,7 @@
   mascot.hidden=false;
   const now=Date.now();if(now-lastMove<3400)return;lastMove=now;
   const target=options[index++%options.length],r=target.getBoundingClientRect();
-  const x=Math.min(innerWidth-45,Math.max(2,r.left-48)),y=Math.min(innerHeight-50,Math.max(2,r.top+(r.height-36)/2));
+  const box=mascot.getBoundingClientRect();const w=Math.max(65,box.width),h=Math.max(45,box.height);const x=Math.min(Math.max(2,innerWidth-w-4),Math.max(2,r.left-w-12)),y=Math.min(Math.max(2,innerHeight-h-4),Math.max(2,r.top+(r.height-h)/2));
   mascot.style.left=x+"px";mascot.style.top=y+"px";mascot.dataset.guide=index%2?"Everton":"Fernanda";
  }
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>{update();setInterval(update,1100);},{once:true});else{update();setInterval(update,1100);}
