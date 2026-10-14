@@ -1,14 +1,88 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>EL-X Desafios — Conhecimento em jogo</title></head>
-<body><div id="status">Carregando EL-X Desafios…</div>
-<script>
-(async()=>{try{
-const urls=["/game/part01.txt","/game/part02.txt","/game/part03.txt","/game/part04.txt","/game/part05.txt","/game/part06.txt","/game/part07.txt","/game/part08.txt"];
-const parts=await Promise.all(urls.map(async u=>{const r=await fetch(u);if(!r.ok)throw Error("Arquivo indisponível: "+u);return r.text()}));
-let html=parts.join("").replace(/reconhecimento veterinário em jogo/gi,"Conhecimento em jogo");
-const headClose=/<\/head\s*>/i;
-if(headClose.test(html)) html=html.replace(headClose,'<link rel="stylesheet" href="/assets/dpi-animacoes.css"></head>');
-html=html.replace(/<\/body\s*>/i,'<script src="/assets/dpi-rodadas.js"><\/script><script src="/assets/dpi-especialidades.js"><\/script><script src="/assets/dpi-voz.js"><\/script><script src="/assets/dpi-resposta-voz.js"><\/script></body>');
-document.open();document.write(html);document.close();
-}catch(e){document.getElementById("status").textContent="Erro ao carregar EL-X Desafios: "+e.message;console.error(e)}})();
-</script></body></html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#062f43">
+  <meta name="description" content="EL-X Desafios: estude, pratique, evolua e conquiste em desafios feitos para cada profissão.">
+  <title>EL-X Desafios — Conhecimento em jogo</title>
+  <style>
+    :root{color-scheme:dark;--ink:#f3fbff;--muted:#b9d2df;--cyan:#16d7ff;--lime:#9cf128;--panel:#062a3de8;--line:#08a9d0;--shell:540px;font:500 16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:14px}body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(ellipse at 50% 0%,#0d5c77 0,#07344a 36%,#042537 78%);padding:18px 14px 40px;overflow-x:hidden}
+    body:before,body:after{content:"";position:fixed;pointer-events:none;z-index:-1;border-radius:50%;filter:blur(3px)}body:before{width:460px;height:460px;left:-240px;top:24vh;background:radial-gradient(circle,#05c8ef22,transparent 68%)}body:after{width:520px;height:520px;right:-290px;bottom:-50px;background:radial-gradient(circle,#7eea1820,transparent 68%)}
+    .app{width:min(100%,var(--shell));margin:0 auto;border:1px solid #0ca9cd;border-radius:26px;overflow:hidden;background:linear-gradient(180deg,#05283bf7,#06344af5 58%,#042638f7);box-shadow:0 0 0 1px #24caff20,0 0 42px #06b9eb35,inset 0 0 34px #09bce31a;position:relative}
+    .top{position:relative;z-index:2;background:linear-gradient(115deg,#032238,#03445a);border-bottom:1px solid #0989ad;box-shadow:0 8px 28px #001a2a80}
+    .brandline{min-height:66px;padding:10px 18px;display:flex;align-items:center;gap:12px}.brandmark{width:45px;height:45px;border-radius:50%;display:grid;place-items:center;position:relative;color:#fff;font-size:12px;font-weight:900;letter-spacing:-.7px;background:radial-gradient(circle at 50% 50%,#0b5970 0 44%,transparent 46%),conic-gradient(from 18deg,#9af128 0 24%,#0fd5fa 24% 49%,#99f32a 49% 72%,#10bfe9 72%);box-shadow:0 0 18px #0dd4f966}.brandmark:after{content:"";position:absolute;inset:5px;border:1px solid #b8ff4b;border-radius:50%}.brandname{font-weight:900;letter-spacing:.09em;font-size:clamp(17px,4vw,22px);text-shadow:0 0 15px #24d7fa80}.brandname small{display:block;color:#b9d8e2;font-size:9px;letter-spacing:.22em;font-weight:700;margin-top:1px}.toplinks{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #0b6885}.toplinks a{min-height:59px;display:grid;place-content:center;text-align:center;text-decoration:none;color:white;border-right:1px solid #0b6885;font-size:10px;font-weight:800;letter-spacing:.02em;gap:1px;transition:background .22s,filter .22s}.toplinks a:last-child{border-right:0}.toplinks a:hover,.toplinks a:focus-visible{background:#0a769355;filter:brightness(1.22);outline:1px solid var(--cyan);outline-offset:-2px}.toplinks .ico{font-size:19px;line-height:1.1}.violet{color:#d347ff}.cyan{color:#12d8ff}.gold{color:#ffbe28}.pink{color:#ec54f1}
+    .hero{position:relative;isolation:isolate;text-align:center;padding:30px 22px 23px;min-height:356px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#0c718933,transparent 51%),linear-gradient(145deg,#03283b,#06435a 55%,#03273b)}.hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.36;background:linear-gradient(transparent 96%,#0ae3ff17 97%),linear-gradient(90deg,transparent 96%,#0ae3ff17 97%);background-size:28px 28px;mask-image:radial-gradient(ellipse,#000,transparent 78%)}
+    .orbit{position:absolute;width:222px;height:222px;border:1px solid #1dcfff70;border-radius:50%;box-shadow:0 0 35px #0acafa45,inset 0 0 28px #08d9ff24;animation:orbit 20s linear infinite}.orbit:before,.orbit:after{content:"";position:absolute;border:2px solid #a2f730;border-radius:50%;inset:20px 10px;transform:rotate(38deg);box-shadow:0 0 15px #9af12888}.orbit:after{inset:42px -8px;border-color:#10d6fa;transform:rotate(-42deg);border-width:1px}.core{width:118px;height:118px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 34% 28%,#30dff8,#087390 40%,#042f4a 73%);border:2px solid #8ff12c;box-shadow:0 0 0 8px #8df22c18,0 0 36px #12d9ffb0,inset 0 0 25px #8df12c50;animation:pulse 3.4s ease-in-out infinite}.core svg{width:58px;height:58px;filter:drop-shadow(0 0 10px #a3f42a)}.eyebrow{margin:25px 0 4px;color:#b9efff;text-transform:uppercase;letter-spacing:.22em;font-size:10px;font-weight:800}.hero h1{position:relative;margin:0;font-size:clamp(27px,7.4vw,39px);line-height:1.05;font-weight:950;letter-spacing:.07em;text-shadow:0 0 18px #36dfff99,0 2px 2px #001622}.hero h1 span{color:var(--lime);text-shadow:0 0 20px #9af12890}.hero p{position:relative;max-width:380px;margin:10px auto 0;color:#e9f9ff;font-size:15px;font-weight:650}.hero p strong{color:#a8f52c}.tagline{display:inline-flex;align-items:center;gap:7px;margin-top:15px;color:#75eaff;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.tagline:before,.tagline:after{content:"";width:22px;height:2px;background:var(--lime);box-shadow:0 0 8px var(--lime)}
+    .values{display:grid;grid-template-columns:repeat(4,1fr);padding:3px 18px 14px;gap:4px;background:linear-gradient(90deg,#052b40,#064059,#052b40)}.value{text-align:center;font-size:10px;font-weight:900;line-height:1.25}.value svg{height:27px;width:27px;display:block;margin:0 auto 4px;filter:drop-shadow(0 0 7px currentColor)}.value:nth-child(1){color:#04ddff}.value:nth-child(2){color:#ff903c}.value:nth-child(3){color:#ed54f4}.value:nth-child(4){color:#a3f227}
+    .section{padding:20px 18px 23px;border-top:1px solid #0a6c87;background:linear-gradient(160deg,#052c41,#06364b)}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:13px}.section h2{margin:0;color:#effbff;font-size:18px;letter-spacing:.01em}.sectionhead p{margin:0;color:#9fc4d1;font-size:11px}.coursegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.course{--tone:#0dbdff;position:relative;display:flex;flex-direction:column;gap:7px;min-height:142px;padding:13px 13px 12px;text-align:left;color:white;text-decoration:none;border:1px solid color-mix(in srgb,var(--tone) 78%,white);border-radius:18px;background:linear-gradient(140deg,color-mix(in srgb,var(--tone) 48%,#052d43),color-mix(in srgb,var(--tone) 22%,#023047));box-shadow:inset 0 0 18px color-mix(in srgb,var(--tone) 16%,transparent),0 5px 16px #00172266;transition:transform .2s,box-shadow .2s,filter .2s;overflow:hidden}.course:after{content:"";position:absolute;width:82px;height:82px;right:-26px;top:-28px;border:1px solid color-mix(in srgb,var(--tone) 80%,white);border-radius:50%;box-shadow:0 0 0 9px color-mix(in srgb,var(--tone) 12%,transparent),0 0 24px color-mix(in srgb,var(--tone) 45%,transparent)}.course:hover,.course:focus-visible{transform:translateY(-3px);box-shadow:0 0 24px color-mix(in srgb,var(--tone) 45%,transparent);filter:brightness(1.12);outline:2px solid white;outline-offset:1px}.course .topline{display:flex;align-items:center;gap:9px;position:relative;z-index:1}.course .symbol{width:34px;height:34px;display:grid;place-items:center;flex:0 0 34px;border-radius:12px;border:1px solid color-mix(in srgb,var(--tone) 75%,white);background:#001b2c99;color:white;font-size:19px;box-shadow:0 0 12px color-mix(in srgb,var(--tone) 55%,transparent)}.course strong{font-size:12px;line-height:1.2}.course small{color:#e0f4f8;font-size:10px;line-height:1.32;position:relative;z-index:1}.course .more{margin-top:auto;color:var(--tone);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;position:relative;z-index:1}.course.vet{--tone:#8ff12e}.course.med{--tone:#19d9fc}.course.agro{--tone:#a6ee37}.course.arq{--tone:#ffad58}.course.port{--tone:#c46cff}.course.law{--tone:#fa5267}.course.soon{filter:saturate(.78)}
+    .specialties{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.chip{padding:6px 9px;border:1px solid #82e52f77;border-radius:999px;background:#0c482e99;color:#e8ffd2;font-size:10px;font-weight:750}.featuregrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.feature{padding:11px 12px;border:1px solid #0b7995;border-radius:14px;background:linear-gradient(145deg,#07384c,#052a40);scroll-margin-top:14px}.feature strong{display:block;margin-bottom:3px;color:#48e1ff;font-size:11px}.feature p{margin:0;color:#bed7df;font-size:11px;line-height:1.4}.generalnote{padding:12px 13px;border-left:3px solid var(--lime);border-radius:0 12px 12px 0;background:#0c3d3a77;color:#dbf2e2;font-size:12px}.footer{text-align:center;padding:15px 16px 19px;color:#93b8c6;font-size:10px;border-top:1px solid #0b718c;background:#03283a}.footer strong{color:#d4f6ff}
+    .sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#002333;padding:8px;z-index:10}.skip:focus{left:8px}.toast{position:fixed;left:50%;bottom:18px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:10;padding:10px 14px;border:1px solid #17cbea;border-radius:12px;background:#042c40;color:#fff;box-shadow:0 0 20px #00bde455;font-size:12px;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @keyframes orbit{to{transform:rotate(360deg)}}@keyframes pulse{50%{transform:scale(1.055);box-shadow:0 0 0 12px #8df22c12,0 0 45px #12d9ffcc,inset 0 0 30px #8df12c70}}
+    @media(max-width:390px){body{padding:0}.app{border-radius:0;border-left:0;border-right:0;min-height:100vh}.hero{min-height:330px;padding-inline:16px}.coursegrid{gap:8px}.course{padding:11px;min-height:137px}.section{padding-inline:14px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#cursos">Pular para escolha de cursos</a>
+  <main class="app" id="inicio">
+    <header class="top">
+      <div class="brandline"><div class="brandmark" aria-hidden="true">EL-X</div><div class="brandname">EL-X DESAFIOS<small>CONHECIMENTO EM JOGO</small></div></div>
+      <nav class="toplinks" aria-label="Navegação principal">
+        <a href="#perfil"><span class="ico violet" aria-hidden="true">●</span>MEU PERFIL</a>
+        <a href="#como-funciona"><span class="ico cyan" aria-hidden="true">⚙</span>CONFIGURAÇÕES</a>
+        <a href="#evolucao"><span class="ico gold" aria-hidden="true">🏆</span>RANKING</a>
+        <a href="#bibliotecas"><span class="ico pink" aria-hidden="true">▣</span>BANCO</a>
+      </nav>
+    </header>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="orbit" aria-hidden="true"></div>
+      <div class="core" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M32 5 38 23 57 25 42 37 47 56 32 45 16 56 22 37 7 25 26 23 32 5Z" stroke="#d8ff8c" stroke-width="2.2"/><circle cx="32" cy="32" r="10" stroke="#fff" stroke-width="2"/><path d="M32 26v12m-6-6h12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <p class="eyebrow">Uma plataforma, muitas profissões</p>
+      <h1 id="hero-title">EL-X <span>DESAFIOS</span></h1>
+      <p>Conhecimento em jogo: <strong>estude, pratique, evolua e conquiste</strong> em experiências criadas para cada área.</p>
+      <div class="tagline">Sua profissão vira jogo</div>
+    </section>
+    <div class="values" aria-label="Como aprender na plataforma">
+      <div class="value"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 7c5-2 9-1 12 2v18c-3-3-7-4-12-2V7Zm24 0c-5-2-9-1-12 2v18c3-3 7-4 12-2V7Z"/></svg>ESTUDE</div>
+      <div class="value"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="15" cy="16" r="10"/><circle cx="15" cy="16" r="5"/><path d="m22 9 7-6m-6 1 5-1-1 5"/></svg>PRATIQUE</div>
+      <div class="value"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 27h25M8 22V13h5v9m3 0V7h5v15m3 0v-6h5v6"/><path d="m5 10 8-5 6 2 8-5"/></svg>EVOLUA</div>
+      <div class="value"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="7" cy="16" r="4"/><circle cx="25" cy="7" r="4"/><circle cx="25" cy="25" r="4"/><path d="m11 14 10-5m-10 9 10 5"/></svg>COMPARTILHE</div>
+    </div>
+    <section class="section" id="cursos" aria-labelledby="courses-title">
+      <div class="sectionhead"><div><h2 id="courses-title">Escolha sua profissão</h2><p>Desafios e conteúdo próprios para cada área</p></div></div>
+      <div class="coursegrid">
+        <a class="course vet" href="/rx-vet.html" aria-label="Entrar em EL-X VET, com Diagnóstico por Imagem, Patologia, Clínica Geral e Ortopedia Veterinária">
+          <span class="topline"><span class="symbol" aria-hidden="true">⚕</span><strong>EL-X VET</strong></span>
+          <small>Medicina Veterinária · desafios clínicos e de diagnóstico</small>
+          <span class="specialties"><span class="chip">DPI · RX</span><span class="chip">Patologia Vet</span><span class="chip">Clínica Geral Vet</span><span class="chip">Ortopedia Vet</span></span>
+          <span class="more">ENTRAR NO EL-X VET →</span>
+        </a>
+        <a class="course law" href="/direito-audiencia-marca.html"><span class="topline"><span class="symbol" aria-hidden="true">⚖</span><strong>HSR DIREITO</strong></span><small>Helder Soares Advocacia · audiência e desafios jurídicos</small><span class="more">ACESSAR AUDIÊNCIA →</span></a>
+        <button class="course med soon" type="button" data-course="Medicina Humana"><span class="topline"><span class="symbol" aria-hidden="true">✚</span><strong>EL-X MEDICINA</strong></span><small>Medicina Humana · especialidades e desafios próprios</small><span class="more">ÁREA EM ORGANIZAÇÃO</span></button>
+        <button class="course agro soon" type="button" data-course="Agronomia"><span class="topline"><span class="symbol" aria-hidden="true">♧</span><strong>EL-X AGRONOMIA</strong></span><small>Ciências agrárias · desafios ligados à profissão</small><span class="more">ÁREA EM ORGANIZAÇÃO</span></button>
+        <button class="course arq soon" type="button" data-course="Arquitetura"><span class="topline"><span class="symbol" aria-hidden="true">⌂</span><strong>EL-X ARQUITETURA</strong></span><small>Projeto, espaço e construção</small><span class="more">ÁREA EM ORGANIZAÇÃO</span></button>
+        <button class="course port soon" type="button" data-course="Português"><span class="topline"><span class="symbol" aria-hidden="true">✎</span><strong>EL-X PORTUGUÊS</strong></span><small>Leitura, interpretação e linguagem</small><span class="more">ÁREA EM ORGANIZAÇÃO</span></button>
+      </div>
+    </section>
+    <section class="section" id="como-funciona" aria-labelledby="how-title">
+      <div class="sectionhead"><div><h2 id="how-title">Como funciona</h2><p>Uma jornada compartilhada, experiências especializadas</p></div></div>
+      <div class="featuregrid">
+        <div class="feature" id="perfil"><strong>01 · Escolha sua área</strong><p>Entre na profissão e navegue por especialidades e modalidades.</p></div>
+        <div class="feature"><strong>02 · Pratique com propósito</strong><p>Resolva casos e desafios adequados ao conteúdo da sua área.</p></div>
+        <div class="feature" id="evolucao"><strong>03 · Acompanhe sua evolução</strong><p>Conquistas e rankings acompanham as modalidades disponíveis em cada curso.</p></div>
+        <div class="feature" id="bibliotecas"><strong>04 · Estude com referências</strong><p>As questões devem usar fontes confiáveis, verificáveis e apropriadas à profissão.</p></div>
+      </div>
+    </section>
+    <section class="section" aria-label="Organização por profissão">
+      <div class="generalnote"><strong>DPI</strong> significa Diagnóstico por Imagem e é uma área da Medicina Veterinária, com trilhas como RX. A plataforma geral é <strong>EL-X Desafios</strong>; cada curso se organiza por profissão, especialidades e desafios próprios.</div>
+    </section>
+    <footer class="footer"><strong>EL-X DESAFIOS</strong> · Conhecimento em jogo<br>Conteúdo e modalidades variam conforme a área escolhida.</footer>
+  </main>
+  <div class="toast" id="notice" role="status" aria-live="polite"></div>
+  <script>
+    (()=>{const toast=document.getElementById('notice');let timer;document.querySelectorAll('[data-course]').forEach(button=>button.addEventListener('click',()=>{toast.textContent=button.dataset.course+' está em organização. A trilha será aberta quando conteúdo e referências estiverem validados.';toast.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove('show'),3600)}));})();
+  </script>
+</body>
+</html>
