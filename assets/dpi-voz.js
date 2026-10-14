@@ -2,7 +2,7 @@
 (function(){
 "use strict";
 const synth=window.speechSynthesis;
-if(!synth||typeof window.SpeechSynthesisUtterance!=="function"){document.documentElement.classList.add("dpi-no-speech");return;}
+if(!synth||typeof window.SpeechSynthesisUtterance!=="function"){document.documentElement.classList.add("dpi-no-speech");const init=()=>{const home=document.getElementById("home");if(!home||document.getElementById("dpi-no-speech-note"))return;const note=document.createElement("p");note.id="dpi-no-speech-note";note.className="muted";note.setAttribute("role","status");note.textContent="A narração não está disponível neste navegador. Você pode continuar jogando com os botões da tela.";home.appendChild(note);};if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();return;}
 let voiceName="",volume=0.9,casualAudio=false,activeUtterance=null,speechSerial=0;
 const casual={welcome:["Bora jogar?","Preparado para o próximo desafio?","Vamos nessa!"],correct:["Boa! Acertou essa.","Mandou bem! Vamos pra próxima?","Isso aí! Mais um acerto."],incorrect:["Quase! Vamos entender essa.","Não foi dessa vez. Seguimos juntos!","Boa tentativa. Confira a explicação."],next:["Próxima pergunta!","Vamos pra próxima?","Seguimos!"],finish:["Desafio concluído! Mandou bem por chegar até aqui.","Terminamos essa rodada! Quer tentar outra?"]};
 let lastCasual=-1;
