@@ -35,6 +35,32 @@ window.miniResult=function(ok,title,detail,pts){
  feedback.appendChild(next);
 };
 
+
+// References are optional for legacy questions; never invent a citation.
+function referenceFor(q){
+ if(!q||typeof q!=="object")return null;
+ const raw=q.referencia_url||q.fonte_url||q.url_referencia||q.doi_url||q.bibliografia_url;
+ if(typeof raw!=="string")return null;
+ try{const u=new URL(raw,location.origin);if(u.protocol!=="https:"&&u.protocol!=="http:")return null;return u.href;}catch(e){return null;}
+}
+function showReference(q){
+ const url=referenceFor(q),panel=document.querySelector("#internal .panel");
+ if(!url||!panel||panel.querySelector(".dpi-check-reference"))return;
+ const link=document.createElement("a");
+ link.className="dpi-check-reference";
+ link.href=url;link.target="_blank";link.rel="noopener noreferrer";
+ link.textContent="↗ Checar referência";
+ link.setAttribute("aria-label","Checar referência bibliográfica desta pergunta");
+ link.style.cssText="display:inline-block;font-size:11px;line-height:1.3;opacity:.76;margin:3px 0 9px;text-decoration:underline";
+ const question=panel.querySelector(".question-text,.miniStage > p");
+ if(question)question.insertAdjacentElement("afterend",link);
+}
+const refObserver=new MutationObserver(()=>{
+ const q=(typeof state!=="undefined"&&state.qs&&state.qs[state.i])||window._lgQ||window._tgQ||window._dgQ;
+ showReference(q);
+});
+refObserver.observe(document.body,{childList:true,subtree:true});
+
 // Preserve scientific correctness when varying the position of quiz alternatives.
 const oldRender=window.renderQ;
 if(typeof oldRender==="function")window.renderQ=function(){
