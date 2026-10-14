@@ -28,7 +28,7 @@ function narrate(text,scientific){if(!text||!casualAudio)return;synth.cancel();c
 window.dpiNarrate=function(kind,scientificText){if(kind!=="question"&&kind!=="scientific"&&kind!=="explanation"&&!casualAudio)return;if(kind==="question"||kind==="scientific"){narrate(scientificText,true);return;}if(kind==="explanation"){narrate(scientificText,true);return;}narrate(pickCasual(kind),false);};
 const preferred=()=>{const voices=synth.getVoices().filter(v=>/^pt[-_]BR$/i.test(v.lang));return voices.find(v=>v.name===voiceName)||voices.find(v=>/natural|neural|premium/i.test(v.name))||voices[0]||null;};
 window.dpiReadQuestion=function(){if(!casualAudio)return;
- const el=document.querySelector(".question-text")||document.querySelector(".miniStage > p");
+ const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden");
  if(!el)return;
  synth.cancel();const serial=++speechSerial;
  const utter=new SpeechSynthesisUtterance(el.textContent.trim());utter.lang="pt-BR";utter.rate=0.94;utter.pitch=1;utter.volume=volume;
