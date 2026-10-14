@@ -83,12 +83,8 @@ function syncHomeVoiceButton(){
  toggle.setAttribute("title",casualAudio?"Desativar toda a narração":"Ativar narração");
 }
 try{introSpoken=sessionStorage.getItem("dpi-welcome-spoken")==="1";}catch(e){}
-document.addEventListener("pointerdown",function(ev){
- if(introSpoken||!casualAudio)return;
- if(ev.target.closest("input,select,textarea,#dpi-mic-answer,#dpi-welcome-guide,#dpi-home-voice-toggle"))return;
- const home=document.getElementById("home");
- if(home&&home.classList.contains("on"))welcome();
-});
+// A welcome explanation is spoken only after an explicit tap on the guide button.
+
 const introObserver=new MutationObserver(homeIntro);
 introObserver.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
 homeIntro();
