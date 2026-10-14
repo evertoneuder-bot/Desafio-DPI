@@ -22,6 +22,21 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 .hsl-contacts a:hover{transform:translateY(-2px);background:var(--curso-acento)}
 .hsl-contacts svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:480px){.hsl-brand img{width:98px}.hsl-brand strong{font-size:1rem}.hsl-brand span{font-size:.76rem}}
+
+/* Mascote jurídico e interface vocal, isolados nesta página */
+#hsl-guide{display:flex;gap:14px;align-items:center;margin:14px 0;padding:14px;border:1px solid var(--curso-borda);border-radius:16px;background:#312830}
+#hsl-mascot{position:relative;flex:0 0 92px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;animation:hsl-bob 3s ease-in-out infinite;transform-origin:bottom}
+#hsl-wig{font-size:48px;line-height:42px;filter:drop-shadow(0 1px 3px #0007)}
+#hsl-face{font-size:40px;line-height:37px}
+#hsl-robe{font-size:42px;line-height:38px}
+#hsl-guide.speaking #hsl-mascot{animation:hsl-talk .45s ease-in-out infinite alternate}
+#hsl-dialog{flex:1;min-width:0}
+#hsl-dialog p{margin:4px 0 8px;line-height:1.45}
+#hsl-voice{width:auto;min-width:120px;padding:8px 12px!important;font-size:.9rem}
+@keyframes hsl-bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-5px) rotate(2deg)}}
+@keyframes hsl-talk{from{transform:translateY(0) rotate(-5deg)}to{transform:translateY(-5px) rotate(5deg)}}
+@media(prefers-reduced-motion:reduce){#hsl-mascot,#hsl-guide.speaking #hsl-mascot{animation:none}}
+@media(max-width:500px){#hsl-guide{gap:8px}#hsl-mascot{flex-basis:70px;transform:scale(.8)}#hsl-dialog p{font-size:.88rem}}
 </style></head><body><main><header class="hsl-brand"><img src="https://hsladv.com.br/wp-content/uploads/2026/09/logotipo_transparente1-scaled.png" alt="Helder Soares Advocacia" loading="lazy"><div><strong>Helder Soares Advocacia</strong><span>Clareza · Estratégia · Patrimônio</span></div></header><h1>⚖️ Audiência — EL-X Direito</h1><p class="muted">Prévia experimental · conteúdo editorial em revisão · não substitui orientação jurídica profissional</p>
 <section id="setup"><div class="controls"><label>Modalidade<select id="mode"><option value="quiz">Desafio geral</option><option value="lightning">Minijogo Relâmpago</option><option value="elimination">Minijogo Eliminação</option><option value="plantao">Audiência — simulação criminal (protótipo)</option></select></label><label>Disciplina<select id="area"><option value="todas">Todas as áreas</option></select></label><label>Nível<select id="level"><option value="todos">Misto</option><option value="iniciante">Iniciante</option><option value="intermediario">Intermediário</option><option value="avancado">Avançado</option></select></label><label>Extensão<select id="length"><option value="10">10 perguntas</option><option value="25">25 perguntas</option><option value="50">50 perguntas</option></select></label></div><button id="start">INICIAR DESAFIO</button><p id="setupStatus" role="status"></p></section>
 <section id="stage" hidden><p id="progress" class="stat" role="status"></p><div id="bar" aria-hidden="true"><div id="fill"></div></div><h2 id="question"></h2><div id="choices" role="group" aria-label="Alternativas"></div><div id="feedback" role="status" aria-live="polite"></div><div id="source" aria-label="Fonte da resposta"></div><button id="next" hidden>PRÓXIMA</button><button id="restart">VOLTAR À SELEÇÃO</button></section><p><a href="/">Voltar ao Desafio DPI</a></p></main>
@@ -43,5 +58,47 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
  function answer(i,button){if(locked)return;locked=true;const q=round[index],right="ABCD".indexOf(q.letra_correta),ok=i===right;if(ok)score++;if(plantao)life=Math.max(0,Math.min(100,life+(ok?8:-15)));[...choices.children].forEach((b,j)=>{b.disabled=true;if(j===right)b.classList.add("correct");if(j===i&&!ok)b.classList.add("wrong")});feedback.textContent=(ok?"Correto. ":"Incorreto. ")+"Explicação: a alternativa "+q.letra_correta+" corresponde à resposta esperada segundo "+q.referencia_legal+". "+(plantao?"Pontuação didática de desempenho: "+life+"%. Este indicador não determina prisão ou soltura.":"");const a=document.createElement("a");if(/^https:\/\/(www\.)?planalto\.gov\.br\//.test(q.referencia_url)){a.href=q.referencia_url;a.target="_blank";a.rel="noopener noreferrer";a.textContent="Fonte: "+q.referencia_legal+" — consultar texto legal";source.append(a)}next.hidden=false;next.textContent=life===0&&plantao?"ENCERRAR AUDIÊNCIA":index===round.length-1?"VER RESULTADO":"PRÓXIMA ETAPA"}
  function finish(){progress.textContent=plantao?"Audiência encerrada":"Desafio concluído";question.textContent=plantao?"Audiência simulada concluída — decisão judicial não determinada":"Pontuação final: "+score+" de "+round.length;feedback.textContent="Acertos: "+score+"/"+(index+1)+" · Simulação didática. Prisão ou liberdade dependem de fatos, requisitos legais e decisão judicial fundamentada.";choices.replaceChildren();source.replaceChildren();next.hidden=true}
  next.onclick=()=>{if(!locked)return;if(index===round.length-1||(plantao&&life===0))finish();else{index++;show()}};start.onclick=build;$("restart").onclick=()=>{stage.hidden=true;setup.hidden=false};mode.onchange=()=>{length.disabled=mode.value==="plantao";if(mode.value==="plantao")length.value="10";else if(mode.value!=="quiz")length.value="10"};
+})();
+</script><script>
+(function(){
+"use strict";
+const guide=document.createElement("section");guide.id="hsl-guide";guide.setAttribute("aria-label","Mascote jurídico");
+guide.innerHTML='<div id="hsl-mascot" aria-hidden="true"><span id="hsl-wig">☁️</span><span id="hsl-face">🦉</span><span id="hsl-robe">⚖️</span></div><div id="hsl-dialog"><strong>Conselheiro da Audiência</strong><p id="hsl-speech" aria-live="polite"></p><button type="button" id="hsl-voice" aria-pressed="false">🔇 Ativar voz</button></div>';
+const setup=document.getElementById("setup"),stage=document.getElementById("stage"),mode=document.getElementById("mode");
+setup.parentNode.insertBefore(guide,setup);
+const voice=guide.querySelector("#hsl-voice"),speech=guide.querySelector("#hsl-speech");
+let enabled=false,last="",speaking=false;
+const intros={
+quiz:"Bem-vindo ao EL-X Direito! Escolha área, nível e 10, 25 ou 50 perguntas. Após cada resposta, confira a explicação e a fonte oficial.",
+lightning:"No Relâmpago, responda rapidamente às questões. A explicação e a fonte aparecem após cada escolha.",
+elimination:"Na Eliminação, examine as alternativas e tente manter a sequência de acertos. Consulte a justificativa legal a cada etapa.",
+plantao:"Bem-vindo à Audiência! Você vai enfrentar dez etapas de fundamentação jurídica. Esta prévia ainda não reproduz uma audiência criminal completa nem decide prisão ou liberdade."
+};
+function speak(t){
+ if(!enabled||!("speechSynthesis" in window))return;
+ try{window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="pt-BR";u.rate=.96;u.onstart=()=>guide.classList.add("speaking");u.onend=u.onerror=()=>guide.classList.remove("speaking");window.speechSynthesis.speak(u)}catch(e){guide.classList.remove("speaking")}
+}
+function say(t){if(t===last)return;last=t;speech.textContent=t;speak(t)}
+function greeting(){say(intros[mode.value]||intros.quiz)}
+mode.addEventListener("change",greeting);
+voice.addEventListener("click",()=>{
+ enabled=!enabled;voice.setAttribute("aria-pressed",String(enabled));voice.textContent=enabled?"🔊 Desligar voz":"🔇 Ativar voz";
+ if(!enabled){if("speechSynthesis" in window)window.speechSynthesis.cancel();guide.classList.remove("speaking");say("Até logo! Continue jogando no seu ritmo.");}
+ else{last="";say(stage.hidden?intros[mode.value]:"Estou aqui para acompanhar seu desafio. Leia a pergunta e escolha uma alternativa.");}
+});
+document.getElementById("start").addEventListener("click",()=>{
+ setTimeout(()=>{if(!stage.hidden)say(mode.value==="plantao"?"Audiência iniciada. São dez etapas. Leia os fatos e a fundamentação antes de responder.":"Desafio iniciado! Responda às perguntas e confira a explicação e a fonte abaixo.")},0)
+});
+const feedback=document.getElementById("feedback"),question=document.getElementById("question");
+let previousQuestion="",previousFeedback="";
+const observer=new MutationObserver(()=>{
+ if(stage.hidden)return;
+ const f=feedback.textContent.trim(),q=question.textContent.trim();
+ if(f&&f!==previousFeedback){previousFeedback=f;say(f)}
+ else if(q&&q!==previousQuestion){previousQuestion=q;previousFeedback="";if(enabled)say("Próxima etapa: "+q);else speech.textContent="Escolha uma alternativa. A explicação e a referência aparecerão abaixo."}
+});
+observer.observe(stage,{subtree:true,childList:true,characterData:true});
+document.getElementById("restart").addEventListener("click",()=>{previousQuestion="";previousFeedback="";greeting()});
+greeting();
 })();
 </script></body></html>
