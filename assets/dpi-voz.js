@@ -29,7 +29,7 @@ window.dpiNarrate=function(kind,scientificText){if(kind!=="question"&&kind!=="sc
 const preferred=()=>{const voices=synth.getVoices().filter(v=>/^pt[-_]BR$/i.test(v.lang));return voices.find(v=>v.name===voiceName)||voices.find(v=>/natural|neural|premium/i.test(v.name))||voices[0]||null;};
 window.dpiReadQuestion=function(){if(!casualAudio)return;
  const el=Array.from(document.querySelectorAll(".question-text, .miniStage > p")).find(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=="hidden");
- if(!el)return;
+ if(!el||!el.textContent.trim())return;
  synth.cancel();const serial=++speechSerial;
  const utter=new SpeechSynthesisUtterance(el.textContent.trim());utter.lang="pt-BR";utter.rate=0.94;utter.pitch=1;utter.volume=volume;
  const voice=preferred();if(voice)utter.voice=voice;
