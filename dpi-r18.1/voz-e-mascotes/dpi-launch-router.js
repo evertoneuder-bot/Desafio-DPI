@@ -40,6 +40,7 @@
         .dpi-game-hub__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.dpi-game-hub__card{min-width:0;min-height:100px;display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--hub-line);border-radius:15px;background:linear-gradient(135deg,var(--hub-a),var(--hub-b));color:#fff;text-align:left;cursor:pointer;box-shadow:inset 0 0 14px #ffffff12;transition:filter .18s,transform .18s}.dpi-game-hub__card[data-game-action="quiz"]{--hub-line:#19dd91;--hub-a:#007a56;--hub-b:#005039}.dpi-game-hub__card[data-game-action="challenges"]{--hub-line:#12d1ff;--hub-a:#07578a;--hub-b:#043b67}.dpi-game-hub__card[data-game-action="plantao"]{--hub-line:#d34dff;--hub-a:#63108b;--hub-b:#3c0a68}.dpi-game-hub__card[data-game-action="achievements"]{--hub-line:#ffab29;--hub-a:#9a4a00;--hub-b:#753500}
         .dpi-game-hub__icon{width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;border:1px solid #e2faff;border-radius:11px;background:#021b2a66}.dpi-game-hub__icon svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.dpi-game-hub__copy{min-width:0;display:grid;gap:4px}.dpi-game-hub__copy b{font-size:16px;line-height:1.2}.dpi-game-hub__copy small{color:#e0f1f6;font-size:12px;line-height:1.35}.dpi-game-hub__card:hover,.dpi-game-hub__card:focus-visible{outline:2px solid #f6fdff;outline-offset:1px;filter:brightness(1.12)}.dpi-game-hub__card:active{transform:translateY(1px)}
         .dpi-game-hub__back{display:block;margin:12px auto 0;padding:7px 10px;border:0;background:transparent;color:#a9d3df;font:inherit;font-size:13px;text-decoration:underline;cursor:pointer}
+        .dpi-quick-modes{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 12px;padding:10px 12px;border:1px solid #b5d5df;border-radius:13px;background:#eaf5f7;color:#173b4e}.dpi-quick-modes span{margin-right:auto;font-size:13px;font-weight:750}.dpi-quick-modes button{min-height:38px;padding:7px 13px;border:1px solid #7daebb;border-radius:10px;background:#fff;color:#10415a;font:inherit;font-size:13px;font-weight:700;cursor:pointer}.dpi-quick-modes button:hover,.dpi-quick-modes button:focus-visible{outline:2px solid #0aa7be;outline-offset:1px}
         @media(max-width:600px){.dpi-game-hub{width:calc(100% - 20px);margin:12px auto;padding:13px;border-radius:16px}.dpi-game-hub__grid{gap:8px}.dpi-game-hub__card{min-height:88px;gap:9px;padding:10px}.dpi-game-hub__icon{width:38px;height:38px;flex-basis:38px}.dpi-game-hub__icon svg{width:21px;height:21px}.dpi-game-hub__copy b{font-size:14px}.dpi-game-hub__copy small{font-size:11px}}
         @media(max-width:350px){.dpi-game-hub__grid{grid-template-columns:minmax(0,1fr)}.dpi-game-hub__card{min-height:70px}}
         .dpi-play-app:has(.dpi-case-hud) .dpi-play-heading{display:none!important}
@@ -141,9 +142,9 @@
 
   function startFromPresentation() {
     if (typeof root.prof !== 'function' || typeof root.profile !== 'function') return false;
-    if (root.prof()) { showDpiGameHub(); return true; }
+    if (root.prof()) { root.quizMenu?.(); return true; }
     root.profile();
-    if (root.document.querySelector('#register.on')) root.afterReg = 'dpi-game-hub';
+    if (root.document.querySelector('#register.on')) root.afterReg = 'quiz';
     return true;
   }
   function showDpiGameHub() {
@@ -176,25 +177,38 @@
     return true;
   }
   root.dpiShowGameHub = showDpiGameHub;
+  const originalShell = root.shell;
+  if (typeof originalShell === 'function') {
+    root.shell = function (title, body) {
+      let content = String(body || '');
+      if (String(title) === 'Quiz diagnóstico') {
+        content = `<nav class="dpi-quick-modes" aria-label="Outros modos de jogo"><span>Quer explorar outro modo?</span><button type="button" onclick="challenges()">Desafios</button><button type="button" onclick="launchPlantao()">Plantão DPI</button></nav>${content}`;
+      }
+      const result = originalShell.call(this, title, content);
+      const footerAction = root.document.querySelector?.('.dpi-play-footer .btn.secondary');
+      if (footerAction) footerAction.textContent = '↩ MODOS DE JOGO';
+      return result;
+    };
+  }
   const originalRoute = root.route;
   root.route = function (destination) {
     if (destination === 'dpi-game-hub') return showDpiGameHub();
     if (typeof originalRoute === 'function') return originalRoute.apply(this, arguments);
     return false;
   };
-  function routeStartToGameHubWhenComplete(name) {
+  function routeStartToQuizWhenComplete(name) {
     const original = root[name];
-    if (typeof original !== 'function' || original.__dpiStartHubWrapped) return;
+    if (typeof original !== 'function' || original.__dpiStartQuizWrapped) return;
     const wrapped = function () {
       const result = original.apply(this, arguments);
-      if (!root.document.querySelector('#register.on')) showDpiGameHub();
+      if (!root.document.querySelector('#register.on')) root.quizMenu?.();
       return result;
     };
-    wrapped.__dpiStartHubWrapped = true;
+    wrapped.__dpiStartQuizWrapped = true;
     root[name] = wrapped;
   }
-  routeStartToGameHubWhenComplete('continueAsGuest');
-  routeStartToGameHubWhenComplete('saveProfile');
+  routeStartToQuizWhenComplete('continueAsGuest');
+  routeStartToQuizWhenComplete('saveProfile');
   function openPresentationFeature() {
     if (!['study', 'practice', 'evolve'].includes(presentationFeature)) {
       root.location.assign('../index.html');
