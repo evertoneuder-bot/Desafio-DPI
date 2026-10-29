@@ -61,6 +61,6 @@ A R42.5 mantém as interfaces web e mobile, os jogos, o banco e as fontes da R42
 - A capa mobile preserva a logo original central entre Everton e Fernanda e usa a imagem clínica de radiologia já existente no projeto.
 - A capa não exibe cartões de quiz, desafios, plantão ou conquistas. `COMEÇAR` abre a identificação; depois do cadastro ou da entrada como visitante, abre o menu do jogo.
 - `ESTUDE`, `PRATIQUE` e `EVOLUA` abrem suas funções informativas/demonstrativas. `PRATIQUE` percorre uma questão demonstrativa de cada modalidade, com opção de pular ou desistir. `COMPARTILHE` oferece WhatsApp, e-mail, cópia e compartilhamento nativo quando disponível.
-- A trilha musical permanece desativada; a versão preserva efeitos e voz configurável.
+- A trilha musical permanece desativada. Quando a voz está ativa, a narração usa a voz de servidor aprovada quando disponível e a voz em português do aparelho como fallback, inclusive para ler as questões.
 - Branch de teste: `codex/r42.9-agreed-mobile-20261029`. A R42.8 anterior continua disponível como commit pai.
 - Teste direcionado da nova entrada: 6/6 aprovados. A suíte histórica da R42.8 já contém 7 testes incompatíveis com seu próprio código (ver saída da candidata R42.8); não os apresento como aprovação da R42.9.

@@ -2,6 +2,7 @@
   'use strict';
   const gamePath = './dpi-r18.1/ABRA-ESTA-PREVIA.html';
   const navigate = (mode, feature) => {
+    try { window.localStorage.setItem('dpi-device-voice', '1'); } catch {}
     const url = new URL(gamePath, window.location.href);
     url.searchParams.set('mode', mode);
     url.searchParams.set('return', 'dpi');
