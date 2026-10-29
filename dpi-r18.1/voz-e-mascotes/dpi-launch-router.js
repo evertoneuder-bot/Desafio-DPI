@@ -127,9 +127,74 @@
           .dpi-play-content .dpi-game-panel .option,.dpi-play-content .dpi-game-panel .dpi-case-option{min-height:38px!important;padding:5px 7px!important;font-size:12px!important;line-height:1.2!important}
           .dpi-play-content .dpi-game-panel .muted{display:none!important}
         }
+        /* Phone game shell: keep brand and contact links present while allowing
+           each route to grow naturally and scroll only when its content needs it. */
+        @media(max-width:600px){
+          #elx-conversation>summary{width:48px!important;height:48px!important;min-height:48px!important;justify-content:center!important;gap:0!important;padding:0!important;border:1px solid #5dbfd0!important;border-radius:14px!important;background:#062b43!important;box-shadow:0 5px 16px #00111b99!important}
+          #elx-conversation>summary::before{content:none!important}
+          #elx-conversation .elx-voice-indicator{width:27px!important;height:27px!important;display:grid!important;place-items:center!important}
+          #elx-conversation .elx-voice-indicator svg{width:25px!important;height:25px!important;fill:none!important;stroke:#d9f9ff!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+          #elx-conversation .elx-voice-indicator .speaker-waves{display:block!important}
+          #elx-conversation .elx-voice-indicator .speaker-muted{display:none!important}
+          #elx-conversation>summary[data-voice-enabled="false"] .speaker-waves{display:none!important}
+          #elx-conversation>summary[data-voice-enabled="false"] .speaker-muted{display:block!important;stroke:#ff9385!important}
+          #elx-conversation .elx-voice-label{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+        }
+        @media(min-width:601px){#elx-conversation>summary::before{content:none!important}#elx-conversation .elx-voice-indicator svg{width:24px;height:24px;fill:none;stroke:#d9f9ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}#elx-conversation .speaker-waves{display:block}#elx-conversation .speaker-muted{display:none}#elx-conversation>summary[data-voice-enabled="false"] .speaker-waves{display:none}#elx-conversation>summary[data-voice-enabled="false"] .speaker-muted{display:block;stroke:#ff9385}#elx-conversation .elx-voice-label{display:none!important}}
+          html.dpi-player-route,html.dpi-player-route body{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
+          body.dpi-player-route .app{height:100dvh!important;min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
+          body.dpi-player-route .app>header{position:relative!important;top:auto!important;z-index:30!important;height:52px!important;min-height:52px!important;flex:0 0 52px!important;overflow:visible!important}
+          body.dpi-player-route .app>header .brandbar{height:52px!important;min-height:52px!important}
+          body.dpi-player-route .app>header .utility{display:none!important}
+          body.dpi-player-route .app>footer{position:relative!important;inset:auto!important;z-index:30!important;display:block!important;flex:0 0 auto!important;min-height:56px!important;padding:3px 8px max(4px,env(safe-area-inset-bottom))!important;background:#031a2c!important;border-top:1px solid #08738d!important}
+          body.dpi-player-route .app>footer .footlinks{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;min-height:42px!important}
+          body.dpi-player-route .app>footer .footlinks a{min-height:40px!important;display:flex!important;align-items:center!important;justify-content:center!important}
+          body.dpi-player-route .app>footer>small{display:none!important}
+          body.dpi-player-route .app>main{height:auto!important;min-height:0!important;flex:1 1 auto!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior-y:contain!important;-webkit-overflow-scrolling:touch!important;margin:0!important;padding:0!important}
+          body.dpi-player-route #internal{height:auto!important;min-height:100%!important;overflow:visible!important}
+          body.dpi-player-route #internal.on{display:block!important}
+          .dpi-play-app,.dpi-wordgame-page{height:auto!important;min-height:100%!important;max-height:none!important;overflow:visible!important;display:flex!important;flex-direction:column!important;padding:0 8px 8px!important}
+          .dpi-play-layout,.dpi-wordgame-layout{height:auto!important;min-height:0!important;max-height:none!important;flex:1 0 auto!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:max-content max-content!important;gap:6px!important;padding:0!important;overflow:visible!important}
+          .dpi-play-coach,.dpi-wordgame-coach{position:relative!important;height:68px!important;min-height:68px!important;max-height:68px!important;grid-template-columns:62px minmax(0,1fr)!important;grid-template-rows:1fr!important;align-items:center!important;padding:4px 8px!important;overflow:hidden!important}
+          .dpi-play-content,.dpi-wordgame-main{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important}
+          .dpi-play-content .dpi-game-panel,.dpi-wordgame-main .dpi-game-panel{height:auto!important;max-height:none!important;min-height:0!important;overflow:visible!important;display:flex!important;flex-direction:column!important}
+          body.dpi-voice-off .dpi-play-layout,body.dpi-voice-off .dpi-wordgame-layout{grid-template-rows:max-content!important;gap:0!important;padding-top:0!important}
+          body.dpi-voice-off .dpi-play-coach,body.dpi-voice-off .dpi-wordgame-coach{display:none!important}
+          body.dpi-voice-off .dpi-play-content,body.dpi-voice-off .dpi-wordgame-main{grid-row:1!important;grid-column:1!important;width:100%!important;max-width:none!important}
+          .dpi-play-footer,.dpi-wordgame-footer{display:flex!important}
+        }
       `;
       doc.head.append(style);
     }
+
+    // Replace the status copy in the header with the speaker state icon. Keep
+    // text available to assistive technology through the summary's label.
+    function syncSpeakerIcon() {
+      if (typeof doc.querySelector !== 'function') return;
+      const summary = doc.querySelector('#elx-conversation > summary');
+      const indicator = summary?.querySelector('.elx-voice-indicator');
+      if (!summary || !indicator || typeof doc.createElementNS !== 'function') return;
+      const ns = 'http://www.w3.org/2000/svg';
+      const svg = doc.createElementNS(ns, 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('focusable', 'false');
+      const path = (className, d) => {
+        const node = doc.createElementNS(ns, 'path');
+        node.setAttribute('class', className);
+        node.setAttribute('d', d);
+        return node;
+      };
+      const enabled = !!root.ELXAssistentes?.isEnabled?.();
+      svg.append(path('speaker-body', 'M3.5 9v6h4.2l5.1 4V5l-5.1 4H3.5Z'));
+      svg.append(path('speaker-waves', 'M16 9a5 5 0 0 1 0 6m2.5-9a8.5 8.5 0 0 1 0 12'));
+      svg.append(path('speaker-muted', 'm16 9 5 6m0-6-5 6'));
+      indicator.replaceChildren(svg);
+      summary.dataset.voiceEnabled = String(enabled);
+      summary.title = enabled ? 'Assistente de voz ativado' : 'Assistente de voz desativado';
+      summary.setAttribute('aria-label', enabled ? 'Voz ativada. Abrir assistente de voz' : 'Voz desativada. Abrir assistente de voz');
+    }
+    syncSpeakerIcon();
+    root.addEventListener?.('elx-voice-setting', syncSpeakerIcon);
 
     if (root.__dpiTransientVoiceUiInstalled || typeof doc.querySelector !== 'function') return;
     root.__dpiTransientVoiceUiInstalled = true;

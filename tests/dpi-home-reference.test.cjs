@@ -22,6 +22,9 @@ test('a capa aprovada mantém logo original e mascotes, usa fundo radiográfico 
   assert.match(html, /class="dpi-hero-mascot everton"/);
   assert.match(html, /class="dpi-hero-mascot fernanda"/);
   assert.match(css, /url\("\.\/clinic-background\.webp"\)/);
+  assert.match(css, /\.dpi-app\{height:100dvh;min-height:0;overflow-x:hidden;overflow-y:auto/);
+  assert.match(css, /\.dpi-header\{position:sticky;top:0;z-index:40/);
+  assert.match(css, /\.dpi-footer\{position:sticky;bottom:0;z-index:40/);
   assert.ok(fs.statSync(path.join(root,'assets/clinic-background.webp')).size > 100000);
   assert.doesNotMatch(html, /class="dpi-action (?:quiz|challenges|plantao|achievements)"/);
   assert.match(html, /data-launch="start"/);
