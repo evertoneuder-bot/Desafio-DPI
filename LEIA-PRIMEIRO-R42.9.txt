@@ -2,12 +2,12 @@ EL-X VET — Desafio DPI · R42.9
 
 Candidata de prévia isolada baseada nas decisões recentes.
 
-- O desktop segue a entrada web existente. Apenas celulares com largura CSS até 600 px abrem a capa mobile.
-- A capa mobile preserva a logo oficial e os mascotes, usa a imagem clínica existente e não mostra cartões de jogos antes do botão COMEÇAR.
-- COMEÇAR abre identificação de perfil; depois segue ao menu interno do jogo.
-- ESTUDE, PRATIQUE, EVOLUA e COMPARTILHE são controles funcionais. Pratique percorre uma demonstração de cada modalidade; compartilhar oferece WhatsApp, e-mail, cópia e menu nativo.
-- Música de fundo desativada. Com o assistente de voz ativo, questões são narradas; a voz em português do aparelho serve de fallback se o servidor não estiver disponível.
+- A capa mobile aprovada é a única apresentação de entrada em todas as larguras; a apresentação web duplicada foi removida. O layout se adapta à janela.
+- A capa preserva a logo oficial e Everton e Fernanda, usa o fundo clínico radiográfico e não exibe cartões de jogos antes de COMEÇAR.
+- COMEÇAR abre a identificação de perfil; depois do cadastro ou da entrada como visitante, abre o Quiz. Desafios e Plantão continuam acessíveis no menu interno.
+- ESTUDE, PRATIQUE, EVOLUA e COMPARTILHE são controles funcionais. Pratique percorre uma demonstração de cada modalidade, com opção de pular ou desistir; compartilhar oferece WhatsApp, e-mail, cópia e menu nativo.
+- Música de fundo desativada. Com o assistente de voz ativo, as perguntas e alternativas são narradas; a voz em português do aparelho serve de fallback quando a voz do servidor não está disponível.
 
 Branch de teste: codex/r42.9-agreed-mobile-20261029
-Commit inicial R42.8 preservado como pai da candidata.
-Teste da nova entrada: 6/6 aprovados.
+A R42.8 anterior continua preservada.
+Suíte atual: 85 testes aprovados.
