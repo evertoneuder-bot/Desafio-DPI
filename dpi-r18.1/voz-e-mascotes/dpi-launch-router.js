@@ -179,6 +179,9 @@
         }
       `;
       doc.head.append(style);
+      const micStateStyle = doc.createElement('style');
+      micStateStyle.textContent = '#elx-conversation>summary[data-mic-active="true"]{border-color:#83e348!important;box-shadow:0 0 0 2px #83e348,0 0 18px #83e34866!important}';
+      doc.head.append(micStateStyle);
     }
 
     // Replace the status copy in the header with the speaker state icon. Keep
@@ -199,16 +202,22 @@
         return node;
       };
       const enabled = !!root.ELXAssistentes?.isEnabled?.();
+      const listening = !!root.ELXConversation?.isHandsFreeActive?.();
       svg.append(path('speaker-body', 'M3.5 9v6h4.2l5.1 4V5l-5.1 4H3.5Z'));
       svg.append(path('speaker-waves', 'M16 9a5 5 0 0 1 0 6m2.5-9a8.5 8.5 0 0 1 0 12'));
       svg.append(path('speaker-muted', 'm16 9 5 6m0-6-5 6'));
       indicator.replaceChildren(svg);
       summary.dataset.voiceEnabled = String(enabled);
-      summary.title = enabled ? 'Assistente de voz ativado' : 'Assistente de voz desativado';
-      summary.setAttribute('aria-label', enabled ? 'Voz ativada. Abrir assistente de voz' : 'Voz desativada. Abrir assistente de voz');
+      summary.dataset.micActive = String(listening);
+      summary.title = !enabled ? 'Assistente de voz desativado' : listening ? 'Assistente ativo e ouvindo. Toque para pausar o microfone.' : 'Assistente ativo. Toque para conversar pelo microfone.';
+      summary.setAttribute('aria-label', !enabled ? 'Voz desativada. Abrir controles do assistente' : listening ? 'Voz ativada e microfone ouvindo. Toque para pausar' : 'Voz ativada. Toque para conversar pelo microfone');
     }
+    const conversationHelp = doc.querySelector('#elx-conversation .elx-conversation-panel > p');
+    if (conversationHelp) conversationHelp.textContent = 'Com o microfone ativo, diga sua resposta, por exemplo, “alternativa C”. Também pode pedir uma dica, ouvir a pergunta ou solicitar uma explicação. Se você interromper, eu paro para ouvir.';
     syncSpeakerIcon();
     root.addEventListener?.('elx-voice-setting', syncSpeakerIcon);
+    root.addEventListener?.('elx-handsfree-state', syncSpeakerIcon);
+    root.addEventListener?.('elx-voice-unavailable', syncSpeakerIcon);
 
     if (root.__dpiTransientVoiceUiInstalled || typeof doc.querySelector !== 'function') return;
     root.__dpiTransientVoiceUiInstalled = true;
@@ -224,6 +233,7 @@
       event.preventDefault();
       if (voice.isHandsFreeActive?.()) voice.stopListening?.();
       else voice.open?.({ voice: true });
+      root.setTimeout(syncSpeakerIcon, 80);
     });
 
     let captionTimer = 0;
@@ -276,6 +286,25 @@
     const doc = root.document;
     if (!doc || root.__dpiAnswerDialogObserver || typeof root.MutationObserver !== 'function') return;
     const selector = '.feedback.ok,.feedback.no,.dpi-case-feedback.is-correct,.dpi-case-feedback.is-wrong,.dpi-round-result.is-correct,.dpi-round-result.is-wrong';
+    const speakAnswerFeedback = node => {
+      const assistant = root.ELXAssistentes;
+      if (!assistant?.isEnabled?.() || node.dataset.dpiAnswerSpoken) return;
+      const heading = node.querySelector('strong,b')?.textContent?.trim() || 'Vamos revisar esta resposta.';
+      const paragraphs = [...node.querySelectorAll('p')]
+        .filter(p => !p.classList.contains('muted'))
+        .map(p => String(p.textContent || '').replace(/\s+/g, ' ').trim())
+        .filter(Boolean)
+        .slice(0, 4);
+      const message = [heading, ...paragraphs].join('. ').slice(0, 900);
+      if (!message) return;
+      node.dataset.dpiAnswerSpoken = 'true';
+      root.clearTimeout(root.__dpiAnswerSpeechTimer);
+      root.__dpiAnswerSpeechTimer = root.setTimeout(() => {
+        if (root.ELXAssistentes?.isEnabled?.()) {
+          root.ELXAssistentes.speak(message, root.ELXAssistentes.getPersona?.() || 'male', true);
+        }
+      }, 700);
+    };
     const openFeedback = node => {
       if (!node?.isConnected || node.dataset.dpiDialogOpen || !node.matches(selector)) return;
       node.dataset.dpiDialogOpen = 'true';
@@ -288,13 +317,98 @@
         if (next) next.click(); else { overlay.remove(); node.remove(); }
       });
       card.append(close,node); overlay.append(card); doc.body.append(overlay); close.focus({preventScroll:true});
+      speakAnswerFeedback(node);
     };
     const scan = node => { if (node.nodeType !== 1) return; openFeedback(node); node.querySelectorAll?.(selector).forEach(openFeedback); };
     const observer = new root.MutationObserver(records => records.forEach(record => { scan(record.target); record.addedNodes.forEach(scan); }));
     observer.observe(doc.body,{childList:true,subtree:true}); root.__dpiAnswerDialogObserver = observer;
   }
-  if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', () => { applyApprovedMobileShell(); installAnswerDialog(); }, { once: true });
-  else { applyApprovedMobileShell(); installAnswerDialog(); }
+  function installVoiceAnswerBridge() {
+    if (root.__dpiVoiceAnswerBridgeInstalled) return;
+    const NativeRecognition = root.SpeechRecognition || root.webkitSpeechRecognition;
+    if (typeof NativeRecognition !== 'function') return;
+    const doc = root.document;
+    const canonicalChoice = transcript => {
+      const value = String(transcript || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase().replace(/[.,!?;:]/g, ' ').replace(/\s+/g, ' ').trim();
+      if (/^[abcd]$/.test(value)) return value;
+      const spoken = value.match(/(?:^|\b)(?:alternativa|opcao|letra|resposta(?: correta)?)(?: (?:e|eh|seria))? (?:a )?([abcd])$/);
+      if (spoken) return spoken[1];
+      const action = value.match(/^(?:eu )?(?:escolho|marco|seleciono|respondo|vou de|vou com) (?:a )?(?:alternativa|opcao|letra|resposta(?: correta)?)(?: (?:e|eh|seria))? (?:a )?([abcd])$/);
+      if (action) return action[1];
+      const personal = value.match(/^(?:minha resposta|a resposta(?: correta)?) (?:e|eh|seria) (?:a )?(?:alternativa |opcao |letra )?([abcd])$/);
+      return personal?.[1] || null;
+    };
+    const specialAnswerButton = letter => {
+      const index = letter.charCodeAt(0) - 97;
+      const groups = [
+        '#internal .dpi-case-option:not(:disabled)',
+        '#internal .dpi-target-stage .dpi-target-dot:not(:disabled)',
+        '#internal .dpi-round-options button.dpi-round-option:not(:disabled)'
+      ];
+      for (const selector of groups) {
+        const buttons = [...doc.querySelectorAll(selector)].filter(button => !button.hidden && button.getAttribute('aria-hidden') !== 'true');
+        if (buttons[index]) return buttons[index];
+      }
+      return null;
+    };
+    function VoiceRecognition() {
+      const instance = new NativeRecognition();
+      let handler = null;
+      let attached = false;
+      try {
+        Object.defineProperty(instance, 'onresult', {
+          configurable: true,
+          get: () => handler,
+          set: value => {
+            handler = typeof value === 'function' ? value : null;
+            if (handler && !attached && typeof instance.addEventListener === 'function') {
+              attached = true;
+              instance.addEventListener('result', event => {
+                if (!handler) return;
+                const deferredClicks = [];
+                const results = Array.from(event.results || [], result => {
+                  const original = String(result?.[0]?.transcript || '').trim();
+                  const choice = canonicalChoice(original);
+                  const button = choice && result?.isFinal ? specialAnswerButton(choice) : null;
+                  if (button) deferredClicks.push(button);
+                  return { 0: { transcript: choice ? 'alternativa ' + choice : original }, isFinal: !!result?.isFinal && !button };
+                });
+                const input = doc.getElementById('elx-question');
+                if (input) {
+                  const latest = results[results.length - 1]?.[0]?.transcript;
+                  if (latest) input.value = latest;
+                }
+                handler.call(instance, { resultIndex: Number(event.resultIndex) || 0, results });
+                if (deferredClicks.length) {
+                  root.dispatchEvent(new root.CustomEvent('elx-user-speaking'));
+                  root.dispatchEvent(new root.CustomEvent('elx-user-speech-end'));
+                  root.setTimeout(() => deferredClicks.forEach(button => {
+                    if (button.isConnected && !button.disabled) button.click();
+                  }), 0);
+                }
+              });
+            }
+          }
+        });
+      } catch (error) {
+        root.console?.warn?.('A ponte de respostas por voz não pôde ser instalada.', error);
+        return instance;
+      }
+      return instance;
+    }
+    VoiceRecognition.prototype = NativeRecognition.prototype;
+    try {
+      Object.setPrototypeOf(VoiceRecognition, NativeRecognition);
+      root.SpeechRecognition = VoiceRecognition;
+      if (root.webkitSpeechRecognition === NativeRecognition) root.webkitSpeechRecognition = VoiceRecognition;
+      root.__dpiVoiceAnswerBridgeInstalled = true;
+    } catch (error) {
+      root.console?.warn?.('O navegador não permite adaptar o reconhecimento de respostas.', error);
+    }
+  }
+  if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', () => { applyApprovedMobileShell(); installAnswerDialog(); installVoiceAnswerBridge(); }, { once: true });
+  else { applyApprovedMobileShell(); installAnswerDialog(); installVoiceAnswerBridge(); }
 
   // Windows' cover launch can run inside a browser configuration that blocks
   // new tabs from a loopback address. Library references therefore navigate
