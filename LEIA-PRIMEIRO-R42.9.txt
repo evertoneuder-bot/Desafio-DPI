@@ -1,0 +1,13 @@
+EL-X VET — Desafio DPI · R42.9
+
+Candidata de prévia isolada baseada nas decisões recentes.
+
+- O desktop segue a entrada web existente. Apenas celulares com largura CSS até 600 px abrem a capa mobile.
+- A capa mobile preserva a logo oficial e os mascotes, usa a imagem clínica existente e não mostra cartões de jogos antes do botão COMEÇAR.
+- COMEÇAR abre identificação de perfil; depois segue ao menu interno do jogo.
+- ESTUDE, PRATIQUE, EVOLUA e COMPARTILHE são controles funcionais. Pratique percorre uma demonstração de cada modalidade; compartilhar oferece WhatsApp, e-mail, cópia e menu nativo.
+- Música de fundo desativada.
+
+Branch de teste: codex/r42.9-agreed-mobile-20261029
+Commit inicial R42.8 preservado como pai da candidata.
+Teste da nova entrada: 6/6 aprovados.
