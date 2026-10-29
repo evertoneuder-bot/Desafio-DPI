@@ -6,13 +6,12 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
 
-test('a raiz mantém o carregamento web e direciona automaticamente apenas telefones à capa mobile', () => {
+test('a raiz usa uma única capa e remove a segunda apresentação web duplicada', () => {
   const html = read('index.html');
-  assert.match(html, /matchMedia\('\(max-width: 600px\)'\)/);
+  assert.match(html, /location\.replace\('\/dpi-home\.html'\)/);
+  assert.doesNotMatch(html, /matchMedia\('\(max-width: 600px\)'\)/);
   const hosting = JSON.parse(read('vercel.json'));
   assert.equal((hosting.rewrites || []).some(route => route.source === '/' && route.destination === '/dpi-r18.1/ABRA-ESTA-PREVIA.html'), false);
-  assert.match(html, /location\.replace\('\/dpi-home\.html'\)/);
-  for (const part of ['part01.txt','part02.txt','part08.txt']) assert.ok(html.includes(part));
   assert.ok(fs.existsSync(path.join(root, 'dpi-home.html')));
 });
 
@@ -37,13 +36,16 @@ test('Estude, Pratique, Evolua e Compartilhe são controles clicáveis; Comparti
   assert.match(js, /new URL\('\/', window\.location\.href\)/);
 });
 
-test('o roteador pede cadastro no início, abre Quiz, Desafios e Plantão após a entrada', () => {
+test('a entrada pede perfil e abre o Quiz; Desafios e Plantão ficam acessíveis no menu do jogo', () => {
   const router = read('dpi-r18.1/voz-e-mascotes/dpi-launch-router.js');
   assert.match(router, /start:\s*'startFromPresentation'/);
-  assert.ok(router.includes("root.profile();\n    if (root.document.querySelector('#register.on')) root.afterReg = 'dpi-game-hub';"));
+  assert.ok(router.includes("root.profile();\n    if (root.document.querySelector('#register.on')) root.afterReg = 'quiz';"));
+  assert.match(router, /if \(root\.prof\(\)\) \{ root\.quizMenu\?\.\(\); return true; \}/);
   for (const mode of ['quiz', 'challenges', 'plantao', 'achievements']) assert.match(router, new RegExp(`data-game-action="${mode}"`));
-  assert.match(router, /routeStartToGameHubWhenComplete\('continueAsGuest'\)/);
-  assert.match(router, /routeStartToGameHubWhenComplete\('saveProfile'\)/);
+  assert.match(router, /routeStartToQuizWhenComplete\('continueAsGuest'\)/);
+  assert.match(router, /routeStartToQuizWhenComplete\('saveProfile'\)/);
+  assert.match(router, /onclick="challenges\(\)"\>Desafios/);
+  assert.match(router, /onclick="launchPlantao\(\)"\>Plantão DPI/);
   assert.match(router, /background-image:url\('\/assets\/marca-elx-oficial-escura\.png'\)!important/);
   assert.match(router, /feature:\s*'openPresentationFeature'/);
   assert.match(router, /root\.location\.assign\('\.\.\/index\.html'\)/);
@@ -67,12 +69,13 @@ test('o clique de Começar abre a rota de identificação, não começa direto u
 
 test('a rota start configura a identificação e a rota de recurso abre a função apropriada', () => {
   const source = read('dpi-r18.1/voz-e-mascotes/dpi-launch-router.js');
-  function contextFor(search) {
+  function contextFor(search, hasProfile = false) {
     const classes = new Set();
     const assigned = [];
     let registrationOpen = false;
     let homeOpened = false;
     let featureOpened = '';
+    let quizOpened = false;
     const internal = { classList: { add() {}, remove() {} }, addEventListener() {}, innerHTML: '' };
     const root = {
       URLSearchParams,
@@ -91,24 +94,26 @@ test('a rota start configura a identificação e a rota de recurso abre a funç�
       profile() { registrationOpen = true; },
       continueAsGuest() { registrationOpen = false; },
       saveProfile() { registrationOpen = false; },
-      prof() { return null; },
+      quizMenu() { quizOpened = true; },
+      prof() { return hasProfile ? { name: 'Teste' } : null; },
       showHome() { homeOpened = true; },
       dpiFeatureDialog(kind) { featureOpened = kind; },
       dpiCloseFeatureDialog() {},
     };
     root.window = root;
     vm.runInNewContext(source, root);
-    return { root, classes, assigned, get homeOpened() { return homeOpened; }, get featureOpened() { return featureOpened; } };
+    return { root, classes, assigned, get homeOpened() { return homeOpened; }, get featureOpened() { return featureOpened; }, get quizOpened() { return quizOpened; }, get registrationOpen() { return registrationOpen; } };
   }
   const start = contextFor('?mode=start&return=dpi');
-  assert.equal(start.root.afterReg, 'dpi-game-hub');
+  assert.equal(start.root.afterReg, 'quiz');
+  assert.equal(start.registrationOpen, true);
   start.root.continueAsGuest();
-  const hub = start.root.document.getElementById('internal').innerHTML;
-  assert.match(hub, /Quiz diagnóstico/);
-  assert.match(hub, /Desafios/);
-  assert.match(hub, /Plantão DPI/);
+  assert.equal(start.quizOpened, true);
   assert.equal(start.homeOpened, false);
   assert.equal(start.classes.has('dpi-route-pending'), false);
+  const returning = contextFor('?mode=start&return=dpi', true);
+  assert.equal(returning.quizOpened, true);
+  assert.equal(returning.registrationOpen, false);
   const feature = contextFor('?mode=feature&feature=evolve&return=dpi');
   assert.equal(feature.featureOpened, 'evolve');
   feature.root.dpiCloseFeatureDialog();
