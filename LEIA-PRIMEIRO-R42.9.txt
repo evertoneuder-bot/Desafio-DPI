@@ -5,9 +5,11 @@ Candidata de prévia isolada baseada nas decisões recentes.
 - A capa mobile aprovada é a única apresentação de entrada em todas as larguras; a apresentação web duplicada foi removida. O layout se adapta à janela.
 - A capa preserva a logo oficial e Everton e Fernanda, usa o fundo clínico radiográfico e não exibe cartões de jogos antes de COMEÇAR.
 - COMEÇAR abre a identificação de perfil; depois do cadastro ou da entrada como visitante, abre o Quiz. Desafios e Plantão continuam acessíveis no menu interno.
-- ESTUDE, PRATIQUE, EVOLUA e COMPARTILHE são controles funcionais. Pratique percorre uma demonstração de cada modalidade, com opção de pular ou desistir; compartilhar oferece WhatsApp, e-mail, cópia e menu nativo.
+- ESTUDE, PRATIQUE, EVOLUA e COMPARTILHE são controles funcionais. Pratique percorre uma demonstração de cada modalidade; compartilhar oferece WhatsApp, e-mail, cópia e menu nativo.
 - Música de fundo desativada. Com o assistente de voz ativo, as perguntas e alternativas são narradas; a voz em português do aparelho serve de fallback quando a voz do servidor não está disponível.
+- A tela mobile de jogo usa um cabeçalho compacto sem controles duplicados, evita rolagem da página e mantém os mascotes visíveis durante o uso do assistente.
+- Corrigido o escopo dos auxiliares chamados pela narração de perguntas. A implantação passou sem erros de JavaScript; a reprodução audível deve ser confirmada no aparelho.
 
 Branch de teste: codex/r42.9-agreed-mobile-20261029
-A R42.8 anterior continua preservada.
-Suíte atual: 85 testes aprovados.
+Commit inicial R42.8 preservado como pai da candidata.
+Suíte atual: 87 testes aprovados.
