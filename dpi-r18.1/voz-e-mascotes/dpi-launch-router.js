@@ -10,9 +10,12 @@
     settings: 'settings',
     ranking: 'ranking',
     bank: 'bankView',
-    achievements: 'achievements'
+    achievements: 'achievements',
+    start: 'startFromPresentation',
+    feature: 'openPresentationFeature'
   };
   const returningToDpiCover = params.get('return') === 'dpi';
+  const presentationFeature = params.get('feature');
 
   // Keep the approved bibliography label visible in the legacy game shell
   // while the main cover and game are being converged on the shared design.
@@ -128,11 +131,33 @@
   if (!mode || !Object.prototype.hasOwnProperty.call(actions, mode)) return;
   root.document.documentElement.classList.add('dpi-route-pending');
 
-  const originalShowHome = root.showHome;
-  if (returningToDpiCover && typeof originalShowHome === 'function') {
-    root.showHome = function () {
-      root.location.assign('../dpi-home.html');
+  function startFromPresentation() {
+    if (typeof root.prof !== 'function' || typeof root.profile !== 'function') return false;
+    if (root.prof()) { root.showHome(); return true; }
+    root.profile();
+    if (root.document.querySelector('#register.on')) root.afterReg = 'home';
+    return true;
+  }
+  function openPresentationFeature() {
+    if (!['study', 'practice', 'evolve'].includes(presentationFeature)) {
+      root.location.assign('../index.html');
+      return true;
+    }
+    root.dpiFeatureDialog(presentationFeature);
+    return true;
+  }
+  root.startFromPresentation = startFromPresentation;
+  root.openPresentationFeature = openPresentationFeature;
+  const originalCloseFeature = root.dpiCloseFeatureDialog;
+  if (mode === 'feature' && returningToDpiCover && typeof originalCloseFeature === 'function') {
+    root.dpiCloseFeatureDialog = function () {
+      originalCloseFeature.apply(this, arguments);
+      root.location.assign('../index.html');
     };
+  }
+  const originalShowHome = root.showHome;
+  if (returningToDpiCover && mode !== 'start' && typeof originalShowHome === 'function') {
+    root.showHome = function () { root.location.assign('../index.html'); };
   }
 
   function ensurePlantaoScreen() {

@@ -1,0 +1,99 @@
+:root{color-scheme:dark;--navy:#031a2c;--panel:#062c43;--cyan:#11d5ff;--lime:#a0f02d;--ink:#f4fbff;--muted:#b1ceda;font:500 14px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{min-height:100%;background:#021624;scroll-behavior:smooth}
+body{min-height:100vh;margin:0;padding:10px;display:flex;justify-content:center;align-items:flex-start;background:radial-gradient(ellipse at 50% 0,#07374d 0,#031a2b 54%,#01101c 100%);color:var(--ink);overflow-x:hidden}
+button,a{font:inherit;-webkit-tap-highlight-color:transparent}
+.dpi-app{position:relative;width:min(100%,390px);min-height:700px;margin:0 auto;overflow:hidden;border:1px solid #087f9c;border-radius:19px;background:#031a2c;box-shadow:0 0 0 2px #13d7ff18,0 0 27px #00bce53b,inset 0 0 26px #0bb9e814}
+.dpi-header{position:relative;z-index:4;height:82px;background:linear-gradient(110deg,#031d31,#06334a 72%,#032337);border-bottom:1px solid #087a98;box-shadow:0 5px 16px #00111d99}
+.dpi-brand-row{height:56px;display:flex;align-items:center;padding:0 8px;border-bottom:1px solid #08748f}
+.dpi-close{width:31px;height:30px;display:grid;place-items:center;margin-right:7px;border-radius:7px;color:#dff8ff;text-decoration:none;font-size:25px;line-height:1}
+.dpi-close:hover,.dpi-close:focus-visible{outline:2px solid var(--cyan);background:#0b5670}
+.dpi-brand{display:flex;align-items:center;gap:6px;color:var(--ink);text-decoration:none}
+.dpi-brand img{width:72px;height:49px;object-fit:contain;filter:drop-shadow(0 0 5px #20d9ff55)}
+.dpi-brand small{display:block;margin-top:2px;color:#9feaff;font-size:7px;font-weight:800;letter-spacing:.17em}
+.dpi-tools{height:40px;display:grid;grid-template-columns:repeat(4,1fr)}
+.dpi-tools button{min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;padding:3px 1px;border:0;border-right:1px solid #0a5971;background:transparent;color:#e7f7fc;cursor:pointer}
+.dpi-tools button:last-child{border-right:0}
+.dpi-tools svg{width:15px;height:15px;fill:none;stroke:#36d7fa;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.dpi-tools button:first-child svg{stroke:#e451ee}.dpi-tools button:nth-child(2) svg{stroke:#34dfff}.dpi-tools button:nth-child(3) svg{stroke:#ffb431}.dpi-tools button:nth-child(4) svg{stroke:#c056ff}
+.dpi-tools span{font-size:7px;font-weight:900;letter-spacing:.055em;white-space:nowrap}
+.dpi-tools button:hover,.dpi-tools button:focus-visible{outline:1px solid #a1f63b;outline-offset:-2px;background:#0b587366}
+.dpi-hero{position:relative;min-height:330px;isolation:isolate;display:flex;flex-direction:column;align-items:center;overflow:hidden;padding:14px 12px 12px;background:linear-gradient(180deg,#031a2c66 0%,#031a2c45 48%,#031a2ccc 100%),url("./clinic-background.webp") center 48%/cover no-repeat}
+.dpi-hero:before{content:none}
+.dpi-hero:after{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse at center,#0a587044 0,transparent 70%)}
+.dpi-tagline{position:relative;z-index:2;margin:0;color:#dffaff;font-size:clamp(12px,1.2vw,15px);font-weight:850;letter-spacing:.08em;text-align:center;text-shadow:0 0 8px #15c9ff}
+.dpi-hero-scene{position:relative;z-index:1;width:min(100%,860px);height:236px;display:grid;grid-template-columns:minmax(0,1fr) minmax(144px,190px) minmax(0,1fr);align-items:center;justify-items:center}
+.dpi-hero-mascot{width:auto;aspect-ratio:.6;height:220px;justify-self:center;background-image:url("../dpi-r18.1/voz-e-mascotes/mascotes-radioprotecao-aprovados.png");background-repeat:no-repeat;background-size:auto 100%;filter:drop-shadow(0 10px 10px #00111b88);animation:mascot-arrive .55s ease-out both,mascot-bob 4.2s ease-in-out .55s infinite;will-change:transform}
+.dpi-hero-mascot.everton{background-position:left center;transform-origin:bottom right}
+.dpi-hero-mascot.fernanda{background-position:right center;animation-delay:.12s,1s;transform-origin:bottom left}
+.dpi-emblem{width:100%;display:flex;align-items:center;justify-content:center;margin:0;text-align:center}
+.dpi-emblem img{display:block;width:min(100%,190px);height:auto;aspect-ratio:1259/848;object-fit:contain;filter:drop-shadow(0 0 11px #52f22a55)}
+.dpi-hero h1{position:relative;margin:2px 0 0;display:flex;flex-direction:column;align-items:center;text-align:center;font-style:italic;line-height:.98;letter-spacing:.07em;text-shadow:0 0 8px #22d8ff}
+.dpi-hero h1 span{color:#f1fcff;font-size:16px;font-weight:900}
+.dpi-hero h1 strong{margin-top:4px;color:var(--lime);font-size:25px;font-weight:950;text-shadow:0 0 9px #94eb3877,0 2px 3px #031725}
+.dpi-values{min-height:58px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;border-block:1px solid #0a6a82;background:linear-gradient(90deg,#052438,#073d51 50%,#052438)}
+.dpi-values button{min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;border:0;border-right:1px solid #0a5971;background:transparent;color:#8edff1;cursor:pointer;font:inherit;font-size:11px;font-weight:900;letter-spacing:.055em}.dpi-values button:last-child{border-right:0}.dpi-values button:hover,.dpi-values button:focus-visible{outline:2px solid var(--lime);outline-offset:-3px;background:#0b587366}.dpi-values button span{white-space:nowrap}
+.dpi-values button{color:#8edff1}
+.dpi-values svg{width:23px;height:23px;fill:none;stroke:#45dff9;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 4px currentColor)}
+.dpi-values button:nth-child(2){color:#ff963d}.dpi-values button:nth-child(2) svg{stroke:#ff963d}.dpi-values button:nth-child(3){color:#df4de8}.dpi-values button:nth-child(3) svg{stroke:#df4de8}.dpi-values button:nth-child(4){color:var(--lime)}.dpi-values button:nth-child(4) svg{stroke:var(--lime)}
+.dpi-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:9px 10px 10px;background:linear-gradient(180deg,#031a2c,#052438)}
+.dpi-action{position:relative;min-width:0;height:82px;display:flex;align-items:flex-start;gap:9px;padding:9px 8px;border:1px solid var(--action-line);border-radius:15px;background:linear-gradient(135deg,var(--action-a),var(--action-b));color:#fff;text-align:left;cursor:pointer;box-shadow:inset 0 0 14px #ffffff12,0 4px 10px #00111b88;transition:filter .18s,box-shadow .18s}
+.dpi-action.quiz{--action-line:#19dd91;--action-a:#007a56;--action-b:#005039}.dpi-action.challenges{--action-line:#12d1ff;--action-a:#07578a;--action-b:#043b67}.dpi-action.plantao{--action-line:#d34dff;--action-a:#63108b;--action-b:#3c0a68}.dpi-action.achievements{--action-line:#ffab29;--action-a:#9a4a00;--action-b:#753500}
+.action-icon{width:37px;height:37px;flex:0 0 37px;display:grid;place-items:center;border:1px solid #e2faff;border-radius:9px;background:#021b2a66;box-shadow:0 0 9px #d2faff44}
+.action-icon svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dpi-action>span:last-child{display:flex;flex-direction:column;min-width:0;padding-top:4px}
+.dpi-action b{font-size:10px;line-height:1.18;font-weight:950;letter-spacing:.015em}
+.dpi-action small{margin-top:4px;color:#e0f1f6;font-size:6px;line-height:1.25;font-weight:800;letter-spacing:.055em}
+.dpi-action:hover,.dpi-action:focus-visible{filter:brightness(1.12);box-shadow:0 0 0 2px #f6fdff,0 0 16px var(--action-line);outline:0}
+.dpi-action:active{transform:translateY(1px)}
+.dpi-footer{display:grid;grid-template-columns:repeat(2,1fr);padding:0 9px 9px;border-top:1px solid #08738d;background:#031a2c}
+.dpi-footer>a{min-width:0;height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #0b6580;color:#eafaff;text-decoration:none}
+.dpi-footer>a:first-child{border-radius:12px 0 0 12px}.dpi-footer>a:nth-child(2){border-radius:0 12px 12px 0}
+.dpi-footer>a svg{width:20px;height:20px;flex:0 0 auto;fill:none;stroke:#26ed86;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dpi-footer>a:nth-child(2) svg{stroke:#32d9ff}
+.dpi-footer b{display:block;font-size:7px;font-weight:950;letter-spacing:.08em}.dpi-footer small{display:block;margin-top:2px;color:#a8c9d4;font-size:6px;letter-spacing:.07em}
+.dpi-footer>a:hover,.dpi-footer>a:focus-visible{background:#07516a;outline:2px solid white;outline-offset:-2px}
+.dpi-legal{grid-column:1/-1;margin:7px 0 0;color:#80a5b1;font-size:5px;letter-spacing:.12em;text-align:center}
+@media(min-width:700px){body{min-height:100vh;align-items:center;padding:24px}.dpi-app{min-height:0}.dpi-hero{min-height:354px}.dpi-hero-scene{height:258px}.dpi-hero-mascot{height:240px}.dpi-emblem img{width:min(100%,190px)}.dpi-actions{gap:9px;padding:10px 12px 12px}.dpi-action{height:88px}}
+@media(max-width:360px){body{padding:0}.dpi-app{width:100%;min-height:100dvh;border-radius:0;border-inline:0}.dpi-hero{min-height:300px}.dpi-hero-scene{height:205px;grid-template-columns:minmax(0,1fr) minmax(112px,132px) minmax(0,1fr)}.dpi-hero-mascot{height:178px}.dpi-emblem img{width:min(100%,132px)}.dpi-hero h1{margin-top:2px}.dpi-action{height:78px;padding:8px 6px;gap:7px}.action-icon{width:34px;height:34px;flex-basis:34px}.dpi-action b{font-size:9px}.dpi-footer>a{gap:5px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* R42 phone adaptation; the approved wider web composition remains unchanged. */
+@media screen and (max-width:600px){
+  :root{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{padding:0;font-size:16px;line-height:1.45}
+  .dpi-app{width:100%;max-width:100%;min-height:100svh;border-radius:0;border-inline:0}
+  .dpi-header{height:auto;min-height:82px}
+  .dpi-brand-row{height:60px;min-height:60px}
+  .dpi-brand img{width:79px;height:54px}
+  .dpi-tools{height:auto;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dpi-tools button{min-height:52px;gap:4px}
+  .dpi-tools svg{width:20px;height:20px}
+  .dpi-tools span{font-size:11px}
+  .dpi-hero{height:auto;min-height:310px;padding:14px 12px 16px}
+  .dpi-tagline{font-size:clamp(11px,3.3vw,13px);letter-spacing:.04em}
+  .dpi-hero-scene{height:220px;grid-template-columns:minmax(0,1fr) minmax(132px,176px) minmax(0,1fr)}
+  .dpi-hero-mascot{height:clamp(148px,47vw,186px)}
+  .dpi-emblem img{width:min(100%,176px)}
+  .dpi-hero h1{margin-top:0}
+  .dpi-hero h1 span{font-size:clamp(17px,5vw,22px)}
+  .dpi-hero h1 strong{font-size:clamp(25px,7.5vw,34px)}
+  .dpi-values{height:auto;min-height:60px}
+  .dpi-values span{gap:3px;font-size:11px}
+  .dpi-values svg{width:23px;height:23px}
+  .dpi-actions{grid-template-columns:minmax(0,1fr);gap:8px;padding:10px}
+  .dpi-action{height:auto;min-height:68px;align-items:center;padding:10px;gap:11px}
+  .action-icon{width:42px;height:42px;flex-basis:42px}
+  .action-icon svg{width:24px;height:24px}
+  .dpi-action>span:last-child{padding-top:0}
+  .dpi-action b{font-size:15px;line-height:1.25}
+  .dpi-action small{font-size:12px;line-height:1.35;letter-spacing:0}
+  .dpi-footer{grid-template-columns:minmax(0,1fr);gap:7px;padding:8px}
+  .dpi-footer>a,.dpi-footer>a:first-child,.dpi-footer>a:nth-child(2){min-height:48px;height:auto;border-radius:11px}
+  .dpi-footer b{font-size:12px}.dpi-footer small{font-size:11px}.dpi-legal{font-size:10px;line-height:1.35}
+}
+@keyframes mascot-arrive{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+@keyframes mascot-bob{0%,100%{translate:0 0}50%{translate:0 -4px}}
+
+.dpi-start-section{display:grid;gap:8px;padding:14px 12px;background:linear-gradient(180deg,#031a2c,#052438);text-align:center}.dpi-start-section p{margin:0;color:var(--muted);font-size:12px}.dpi-start{width:100%;min-height:54px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid #20dc92;border-radius:14px;background:linear-gradient(100deg,#087b61,#04a977);color:#fff;font-weight:950;letter-spacing:.08em;cursor:pointer;box-shadow:0 4px 16px #05a86d44}.dpi-start b{font-size:20px}.dpi-start:hover,.dpi-start:focus-visible{outline:2px solid #eafff5;outline-offset:2px;filter:brightness(1.1)}.dpi-share-dialog{width:min(92vw,420px);border:1px solid #83d5e6;border-radius:20px;background:#f3fbfc;color:#15374a;padding:24px;box-shadow:0 20px 80px #00121dcc}.dpi-share-dialog::backdrop{background:#00101cc9;backdrop-filter:blur(5px)}.dpi-share-close{float:right;width:40px;height:40px;border:1px solid #aacbd4;border-radius:50%;background:#fff;color:#173a4c;font-size:26px;cursor:pointer}.dpi-share-dialog h2{font-size:22px}.dpi-share-options{display:grid;gap:10px}.dpi-share-options a,.dpi-share-options button{display:block;padding:14px;border:1px solid #9fc3cf;border-radius:11px;background:#fff;color:#113b50;text-decoration:none;text-align:center;font:inherit;font-weight:750;cursor:pointer}
+@media screen and (max-width:600px){.dpi-values{min-height:66px}.dpi-values button{font-size:10px}.dpi-start-section{padding:12px 10px}.dpi-start{min-height:52px}}
