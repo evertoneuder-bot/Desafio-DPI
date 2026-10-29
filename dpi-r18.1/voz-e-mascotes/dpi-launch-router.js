@@ -274,6 +274,28 @@
     return true;
   }
   root.dpiModeMenu = showDpiModeMenu;
+  // The game keeps afterReg in a lexical let, so setting window.afterReg cannot
+  // redirect the original guest/profile callbacks. Show the mode menu after
+  // either identity path closes successfully.
+  const showMenuAfterIdentity = () => {
+    if (mode === 'start' && !root.document.querySelector('#register.on')) showDpiModeMenu();
+  };
+  const originalContinueAsGuest = root.continueAsGuest;
+  if (typeof originalContinueAsGuest === 'function') {
+    root.continueAsGuest = function () {
+      const result = originalContinueAsGuest.apply(this, arguments);
+      showMenuAfterIdentity();
+      return result;
+    };
+  }
+  const originalSaveProfile = root.saveProfile;
+  if (typeof originalSaveProfile === 'function') {
+    root.saveProfile = function () {
+      const result = originalSaveProfile.apply(this, arguments);
+      if (typeof root.prof === 'function' && root.prof()) showMenuAfterIdentity();
+      return result;
+    };
+  }
   const originalRoute = root.route;
   if (typeof originalRoute === 'function') {
     root.route = function (destination) {
