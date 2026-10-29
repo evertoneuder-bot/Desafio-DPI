@@ -35,6 +35,7 @@
       style.textContent = `
         @media(max-width:640px){.utility{grid-template-columns:repeat(2,minmax(0,1fr))!important;height:auto!important}.utility button{min-height:46px!important;font-size:10px!important;padding:5px 3px!important}.utility b{display:inline-block!important;margin:0 5px 0 0!important;vertical-align:middle!important;font-size:16px!important}}
         html.dpi-start-route #home{display:none!important}
+        .dpi-siren-interstitial{width:auto!important;overflow:hidden!important}
         .elx-logo-mark{background-image:url('/assets/marca-elx-oficial-escura.png')!important;background-size:125px auto!important;background-position:center top!important;background-repeat:no-repeat!important}
         .dpi-game-hub{width:min(100% - 24px,980px);margin:clamp(14px,3vw,28px) auto;padding:clamp(14px,2.5vw,24px);border:1px solid #16718a;border-radius:20px;background:linear-gradient(145deg,#062d45,#031a2c 70%);box-shadow:0 14px 32px #00111b66;color:#f4fbff}
         .dpi-game-hub__intro{margin:0 0 14px}.dpi-game-hub__eyebrow{margin:0 0 5px;color:#79d9ea;font-size:11px;font-weight:900;letter-spacing:.14em}.dpi-game-hub__intro h2{margin:0;color:#f5fbff;font-size:clamp(21px,3.4vw,30px);line-height:1.2}.dpi-game-hub__intro p:last-child{margin:7px 0 0;color:#b5d1dc;font-size:14px;line-height:1.4}
