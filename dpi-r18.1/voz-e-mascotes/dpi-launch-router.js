@@ -34,6 +34,14 @@
       style.id = 'dpi-approved-mobile-shell';
       style.textContent = `
         @media(max-width:640px){.utility{grid-template-columns:repeat(2,minmax(0,1fr))!important;height:auto!important}.utility button{min-height:46px!important;font-size:10px!important;padding:5px 3px!important}.utility b{display:inline-block!important;margin:0 5px 0 0!important;vertical-align:middle!important;font-size:16px!important}}
+        .elx-logo-mark{background-image:url('/assets/marca-elx-oficial-escura.png')!important;background-size:125px auto!important;background-position:center top!important;background-repeat:no-repeat!important}
+        .dpi-game-hub{width:min(100% - 24px,980px);margin:clamp(14px,3vw,28px) auto;padding:clamp(14px,2.5vw,24px);border:1px solid #16718a;border-radius:20px;background:linear-gradient(145deg,#062d45,#031a2c 70%);box-shadow:0 14px 32px #00111b66;color:#f4fbff}
+        .dpi-game-hub__intro{margin:0 0 14px}.dpi-game-hub__eyebrow{margin:0 0 5px;color:#79d9ea;font-size:11px;font-weight:900;letter-spacing:.14em}.dpi-game-hub__intro h2{margin:0;color:#f5fbff;font-size:clamp(21px,3.4vw,30px);line-height:1.2}.dpi-game-hub__intro p:last-child{margin:7px 0 0;color:#b5d1dc;font-size:14px;line-height:1.4}
+        .dpi-game-hub__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.dpi-game-hub__card{min-width:0;min-height:100px;display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--hub-line);border-radius:15px;background:linear-gradient(135deg,var(--hub-a),var(--hub-b));color:#fff;text-align:left;cursor:pointer;box-shadow:inset 0 0 14px #ffffff12;transition:filter .18s,transform .18s}.dpi-game-hub__card[data-game-action="quiz"]{--hub-line:#19dd91;--hub-a:#007a56;--hub-b:#005039}.dpi-game-hub__card[data-game-action="challenges"]{--hub-line:#12d1ff;--hub-a:#07578a;--hub-b:#043b67}.dpi-game-hub__card[data-game-action="plantao"]{--hub-line:#d34dff;--hub-a:#63108b;--hub-b:#3c0a68}.dpi-game-hub__card[data-game-action="achievements"]{--hub-line:#ffab29;--hub-a:#9a4a00;--hub-b:#753500}
+        .dpi-game-hub__icon{width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;border:1px solid #e2faff;border-radius:11px;background:#021b2a66}.dpi-game-hub__icon svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.dpi-game-hub__copy{min-width:0;display:grid;gap:4px}.dpi-game-hub__copy b{font-size:16px;line-height:1.2}.dpi-game-hub__copy small{color:#e0f1f6;font-size:12px;line-height:1.35}.dpi-game-hub__card:hover,.dpi-game-hub__card:focus-visible{outline:2px solid #f6fdff;outline-offset:1px;filter:brightness(1.12)}.dpi-game-hub__card:active{transform:translateY(1px)}
+        .dpi-game-hub__back{display:block;margin:12px auto 0;padding:7px 10px;border:0;background:transparent;color:#a9d3df;font:inherit;font-size:13px;text-decoration:underline;cursor:pointer}
+        @media(max-width:600px){.dpi-game-hub{width:calc(100% - 20px);margin:12px auto;padding:13px;border-radius:16px}.dpi-game-hub__grid{gap:8px}.dpi-game-hub__card{min-height:88px;gap:9px;padding:10px}.dpi-game-hub__icon{width:38px;height:38px;flex-basis:38px}.dpi-game-hub__icon svg{width:21px;height:21px}.dpi-game-hub__copy b{font-size:14px}.dpi-game-hub__copy small{font-size:11px}}
+        @media(max-width:350px){.dpi-game-hub__grid{grid-template-columns:minmax(0,1fr)}.dpi-game-hub__card{min-height:70px}}
         .dpi-play-app:has(.dpi-case-hud) .dpi-play-heading{display:none!important}
         .dpi-play-app:has(.dpi-case-hud) .dpi-play-topbar{grid-template-columns:minmax(0,1fr) auto!important;gap:8px!important}
         .dpi-play-app:has(.dpi-case-hud) .dpi-play-brand{grid-column:1!important;grid-row:1!important}
@@ -133,11 +141,60 @@
 
   function startFromPresentation() {
     if (typeof root.prof !== 'function' || typeof root.profile !== 'function') return false;
-    if (root.prof()) { root.showHome(); return true; }
+    if (root.prof()) { showDpiGameHub(); return true; }
     root.profile();
-    if (root.document.querySelector('#register.on')) root.afterReg = 'home';
+    if (root.document.querySelector('#register.on')) root.afterReg = 'dpi-game-hub';
     return true;
   }
+  function showDpiGameHub() {
+    const doc = root.document;
+    const internal = doc.getElementById?.('internal');
+    if (!internal) return false;
+    doc.getElementById?.('home')?.classList.remove('on');
+    internal.classList.add('on');
+    internal.innerHTML = `<section class="dpi-game-hub" aria-labelledby="dpi-game-hub-title">
+      <header class="dpi-game-hub__intro"><p class="dpi-game-hub__eyebrow">EL-X VET · DESAFIO DPI</p><h2 id="dpi-game-hub-title">Escolha como quer jogar</h2><p>Quiz para estudar, desafios para praticar e Plantão para conduzir casos.</p></header>
+      <div class="dpi-game-hub__grid" aria-label="Modos de jogo">
+        <button class="dpi-game-hub__card" type="button" data-game-action="quiz"><span class="dpi-game-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg></span><span class="dpi-game-hub__copy"><b>Quiz diagnóstico</b><small>Questões do banco DPI, em rodadas de 10, 25 ou 50.</small></span></button>
+        <button class="dpi-game-hub__card" type="button" data-game-action="challenges"><span class="dpi-game-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></span><span class="dpi-game-hub__copy"><b>Desafios</b><small>Entre nos sete formatos de minijogos.</small></span></button>
+        <button class="dpi-game-hub__card" type="button" data-game-action="plantao"><span class="dpi-game-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-8-4.7-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.3-8 11-8 11Z"/><path d="M12 9v6m-3-3h6"/></svg></span><span class="dpi-game-hub__copy"><b>Plantão DPI</b><small>Casos encadeados, decisões e vitalidade do paciente.</small></span></button>
+        <button class="dpi-game-hub__card" type="button" data-game-action="achievements"><span class="dpi-game-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4ZM8 6H4v2a4 4 0 0 0 4 4m8-6h4v2a4 4 0 0 1-4 4m-4 1v4m-4 3h8m-7-3h6l2 3H7l2-3Z"/></svg></span><span class="dpi-game-hub__copy"><b>Minhas conquistas</b><small>Acompanhe pontuação, ranking e progresso.</small></span></button>
+      </div><button class="dpi-game-hub__back" type="button" data-game-action="presentation">Voltar à apresentação</button>
+    </section>`;
+    if (!root.__dpiGameHubClickInstalled) {
+      root.__dpiGameHubClickInstalled = true;
+      internal.addEventListener('click', event => {
+        const button = event.target?.closest?.('[data-game-action]');
+        if (!button) return;
+        const destination = button.dataset.gameAction;
+        if (destination === 'presentation') { root.location.assign('../index.html'); return; }
+        const functions = { quiz: 'quizMenu', challenges: 'challenges', plantao: 'launchPlantao', achievements: 'achievements' };
+        const action = root[functions[destination]];
+        if (typeof action === 'function') action.call(root);
+      });
+    }
+    return true;
+  }
+  root.dpiShowGameHub = showDpiGameHub;
+  const originalRoute = root.route;
+  root.route = function (destination) {
+    if (destination === 'dpi-game-hub') return showDpiGameHub();
+    if (typeof originalRoute === 'function') return originalRoute.apply(this, arguments);
+    return false;
+  };
+  function routeStartToGameHubWhenComplete(name) {
+    const original = root[name];
+    if (typeof original !== 'function' || original.__dpiStartHubWrapped) return;
+    const wrapped = function () {
+      const result = original.apply(this, arguments);
+      if (!root.document.querySelector('#register.on')) showDpiGameHub();
+      return result;
+    };
+    wrapped.__dpiStartHubWrapped = true;
+    root[name] = wrapped;
+  }
+  routeStartToGameHubWhenComplete('continueAsGuest');
+  routeStartToGameHubWhenComplete('saveProfile');
   function openPresentationFeature() {
     if (!['study', 'practice', 'evolve'].includes(presentationFeature)) {
       root.location.assign('../index.html');
@@ -156,7 +213,9 @@
     };
   }
   const originalShowHome = root.showHome;
-  if (returningToDpiCover && mode !== 'start' && typeof originalShowHome === 'function') {
+  if (returningToDpiCover && mode === 'start') {
+    root.showHome = showDpiGameHub;
+  } else if (returningToDpiCover && typeof originalShowHome === 'function') {
     root.showHome = function () { root.location.assign('../index.html'); };
   }
 
