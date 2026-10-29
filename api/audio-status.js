@@ -6,9 +6,9 @@ module.exports = function audioStatus(req, res) {
     res.setHeader('Allow', 'GET');
     return res.status(405).json({ error: 'method-not-allowed' });
   }
-  const enabled = process.env.ELX_TTS_ENABLED === 'true' && Boolean(process.env.ELEVENLABS_API_KEY);
-  const femaleConfigured = enabled && Boolean(process.env.ELEVENLABS_VOICE_FEMALE);
-  const maleConfigured = enabled && Boolean(process.env.ELEVENLABS_VOICE_MALE);
+  const enabled = String(process.env.ELX_TTS_ENABLED || '').trim() === 'true' && Boolean(String(process.env.ELEVENLABS_API_KEY || '').trim());
+  const femaleConfigured = enabled && Boolean(String(process.env.ELEVENLABS_VOICE_FEMALE || '').trim());
+  const maleConfigured = enabled && Boolean(String(process.env.ELEVENLABS_VOICE_MALE || '').trim());
   return res.status(200).json({
     configured: femaleConfigured || maleConfigured,
     femaleConfigured,
