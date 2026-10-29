@@ -43,7 +43,7 @@
   // while the main cover and game are being converged on the shared design.
   function applyApprovedMobileShell() {
     const doc = root.document;
-    const logoUrl = '/assets/marca-elx-vet-vetor.svg';
+    const logoUrl = '/assets/marca-elx-oficial-escura.png';
     if (typeof doc.querySelectorAll === 'function') {
       for (const logo of doc.querySelectorAll('.dpi-hero-logo,.headerbrand')) {
         logo.src = logoUrl;
@@ -72,7 +72,7 @@
         @media(max-width:640px){.utility{grid-template-columns:repeat(2,minmax(0,1fr))!important;height:auto!important}.utility button{min-height:46px!important;font-size:10px!important;padding:5px 3px!important}.utility b{display:inline-block!important;margin:0 5px 0 0!important;vertical-align:middle!important;font-size:16px!important}}
         html.dpi-start-route #home{display:none!important}
         .dpi-siren-interstitial{width:auto!important;overflow:hidden!important}
-        .elx-logo-mark{background-image:url('/assets/marca-elx-vet-vetor.svg')!important;background-size:125px auto!important;background-position:center top!important;background-repeat:no-repeat!important}
+        .elx-logo-mark{background-image:url('/assets/marca-elx-oficial-escura.png')!important;background-size:125px auto!important;background-position:center top!important;background-repeat:no-repeat!important}
         .dpi-game-hub{width:min(100% - 24px,980px);margin:clamp(14px,3vw,28px) auto;padding:clamp(14px,2.5vw,24px);border:1px solid #16718a;border-radius:20px;background:linear-gradient(145deg,#062d45,#031a2c 70%);box-shadow:0 14px 32px #00111b66;color:#f4fbff}
         .dpi-game-hub__intro{margin:0 0 14px}.dpi-game-hub__eyebrow{margin:0 0 5px;color:#79d9ea;font-size:11px;font-weight:900;letter-spacing:.14em}.dpi-game-hub__intro h2{margin:0;color:#f5fbff;font-size:clamp(21px,3.4vw,30px);line-height:1.2}.dpi-game-hub__intro p:last-child{margin:7px 0 0;color:#b5d1dc;font-size:14px;line-height:1.4}
         .dpi-game-hub__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.dpi-game-hub__card{min-width:0;min-height:100px;display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--hub-line);border-radius:15px;background:linear-gradient(135deg,var(--hub-a),var(--hub-b));color:#fff;text-align:left;cursor:pointer;box-shadow:inset 0 0 14px #ffffff12;transition:filter .18s,transform .18s}.dpi-game-hub__card[data-game-action="quiz"]{--hub-line:#19dd91;--hub-a:#007a56;--hub-b:#005039}.dpi-game-hub__card[data-game-action="challenges"]{--hub-line:#12d1ff;--hub-a:#07578a;--hub-b:#043b67}.dpi-game-hub__card[data-game-action="plantao"]{--hub-line:#d34dff;--hub-a:#63108b;--hub-b:#3c0a68}.dpi-game-hub__card[data-game-action="achievements"]{--hub-line:#ffab29;--hub-a:#9a4a00;--hub-b:#753500}
