@@ -1,1 +1,7 @@
-{"version":2,"cleanUrls":true}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/dpi-r18.1/ABRA-ESTA-PREVIA.html" }
+  ]
+}
