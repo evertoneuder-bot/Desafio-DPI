@@ -55,12 +55,12 @@ A R42.4 parte da R42.3 e preserva a interface, os jogos, o banco e os arquivos a
 A R42.5 mantém as interfaces web e mobile, os jogos, o banco e as fontes da R42.4. Corrige o cliente de voz para preservar as categorias de erro seguras devolvidas pela API (chave, permissão, cota, modelo/voz e serviço indisponível) e exibi-las em português no painel de voz e na conversa. As gravações aprovadas seguem disponíveis; nenhum texto bruto do provedor ou segredo é mostrado. A candidata passa em 174 testes. Ainda depende de implantação e de configuração válida do serviço para testar a voz neural no ambiente online.
 
 
-## R42.9 — entrada mobile acordada (prévia isolada)
+## R42.9 — capa única e fluxo atualizado
 
-- A versão desktop continua usando a entrada web existente. A raiz encaminha automaticamente larguras de celular (até 600 px) para `dpi-home.html`; tablet permanece no layout web.
-- A capa mobile preserva a logo original central entre Everton e Fernanda e usa a imagem clínica de radiologia já existente no projeto.
-- A capa não exibe cartões de quiz, desafios, plantão ou conquistas. `COMEÇAR` abre a identificação; depois do cadastro ou da entrada como visitante, abre o menu do jogo.
-- `ESTUDE`, `PRATIQUE` e `EVOLUA` abrem suas funções informativas/demonstrativas. `PRATIQUE` percorre uma questão demonstrativa de cada modalidade, com opção de pular ou desistir. `COMPARTILHE` oferece WhatsApp, e-mail, cópia e compartilhamento nativo quando disponível.
-- A trilha musical permanece desativada. Quando a voz está ativa, a narração usa a voz de servidor aprovada quando disponível e a voz em português do aparelho como fallback, inclusive para ler as questões.
-- Branch de teste: `codex/r42.9-agreed-mobile-20261029`. A R42.8 anterior continua disponível como commit pai.
-- Teste direcionado da nova entrada: 6/6 aprovados. A suíte histórica da R42.8 já contém 7 testes incompatíveis com seu próprio código (ver saída da candidata R42.8); não os apresento como aprovação da R42.9.
+- A entrada web duplicada foi retirada. A capa mobile aprovada é a única apresentação, com layout responsivo para a largura da janela.
+- A capa preserva a logo oficial e os mascotes Everton e Fernanda sobre o fundo clínico radiográfico; os cartões de jogos aparecem somente depois da entrada.
+- O fluxo é `COMEÇAR` → identificação de perfil (ou visitante) → Quiz. O Quiz mantém atalhos para Desafios e Plantão DPI.
+- `ESTUDE` explica como o jogo apoia o aprendizado, sem encaminhar a outro modo. `PRATIQUE` percorre uma etapa de cada modalidade e permite pular ou desistir. `EVOLUA` apresenta a progressão do estudo à prática e às conquistas. `COMPARTILHE` abre WhatsApp, e-mail, cópia do link e compartilhamento nativo quando disponível.
+- A trilha musical está desativada. Com a voz ativa, o código narra perguntas e alternativas; a voz em português do aparelho é a alternativa quando o serviço de voz do servidor não está disponível.
+- Branch de teste: `codex/r42.9-agreed-mobile-20261029`. A R42.8 anterior continua preservada.
+- A suíte R42.9 passa com 85 testes.
