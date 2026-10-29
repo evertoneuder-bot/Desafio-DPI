@@ -9,7 +9,7 @@ const files = (dir) => fs.readdirSync(path.join(root, dir), {withFileTypes:true}
 test('entrega DPI é individual e não contém rotas ou logos de outras áreas', () => {
   for (const omitted of ['rx-vet.html','direito-audiencia.html','assets/portal.css','assets/vet.css']) assert.equal(fs.existsSync(path.join(root,omitted)),false,omitted);
   assert.ok(fs.existsSync(path.join(root,'index.html')));
-  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'),/max-width: 600px/);
+  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'),/location\.replace\('\/dpi-home\.html'\)/);
   const app = fs.readFileSync(path.join(root,'dpi-home.html'),'utf8');
   assert.match(app,/EL-X VET/);
   assert.match(app,/DESAFIO DPI/);
