@@ -48,6 +48,7 @@ test('a entrada pede perfil e abre o Quiz; Desafios e Plantão ficam acessíveis
   assert.match(router, /onclick="launchPlantao\(\)"\>Plantão DPI/);
   assert.match(router, /background-image:url\('\/assets\/marca-elx-oficial-escura\.png'\)!important/);
   assert.match(router, /html\.dpi-start-route #home\{display:none!important\}/);
+  assert.match(router, /\.dpi-siren-interstitial\{width:auto!important;overflow:hidden!important\}/);
   assert.match(router, /feature:\s*'openPresentationFeature'/);
   assert.match(router, /root\.location\.assign\('\.\.\/index\.html'\)/);
   assert.match(router, /root\.dpiFeatureDialog\(presentationFeature\)/);
