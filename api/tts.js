@@ -3,6 +3,7 @@
 const MAX_TEXT_LENGTH = 1000;
 const MAX_AUDIO_BYTES = 6 * 1024 * 1024;
 const PROVIDER_URL = 'https://api.elevenlabs.io/v1/text-to-speech/';
+const SUBSCRIPTION_URL = 'https://api.elevenlabs.io/v1/user/subscription';
 
 function json(res, status, body) {
   res.setHeader('Cache-Control', 'no-store');
@@ -53,6 +54,28 @@ module.exports = async function tts(req, res) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 20000);
   try {
+    // Never allow usage-based overages. Only request speech when the provider
+    // confirms that overages are disabled and the included character balance
+    // can cover this utterance. The text-length check is deliberately
+    // conservative for models that charge fewer credits per character.
+    const subscriptionResponse = await fetch(SUBSCRIPTION_URL, {
+      method: 'GET',
+      headers: { 'xi-api-key': apiKey, 'Accept': 'application/json' },
+      signal: controller.signal
+    });
+    if (!subscriptionResponse.ok) {
+      return json(res, 503, { error: 'provider-quota-check-failed' });
+    }
+    const subscription = await subscriptionResponse.json().catch(() => null);
+    const overageLimit = subscription?.max_credit_limit_extension;
+    const characterCount = Number(subscription?.character_count);
+    const characterLimit = Number(subscription?.character_limit);
+    if (Number(overageLimit) !== 0 || !Number.isFinite(characterCount) ||
+        !Number.isFinite(characterLimit) || characterLimit <= 0 ||
+        characterCount + text.length > characterLimit) {
+      return json(res, 429, { error: 'provider-quota-or-rate-limit' });
+    }
+
     const upstream = await fetch(url, {
       method: 'POST',
       headers: {
