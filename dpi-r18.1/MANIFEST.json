@@ -1,0 +1,444 @@
+{
+  "project": "EL-X VET — Desafio DPI",
+  "version": "R42.5",
+  "date": "2026-10-25",
+  "standalone": true,
+  "deployment_performed": false,
+  "baseline": "R42.5 parte da R42.4 preservada; mantém layout, jogos, banco e biblioteca. Corrige propagação e apresentação segura dos diagnósticos da voz neural.",
+  "qa": {
+    "automated_tests_passed": 174,
+    "automated_tests_failed": 0,
+    "inline_javascript_blocks_checked": 15,
+    "external_javascript_files_checked": 17,
+    "visual_mascot_render_review_performed": false,
+    "full_page_browser_review_performed": false,
+    "mobile_device_review_performed": false
+  },
+  "limitations": [
+    "As respostas novas por voz dependem da implantação da rota e de configuração válida do provedor no ambiente online.",
+    "A integração Vercel desta sessão não lista o projeto e retorna 404 à consulta do identificador conhecido; nenhuma implantação foi realizada.",
+    "A versão web e a versão mobile foram mantidas; validação física em aparelhos não foi refeita nesta correção técnica."
+  ],
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 426,
+      "sha256": "46c6ca376e57f143651e5439133295994755076b347b7a697f44ab56676d0ba5"
+    },
+    {
+      "path": "ABRA-ESTA-PREVIA.html",
+      "bytes": 7519756,
+      "sha256": "83b5c81923269985697fb0f64c1e6078a15e5abe4b7d71686b6ba7a4aeb8d1f1"
+    },
+    {
+      "path": "ANALISE-ACEITE.md",
+      "bytes": 1264,
+      "sha256": "7ea59f825fa1ace758c183b0911791235c2a3ce40ac0d2308eb75879201f3756"
+    },
+    {
+      "path": "APLICACAO-PROMPT-MESTRE-STATUS-2026-10-20.md",
+      "bytes": 8094,
+      "sha256": "e65c8b00e321b0cafaa09f2d07ccbeee9fd206f7c2a08ee9cb8fcb2ae67c990f"
+    },
+    {
+      "path": "HISTORICO-RELATORIO-QA-R14.txt",
+      "bytes": 918,
+      "sha256": "41dbc95200e18a5f4e886207b3103081cbffb87f9a9ab79b9128974f0a2ffe6b"
+    },
+    {
+      "path": "HISTORICO-RELATORIO-QA-R15.txt",
+      "bytes": 1075,
+      "sha256": "29cbaef7cca7c39f17b099edf2e46fdef45b3675984c2227bf8a8589a5f974c4"
+    },
+    {
+      "path": "PROMPT-MESTRE-REFERENCIA-ELX-VET.txt",
+      "bytes": 54865,
+      "sha256": "79444821d060cd60d25ba59826afc2ed0179f85b9803bf07df1a0e6e85c25a64"
+    },
+    {
+      "path": "README.md",
+      "bytes": 566,
+      "sha256": "97e48d0fb4d81950fd09d42ef8ab5a6bedb6ea6567a4b53ccb8994205c98bd49"
+    },
+    {
+      "path": "RELATORIO-QA-R17-20261020.txt",
+      "bytes": 2696,
+      "sha256": "d6ffe9738426c241a985a26d7b4117e6038df38d4d482b7b1adbd769a1591e14"
+    },
+    {
+      "path": "RELATORIO-QA-R18-20261020.txt",
+      "bytes": 2116,
+      "sha256": "8001cf36892e71ee13a754464e86cc505a4499746e1f810b2df129aec5eed1c4"
+    },
+    {
+      "path": "RELATORIO-REVISAO-CRITICA-R8-R16.txt",
+      "bytes": 4984,
+      "sha256": "628af8ae75d8946e084bf770987bf61608a8cdcb183c4f8b10d63eee6ac34a9a"
+    },
+    {
+      "path": "api/audio-status.js",
+      "bytes": 645,
+      "sha256": "9cdcb46251a30f9db425f17ee63821e184301f600f949d9d7604e2c48566e7b0"
+    },
+    {
+      "path": "api/tts.js",
+      "bytes": 4007,
+      "sha256": "24571b07fc6df2fda358faa968fc839d33255f92746b9439d327b0bf6e0afe10"
+    },
+    {
+      "path": "biblioteca/biblioteca-veterinaria/CATALOGO-BIBLIOTECA-DPI.md",
+      "bytes": 12686,
+      "sha256": "273b738c4de3964034451df910c9c7413844f6d28244815b01881c702e8cdae4"
+    },
+    {
+      "path": "biblioteca/biblioteca-veterinaria/FONTES_E_LICENCAS.txt",
+      "bytes": 3093,
+      "sha256": "eeb47ecd1683e451a1a7f46e0cf4cc44a646a3cf036ac7b9522f880856312e40"
+    },
+    {
+      "path": "biblioteca/biblioteca-veterinaria/LEIA-ME.txt",
+      "bytes": 1559,
+      "sha256": "e8e8362e03833e9d5caff388e6ad68951e7ae2cc859b2c36e07625614f3c6318"
+    },
+    {
+      "path": "biblioteca/biblioteca-veterinaria/Manual_Zoonoses_MS.pdf",
+      "bytes": 862871,
+      "sha256": "062405e080ec779a4aba73c9f4deb24897ffa284f58540d2c154997d88e5e5cc"
+    },
+    {
+      "path": "biblioteca/biblioteca-veterinaria/artigos-cientificos-dpi.js",
+      "bytes": 13985,
+      "sha256": "b03fc31e4d97a6ec2bd86b905f4dc578453d2d6218d9412d7867e86d7f7cc975"
+    },
+    {
+      "path": "biblioteca/biblioteca-veterinaria/bibliografia-dpi.json",
+      "bytes": 24052,
+      "sha256": "dbb2b3f8c2f8ed30ab04e764f89ebe0fd9574fc0f14b71bcecc438f859f8042c"
+    },
+    {
+      "path": "biblioteca/biblioteca-veterinaria/perguntas.json",
+      "bytes": 8759,
+      "sha256": "72e7863f77246a98cd6cb7f5db6e7e4f99eff294dc482e8957c90416acd27091"
+    },
+    {
+      "path": "biblioteca/biblioteca-veterinaria/politica-acesso-downloads.json",
+      "bytes": 1429,
+      "sha256": "d4e4b42efec0ce5d131802680b540da57bad341d55b5542e567b0982e31cb09d"
+    },
+    {
+      "path": "dados/COMO-AMPLIAR-O-BANCO-DPI.txt",
+      "bytes": 1472,
+      "sha256": "e0c54cf9422fedfd0788b8cf62f69420ac858119d89158b60a2842634175d5de"
+    },
+    {
+      "path": "dados/banco-dpi-300.csv",
+      "bytes": 417780,
+      "sha256": "d9f4ed5e104d91caf305aaa7a460df6b7b29b2750dc0a00366d3f65c90771738"
+    },
+    {
+      "path": "dados/banco-dpi-300.json",
+      "bytes": 558426,
+      "sha256": "878b80955d93b316d5995bf59cf5d73206a043a5bd95488494fe625932b204aa"
+    },
+    {
+      "path": "dados/banco-dpi-adicional.js",
+      "bytes": 43663,
+      "sha256": "121d85dc36e203c9bcb89510ca0de960f9e27c0bd728844c58fbc606da945526"
+    },
+    {
+      "path": "referencias/01-EL-X-Desafios.png",
+      "bytes": 260069,
+      "sha256": "2de207bf6a9ff99005b67e2e8f068e1dc8ae326cff1051508d909242df1fb9ed"
+    },
+    {
+      "path": "referencias/02-EL-X-Medicina-Veterinaria.png",
+      "bytes": 426792,
+      "sha256": "058e589db9f841715fe3119afbea9711435d5cddfb4d1fbf6253110f6ccb0f86"
+    },
+    {
+      "path": "referencias/03-EL-X-DPI.png",
+      "bytes": 363683,
+      "sha256": "5608f031c096749307c1c1a714e0114cd81da71a5369ab17623dd947432a84ca"
+    },
+    {
+      "path": "referencias/capa-aprovada-20261019.png",
+      "bytes": 149775,
+      "sha256": "33bbe0438734b559023de68c2e3887740b6fdf55e48bf8686df3ca53ad5bb7c1"
+    },
+    {
+      "path": "referencias/elx-vet-logo-original.png",
+      "bytes": 655028,
+      "sha256": "5987ac0813225355d8d5eff504c4b154499303f23e5b1fdd4850cfd68ed19690"
+    },
+    {
+      "path": "referencias/fundo-clinica-r8.webp",
+      "bytes": 135526,
+      "sha256": "2cd264f2442af24b63d7aa76e861d00a720ff1bb2ef79a9e6c86492174ae8e41"
+    },
+    {
+      "path": "referencias/layout-aprovado-cinco-telas.png",
+      "bytes": 735546,
+      "sha256": "c3ff652d21333b086adfa41049c77468f14aaa36042c3fc6a5998b9afecc7e5c"
+    },
+    {
+      "path": "referencias/layout-referencia-ui-20261019.png",
+      "bytes": 733394,
+      "sha256": "fda421501385bb528ff958e1743c9efd1108873b8602ea42e0f819a9314d3867"
+    },
+    {
+      "path": "referencias/tela-DPI-aprovada.png",
+      "bytes": 363683,
+      "sha256": "5608f031c096749307c1c1a714e0114cd81da71a5369ab17623dd947432a84ca"
+    },
+    {
+      "path": "scripts/audit-question-bank.cjs",
+      "bytes": 2479,
+      "sha256": "d1dea1b91c59a35996a75c8c57667d52e6e37525b1f40884a3f04d99328ba83a"
+    },
+    {
+      "path": "tests/assistant-interaction.test.cjs",
+      "bytes": 2805,
+      "sha256": "9c62c55b1e9a16838017f8929b4cd37b411d3fea3f3233ade66d1fefb52b4b34"
+    },
+    {
+      "path": "tests/conversation-core.test.cjs",
+      "bytes": 2328,
+      "sha256": "8d530d8ffe0563b8c3d473e0cbc958eaef0fd7c851645befc316875b7ae2d220"
+    },
+    {
+      "path": "tests/dpi-siren-library-motion.test.cjs",
+      "bytes": 4710,
+      "sha256": "f7d66f6f87bb1163e25b1cb9936c64662b9b39f0f7d48e9c2eee74ac42aac3d4"
+    },
+    {
+      "path": "tests/mascots-motion.test.cjs",
+      "bytes": 2448,
+      "sha256": "b715fde76eb9d89f762a141fc9111dae4acf3796651df97e323598578cd0ea0b"
+    },
+    {
+      "path": "tests/merge-v40.test.cjs",
+      "bytes": 1885,
+      "sha256": "65af003734b5b0ccb1a1dac5c23a9897b40ba900a2cc7b9362b71df986fd6a10"
+    },
+    {
+      "path": "tests/phase-layout.test.cjs",
+      "bytes": 1580,
+      "sha256": "fcc34a9a4858f9ec36303369a4bc421f8eba30f6c61a75593d9bb5bfd1f518e6"
+    },
+    {
+      "path": "tests/r24-review-followup.test.cjs",
+      "bytes": 6521,
+      "sha256": "769ae49fc2834afaead9409ff7466608379ce83051be813ac1475ba1bcb809f6"
+    },
+    {
+      "path": "tests/round-engine.test.cjs",
+      "bytes": 11631,
+      "sha256": "585a1ad1369cd453b8a8a64a24529a7d0afe4bf2427d20db4d9157652602218e"
+    },
+    {
+      "path": "tests/tts-endpoint.test.cjs",
+      "bytes": 4895,
+      "sha256": "b84909b25a47ab4baabdd39e6f1c1817275fcedd9789368929e109a6ce14b695"
+    },
+    {
+      "path": "tests/user-review-regressions.test.cjs",
+      "bytes": 10083,
+      "sha256": "c33f8085c168587cdada422745a3eafa6e41a6857a965cc5397bff36c2377a64"
+    },
+    {
+      "path": "tests/voice-command-coverage.test.cjs",
+      "bytes": 1361,
+      "sha256": "6c4e5316f43035c785055d59a122d509671b0d7324a8392e98232b03fb3920c3"
+    },
+    {
+      "path": "tests/voice-error-diagnostics.test.cjs",
+      "bytes": 3134,
+      "sha256": "ff5c53d455bf92dedd5f097f196403c6588ffc4bc0bd07e61f9ccb3716607caa"
+    },
+    {
+      "path": "tests/voice-plantao-regression.test.cjs",
+      "bytes": 4384,
+      "sha256": "d6b8c053a8a809d5f4128635bdf0114ffe4998673a36e7e126c79287d1aa410e"
+    },
+    {
+      "path": "tests/word-search.test.cjs",
+      "bytes": 7264,
+      "sha256": "44cc5d9cabf543fb29d9f4398119d7637d9cbc21731a8f9e49210b7d9a3502f9"
+    },
+    {
+      "path": "voz-e-mascotes/Everton-aprovado.m4a",
+      "bytes": 239017,
+      "sha256": "b1ca14d60897ab0807efe12ff197ebbded76197c1f3bf5ed569ec400e65e9bd8"
+    },
+    {
+      "path": "voz-e-mascotes/Everton-articulado-v2.webp",
+      "bytes": 802428,
+      "sha256": "629b92a9c0e5fb196609bac4ade1749b4e9986b58049d4fca5286be4b8f194bd"
+    },
+    {
+      "path": "voz-e-mascotes/Fernanda-aprovada.mp3",
+      "bytes": 269209,
+      "sha256": "ca70484bf80af14e950f78d19223331275330d001c1970bfdf2f8731b93675e0"
+    },
+    {
+      "path": "voz-e-mascotes/Fernanda-articulada-v2.webp",
+      "bytes": 774320,
+      "sha256": "9b46dfa09c87fa8b4d0f0547308ca95a8e1f323d24c7bf51d1fd70bc2946e9ab"
+    },
+    {
+      "path": "voz-e-mascotes/Fundo-suave-original.wav",
+      "bytes": 1024044,
+      "sha256": "4ee5c216007dc614c14f8b98357cad4ad90bd699e45dba12d284889cc597dea2"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-bank-extension.js",
+      "bytes": 2293,
+      "sha256": "1cf4848c4f8ca98c042ee4e3e56b3a3d0bda582ee9ae2f582f3097e179652e9b"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-conversation-core.js",
+      "bytes": 3927,
+      "sha256": "bf4a3d10014e1a617bada571a5c5abbdd658363619b53eb71b2040eef90ba9bb"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-game-rounds.js",
+      "bytes": 25702,
+      "sha256": "f2294ec695905a154e9a1d53764338cb7253bf850787a1ed70439d98e7e6ca92"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-launch-router.js",
+      "bytes": 38558,
+      "sha256": "14cd1316fdd9d2eacb707a5f025a5639c09557e27a8f528111602e8c7b16fdfb"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-layout-referencia.css",
+      "bytes": 12400,
+      "sha256": "7ce7f89f79e20cb2916db822970a3402f7a7ab6529165d1c8c9f34214cbcd74d"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-mascot-motion.js",
+      "bytes": 2683,
+      "sha256": "32e1e3696a25436d76511bcf760506ce9a9573bac60db5d6258dd136beff4974"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-mascote-interacao.js",
+      "bytes": 6517,
+      "sha256": "5ac7345240609ade1c9f1e201448d0c822dcc8ee0cdc147359947182d4dbf5bf"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-ranking.js",
+      "bytes": 2326,
+      "sha256": "ff60e4c7e088c8da44285d25ef235ae408395f2b685cb4ed04cd409a17af6133"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-resposta-voz.js",
+      "bytes": 10882,
+      "sha256": "a928645dfa04d86778bbca513082906baff69b68349a274148c6057dbfb5aad0"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-rig-home.css",
+      "bytes": 5847,
+      "sha256": "b749e4d8fc174b81e57daa78d8340042979f305c653da32334d1c87655c112f4"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-rodadas.js",
+      "bytes": 4337,
+      "sha256": "d0710c1cfea5aee2cd665b567ae53e46c17dbb5340f418150a351156b804ac69"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-round-engine.js",
+      "bytes": 7752,
+      "sha256": "4794b0f6899666f95216951ec20991d551fe67b07a089b1887311c04fa42ec4b"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-rounds.css",
+      "bytes": 30164,
+      "sha256": "1e8e28b9723f39749aba06484ad40c7be1c0e98a6accf243734ba1b73c4a7b71"
+    },
+    {
+      "path": "voz-e-mascotes/dpi-voz.js",
+      "bytes": 20841,
+      "sha256": "1d0aec8d698178da08ec3c01ff0a87c56e18b74de6dbbe8a74dcdd63ad1a1ae0"
+    },
+    {
+      "path": "voz-e-mascotes/elx-mascotes.js",
+      "bytes": 13921,
+      "sha256": "835bbc878af19cfcd615405fc9da23ec706ab28f8573c00be7494ce5fdadf54a"
+    },
+    {
+      "path": "voz-e-mascotes/elx-rig.js",
+      "bytes": 15498,
+      "sha256": "37a27d89f75f82d52c23042877254d04b0343fb8922df67c31dbd0586c0c1474"
+    },
+    {
+      "path": "voz-e-mascotes/mascote-dpi-cao-aponta.png",
+      "bytes": 164001,
+      "sha256": "ac0023d1a5d809a69db1e707b1f36174444aa91f08386eccabbed31d1d7efd2f"
+    },
+    {
+      "path": "voz-e-mascotes/mascote-dpi-gata-apresenta.png",
+      "bytes": 148048,
+      "sha256": "175e70e9881fe6a244733279176557db5d66fb613304c7f402a40b85f820bca7"
+    },
+    {
+      "path": "voz-e-mascotes/mascotes-radioprotecao-aprovados.png",
+      "bytes": 1804838,
+      "sha256": "024c432d66a1c7754a891f71b4b12bc5a5ec1a801f84d7f17897009bfc1d7747"
+    },
+    {
+      "path": "voz-e-mascotes/paciente-cao-abatido.png",
+      "bytes": 2132994,
+      "sha256": "ccf5681d40aeb01cd160562bedf998976cc727fc63d2234d7629cac03292c67b"
+    },
+    {
+      "path": "voz-e-mascotes/paciente-poodle-critico.png",
+      "bytes": 150629,
+      "sha256": "f86c9ef36509cdbf6d02a8356ce65b6c0ed85e4c4e8f17f4757ca66d335f4a0c"
+    },
+    {
+      "path": "voz-e-mascotes/paciente-poodle-estavel.png",
+      "bytes": 200703,
+      "sha256": "5532eac4ee5c74f55bfc745b2db383ecb49d2101fb1dd135db60e5187f29b0f4"
+    },
+    {
+      "path": "voz-e-mascotes/paciente-poodle-fases.png",
+      "bytes": 1290805,
+      "sha256": "01decd6da5a92310a1ceddb640d64bf827bd93f5e79d751a8c9a5f8ef715895a"
+    },
+    {
+      "path": "voz-e-mascotes/paciente-poodle-obito-simbolico.png",
+      "bytes": 231174,
+      "sha256": "3dd283680ca2ad8cad7ffb9bc2cd4f982e9f0f0de454a796ac69f5e1c73e80a0"
+    },
+    {
+      "path": "voz-e-mascotes/paciente-poodle-recuperacao.png",
+      "bytes": 138560,
+      "sha256": "02847a13fc2bb5096ec4dd03aebd2977d56dc85d1e670604a1a950c95b0465ee"
+    },
+    {
+      "path": "voz-e-mascotes/paciente-poodle-saudavel.png",
+      "bytes": 163721,
+      "sha256": "7c6321712ac44a7768175b731cdd0d7652824651b13c1790d3095a3fb0bb2dc5"
+    },
+    {
+      "path": "voz-e-mascotes/rig/Everton-articulado-v2.png",
+      "bytes": 1178667,
+      "sha256": "7836c737bbf9ccd0f6cfa848871a4a9510f68ff50514558dab02fe4e912254c1"
+    },
+    {
+      "path": "voz-e-mascotes/rig/Fernanda-articulada-v2.png",
+      "bytes": 1181920,
+      "sha256": "b875fdff8bcf7d092d3a77ba49b330649b18efafa3423825512043a2f8cd5feb"
+    },
+    {
+      "path": "voz-e-mascotes/rig/Fernanda-articulado-v2.png",
+      "bytes": 1181920,
+      "sha256": "b875fdff8bcf7d092d3a77ba49b330649b18efafa3423825512043a2f8cd5feb"
+    },
+    {
+      "path": "voz-e-mascotes/sirene-plantao-aprovada.png",
+      "bytes": 1338826,
+      "sha256": "23d83e26e418f6a26b1e668634b9cb960c055a8af0a014eed36a6d67f2a1877e"
+    }
+  ]
+}

@@ -62,6 +62,13 @@
       const style = doc.createElement('style');
       style.id = 'dpi-approved-mobile-shell';
       style.textContent = `
+        .app>header .brandbar{min-height:64px!important;height:64px!important;gap:12px!important}
+        .app>header .headerbrand{display:block!important;width:auto!important;height:auto!important;max-width:min(132px,34vw)!important;max-height:56px!important;object-fit:contain!important;object-position:center!important;border-radius:0!important;padding:0!important;background:transparent!important;filter:drop-shadow(0 0 8px #21d8ff55)!important}
+        .dpi-answer-dialog{position:fixed;inset:0;z-index:10060;display:grid;place-items:center;padding:18px;background:#001522b8;backdrop-filter:blur(5px)}
+        .dpi-answer-dialog__card{position:relative;width:min(100%,620px);max-height:min(82dvh,760px);overflow:auto;padding:24px 20px 20px;border:1px solid #64cedd;border-radius:20px;background:linear-gradient(145deg,#f7fcfd,#eaf5f7);box-shadow:0 24px 70px #00101dcc;color:#17364d}
+        .dpi-answer-dialog__close{position:sticky;float:right;top:0;z-index:2;width:42px;height:42px;margin:-12px -10px 4px 10px;border:1px solid #8cb8c5;border-radius:50%;background:#fff;color:#17364d;font:700 26px/1 Arial,sans-serif;cursor:pointer}
+        .dpi-answer-dialog__close:focus-visible{outline:3px solid #00a9bb;outline-offset:2px}
+        .dpi-answer-dialog .feedback,.dpi-answer-dialog .dpi-case-feedback,.dpi-answer-dialog .dpi-round-result{margin:0!important;max-height:none!important}
         @media(max-width:640px){.utility{grid-template-columns:repeat(2,minmax(0,1fr))!important;height:auto!important}.utility button{min-height:46px!important;font-size:10px!important;padding:5px 3px!important}.utility b{display:inline-block!important;margin:0 5px 0 0!important;vertical-align:middle!important;font-size:16px!important}}
         html.dpi-start-route #home{display:none!important}
         .dpi-siren-interstitial{width:auto!important;overflow:hidden!important}
@@ -90,11 +97,11 @@
         @media(max-width:600px){
           html.dpi-player-route,html.dpi-player-route body{height:100%;overflow:hidden!important}
           body.dpi-player-route .app{height:100dvh!important;min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
-          body.dpi-player-route .app>header{height:52px!important;min-height:52px!important;flex:0 0 52px!important;overflow:visible!important}
-          body.dpi-player-route .app>header .brandbar{height:52px!important;min-height:52px!important}
+          body.dpi-player-route .app>header{height:64px!important;min-height:64px!important;flex:0 0 64px!important;overflow:visible!important}
+          body.dpi-player-route .app>header .brandbar{height:64px!important;min-height:64px!important}
           body.dpi-player-route .app>header .utility{display:none!important}
           body.dpi-player-route .app>footer{display:none!important}
-          body.dpi-player-route .app>main{height:calc(100dvh - 52px)!important;min-height:0!important;flex:1 1 auto!important;overflow:hidden!important;margin:0!important;padding:0!important}
+          body.dpi-player-route .app>main{height:calc(100dvh - 64px)!important;min-height:0!important;flex:1 1 auto!important;overflow:hidden!important;margin:0!important;padding:0!important}
           body.dpi-player-route #internal{height:100%!important;min-height:0!important;overflow:hidden!important}
           body.dpi-player-route #elx-conversation{position:fixed!important;top:5px!important;right:8px!important;bottom:auto!important;left:auto!important;z-index:10040!important}
           .dpi-play-app,.dpi-wordgame-page{height:100%!important;max-height:100%!important;min-height:0!important;margin:0!important;padding:0 8px!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
@@ -150,8 +157,8 @@
         @media(min-width:601px){#elx-conversation>summary::before{content:none!important}#elx-conversation .elx-voice-indicator svg{width:24px;height:24px;fill:none;stroke:#d9f9ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}#elx-conversation .speaker-waves{display:block}#elx-conversation .speaker-muted{display:none}#elx-conversation>summary[data-voice-enabled="false"] .speaker-waves{display:none}#elx-conversation>summary[data-voice-enabled="false"] .speaker-muted{display:block;stroke:#ff9385}#elx-conversation .elx-voice-label{display:none!important}}
           html.dpi-player-route,html.dpi-player-route body{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
           body.dpi-player-route .app{height:100dvh!important;min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
-          body.dpi-player-route .app>header{position:relative!important;top:auto!important;z-index:30!important;height:52px!important;min-height:52px!important;flex:0 0 52px!important;overflow:visible!important}
-          body.dpi-player-route .app>header .brandbar{height:52px!important;min-height:52px!important}
+          body.dpi-player-route .app>header{position:relative!important;top:auto!important;z-index:30!important;height:64px!important;min-height:64px!important;flex:0 0 64px!important;overflow:visible!important}
+          body.dpi-player-route .app>header .brandbar{height:64px!important;min-height:64px!important}
           body.dpi-player-route .app>header .utility{display:none!important}
           body.dpi-player-route .app>footer{position:relative!important;inset:auto!important;z-index:30!important;display:block!important;flex:0 0 auto!important;min-height:56px!important;padding:3px 8px max(4px,env(safe-area-inset-bottom))!important;background:#031a2c!important;border-top:1px solid #08738d!important}
           body.dpi-player-route .app>footer .footlinks{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;min-height:42px!important}
@@ -265,8 +272,29 @@
       };
     }
   }
-  if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', applyApprovedMobileShell, { once: true });
-  else applyApprovedMobileShell();
+  function installAnswerDialog() {
+    const doc = root.document;
+    if (!doc || root.__dpiAnswerDialogObserver || typeof root.MutationObserver !== 'function') return;
+    const selector = '.feedback.ok,.feedback.no,.dpi-case-feedback.is-correct,.dpi-case-feedback.is-wrong,.dpi-round-result.is-correct,.dpi-round-result.is-wrong';
+    const openFeedback = node => {
+      if (!node?.isConnected || node.dataset.dpiDialogOpen || !node.matches(selector)) return;
+      node.dataset.dpiDialogOpen = 'true';
+      const overlay = doc.createElement('div');
+      overlay.className = 'dpi-answer-dialog'; overlay.setAttribute('role','dialog'); overlay.setAttribute('aria-modal','true'); overlay.setAttribute('aria-label','Resultado da resposta');
+      const card = doc.createElement('div'); card.className = 'dpi-answer-dialog__card';
+      const close = doc.createElement('button'); close.type = 'button'; close.className = 'dpi-answer-dialog__close'; close.setAttribute('aria-label','Fechar resultado e continuar'); close.title = 'Fechar resultado'; close.textContent = '×';
+      close.addEventListener('click', () => {
+        const next = node.querySelector('button[onclick*="nextQuestion"],button[onclick*="caseRender"],button[onclick*="DpiGameRounds.next"],button[onclick*="nextAssociation"]');
+        if (next) next.click(); else { overlay.remove(); node.remove(); }
+      });
+      card.append(close,node); overlay.append(card); doc.body.append(overlay); close.focus({preventScroll:true});
+    };
+    const scan = node => { if (node.nodeType !== 1) return; openFeedback(node); node.querySelectorAll?.(selector).forEach(openFeedback); };
+    const observer = new root.MutationObserver(records => records.forEach(record => { scan(record.target); record.addedNodes.forEach(scan); }));
+    observer.observe(doc.body,{childList:true,subtree:true}); root.__dpiAnswerDialogObserver = observer;
+  }
+  if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', () => { applyApprovedMobileShell(); installAnswerDialog(); }, { once: true });
+  else { applyApprovedMobileShell(); installAnswerDialog(); }
 
   // Windows' cover launch can run inside a browser configuration that blocks
   // new tabs from a loopback address. Library references therefore navigate

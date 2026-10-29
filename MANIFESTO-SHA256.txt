@@ -72,7 +72,7 @@ db4eba22743fbdec0a3de53fc3d0071568167f36529828ac1230da4614c715ba  ./dpi-r18.1/AB
 e65c8b00e321b0cafaa09f2d07ccbeee9fd206f7c2a08ee9cb8fcb2ae67c990f  ./dpi-r18.1/APLICACAO-PROMPT-MESTRE-STATUS-2026-10-20.md
 41dbc95200e18a5f4e886207b3103081cbffb87f9a9ab79b9128974f0a2ffe6b  ./dpi-r18.1/HISTORICO-RELATORIO-QA-R14.txt
 29cbaef7cca7c39f17b099edf2e46fdef45b3675984c2227bf8a8589a5f974c4  ./dpi-r18.1/HISTORICO-RELATORIO-QA-R15.txt
-292ad35efea288ecc39fd23b1513153e8fe71063f3cb02656826c8e4d5276f29  ./dpi-r18.1/MANIFEST.json
+baa729117efbdb2871e9551598d36377657ae888c1d75691490b35babc7e4348  ./dpi-r18.1/MANIFEST.json
 79444821d060cd60d25ba59826afc2ed0179f85b9803bf07df1a0e6e85c25a64  ./dpi-r18.1/PROMPT-MESTRE-REFERENCIA-ELX-VET.txt
 97e48d0fb4d81950fd09d42ef8ab5a6bedb6ea6567a4b53ccb8994205c98bd49  ./dpi-r18.1/README.md
 d6ffe9738426c241a985a26d7b4117e6038df38d4d482b7b1adbd769a1591e14  ./dpi-r18.1/RELATORIO-QA-R17-20261020.txt
@@ -125,7 +125,7 @@ ca70484bf80af14e950f78d19223331275330d001c1970bfdf2f8731b93675e0  ./dpi-r18.1/vo
 1cf4848c4f8ca98c042ee4e3e56b3a3d0bda582ee9ae2f582f3097e179652e9b  ./dpi-r18.1/voz-e-mascotes/dpi-bank-extension.js
 bf4a3d10014e1a617bada571a5c5abbdd658363619b53eb71b2040eef90ba9bb  ./dpi-r18.1/voz-e-mascotes/dpi-conversation-core.js
 f2294ec695905a154e9a1d53764338cb7253bf850787a1ed70439d98e7e6ca92  ./dpi-r18.1/voz-e-mascotes/dpi-game-rounds.js
-5ead723a8bb7e6535aae49ad494536486cc848e5da21d41f8dcb38b99dedd04a  ./dpi-r18.1/voz-e-mascotes/dpi-launch-router.js
+14cd1316fdd9d2eacb707a5f025a5639c09557e27a8f528111602e8c7b16fdfb  ./dpi-r18.1/voz-e-mascotes/dpi-launch-router.js
 7ce7f89f79e20cb2916db822970a3402f7a7ab6529165d1c8c9f34214cbcd74d  ./dpi-r18.1/voz-e-mascotes/dpi-layout-referencia.css
 32e1e3696a25436d76511bcf760506ce9a9573bac60db5d6258dd136beff4974  ./dpi-r18.1/voz-e-mascotes/dpi-mascot-motion.js
 5ac7345240609ade1c9f1e201448d0c822dcc8ee0cdc147359947182d4dbf5bf  ./dpi-r18.1/voz-e-mascotes/dpi-mascote-interacao.js
@@ -165,7 +165,7 @@ db41dea5d619f2c1dc8c826a66ee933fbf743633f499cd8d91bdfa8483cbd49d  ./tests/r25-si
 62daaee8dd8ec5aeb1a4418a5056e4e10cea8e395e78a7edc6238370af2afc44  ./tests/r30-mascot-dedup.test.cjs
 b3f86020d6123302a163bb2f7135068b640e64b82ee1ece5e866dec4a191dd2a  ./tests/r32-mascot-motion.test.cjs
 016a38fe4c02287397e22a6fb0f4ebe741c25f92fdea0e60975193109ac136c6  ./tests/r33-player-observations.test.cjs
-8e6bb5a797ada1d72b8cbd85c01a0a2d24d613b6386c011322266155ece63932  ./tests/r34-player-review.test.cjs
+321359fbd3c722d8fa244767c827c0d368c5371aaa6edbbe733062ddfe3a5350  ./tests/r34-player-review.test.cjs
 f7e67a58f2cd86aca4fdf9467c5530ff685da1ed40784f018cbf1f36a52093f7  ./tests/r35-expandable-question-bank.test.cjs
 1836ffb4d578ba590c8fe6c4892919688acc847f2634988c8c5469e7e02191f9  ./tests/r36-answer-integrity.test.cjs
 8f623e7a39c79d5b4c4506a1a97b5bbba49772567327ee3a651208944448c3bb  ./tests/r36-case-answer-feedback.test.cjs
