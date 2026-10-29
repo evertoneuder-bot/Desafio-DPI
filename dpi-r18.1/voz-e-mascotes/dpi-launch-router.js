@@ -96,6 +96,8 @@
           .dpi-play-coach,.dpi-wordgame-coach{position:relative!important;height:68px!important;min-height:68px!important;max-height:68px!important;grid-template-columns:62px minmax(0,1fr)!important;grid-template-rows:1fr!important;align-items:center!important;padding:4px 8px!important;overflow:hidden!important}
           .dpi-play-coach-label,.dpi-wordgame-coach-label{position:absolute!important;left:76px!important;top:3px!important;font-size:8px!important}
           .dpi-play-coach #elx-character-stage,.dpi-wordgame-coach #elx-character-stage{grid-column:1!important;grid-row:1!important;width:58px!important;height:58px!important;min-height:0!important;max-height:58px!important;overflow:visible!important}
+          body:not(.elx-portal-on) .dpi-play-coach #elx-character-stage.is-dpi-coach,body:not(.elx-portal-on) .dpi-wordgame-coach #elx-character-stage.is-dpi-coach{position:relative!important;inset:auto!important;width:58px!important;height:58px!important;min-height:58px!important;max-height:58px!important;margin:0!important;z-index:3!important}
+          body:not(.elx-portal-on) .dpi-play-coach #elx-character-stage.is-dpi-coach .elx-approved-mascot-pair,body:not(.elx-portal-on) .dpi-wordgame-coach #elx-character-stage.is-dpi-coach .elx-approved-mascot-pair{width:58px!important;height:58px!important;max-height:58px!important}
           .dpi-play-coach .dpi-play-mascot,.dpi-wordgame-coach .dpi-play-mascot{display:none!important}
           .dpi-play-speech,.dpi-wordgame-coach .dpi-play-speech{grid-column:2!important;grid-row:1!important;max-height:58px!important;overflow:hidden!important}
           .dpi-play-content,.dpi-wordgame-main{height:100%!important;min-height:0!important;max-height:100%!important;overflow:hidden!important}
@@ -115,6 +117,8 @@
           .dpi-play-layout,.dpi-wordgame-layout{grid-template-rows:56px minmax(0,1fr)!important;gap:4px!important}
           .dpi-play-coach,.dpi-wordgame-coach{height:56px!important;min-height:56px!important;max-height:56px!important}
           .dpi-play-coach #elx-character-stage,.dpi-wordgame-coach #elx-character-stage{width:48px!important;height:48px!important;max-height:48px!important}
+          body:not(.elx-portal-on) .dpi-play-coach #elx-character-stage.is-dpi-coach,body:not(.elx-portal-on) .dpi-wordgame-coach #elx-character-stage.is-dpi-coach{width:48px!important;height:48px!important;min-height:48px!important;max-height:48px!important}
+          body:not(.elx-portal-on) .dpi-play-coach #elx-character-stage.is-dpi-coach .elx-approved-mascot-pair,body:not(.elx-portal-on) .dpi-wordgame-coach #elx-character-stage.is-dpi-coach .elx-approved-mascot-pair{width:48px!important;height:48px!important;max-height:48px!important}
           .dpi-play-coach-label,.dpi-wordgame-coach-label{left:64px!important;font-size:7px!important}
           .dpi-play-content .dpi-game-panel,.dpi-wordgame-main .dpi-game-panel{padding:6px!important}
           .dpi-play-content .dpi-game-panel .dpi-game-eyebrow{display:none!important}
@@ -206,7 +210,10 @@
 
   if (!mode || !Object.prototype.hasOwnProperty.call(actions, mode)) return;
   root.document.documentElement.classList.add('dpi-route-pending');
-  if (['start', 'quiz', 'challenges', 'plantao'].includes(mode)) root.document.documentElement.classList.add('dpi-player-route');
+  if (['start', 'quiz', 'challenges', 'plantao'].includes(mode)) {
+    root.document.documentElement.classList.add('dpi-player-route');
+    root.document.body?.classList.add('dpi-player-route');
+  }
   if (returningToDpiCover && mode === 'start') root.document.documentElement.classList.add('dpi-start-route');
 
   function startFromPresentation() {
