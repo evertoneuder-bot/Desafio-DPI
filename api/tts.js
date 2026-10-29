@@ -64,7 +64,14 @@ module.exports = async function tts(req, res) {
       signal: controller.signal
     });
     if (!subscriptionResponse.ok) {
-      return json(res, 503, { error: 'provider-quota-check-failed' });
+      const providerStatus = Number(subscriptionResponse.status) || 0;
+      const error = providerStatus === 401 ? 'provider-auth-failed'
+        : providerStatus === 403 ? 'provider-permission-denied'
+        : providerStatus === 402 || providerStatus === 429 ? 'provider-quota-or-rate-limit'
+        : 'provider-access-failed';
+      // Report only the status category; never expose the provider's response
+      // body or account diagnostics.
+      return json(res, 502, { error, providerStatus });
     }
     const subscription = await subscriptionResponse.json().catch(() => null);
     const overageLimit = subscription?.max_credit_limit_extension;
