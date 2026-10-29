@@ -116,6 +116,130 @@
   if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', applyApprovedMobileShell, { once: true });
   else applyApprovedMobileShell();
 
+
+  // Read each newly rendered prompt, accept spoken A-D answers when the
+  // browser speech-recognition API is available, and make answer feedback
+  // dismissible without leaving the old result over the next question.
+  function installQuestionAndResultFlow() {
+    const doc = root.document;
+    if (!doc?.body || root.__dpiQuestionResultFlowInstalled) return;
+    root.__dpiQuestionResultFlowInstalled = true;
+    const resultSelector = '#internal .feedback.ok,#internal .feedback.no,#internal .dpi-case-feedback.is-correct,#internal .dpi-case-feedback.is-wrong,#internal .dpi-round-result.is-correct,#internal .dpi-round-result.is-wrong';
+    const questionSelector = '#internal .dpi-case-question,#internal .question-text,#internal .dpi-round-question,#internal .miniStage > p';
+    let lastQuestion = '';
+    let scanTimer = 0;
+    const assistant = () => root.ELXAssistentes;
+    const speak = text => {
+      const voice = assistant();
+      if (voice?.isEnabled?.() && text) voice.speak(text, voice.getPersona?.() || 'male', true);
+    };
+    const openResult = node => {
+      if (!node?.isConnected || node.dataset.dpiDialogOpen || !node.matches(resultSelector)) return;
+      node.dataset.dpiDialogOpen = 'true';
+      const overlay = doc.createElement('div');
+      overlay.className = 'dpi-answer-dialog';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', 'Resultado da resposta');
+      Object.assign(overlay.style, { position:'fixed', inset:'0', zIndex:'10060', display:'grid', placeItems:'center', padding:'16px', background:'#001522cc', overflowY:'auto' });
+      const card = doc.createElement('section');
+      Object.assign(card.style, { position:'relative', width:'min(100%,620px)', maxHeight:'min(84dvh,760px)', overflowY:'auto', padding:'22px 18px 18px', border:'1px solid #64cedd', borderRadius:'20px', background:'linear-gradient(145deg,#f7fcfd,#eaf5f7)', boxShadow:'0 24px 70px #00101dcc', color:'#17364d' });
+      const close = doc.createElement('button');
+      close.type = 'button';
+      close.className = 'dpi-answer-dialog__close';
+      close.setAttribute('aria-label', 'Fechar resultado e continuar');
+      close.title = 'Fechar resultado';
+      close.textContent = '×';
+      Object.assign(close.style, { position:'sticky', float:'right', top:'0', zIndex:'2', width:'42px', height:'42px', margin:'-10px -8px 6px 10px', border:'1px solid #8cb8c5', borderRadius:'50%', background:'#fff', color:'#17364d', font:'700 26px/1 Arial,sans-serif', cursor:'pointer' });
+      const dismiss = () => {
+        const next = node.querySelector('button[onclick*="nextQuestion"],button[onclick*="caseRender"],button[onclick*="DpiGameRounds.next"],button[onclick*="nextAssociation"]');
+        try { if (next && !next.disabled) next.click(); }
+        finally { overlay.remove(); if (node.isConnected) node.remove(); }
+      };
+      close.addEventListener('click', dismiss);
+      overlay.addEventListener('keydown', event => { if (event.key === 'Escape') dismiss(); });
+      card.append(close, node);
+      overlay.append(card);
+      doc.body.append(overlay);
+      close.focus({ preventScroll:true });
+      const heading = node.querySelector('strong,b')?.textContent?.trim() || 'Vamos revisar esta resposta.';
+      const explanation = [...node.querySelectorAll('p')].map(p => p.textContent.replace(/\s+/g,' ').trim()).filter(Boolean).slice(0,2).join('. ');
+      speak([heading, explanation].filter(Boolean).join('. ').slice(0,650));
+    };
+    const scan = () => {
+      scanTimer = 0;
+      const internal = doc.getElementById('internal');
+      if (!internal) return;
+      const result = internal.querySelector(resultSelector);
+      if (result) { openResult(result); return; }
+      const question = internal.querySelector(questionSelector);
+      const text = String(question?.textContent || '').replace(/\s+/g,' ').trim();
+      if (!text || text === lastQuestion) return;
+      lastQuestion = text;
+      const canAnswerByVoice = typeof root.SpeechRecognition === 'function' || typeof root.webkitSpeechRecognition === 'function';
+      speak('Questão. ' + text + '. ' + (canAnswerByVoice ? 'Você pode responder em voz alta dizendo a letra da alternativa.' : 'Escolha a alternativa que melhor responde.'));
+    };
+    const schedule = () => { root.clearTimeout(scanTimer); scanTimer = root.setTimeout(scan, 160); };
+    const internal = doc.getElementById('internal');
+    if (internal && typeof root.MutationObserver === 'function') {
+      new root.MutationObserver(schedule).observe(internal, { childList:true, subtree:true, characterData:true });
+      schedule();
+    }
+    root.addEventListener('elx-voice-setting', event => { if (event.detail?.enabled) { lastQuestion = ''; schedule(); } });
+
+    const NativeRecognition = root.SpeechRecognition || root.webkitSpeechRecognition;
+    if (typeof NativeRecognition !== 'function') return;
+    const normalizeChoice = value => {
+      const text = String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[.,!?;:]/g,' ').replace(/\s+/g,' ').trim();
+      if (/^[abcd]$/.test(text)) return text;
+      return text.match(/(?:^|\b)(?:alternativa|opcao|letra|resposta)(?: (?:e|eh|seria))? (?:a )?([abcd])$/)?.[1] || null;
+    };
+    const choiceButton = letter => {
+      const index = letter.charCodeAt(0) - 97;
+      for (const selector of ['#internal .option:not(:disabled)','#internal .dpi-case-option:not(:disabled)','#internal .dpi-round-option:not(:disabled)','#internal .dpi-target-dot:not(:disabled)']) {
+        const options = [...doc.querySelectorAll(selector)].filter(button => !button.hidden && button.getAttribute('aria-hidden') !== 'true');
+        if (options[index]) return options[index];
+      }
+      return null;
+    };
+    function VoiceRecognition() {
+      const instance = new NativeRecognition();
+      let handler = null;
+      let attached = false;
+      Object.defineProperty(instance, 'onresult', {
+        configurable:true,
+        get:() => handler,
+        set:value => {
+          handler = typeof value === 'function' ? value : null;
+          if (!handler || attached || typeof instance.addEventListener !== 'function') return;
+          attached = true;
+          instance.addEventListener('result', event => {
+            if (!handler) return;
+            const deferred = [];
+            const results = Array.from(event.results || [], item => {
+              const transcript = String(item?.[0]?.transcript || '').trim();
+              const choice = item?.isFinal ? normalizeChoice(transcript) : null;
+              const button = choice && choiceButton(choice);
+              if (button) deferred.push(button);
+              return { 0:{ transcript:choice ? 'alternativa ' + choice : transcript }, isFinal:!!item?.isFinal && !button };
+            });
+            handler.call(instance, { resultIndex:Number(event.resultIndex)||0, results });
+            if (deferred.length) root.setTimeout(() => deferred.forEach(button => { if (button.isConnected && !button.disabled) button.click(); }), 0);
+          });
+        }
+      });
+      return instance;
+    }
+    VoiceRecognition.prototype = NativeRecognition.prototype;
+    try {
+      Object.setPrototypeOf(VoiceRecognition, NativeRecognition);
+      root.SpeechRecognition = VoiceRecognition;
+      if (root.webkitSpeechRecognition === NativeRecognition) root.webkitSpeechRecognition = VoiceRecognition;
+    } catch (error) { root.console?.warn?.('Respostas por voz indisponíveis neste navegador.', error); }
+  }
+  if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', installQuestionAndResultFlow, { once:true });
+  else installQuestionAndResultFlow();
+
   // Windows' cover launch can run inside a browser configuration that blocks
   // new tabs from a loopback address. Library references therefore navigate
   // the current tab in that route; Back returns to the same game screen.
