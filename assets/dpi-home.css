@@ -54,7 +54,7 @@ button,a{font:inherit;-webkit-tap-highlight-color:transparent}
 .dpi-footer b{display:block;font-size:7px;font-weight:950;letter-spacing:.08em}.dpi-footer small{display:block;margin-top:2px;color:#a8c9d4;font-size:6px;letter-spacing:.07em}
 .dpi-footer>a:hover,.dpi-footer>a:focus-visible{background:#07516a;outline:2px solid white;outline-offset:-2px}
 .dpi-legal{grid-column:1/-1;margin:7px 0 0;color:#80a5b1;font-size:5px;letter-spacing:.12em;text-align:center}
-@media(min-width:700px){body{min-height:100vh;align-items:center;padding:24px}.dpi-app{min-height:0}.dpi-hero{min-height:354px}.dpi-hero-scene{height:258px}.dpi-hero-mascot{height:240px}.dpi-emblem img{width:min(100%,190px)}.dpi-actions{gap:9px;padding:10px 12px 12px}.dpi-action{height:88px}}
+@media(min-width:700px){body{min-height:100vh;align-items:center;padding:24px}.dpi-app{width:min(100%,1100px);min-height:0}.dpi-hero{min-height:354px}.dpi-hero-scene{height:258px}.dpi-hero-mascot{height:240px}.dpi-emblem img{width:min(100%,190px)}.dpi-actions{gap:9px;padding:10px 12px 12px}.dpi-action{height:88px}}
 @media(max-width:360px){body{padding:0}.dpi-app{width:100%;min-height:100dvh;border-radius:0;border-inline:0}.dpi-hero{min-height:300px}.dpi-hero-scene{height:205px;grid-template-columns:minmax(0,1fr) minmax(112px,132px) minmax(0,1fr)}.dpi-hero-mascot{height:178px}.dpi-emblem img{width:min(100%,132px)}.dpi-hero h1{margin-top:2px}.dpi-action{height:78px;padding:8px 6px;gap:7px}.action-icon{width:34px;height:34px;flex-basis:34px}.dpi-action b{font-size:9px}.dpi-footer>a{gap:5px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
