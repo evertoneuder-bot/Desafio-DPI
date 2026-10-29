@@ -17,6 +17,28 @@
   const returningToDpiCover = params.get('return') === 'dpi';
   const presentationFeature = params.get('feature');
 
+  // The voice engine and the conversation UI live in separate IIFEs. Export
+  // these helpers on window so the engine's calls resolve across that scope.
+  root.dpiGameKey = root.dpiGameKey || function (node = root.document.getElementById('internal')) {
+    if (!node) return '';
+    if (node.querySelector('.dpi-case-question')) return 'plantao';
+    if (node.querySelector('.dpi-round-session')) return 'round:' + String(node.querySelector('.dpi-play-content h2')?.textContent || 'rodada').trim();
+    if (node.querySelector('.dpi-ws-grid')) return 'wordsearch';
+    if (node.querySelector('.dpi-crossword-board')) return 'crossword';
+    if (node.querySelector('.dpi-hg-game')) return 'hangman';
+    if (node.querySelector('.dpi-word-modes')) return 'wordhub';
+    if (node.querySelector('.dpi-game-panel .option') && /^QUESTÃO/i.test(node.querySelector('.dpi-game-panel h2')?.textContent || '')) return 'quiz';
+    return '';
+  };
+  root.dpiGuideControls = root.dpiGuideControls || function () {
+    const group = root.document.querySelector('#internal .dpi-help-actions');
+    if (!group) return;
+    const targets = [...group.querySelectorAll('button')];
+    targets.forEach(element => element.classList.add('dpi-help-guide-target'));
+    root.setTimeout(() => targets.forEach(element => element.isConnected && element.classList.remove('dpi-help-guide-target')), 2600);
+    root.ELXMascotDirector?.react?.('guide-right');
+  };
+
   // Keep the approved bibliography label visible in the legacy game shell
   // while the main cover and game are being converged on the shared design.
   function applyApprovedMobileShell() {
