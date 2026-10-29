@@ -4,7 +4,7 @@ html{min-height:100%;background:#021624;scroll-behavior:smooth}
 body{min-height:100vh;margin:0;padding:10px;display:flex;justify-content:center;align-items:flex-start;background:radial-gradient(ellipse at 50% 0,#07374d 0,#031a2b 54%,#01101c 100%);color:var(--ink);overflow-x:hidden}
 button,a{font:inherit;-webkit-tap-highlight-color:transparent}
 .dpi-app{position:relative;width:min(100%,390px);min-height:700px;margin:0 auto;overflow:hidden;border:1px solid #087f9c;border-radius:19px;background:#031a2c;box-shadow:0 0 0 2px #13d7ff18,0 0 27px #00bce53b,inset 0 0 26px #0bb9e814}
-.dpi-header{position:relative;z-index:4;height:82px;background:linear-gradient(110deg,#031d31,#06334a 72%,#032337);border-bottom:1px solid #087a98;box-shadow:0 5px 16px #00111d99}
+.dpi-header{position:relative;z-index:4;height:auto;min-height:82px;background:linear-gradient(110deg,#031d31,#06334a 72%,#032337);border-bottom:1px solid #087a98;box-shadow:0 5px 16px #00111d99}
 .dpi-brand-row{height:56px;display:flex;align-items:center;padding:0 8px;border-bottom:1px solid #08748f}
 .dpi-close{width:31px;height:30px;display:grid;place-items:center;margin-right:7px;border-radius:7px;color:#dff8ff;text-decoration:none;font-size:25px;line-height:1}
 .dpi-close:hover,.dpi-close:focus-visible{outline:2px solid var(--cyan);background:#0b5670}
