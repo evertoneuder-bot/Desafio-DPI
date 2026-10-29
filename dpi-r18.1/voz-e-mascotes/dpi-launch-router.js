@@ -268,11 +268,25 @@
   if (!mode || !Object.prototype.hasOwnProperty.call(actions, mode)) return;
   root.document.documentElement.classList.add('dpi-route-pending');
 
+  function showDpiModeMenu() {
+    if (typeof root.shell !== 'function') return false;
+    root.shell('Escolha como quer jogar', `<p class="dpi-game-intro">Escolha um caminho: estude no quiz, pratique nos minijogos ou conduza um caso no Plantão.</p><div class="dpi-choice-grid dpi-mode-choice-grid"><button type="button" class="dpi-choice-card" onclick="route('quiz')"><span>10</span><b>Quiz diagnóstico</b><small>Questões objetivas do banco DPI.</small></button><button type="button" class="dpi-choice-card" onclick="route('challenges')"><span>7</span><b>Desafios</b><small>Pratique em sete formatos de jogo.</small></button><button type="button" class="dpi-choice-card" onclick="route('plantao')"><span>🚨</span><b>Plantão DPI</b><small>Conduza casos e decisões clínicas.</small></button><button type="button" class="dpi-choice-card" onclick="achievements()"><span>✦</span><b>Minhas conquistas</b><small>Acompanhe pontos e progresso.</small></button></div>`);
+    return true;
+  }
+  root.dpiModeMenu = showDpiModeMenu;
+  const originalRoute = root.route;
+  if (typeof originalRoute === 'function') {
+    root.route = function (destination) {
+      if (destination === 'modeMenu') return showDpiModeMenu();
+      return originalRoute.apply(this, arguments);
+    };
+  }
+
   function startFromPresentation() {
     if (typeof root.prof !== 'function' || typeof root.profile !== 'function') return false;
-    if (root.prof()) { root.showHome(); return true; }
+    if (root.prof()) { return root.route ? root.route('modeMenu') : showDpiModeMenu(); }
     root.profile();
-    if (root.document.querySelector('#register.on')) root.afterReg = 'home';
+    if (root.document.querySelector('#register.on')) root.afterReg = 'modeMenu';
     return true;
   }
   function openPresentationFeature() {
