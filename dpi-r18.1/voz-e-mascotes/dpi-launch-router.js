@@ -17,6 +17,28 @@
   const returningToDpiCover = params.get('return') === 'dpi';
   const presentationFeature = params.get('feature');
 
+  // Keep the question narrator's shared helpers in the global scope. The
+  // inline voice engine calls both functions while rendering each game step.
+  root.dpiGameKey = root.dpiGameKey || function (node = root.document.getElementById('internal')) {
+    if (!node) return '';
+    if (node.querySelector('.dpi-case-question')) return 'plantao';
+    if (node.querySelector('.dpi-round-session')) return 'round:' + String(node.querySelector('.dpi-play-content h2')?.textContent || 'rodada').trim();
+    if (node.querySelector('.dpi-ws-grid')) return 'wordsearch';
+    if (node.querySelector('.dpi-crossword-board')) return 'crossword';
+    if (node.querySelector('.dpi-hg-game')) return 'hangman';
+    if (node.querySelector('.dpi-word-modes')) return 'wordhub';
+    if (node.querySelector('.dpi-game-panel .option') && /^QUESTÃO/i.test(node.querySelector('.dpi-game-panel h2')?.textContent || '')) return 'quiz';
+    return '';
+  };
+  root.dpiGuideControls = root.dpiGuideControls || function () {
+    const group = root.document.querySelector('#internal .dpi-help-actions');
+    if (!group) return;
+    const targets = [...group.querySelectorAll('button')];
+    targets.forEach(element => element.classList.add('dpi-help-guide-target'));
+    root.setTimeout(() => targets.forEach(element => element.isConnected && element.classList.remove('dpi-help-guide-target')), 2600);
+    root.ELXMascotDirector?.react?.('guide-right');
+  };
+
   // Keep the approved bibliography label visible in the legacy game shell
   // while the main cover and game are being converged on the shared design.
   function applyApprovedMobileShell() {
@@ -125,8 +147,6 @@
     if (!doc?.body || root.__dpiQuestionResultFlowInstalled) return;
     root.__dpiQuestionResultFlowInstalled = true;
     const resultSelector = '#internal .feedback.ok,#internal .feedback.no,#internal .dpi-case-feedback.is-correct,#internal .dpi-case-feedback.is-wrong,#internal .dpi-round-result.is-correct,#internal .dpi-round-result.is-wrong';
-    const questionSelector = '#internal .dpi-case-question,#internal .question-text,#internal .dpi-round-question,#internal .miniStage > p';
-    let lastQuestion = '';
     let scanTimer = 0;
     const assistant = () => root.ELXAssistentes;
     const speak = text => {
@@ -172,12 +192,6 @@
       if (!internal) return;
       const result = internal.querySelector(resultSelector);
       if (result) { openResult(result); return; }
-      const question = internal.querySelector(questionSelector);
-      const text = String(question?.textContent || '').replace(/\s+/g,' ').trim();
-      if (!text || text === lastQuestion) return;
-      lastQuestion = text;
-      const canAnswerByVoice = typeof root.SpeechRecognition === 'function' || typeof root.webkitSpeechRecognition === 'function';
-      speak('Questão. ' + text + '. ' + (canAnswerByVoice ? 'Você pode responder em voz alta dizendo a letra da alternativa.' : 'Escolha a alternativa que melhor responde.'));
     };
     const schedule = () => { root.clearTimeout(scanTimer); scanTimer = root.setTimeout(scan, 160); };
     const internal = doc.getElementById('internal');
@@ -185,7 +199,6 @@
       new root.MutationObserver(schedule).observe(internal, { childList:true, subtree:true, characterData:true });
       schedule();
     }
-    root.addEventListener('elx-voice-setting', event => { if (event.detail?.enabled) { lastQuestion = ''; schedule(); } });
 
     const NativeRecognition = root.SpeechRecognition || root.webkitSpeechRecognition;
     if (typeof NativeRecognition !== 'function') return;
