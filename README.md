@@ -62,5 +62,7 @@ A R42.5 mantém as interfaces web e mobile, os jogos, o banco e as fontes da R42
 - O fluxo é `COMEÇAR` → identificação de perfil (ou visitante) → Quiz. O Quiz mantém atalhos para Desafios e Plantão DPI.
 - `ESTUDE` explica como o jogo apoia o aprendizado, sem encaminhar a outro modo. `PRATIQUE` percorre uma etapa de cada modalidade e permite pular ou desistir. `EVOLUA` apresenta a progressão do estudo à prática e às conquistas. `COMPARTILHE` abre WhatsApp, e-mail, cópia do link e compartilhamento nativo quando disponível.
 - A trilha musical está desativada. Com a voz ativa, o código narra perguntas e alternativas; a voz em português do aparelho é a alternativa quando o serviço de voz do servidor não está disponível.
+- Na tela de jogo mobile, o cabeçalho e o coach foram compactados para eliminar duplicidades e rolagem da página; os mascotes continuam visíveis ao lado da fala do assistente.
+- A narração da pergunta foi corrigida para acessar os auxiliares de voz entre os scripts. A prévia não registra erros de JavaScript; a reprodução audível ainda depende do teste no aparelho do jogador.
 - Branch de teste: `codex/r42.9-agreed-mobile-20261029`. A R42.8 anterior continua preservada.
-- A suíte R42.9 passa com 85 testes.
+- A suíte R42.9 passa com 87 testes.
