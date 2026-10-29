@@ -80,6 +80,49 @@
         body.dpi-voice-off .dpi-silent-mission{display:none!important}
         .dpi-play-speech:not(.is-speaking){display:none!important}
         .dpi-play-speech.is-speaking{display:block!important}
+        @media(max-width:600px){
+          html.dpi-player-route,html.dpi-player-route body{height:100%;overflow:hidden!important}
+          body.dpi-player-route .app{height:100dvh!important;min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
+          body.dpi-player-route .app>header{height:52px!important;min-height:52px!important;flex:0 0 52px!important;overflow:visible!important}
+          body.dpi-player-route .app>header .brandbar{height:52px!important;min-height:52px!important}
+          body.dpi-player-route .app>header .utility{display:none!important}
+          body.dpi-player-route .app>footer{display:none!important}
+          body.dpi-player-route .app>main{height:calc(100dvh - 52px)!important;min-height:0!important;flex:1 1 auto!important;overflow:hidden!important;margin:0!important;padding:0!important}
+          body.dpi-player-route #internal{height:100%!important;min-height:0!important;overflow:hidden!important}
+          body.dpi-player-route #elx-conversation{position:fixed!important;top:5px!important;right:8px!important;bottom:auto!important;left:auto!important;z-index:10040!important}
+          .dpi-play-app,.dpi-wordgame-page{height:100%!important;max-height:100%!important;min-height:0!important;margin:0!important;padding:0 8px!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+          .dpi-play-topbar,.dpi-wordgame-top{display:none!important}
+          .dpi-play-layout,.dpi-wordgame-layout{height:100%!important;min-height:0!important;max-height:100%!important;flex:1 1 auto!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:68px minmax(0,1fr)!important;gap:6px!important;padding:0!important;overflow:hidden!important}
+          .dpi-play-coach,.dpi-wordgame-coach{position:relative!important;height:68px!important;min-height:68px!important;max-height:68px!important;grid-template-columns:62px minmax(0,1fr)!important;grid-template-rows:1fr!important;align-items:center!important;padding:4px 8px!important;overflow:hidden!important}
+          .dpi-play-coach-label,.dpi-wordgame-coach-label{position:absolute!important;left:76px!important;top:3px!important;font-size:8px!important}
+          .dpi-play-coach #elx-character-stage,.dpi-wordgame-coach #elx-character-stage{grid-column:1!important;grid-row:1!important;width:58px!important;height:58px!important;min-height:0!important;max-height:58px!important;overflow:visible!important}
+          .dpi-play-coach .dpi-play-mascot,.dpi-wordgame-coach .dpi-play-mascot{display:none!important}
+          .dpi-play-speech,.dpi-wordgame-coach .dpi-play-speech{grid-column:2!important;grid-row:1!important;max-height:58px!important;overflow:hidden!important}
+          .dpi-play-content,.dpi-wordgame-main{height:100%!important;min-height:0!important;max-height:100%!important;overflow:hidden!important}
+          .dpi-play-content .dpi-game-panel,.dpi-wordgame-main .dpi-game-panel{height:100%!important;max-height:100%!important;min-height:0!important;padding:9px!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+          .dpi-play-content .dpi-game-panel .dpi-game-eyebrow{margin:0 0 3px!important}
+          .dpi-play-content .dpi-game-panel>h2{font-size:19px!important;line-height:1.15!important;margin:0 0 5px!important}
+          .dpi-play-content .dpi-help-actions,.dpi-wordgame-main .dpi-help-actions{flex:0 0 auto!important;display:flex!important;flex-wrap:nowrap!important;gap:5px!important;margin:3px 0 6px!important}
+          .dpi-play-content .dpi-help-action,.dpi-wordgame-main .dpi-help-action{min-height:32px!important;padding:4px 7px!important;font-size:10px!important;white-space:nowrap!important}
+          .dpi-play-content .dpi-game-panel .question-text,.dpi-play-content .dpi-game-panel .dpi-case-question{font-size:14px!important;line-height:1.25!important;margin:5px 0 7px!important}
+          .dpi-play-content .dpi-game-panel .option,.dpi-play-content .dpi-game-panel .dpi-case-option{flex:0 1 auto!important;min-height:42px!important;margin:3px 0!important;padding:7px 9px!important;font-size:13px!important;line-height:1.25!important}
+          .dpi-play-content .dpi-game-panel .navrow{display:none!important}
+          .dpi-play-content .dpi-game-panel .muted{font-size:11px!important;margin:4px 0!important}
+          .dpi-play-content .dpi-game-panel .dpi-surrender-footer{margin:4px 0 0!important;padding:4px 0 0!important}
+          .dpi-play-footer,.dpi-wordgame-footer{display:none!important}
+        }
+        @media(max-width:600px) and (max-height:700px){
+          .dpi-play-layout,.dpi-wordgame-layout{grid-template-rows:56px minmax(0,1fr)!important;gap:4px!important}
+          .dpi-play-coach,.dpi-wordgame-coach{height:56px!important;min-height:56px!important;max-height:56px!important}
+          .dpi-play-coach #elx-character-stage,.dpi-wordgame-coach #elx-character-stage{width:48px!important;height:48px!important;max-height:48px!important}
+          .dpi-play-coach-label,.dpi-wordgame-coach-label{left:64px!important;font-size:7px!important}
+          .dpi-play-content .dpi-game-panel,.dpi-wordgame-main .dpi-game-panel{padding:6px!important}
+          .dpi-play-content .dpi-game-panel .dpi-game-eyebrow{display:none!important}
+          .dpi-play-content .dpi-game-panel>h2{font-size:17px!important;margin-bottom:3px!important}
+          .dpi-play-content .dpi-game-panel .question-text,.dpi-play-content .dpi-game-panel .dpi-case-question{font-size:13px!important;margin:3px 0 5px!important}
+          .dpi-play-content .dpi-game-panel .option,.dpi-play-content .dpi-game-panel .dpi-case-option{min-height:38px!important;padding:5px 7px!important;font-size:12px!important;line-height:1.2!important}
+          .dpi-play-content .dpi-game-panel .muted{display:none!important}
+        }
       `;
       doc.head.append(style);
     }
@@ -163,6 +206,7 @@
 
   if (!mode || !Object.prototype.hasOwnProperty.call(actions, mode)) return;
   root.document.documentElement.classList.add('dpi-route-pending');
+  if (['start', 'quiz', 'challenges', 'plantao'].includes(mode)) root.document.documentElement.classList.add('dpi-player-route');
   if (returningToDpiCover && mode === 'start') root.document.documentElement.classList.add('dpi-start-route');
 
   function startFromPresentation() {
