@@ -39,6 +39,27 @@
     root.ELXMascotDirector?.react?.('guide-right');
   };
 
+  // Recover voice on older phones where a stale setting can report "active"
+  // while disabling both narration and the free device fallback. Respect mute.
+  const voiceRecoveryKey = 'dpi-free-voice-recovery-r42-12';
+  function recoverFreeVoice() {
+    try {
+      const storage = root.localStorage;
+      if (storage.getItem('dpi-casual-audio') === '0') return;
+      if (storage.getItem(voiceRecoveryKey) !== '1') {
+        root.dpiUseDeviceVoice?.(true);
+        storage.setItem(voiceRecoveryKey, '1');
+      }
+      if (root.ELXAssistentes?.isEnabled?.() === false) root.ELXAssistentes.setEnabled?.(true);
+    } catch (error) {
+      root.console?.warn?.('Não foi possível recuperar as preferências de voz.', error);
+    }
+  }
+  recoverFreeVoice();
+  root.addEventListener?.('elx-voice-setting', event => {
+    if (event.detail?.enabled) recoverFreeVoice();
+  });
+
   // Keep the approved bibliography label visible in the legacy game shell
   // while the main cover and game are being converged on the shared design.
   function applyApprovedMobileShell() {
