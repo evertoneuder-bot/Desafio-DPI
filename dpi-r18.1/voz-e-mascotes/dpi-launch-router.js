@@ -273,7 +273,7 @@
     root.shell('Escolha como quer jogar', `<p class="dpi-game-intro">Escolha um caminho: estude no quiz, pratique nos minijogos ou conduza um caso no Plantão.</p><div class="dpi-choice-grid dpi-mode-choice-grid"><button type="button" class="dpi-choice-card" onclick="route('quiz')"><span>10</span><b>Quiz diagnóstico</b><small>Questões objetivas do banco DPI.</small></button><button type="button" class="dpi-choice-card" onclick="route('challenges')"><span>7</span><b>Desafios</b><small>Pratique em sete formatos de jogo.</small></button><button type="button" class="dpi-choice-card" onclick="route('plantao')"><span>🚨</span><b>Plantão DPI</b><small>Conduza casos e decisões clínicas.</small></button><button type="button" class="dpi-choice-card" onclick="achievements()"><span>✦</span><b>Minhas conquistas</b><small>Acompanhe pontos e progresso.</small></button></div>`);
     const internal = root.document.getElementById('internal');
     internal?.querySelectorAll('button').forEach(button => {
-      if (!/VOLTAR\\s+(?:À|A)\\s+CAPA/i.test(button.textContent || '')) return;
+      if (!/VOLTAR\s+(?:À|A)\s+CAPA/i.test(button.textContent || '')) return;
       button.onclick = () => root.location.assign('/dpi-home.html');
     });
     return true;
