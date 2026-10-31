@@ -313,7 +313,7 @@
   }
   function openPresentationFeature() {
     if (!['study', 'practice', 'evolve'].includes(presentationFeature)) {
-      root.location.assign('../index.html');
+      root.location.assign('/dpi-home.html');
       return true;
     }
     root.dpiFeatureDialog(presentationFeature);
@@ -325,12 +325,12 @@
   if (mode === 'feature' && returningToDpiCover && typeof originalCloseFeature === 'function') {
     root.dpiCloseFeatureDialog = function () {
       originalCloseFeature.apply(this, arguments);
-      root.location.assign('../index.html');
+      root.location.assign('/dpi-home.html');
     };
   }
   const originalShowHome = root.showHome;
   if (returningToDpiCover && mode !== 'start' && typeof originalShowHome === 'function') {
-    root.showHome = function () { root.location.assign('../index.html'); };
+    root.showHome = function () { root.location.assign('/dpi-home.html'); };
   }
 
   function ensurePlantaoScreen() {
