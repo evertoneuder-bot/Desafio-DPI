@@ -46,8 +46,8 @@
     try {
       const storage = root.localStorage;
       if (storage.getItem('dpi-casual-audio') === '0') return;
-      if (storage.getItem(voiceRecoveryKey) !== '1') {
-        root.dpiUseDeviceVoice?.(true);
+      if (storage.getItem(voiceRecoveryKey) !== '1' && typeof root.dpiUseDeviceVoice === 'function') {
+        root.dpiUseDeviceVoice(true);
         storage.setItem(voiceRecoveryKey, '1');
       }
       if (root.ELXAssistentes?.isEnabled?.() === false) root.ELXAssistentes.setEnabled?.(true);
@@ -55,7 +55,13 @@
       root.console?.warn?.('Não foi possível recuperar as preferências de voz.', error);
     }
   }
-  recoverFreeVoice();
+  // The router is parsed before the inline voice engine. Wait until DOMContentLoaded
+  // so the migration can call the real device-voice setter before marking success.
+  if (root.document.readyState === 'loading') {
+    root.document.addEventListener('DOMContentLoaded', recoverFreeVoice, { once: true });
+  } else {
+    root.setTimeout(recoverFreeVoice, 0);
+  }
   root.addEventListener?.('elx-voice-setting', event => {
     if (event.detail?.enabled) recoverFreeVoice();
   });
