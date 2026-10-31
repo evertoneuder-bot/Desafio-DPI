@@ -221,6 +221,27 @@
       schedule();
     }
 
+    // The legacy inline handler points at a function scoped inside its script.
+    // Route the visible case/question button through the public question reader.
+    doc.addEventListener('click', event => {
+      const trigger = event.target?.closest?.('#internal .dpi-case-trigger');
+      if (!trigger) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const question = doc.querySelector('#internal .dpi-case-question,#internal .question-text,#internal .dpi-round-question,#internal .miniStage > p');
+      if (question && typeof root.dpiReadQuestion === 'function') {
+        root.dpiReadQuestion();
+        return;
+      }
+      const voice = assistant();
+      const title = doc.querySelector('#internal .dpi-play-content h2')?.textContent?.trim() || 'Desafio DPI';
+      const prompt = question?.textContent?.replace(/\\s+/g, ' ').trim() || '';
+      const options = [...doc.querySelectorAll('#internal .option:not(:disabled),#internal .dpi-case-option:not(:disabled),#internal .dpi-round-option:not(:disabled)')]
+        .slice(0, 4).map((button, index) => String.fromCharCode(65 + index) + ': ' + button.innerText.trim());
+      const text = [title, prompt, ...options].filter(Boolean).join('. ');
+      if (voice?.isEnabled?.() && text) voice.speak(text, voice.getPersona?.() || 'male', true);
+    }, true);
+
     const NativeRecognition = root.SpeechRecognition || root.webkitSpeechRecognition;
     if (typeof NativeRecognition !== 'function') return;
     const normalizeChoice = value => {
