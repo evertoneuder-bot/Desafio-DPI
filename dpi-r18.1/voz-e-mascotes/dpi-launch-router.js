@@ -285,10 +285,17 @@
   const showMenuAfterIdentity = () => {
     if (mode === 'start' && !root.document.querySelector('#register.on')) showDpiModeMenu();
   };
+  const originalShowHome = root.showHome;
+  const runIdentityAction = (action, receiver, args) => {
+    const routedShowHome = root.showHome;
+    if (returningToDpiCover && typeof originalShowHome === 'function') root.showHome = originalShowHome;
+    try { return action.apply(receiver, args); }
+    finally { if (returningToDpiCover && routedShowHome) root.showHome = routedShowHome; }
+  };
   const originalContinueAsGuest = root.continueAsGuest;
   if (typeof originalContinueAsGuest === 'function') {
     root.continueAsGuest = function () {
-      const result = originalContinueAsGuest.apply(this, arguments);
+      const result = runIdentityAction(originalContinueAsGuest, this, arguments);
       showMenuAfterIdentity();
       return result;
     };
@@ -296,7 +303,7 @@
   const originalSaveProfile = root.saveProfile;
   if (typeof originalSaveProfile === 'function') {
     root.saveProfile = function () {
-      const result = originalSaveProfile.apply(this, arguments);
+      const result = runIdentityAction(originalSaveProfile, this, arguments);
       if (typeof root.prof === 'function' && root.prof()) showMenuAfterIdentity();
       return result;
     };
@@ -333,8 +340,7 @@
       root.location.assign('/dpi-home.html');
     };
   }
-  const originalShowHome = root.showHome;
-  if (returningToDpiCover && mode !== 'start' && typeof originalShowHome === 'function') {
+  if (returningToDpiCover && typeof originalShowHome === 'function') {
     root.showHome = function () { root.location.assign('/dpi-home.html'); };
   }
 
