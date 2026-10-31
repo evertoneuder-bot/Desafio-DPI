@@ -41,7 +41,7 @@
 
   // Recover voice on older phones where a stale setting can report "active"
   // while disabling both narration and the free device fallback. Respect mute.
-  const voiceRecoveryKey = 'dpi-free-voice-recovery-r42-12';
+  const voiceRecoveryKey = 'dpi-free-voice-recovery-r42-13';
   function recoverFreeVoice() {
     try {
       const storage = root.localStorage;
