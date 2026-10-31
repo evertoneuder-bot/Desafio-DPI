@@ -329,7 +329,7 @@
     };
   }
   const originalShowHome = root.showHome;
-  if (returningToDpiCover && mode !== 'start' && typeof originalShowHome === 'function') {
+  if (returningToDpiCover && typeof originalShowHome === 'function') {
     root.showHome = function () { root.location.assign('/dpi-home.html'); };
   }
 
