@@ -13,11 +13,19 @@ test('first load keeps the approved server voice as default, not device speech',
   assert.equal(values.get('dpi-device-voice'), '0', 'persist the non-robotic default for the next screen/load');
 });
 
-test('an explicit device-voice preference is preserved', () => {
-  const storage = { getItem: () => '1' };
+test('legacy auto-enabled device speech is reset once without affecting future manual choices', () => {
+  const values = new Map([['dpi-device-voice', '1']]);
+  const storage = { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
   let selected;
   applyDeviceVoiceDefault(storage, value => { selected = value; });
+  assert.equal(selected, false);
+  assert.equal(values.get('dpi-device-voice'), '0');
+  assert.equal(values.get('dpi-device-voice-migrated-v1'), '1');
+  values.set('dpi-device-voice', '1');
+  selected = undefined;
+  applyDeviceVoiceDefault(storage, value => { selected = value; });
   assert.equal(selected, undefined);
+  assert.equal(values.get('dpi-device-voice'), '1');
 });
 
 test('registration no longer offers the unrelated tutor profile', () => {
