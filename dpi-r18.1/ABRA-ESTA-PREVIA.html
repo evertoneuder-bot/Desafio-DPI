@@ -2141,7 +2141,7 @@ function narrateVisibleScreen(){
   const strong=feedback.querySelector('strong,b');const reason=feedback.querySelector('p');
   text=(strong?.textContent||'Vamos conferir esta etapa.')+'. __ELX_PAUSE_1200__ '+conciseText(reason?.textContent||feedback.textContent,260);
  }else if(q){
-  const options=[...root.querySelectorAll('.option,.dpi-case-option,.dpi-round-option')].filter(b=>!b.disabled).slice(0,4).map((b,i)=>{const value=conciseText(b.innerText||b.textContent,95).replace(/^[A-D]\s*[:.)-]\s*/i,'');return 'Alternativa '+String.fromCharCode(65+i)+'. '+value});
+  const options=[...root.querySelectorAll('.option,.dpi-case-option,.dpi-round-option')].filter(b=>!b.disabled).slice(0,4).map((b,i)=>{const value=conciseText(b.querySelector('span')?.textContent||b.innerText||b.textContent,95);return 'Alternativa '+String.fromCharCode(65+i)+'. '+value});
   const topic=title?.textContent?.trim(),prompt=conciseText(q.textContent,210);
   text=(topic?topic+'. ':'')+'Vamos por partes: o foco desta etapa é '+prompt+'. __ELX_PAUSE_1200__ '+(options.length?'As opções são '+options.join('. __ELX_PAUSE_1200__ ')+'. ':'')+'Escolha a que melhor corresponde ao caso.';
  }else{
