@@ -210,7 +210,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     alternativa_c: 'Apenas contusões pulmonares antigas, excluindo lesões pleurais.',
     alternativa_d: 'Todas as lesões torácicas com exclusão definitiva de necessidade de outros exames.',
     resposta_correta_extenso: 'Pneumotórax, efusão pleural e trauma da parede torácica.', letra_correta: 'B', respostas_aceitas_voz: ['B', 'alternativa B', 'pneumotórax, efusão pleural e trauma da parede torácica'],
-    explicacao: 'O Merck Veterinary Manual cita que o TPOCUS pode ajudar a diagnosticar pneumotórax, efusão pleural e trauma da parede torácica, quando realizado por operador habilitado.',
+    explicacao: 'O Merck Veterinary Manual informa que o TPOCUS pode ajudar a identificar pneumotórax, efusão pleural e alterações da parede torácica. A interpretação depende do operador e deve ser integrada à avaliação clínica.',
     dica: 'A modalidade focal avalia ar, líquido e a superfície/parede torácica.', limitacao_clinica: 'TPOCUS depende de experiência do operador e não exclui automaticamente a necessidade de outros exames.', pontuacao: 10, ativo: true,
     url_fonte: 'https://www.merckvetmanual.com/emergency-medicine-and-critical-care/specific-diagnostics-and-therapy/trauma-in-emergency-medicine-in-small-animals'
   },
