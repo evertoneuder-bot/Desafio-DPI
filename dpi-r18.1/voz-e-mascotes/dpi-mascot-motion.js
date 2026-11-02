@@ -5,7 +5,7 @@
   const gamePose=pose=>document.querySelectorAll?.('.dpi-play-mascot,.dpi-wordgame-coach img,.elx-mascot-motion-persona').forEach(image=>{const selected=window.ELXAssistentes?.getPersona?.()||'male';image.dataset.voicePose=pose==='speaking'&&image.dataset.persona&&image.dataset.persona!==selected?'listening':pose});
   const desktopCoachStyle=document.createElement('style');
   desktopCoachStyle.id='dpi-coach-desktop-persistent-layout';
-  desktopCoachStyle.textContent='@media (min-width: 761px){.dpi-play-coach:not(.is-speaking){min-height:250px!important}.dpi-play-coach:not(.is-speaking) .dpi-play-mascot{height:180px!important}}';
+  desktopCoachStyle.textContent='@media (min-width: 761px){.dpi-play-coach:not(.is-speaking),.dpi-play-coach.is-speaking{min-height:430px!important}.dpi-play-coach:not(.is-speaking) .dpi-play-mascot,.dpi-play-coach.is-speaking .dpi-play-mascot{height:300px!important;width:min(100%,285px)!important}}';
   document.head?.appendChild(desktopCoachStyle);
   window.addEventListener('elx-speech-start',()=>{clearTimeout(gameReactionTimer);gamePose('speaking')});
   for(const event of ['elx-speech-end','elx-speech-paused','elx-voice-unavailable'])window.addEventListener(event,()=>{clearTimeout(gameReactionTimer);gamePose('idle')});
