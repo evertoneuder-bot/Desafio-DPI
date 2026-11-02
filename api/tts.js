@@ -50,6 +50,10 @@ module.exports = async function tts(req, res) {
   }
 
   const modelId = process.env.ELEVENLABS_TTS_MODEL || 'eleven_multilingual_v2';
+    const supportsSsmlBreaks = /^(eleven_multilingual_v2|eleven_flash_v2|eleven_flash_v2_5)$/i.test(modelId);
+    const ttsText = supportsSsmlBreaks
+      ? text.replace(/__ELX_PAUSE_1200__/g, '<break time="1.2s" />')
+      : text.replace(/__ELX_PAUSE_1200__/g, '...');
   const url = `${PROVIDER_URL}${encodeURIComponent(voiceId)}?output_format=mp3_44100_128`;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 20000);
@@ -79,7 +83,7 @@ module.exports = async function tts(req, res) {
     const characterLimit = Number(subscription?.character_limit);
     if (Number(overageLimit) !== 0 || !Number.isFinite(characterCount) ||
         !Number.isFinite(characterLimit) || characterLimit <= 0 ||
-        characterCount + text.length > characterLimit) {
+        characterCount + ttsText.length > characterLimit) {
       return json(res, 429, { error: 'provider-quota-or-rate-limit' });
     }
 
@@ -91,7 +95,7 @@ module.exports = async function tts(req, res) {
         'Accept': 'audio/mpeg'
       },
       body: JSON.stringify({
-        text,
+        text: ttsText,
         model_id: modelId,
         voice_settings: { stability: 0.5, similarity_boost: 0.75 }
       }),
