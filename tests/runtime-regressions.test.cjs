@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const { applyDeviceVoiceDefault, removeTutorOption } = require('../dpi-r18.1/voz-e-mascotes/dpi-profile-draft.js');
 const router = fs.readFileSync('dpi-r18.1/voz-e-mascotes/dpi-launch-router.js', 'utf8');
+const home = fs.readFileSync('assets/dpi-home.js', 'utf8');
 
 test('first load keeps the approved server voice as default, not device speech', () => {
   const values = new Map();
@@ -39,4 +40,8 @@ test('voice recovery never enables device speech when no preference exists', () 
   assert.doesNotMatch(router, /dpiUseDeviceVoice\(true\)/);
   assert.match(router, /storage\.getItem\('dpi-device-voice'\) == null/);
   assert.match(router, /root\.dpiUseDeviceVoice\(false\)/);
+});
+
+test('abrir um jogo não ativa automaticamente a voz robótica do aparelho', () => {
+  assert.doesNotMatch(home, /setItem\('dpi-device-voice',\s*'1'\)/);
 });
