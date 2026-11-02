@@ -3,6 +3,10 @@
   'use strict';
   let gameReactionTimer=0;
   const gamePose=pose=>document.querySelectorAll?.('.dpi-play-mascot,.dpi-wordgame-coach img,.elx-mascot-motion-persona').forEach(image=>{const selected=window.ELXAssistentes?.getPersona?.()||'male';image.dataset.voicePose=pose==='speaking'&&image.dataset.persona&&image.dataset.persona!==selected?'listening':pose});
+  const desktopCoachStyle=document.createElement('style');
+  desktopCoachStyle.id='dpi-coach-desktop-persistent-layout';
+  desktopCoachStyle.textContent='@media (min-width: 761px){.dpi-play-coach:not(.is-speaking){min-height:250px!important}.dpi-play-coach:not(.is-speaking) .dpi-play-mascot{height:180px!important}}';
+  document.head?.appendChild(desktopCoachStyle);
   window.addEventListener('elx-speech-start',()=>{clearTimeout(gameReactionTimer);gamePose('speaking')});
   for(const event of ['elx-speech-end','elx-speech-paused','elx-voice-unavailable'])window.addEventListener(event,()=>{clearTimeout(gameReactionTimer);gamePose('idle')});
   window.addEventListener('elx-user-speaking',()=>gamePose('listening'));
