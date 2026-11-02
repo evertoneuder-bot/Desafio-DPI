@@ -105,7 +105,7 @@
     } else {
       stage = '<p class="dpi-round-instruction">Escolha a conduta mais adequada dentro do tempo.</p><div class="dpi-round-timer">⏱ <b id="dpiRoundClock">60</b> s</div><div class="dpi-round-options">' + choices.map((v, i) => '<button class="dpi-round-option" onclick="DpiGameRounds.answer(' + i + ')"><b>' + letters[i] + '</b><span>' + esc(v) + '</span></button>').join('') + '</div>';
     }
-    shell(modeNames[session.mode], '<section class="dpi-round-session">' + progress() + '<h3 class="dpi-round-question">' + esc(q.pergunta) + '</h3>' + stage + '<div id="dpiRoundFeedback" aria-live="polite"></div><p class="dpi-round-source">Conteúdo para estudo · Fonte: ' + esc(q.fonte || q.referencia || 'registro do banco') + '</p>' + miniNav() + '</section>');
+    shell(modeNames[session.mode], '<section class="dpi-round-session">' + progress() + '<h3 class="dpi-round-question" data-dpi-question-id="' + esc(q.id) + '">' + esc(q.pergunta) + '</h3>' + stage + '<div id="dpiRoundFeedback" aria-live="polite"></div><p class="dpi-round-source">Conteúdo para estudo · Fonte: ' + esc(q.fonte || q.referencia || 'registro do banco') + '</p>' + miniNav() + '</section>');
     if (session.mode === 'lightning') {
       session.seconds = 60;
       session.timer = setInterval(() => {
@@ -158,7 +158,7 @@
       if (i === index && !correct) button.classList.add('badpick');
     });
     const feedback = root.document.getElementById('dpiRoundFeedback');
-    if (feedback) feedback.innerHTML = '<div class="dpi-round-result ' + (correct ? 'is-correct' : 'is-wrong') + '"><b>' + (title || (correct ? '✓ BOA DECISÃO' : index < 0 ? '⏱ TEMPO ESGOTADO' : '↻ DECISÃO INCORRETA')) + '</b><p><strong>Resposta:</strong> ' + esc(q.resposta_correta_extenso) + '</p><p>' + esc(q.explicacao || q.dica) + '</p><button class="btn" onclick="DpiGameRounds.next()">' + (session.index + 1 < session.questions.length ? 'PRÓXIMA QUESTÃO →' : 'VER RESULTADO →') + '</button></div>';
+    if (feedback) feedback.innerHTML = '<div class="dpi-round-result ' + (correct ? 'is-correct' : 'is-wrong') + '"><b>' + (title || (correct ? '✓ BOA DECISÃO' : index < 0 ? '⏱ TEMPO ESGOTADO' : '↻ DECISÃO INCORRETA')) + '</b><p><strong>Resposta:</strong> ' + esc(q.resposta_correta_extenso) + '</p><p data-dpi-explanation>' + esc(q.explicacao || q.dica) + '</p><button class="btn" onclick="DpiGameRounds.next()">' + (session.index + 1 < session.questions.length ? 'PRÓXIMA QUESTÃO →' : 'VER RESULTADO →') + '</button></div>';
   }
   function eliminate(index) {
     if (session.answered || session.eliminated.has(index)) return;
@@ -201,7 +201,7 @@
         if (i === correctIndex || button.querySelector('b')?.textContent.trim() === letters[correctIndex]) button.classList.add('okpick');
       });
       const feedback = root.document.getElementById('dpiRoundFeedback');
-      if (feedback) feedback.innerHTML = '<div class="dpi-round-result"><b>DESISTÊNCIA REGISTRADA · RESPOSTA</b><p><strong>Resposta:</strong> ' + esc(q.resposta_correta_extenso) + '</p><p>' + esc(q.explicacao || q.dica) + '</p><small>Foi registrada à parte, sem contar como erro no ranking.</small><button class="btn" onclick="DpiGameRounds.next()">PRÓXIMA QUESTÃO →</button></div>';
+      if (feedback) feedback.innerHTML = '<div class="dpi-round-result"><b>DESISTÊNCIA REGISTRADA · RESPOSTA</b><p><strong>Resposta:</strong> ' + esc(q.resposta_correta_extenso) + '</p><p data-dpi-explanation>' + esc(q.explicacao || q.dica) + '</p><small>Foi registrada à parte, sem contar como erro no ranking.</small><button class="btn" onclick="DpiGameRounds.next()">PRÓXIMA QUESTÃO →</button></div>';
     }
     return true;
   }

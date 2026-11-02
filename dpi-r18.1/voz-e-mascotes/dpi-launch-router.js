@@ -96,6 +96,25 @@
         body.dpi-voice-off .dpi-silent-mission{display:none!important}
         .dpi-play-speech:not(.is-speaking){display:none!important}
         .dpi-play-speech.is-speaking{display:block!important}
+        #elx-conversation>summary::before{content:none!important}
+        #elx-conversation summary .elx-voice-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+        #elx-conversation .elx-voice-indicator{display:inline-flex;align-items:center;justify-content:center;background:none}
+        #elx-conversation .elx-voice-indicator svg{width:23px;height:23px}
+        #elx-conversation .voice-muted{display:none}
+        #elx-conversation[data-voice-muted="true"] .voice-waves{display:none}
+        #elx-conversation[data-voice-muted="true"] .voice-muted{display:block}
+        .footlinks a svg{vertical-align:middle;flex-shrink:0}
+        #elx-character-stage .elx-mascot-motion-persona[data-voice-pose="speaking"],.dpi-play-mascot[data-voice-pose="speaking"],.dpi-wordgame-coach img[data-voice-pose="speaking"]{animation:dpiNaturalSpeak .72s ease-in-out infinite alternate!important;transform-origin:50% 90%}
+        #elx-character-stage .elx-mascot-motion-persona[data-voice-pose="listening"],.dpi-play-mascot[data-voice-pose="listening"],.dpi-wordgame-coach img[data-voice-pose="listening"]{animation:dpiNaturalListen 1.5s ease-in-out infinite alternate!important;transform-origin:50% 90%}
+        #elx-character-stage .elx-mascot-motion-persona[data-voice-pose="celebrate"],#elx-character-stage .elx-mascot-motion-persona[data-voice-pose="greeting"],.dpi-play-mascot[data-voice-pose="celebrate"],.dpi-play-mascot[data-voice-pose="greeting"],.dpi-wordgame-coach img[data-voice-pose="celebrate"],.dpi-wordgame-coach img[data-voice-pose="greeting"]{animation:dpiNaturalGreet .6s ease-in-out 3!important}
+        #elx-character-stage .elx-mascot-motion-persona[data-voice-pose="incorrect"],.dpi-play-mascot[data-voice-pose="incorrect"],.dpi-wordgame-coach img[data-voice-pose="incorrect"]{animation:dpiNaturalReassure .8s ease-in-out 2!important}
+        @keyframes dpiNaturalSpeak{from{transform:translateY(0) rotate(-.5deg) scale(1)}to{transform:translateY(-3px) rotate(.7deg) scale(1.012)}}
+        @keyframes dpiNaturalListen{from{transform:rotate(0)}to{transform:rotate(1.5deg) translateY(-1px)}}
+        @keyframes dpiNaturalGreet{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-1.5deg)}}
+        @keyframes dpiNaturalReassure{0%,100%{transform:rotate(0)}35%{transform:rotate(-1.5deg)}70%{transform:rotate(1.5deg)}}
+        @media(prefers-reduced-motion:reduce){#elx-character-stage .elx-mascot-motion-persona[data-voice-pose],.dpi-play-mascot[data-voice-pose],.dpi-wordgame-coach img[data-voice-pose]{animation:none!important}}
+        .dpi-play-speech p,.dpi-speech>span,.dpi-wordgame-speech p{display:block;line-height:1.45!important;height:4.35em!important;min-height:4.35em!important;max-height:4.35em!important;overflow:hidden!important;overflow-wrap:anywhere;white-space:normal!important;scrollbar-width:none}
+        .dpi-play-speech p[data-caption-overflow="true"],.dpi-speech>span[data-caption-overflow="true"],.dpi-wordgame-speech p[data-caption-overflow="true"]{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 24%,#000);mask-image:linear-gradient(to bottom,transparent,#000 24%,#000)}
       `;
       doc.head.append(style);
     }
@@ -103,23 +122,22 @@
     if (root.__dpiTransientVoiceUiInstalled || typeof doc.querySelector !== 'function') return;
     root.__dpiTransientVoiceUiInstalled = true;
 
-    // The visible Conversar control is the user's microphone gesture: start
-    // hands-free on tap, and stop on the next tap. Keep the panel open.
-    const conversation = doc.querySelector('#elx-conversation');
-    const summary = conversation?.querySelector?.('summary');
-    summary?.addEventListener?.('click', event => {
-      const assistant = root.ELXAssistentes;
-      const voice = root.ELXConversation;
-      if (!assistant?.isEnabled?.() || !voice) return;
-      event.preventDefault();
-      if (voice.isHandsFreeActive?.()) voice.stopListening?.();
-      else voice.open?.({ voice: true });
-    });
-
+    // Speaker opens the existing compact controls; the microphone has its own button.
     let captionTimer = 0;
     let captionHideTimer = 0;
+    let captionText = '', captionNode = null;
+    const paintCaption = index => {
+      if (!captionNode) return;
+      captionNode.textContent = captionText.slice(0, index);
+      captionNode.scrollTop = Math.max(0, captionNode.scrollHeight - captionNode.clientHeight);
+      captionNode.dataset.captionOverflow = String(captionNode.scrollHeight > captionNode.clientHeight + 1);
+    };
+    root.addEventListener('elx-speech-progress', event => {
+      if (event.detail?.text !== captionText) return;
+      paintCaption(Math.min(captionText.length, Math.max(1, Number(event.detail.charIndex) || 0) + 35));
+    });
     root.addEventListener('elx-speech-start', event => {
-      const bubble = doc.querySelector('#internal .dpi-play-speech');
+      const bubble = doc.querySelector('#internal .dpi-play-speech,#internal .dpi-wordgame-speech');
       if (!bubble) return;
       root.clearInterval(captionTimer);
       root.clearTimeout(captionHideTimer);
@@ -131,9 +149,11 @@
       caption.setAttribute('aria-live', 'polite');
       bubble.replaceChildren(speaker, caption);
       bubble.classList.add('is-speaking');
+      captionText = text; captionNode = caption;
       let index = 0;
+      if (event.detail?.audio) { paintCaption(Math.min(35, text.length)); return; }
       captionTimer = root.setInterval(() => {
-        caption.textContent = text.slice(0, ++index);
+        paintCaption(++index);
         if (index >= text.length) root.clearInterval(captionTimer);
       }, 18);
     });
@@ -205,13 +225,29 @@
       };
       close.addEventListener('click', dismiss);
       overlay.addEventListener('keydown', event => { if (event.key === 'Escape') dismiss(); });
+      // Inline navigation handlers run first; only remove the old dialog here.
+      // Calling the next action again would skip an unanswered question.
+      const resultNavigation = 'button[onclick*="nextQuestion"],button[onclick*="returnToQuestion"],button[onclick*="caseRender"],button[onclick*="DpiGameRounds.next"],button[onclick*="nextAssociation"]';
+      node.addEventListener('click', event => {
+        const action = event.target?.closest?.('button');
+        if (!action?.matches?.(resultNavigation)) return;
+        overlay.remove();
+        if (node.isConnected) node.remove();
+      });
       card.append(close, node);
       overlay.append(card);
       doc.body.append(overlay);
       close.focus({ preventScroll:true });
       const heading = node.querySelector('strong,b')?.textContent?.trim() || 'Vamos revisar esta resposta.';
       const explanation = [...node.querySelectorAll('p')].map(p => p.textContent.replace(/\s+/g,' ').trim()).filter(Boolean).slice(0,2).join('. ');
-      speak([heading, explanation].filter(Boolean).join('. ').slice(0,650));
+      const narrateResult = () => {
+        if (!node.isConnected) return;
+        const prepared = root.DPIStaticVoice?.screen('', node.textContent);
+        const clinical = node.querySelector('[data-dpi-explanation]')?.textContent?.trim();
+        speak(prepared?.text || clinical || [heading, explanation].filter(Boolean).join('. ').slice(0,650));
+      };
+      if (root.DPIStaticVoice && !root.DPIStaticVoice.settled) root.DPIStaticVoice.ready.then(narrateResult);
+      else narrateResult();
     };
     const scan = () => {
       scanTimer = 0;
@@ -227,13 +263,13 @@
       schedule();
     }
 
-    // The legacy inline handler points at a function scoped inside its script.
-    // Route the visible case/question button through the public question reader.
+    // Prefer the shared case controller; retain the question reader only for older pages.
     doc.addEventListener('click', event => {
       const trigger = event.target?.closest?.('#internal .dpi-case-trigger');
       if (!trigger) return;
       event.preventDefault();
       event.stopImmediatePropagation();
+      if (typeof root.dpiRequestCase === 'function') { root.dpiRequestCase(); return; }
       const question = doc.querySelector('#internal .dpi-case-question,#internal .question-text,#internal .dpi-round-question,#internal .miniStage > p');
       if (question && typeof root.dpiReadQuestion === 'function') {
         root.dpiReadQuestion();

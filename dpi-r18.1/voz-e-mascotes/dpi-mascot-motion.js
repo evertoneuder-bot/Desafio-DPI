@@ -1,6 +1,13 @@
 /* R32: motion states for the approved transparent mascot art. */
 (function () {
   'use strict';
+  let gameReactionTimer=0;
+  const gamePose=pose=>document.querySelectorAll?.('.dpi-play-mascot,.dpi-wordgame-coach img,.elx-mascot-motion-persona').forEach(image=>{const selected=window.ELXAssistentes?.getPersona?.()||'male';image.dataset.voicePose=pose==='speaking'&&image.dataset.persona&&image.dataset.persona!==selected?'listening':pose});
+  window.addEventListener('elx-speech-start',()=>{clearTimeout(gameReactionTimer);gamePose('speaking')});
+  for(const event of ['elx-speech-end','elx-speech-paused','elx-voice-unavailable'])window.addEventListener(event,()=>{clearTimeout(gameReactionTimer);gamePose('idle')});
+  window.addEventListener('elx-user-speaking',()=>gamePose('listening'));
+  window.addEventListener('elx-user-speech-end',()=>gamePose('idle'));
+  window.addEventListener('elx-mascot-react',event=>{const pose=event.detail?.pose;if(!['celebrate','incorrect','greeting'].includes(pose))return;clearTimeout(gameReactionTimer);gamePose(pose);gameReactionTimer=setTimeout(()=>gamePose('idle'),1800)});
   const stage = document.getElementById('elx-character-stage');
   const sourceImage = stage?.querySelector('img.elx-approved-mascot-pair');
   if (!stage || !sourceImage) return;
@@ -47,7 +54,9 @@
     stage.classList.add('is-speaking');
     stage.classList.remove('is-listening');
   });
-  window.addEventListener('elx-speech-end', () => stage.classList.remove('is-speaking'));
+  for (const event of ['elx-speech-end', 'elx-speech-paused', 'elx-voice-unavailable']) {
+    window.addEventListener(event, () => stage.classList.remove('is-speaking'));
+  }
   window.addEventListener('elx-user-speaking', () => {
     stage.classList.remove('is-speaking');
     stage.classList.add('is-listening');

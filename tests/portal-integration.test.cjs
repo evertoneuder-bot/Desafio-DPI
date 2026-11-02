@@ -9,7 +9,7 @@ const files = (dir) => fs.readdirSync(path.join(root, dir), {withFileTypes:true}
 test('entrega DPI é individual e não contém rotas ou logos de outras áreas', () => {
   for (const omitted of ['rx-vet.html','direito-audiencia.html','assets/portal.css','assets/vet.css']) assert.equal(fs.existsSync(path.join(root,omitted)),false,omitted);
   assert.ok(fs.existsSync(path.join(root,'index.html')));
-  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'),/max-width: 600px/);
+  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'),/name="viewport"/);
   const app = fs.readFileSync(path.join(root,'dpi-home.html'),'utf8');
   assert.match(app,/EL-X VET/);
   assert.match(app,/DESAFIO DPI/);
@@ -34,7 +34,22 @@ test('imagens externas do jogo apontam a arquivos presentes e o rig só carrega 
   const runtime = fs.readFileSync(path.join(root,'dpi-r18.1/ABRA-ESTA-PREVIA.html'),'utf8');
   const refs = new Set([...runtime.matchAll(/(?:src|href)=["'](\/assets\/[^"']+)|url\(["']?(\/assets\/[^)"']+)/g)].map(m => m[1] || m[2]));
   for (const ref of refs) assert.ok(fs.existsSync(path.join(root,ref.slice(1))), `asset sem arquivo: ${ref}`);
-  const rig = fs.readFileSync(path.join(root,'dpi-r18.1/voz-e-mascotes/elx-rig.js'),'utf8');
+  const marker = runtime.indexOf('/* Continuous joint motion for the approved veterinary characters. */');
+  assert.ok(marker >= 0, 'rig integrado ausente');
+  const rig = runtime.slice(marker, runtime.indexOf('</script>', marker));
   assert.match(rig,/const configs=\{"health"/);
   assert.doesNotMatch(rig,/"law"\s*:\s*\{|"sports"\s*:\s*\{|"field"\s*:\s*\{/);
+});
+
+
+test('referências locais da capa e do aplicativo têm arquivos disponíveis', () => {
+  for (const file of ['index.html','dpi-home.html','dpi-r18.1/ABRA-ESTA-PREVIA.html']) {
+    const html=fs.readFileSync(path.join(root,file),'utf8');
+    const refs=new Set([...html.matchAll(/(?:src|href)=["']((?:\.\.?\/|\/assets\/)[^"']+)["']/g)].map(m=>m[1]));
+    for (const ref of refs) {
+      const clean=ref.split(/[?#]/)[0];
+      const target=path.resolve(root,clean.startsWith('/')?'.':path.dirname(file),clean.replace(/^\//,''));
+      assert.ok(fs.existsSync(target),file+': '+ref);
+    }
+  }
 });

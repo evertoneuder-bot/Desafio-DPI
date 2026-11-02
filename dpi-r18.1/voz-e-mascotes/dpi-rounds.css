@@ -175,7 +175,7 @@
 #elx-character-stage .elx-approved-mascot-pair{display:block;width:min(100%,430px);height:100%;max-height:440px;object-fit:contain;border-radius:20px;filter:drop-shadow(0 12px 22px #001a26aa);animation:elxApprovedPairIdle 4.2s ease-in-out infinite;transform-origin:50% 85%}
 #elx-character-stage.is-dpi-coach{position:relative!important;inset:auto!important;width:min(100%,320px)!important;height:300px!important;min-height:240px!important;margin:16px auto 4px!important;border-radius:16px!important}
 #elx-character-stage.is-dpi-coach .elx-approved-mascot-pair{width:100%;height:100%;max-height:none;object-fit:contain}
-#elx-character-stage .elx-mascot-hotspot{position:absolute;top:8%;bottom:0;width:49%;border:0;background:transparent;cursor:pointer;touch-action:manipulation}
+#elx-character-stage .elx-mascot-hotspot{position:absolute;top:8%;bottom:0;width:49%;border:0;background:transparent;cursor:pointer;touch-action:manipulation;pointer-events:auto}
 #elx-character-stage .elx-mascot-hotspot-everton{left:0}
 #elx-character-stage .elx-mascot-hotspot-fernanda{right:0}
 #elx-character-stage .elx-mascot-hotspot:focus-visible{outline:3px solid #b7ed55;outline-offset:-5px;border-radius:18px}
