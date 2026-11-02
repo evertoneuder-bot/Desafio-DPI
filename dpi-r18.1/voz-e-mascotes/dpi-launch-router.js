@@ -39,33 +39,6 @@
     root.ELXMascotDirector?.react?.('guide-right');
   };
 
-  // Recover voice on older phones where a stale setting can report "active"
-  // while disabling both narration and the free device fallback. Respect mute.
-  const voiceRecoveryKey = 'dpi-free-voice-recovery-r42-13';
-  function recoverFreeVoice() {
-    try {
-      const storage = root.localStorage;
-      if (storage.getItem('dpi-casual-audio') === '0') return;
-      if (storage.getItem(voiceRecoveryKey) !== '1' && typeof root.dpiUseDeviceVoice === 'function') {
-        root.dpiUseDeviceVoice(true);
-        storage.setItem(voiceRecoveryKey, '1');
-      }
-      if (root.ELXAssistentes?.isEnabled?.() === false) root.ELXAssistentes.setEnabled?.(true);
-    } catch (error) {
-      root.console?.warn?.('Não foi possível recuperar as preferências de voz.', error);
-    }
-  }
-  // The router is parsed before the inline voice engine. Wait until DOMContentLoaded
-  // so the migration can call the real device-voice setter before marking success.
-  if (root.document.readyState === 'loading') {
-    root.document.addEventListener('DOMContentLoaded', recoverFreeVoice, { once: true });
-  } else {
-    root.setTimeout(recoverFreeVoice, 0);
-  }
-  root.addEventListener?.('elx-voice-setting', event => {
-    if (event.detail?.enabled) recoverFreeVoice();
-  });
-
   // Keep the approved bibliography label visible in the legacy game shell
   // while the main cover and game are being converged on the shared design.
   function applyApprovedMobileShell() {
