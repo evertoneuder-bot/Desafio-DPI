@@ -2072,7 +2072,7 @@ async function neuralSay(text,who,done){
  const r=await window.fetch('/api/tts',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:String(text).replace(/\bEL-X VET\b/gi,'Éli xis vét'),gender:who}),signal:neuralRequest.signal});
  if(!r.ok){const body=await r.json().catch(()=>null),reason=voiceErrorReason(body,r.status);throw Object.assign(new Error(reason),{voiceReason:reason,providerStatus:Number(body?.providerStatus)||r.status})}lastVoiceError=null;refreshVoiceDiagnostic();const blob=await r.blob();if(token!==generation||!enabled)return;
  neuralURL=URL.createObjectURL(blob);recording=new Audio(neuralURL);recording.volume=volume;recording.playbackRate=speed;recording.preservesPitch=true;duck();
- recording.onplaying=()=>{if(token===generation){started=true;notify('elx-speech-start',{persona:who,text,audio:recording})}};
+ recording.onplaying=()=>{if(token===generation){started=true;notify('elx-speech-start',{persona:who,text:String(text).replace(/__ELX_PAUSE_1200__/g,' '),audio:recording})}};
  recording.onended=()=>{if(token===generation){stop();if(enabled&&done)done()}};recording.onerror=()=>{if(token===generation)stop()};await recording.play();
  }catch(error){if(token===generation){const reason=error?.voiceReason||'provider-access-failed';lastVoiceError={reason,providerStatus:Number(error?.providerStatus)||0};stop();refreshVoiceDiagnostic();if(deviceVoice&&synth&&typeof window.SpeechSynthesisUtterance==='function'){notify('elx-voice-unavailable',{persona:who,reason,providerStatus:lastVoiceError.providerStatus,fallback:true,message:'A voz do servidor falhou; vou continuar falando com a voz em português deste aparelho.'});sayDevice(text,who,false,done)}else notify('elx-voice-unavailable',{persona:who,reason,providerStatus:lastVoiceError.providerStatus,message:voiceErrorMessage(reason)})}}
 }
@@ -2096,7 +2096,7 @@ function pauseForMute(){if(recording){pausedState={kind:'audio',audio:recording,
 function resumeAfterMute(){if(!pausedState)return;const p=pausedState;pausedState=null;if(p.kind==='tts'){say(p.text.slice(p.offset),p.persona,p.scientific,p.done);return}const audio=p.audio;recording=audio;const token=++generation;audio.currentTime=p.time;audio.volume=volume;duck();audio.onplaying=()=>{if(token===generation){started=true;notify('elx-speech-start',{persona:p.persona,text:p.text,audio})}};audio.onended=()=>{if(token===generation){stop();if(onboardingPending){onboardingPending=false;notify('elx-welcome-complete',{persona:p.persona})}}};audio.onerror=()=>{if(token===generation)stop()};audio.play().catch(()=>{});}
 function sayDevice(text,who=persona,scientific=false,done){
  if(!synth||typeof window.SpeechSynthesisUtterance!=='function'||!text){notify('elx-voice-unavailable',{persona:who,reason:'device-speech-unavailable',message:'Este aparelho não oferece voz de leitura. A conversa por texto continua disponível.'});return false;}
- stop();const spokenText=String(text).trim().replace(/\bEL-X VET\b/gi,'Éli xis vét').replace(/\bEL-X\b/gi,'Éli xis');speechState={text:spokenText,offset:0,persona:who,scientific,done};
+ stop();const spokenText=String(text).replace(/__ELX_PAUSE_1200__/g,'...').trim().replace(/\bEL-X VET\b/gi,'Éli xis vét').replace(/\bEL-X\b/gi,'Éli xis');speechState={text:spokenText,offset:0,persona:who,scientific,done};
  const token=generation,u=new SpeechSynthesisUtterance(spokenText);
  u.lang='pt-BR';u.rate=(scientific?.94:1.02)*speed;u.pitch=1;u.volume=volume;const v=preferred(who);if(v)u.voice=v;
  duck();
@@ -2139,11 +2139,11 @@ function narrateVisibleScreen(){
  let text='';
  if(feedback?.textContent?.trim()){
   const strong=feedback.querySelector('strong,b');const reason=feedback.querySelector('p');
-  text=(strong?.textContent||'Vamos conferir esta etapa.')+'. '+conciseText(reason?.textContent||feedback.textContent,260);
+  text=(strong?.textContent||'Vamos conferir esta etapa.')+'. __ELX_PAUSE_1200__ '+conciseText(reason?.textContent||feedback.textContent,260);
  }else if(q){
   const options=[...root.querySelectorAll('.option,.dpi-case-option,.dpi-round-option')].filter(b=>!b.disabled).slice(0,4).map((b,i)=>{const value=conciseText(b.innerText||b.textContent,95).replace(/^[A-D]\s*[:.)-]\s*/i,'');return 'Alternativa '+String.fromCharCode(65+i)+'. '+value});
   const topic=title?.textContent?.trim(),prompt=conciseText(q.textContent,210);
-  text=(topic?topic+'. ':'')+'Vamos por partes: o foco desta etapa é '+prompt+'. '+(options.length?'As opções são '+options.join('; ')+'. ':'')+'Escolha a que melhor corresponde ao caso.';
+  text=(topic?topic+'. ':'')+'Vamos por partes: o foco desta etapa é '+prompt+'. __ELX_PAUSE_1200__ '+(options.length?'As opções são '+options.join('. __ELX_PAUSE_1200__ ')+'. ':'')+'Escolha a que melhor corresponde ao caso.';
  }else{
   const label=title?.textContent?.trim(),hint=instruction?.textContent?.trim();
   if(label||hint)text=(label?label+'. ':'')+conciseText(hint,220);
