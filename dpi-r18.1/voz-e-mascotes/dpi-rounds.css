@@ -39,7 +39,7 @@
 .dpi-assoc-choice b{font-size:8px;letter-spacing:.12em;color:#b7ed55}
 .dpi-assoc-choice span{font-size:11px;line-height:1.45}
 .dpi-assoc-choice small{font-size:9px;color:#9fc1cd}
-.dpi-assoc-choice.is-selected{border-color:#9ee4d8;background:#49cbb51c;box-shadow:0 0 0 2px #49cbb522}
+.dpi-assoc-choice.is-selected{position:relative;z-index:1;border-color:#b9ff4d;background:#a7ed2738;color:#fff;box-shadow:0 0 0 3px #b9ff4d88,0 0 22px #b9ff4d77;transform:translateY(-2px)}.dpi-assoc-choice.is-selected:after{content:'SELECIONADO';display:block;margin-top:8px;color:#d8ff96;font-size:9px;font-weight:950;letter-spacing:.1em}.dpi-assoc-choice:focus-visible{outline:3px solid #b9ff4d;outline-offset:3px}
 .dpi-assoc-choice.is-matched{border-color:#82e9ac;background:#53d19421;color:#c5f4d4}
 .dpi-assoc-choice.is-mismatch{border-color:#ff8794;background:#f15c7120;animation:feedbackIn .2s ease}
 .dpi-assoc-choice:disabled{cursor:default}
