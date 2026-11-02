@@ -47,9 +47,11 @@
     association[side === 'left' ? 'selectedLeft' : 'selectedRight'] = id;
     root.document.querySelectorAll('.dpi-assoc-choice').forEach(button => {
       if (button.dataset.side === side) button.classList.toggle('is-selected', button.dataset.pair === id);
+      button.setAttribute('aria-pressed', String(button.dataset.pair === id));
     });
     if (!association.selectedLeft || !association.selectedRight) return;
     const leftId = association.selectedLeft, rightId = association.selectedRight;
+    if (typeof root.confirm === 'function' && !root.confirm('Confirmar esta associação?')) return;
     association.selectedLeft = null; association.selectedRight = null;
     const leftButton = root.document.querySelector('.dpi-assoc-choice[data-side="left"][data-pair="' + leftId + '"]');
     const rightButton = root.document.querySelector('.dpi-assoc-choice[data-side="right"][data-pair="' + rightId + '"]');
@@ -77,7 +79,7 @@
       const feedback = root.document.getElementById('dpiRoundFeedback');
       if (feedback) feedback.innerHTML = '<div class="dpi-round-result is-wrong"><b>AINDA NÃO FORMOU O PAR</b><p>Releia os dois lados e tente outra associação.</p></div>';
       const pair = session.questions.find(q => String(q.id) === String(leftId));
-      setTimeout(() => { leftButton?.classList.remove('is-selected', 'is-mismatch'); rightButton?.classList.remove('is-selected', 'is-mismatch'); }, 550);
+      setTimeout(() => { leftButton?.classList.remove('is-selected', 'is-mismatch'); rightButton?.classList.remove('is-selected', 'is-mismatch'); leftButton?.setAttribute('aria-pressed', 'false'); rightButton?.setAttribute('aria-pressed', 'false'); }, 550);
     }
   }
   function nextAssociation() {
@@ -134,6 +136,7 @@
   }
   function submit(index, title, resultOverride) {
     if (session.answered) return;
+    if (session.mode !== 'lightning' && resultOverride === undefined && index >= 0 && typeof root.confirm === 'function' && !root.confirm('Confirmar esta resposta?')) return;
     session.answered = true;
     clearInterval(session.timer);
     const q = session.questions[session.index];
@@ -165,7 +168,7 @@
     const q = session.questions[session.index];
     const button = root.document.querySelector('.dpi-round-option[data-choice="' + index + '"]');
     const correctIndex = letters.indexOf(String(q.letra_correta || '').toUpperCase());
-    if (index === correctIndex) return submit(index, '✕ VOCÊ ELIMINOU A RESPOSTA CERTA', false);
+    if (index === correctIndex) { if (typeof root.confirm === 'function' && !root.confirm('Confirmar esta resposta?')) return; return submit(index, '✕ VOCÊ ELIMINOU A RESPOSTA CERTA', false); }
     session.eliminated.add(index);
     if (button) { button.disabled = true; button.classList.add('is-eliminated'); }
     if (session.eliminated.size === 3) submit(correctIndex, '✓ VOCÊ ELIMINOU AS TRÊS ALTERNATIVAS INCORRETAS', true);
