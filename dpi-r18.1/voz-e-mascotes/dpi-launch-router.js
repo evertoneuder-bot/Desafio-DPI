@@ -39,15 +39,15 @@
     root.ELXMascotDirector?.react?.('guide-right');
   };
 
-  // Recover voice on older phones where a stale setting can report "active"
-  // while disabling both narration and the free device fallback. Respect mute.
+  // Keep neural server voices as the default; use device speech only when the
+  // player explicitly chose it. Respect mute and any saved preference.
   const voiceRecoveryKey = 'dpi-free-voice-recovery-r42-13';
   function recoverFreeVoice() {
     try {
       const storage = root.localStorage;
       if (storage.getItem('dpi-casual-audio') === '0') return;
-      if (storage.getItem(voiceRecoveryKey) !== '1' && typeof root.dpiUseDeviceVoice === 'function') {
-        root.dpiUseDeviceVoice(true);
+      if (storage.getItem('dpi-device-voice') == null && typeof root.dpiUseDeviceVoice === 'function') {
+        root.dpiUseDeviceVoice(false);
         storage.setItem(voiceRecoveryKey, '1');
       }
       if (root.ELXAssistentes?.isEnabled?.() === false) root.ELXAssistentes.setEnabled?.(true);
