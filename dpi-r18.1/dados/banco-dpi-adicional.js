@@ -10,10 +10,10 @@ window.DPI_QUESTOES_ADICIONAIS = [
     pergunta: 'Ao aumentar o kVp no tubo de raios X, qual alteração física é esperada?',
     alternativa_a: 'Aumenta a distância foco-receptor, sem alterar a energia dos fótons.',
     alternativa_b: 'Reduz a aceleração dos elétrons e produz um feixe menos penetrante.',
-    alternativa_c: 'Aumenta a energia dos elétrons que atingem o alvo e favorece a produção de raios X mais energéticos.',
+    alternativa_c: 'Aumenta a energia dos elétrons acelerados entre o cátodo e o ânodo, favorecendo a produção de raios X mais energéticos e penetrantes.',
     alternativa_d: 'Altera apenas a largura da colimação, sem efeito sobre o feixe.',
-    resposta_correta_extenso: 'Aumenta a energia dos elétrons que atingem o alvo e favorece a produção de raios X mais energéticos.', letra_correta: 'C', respostas_aceitas_voz: ['C', 'alternativa C', 'aumenta a energia dos elétrons e dos raios X'],
-    explicacao: 'O kVp ajusta a diferença de potencial entre o filamento e o alvo. Um kVp maior acelera os elétrons a energias mais altas, favorecendo raios X mais energéticos e penetrantes.',
+    resposta_correta_extenso: 'Aumenta a energia dos elétrons acelerados entre o cátodo e o ânodo, favorecendo a produção de raios X mais energéticos e penetrantes.', letra_correta: 'C', respostas_aceitas_voz: ['C', 'alternativa C', 'aumenta a energia dos elétrons acelerados entre cátodo e ânodo, produzindo raios X mais energéticos e penetrantes'],
+    explicacao: 'O kVp representa o potencial elétrico aplicado entre o cátodo e o ânodo do tubo. O aumento desse potencial acelera os elétrons com maior energia cinética, favorecendo a produção de raios X mais energéticos e penetrantes.',
     dica: 'Pense no que a diferença de potencial faz com a velocidade e a energia dos elétrons.', limitacao_clinica: 'Questão conceitual de física radiográfica; a técnica clínica deve ser definida conforme paciente, região e equipamento.', pontuacao: 10, ativo: true,
     url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
   },
