@@ -44,8 +44,14 @@ module.exports = async function tts(req, res) {
   if (gender !== 'female' && gender !== 'male') return json(res, 400, { error: 'invalid-voice' });
 
   const apiKey = String(process.env.ELEVENLABS_API_KEY || '').trim();
-  const voiceId = String(process.env[gender === 'female' ? 'ELEVENLABS_VOICE_FEMALE' : 'ELEVENLABS_VOICE_MALE'] || '').trim();
-  if (process.env.ELX_TTS_ENABLED !== 'true' || !apiKey || !voiceId) {
+  const voiceId = String(
+    process.env[gender === 'female' ? 'ELEVENLABS_VOICE_FEMALE' : 'ELEVENLABS_VOICE_MALE'] ||
+    process.env[gender === 'female' ? 'ELEVENLABS_VOZ_FEMININA' : 'ELEVENLABS_VOZ_MASCULINA'] ||
+    ''
+  ).trim();
+  const activation = String(process.env.ELX_TTS_ENABLED ?? process.env.ELX_TTS_ATIVADO ?? '')
+    .trim().toLowerCase();
+  if (!['true', '1', 'sim', 'on'].includes(activation) || !apiKey || !voiceId) {
     return json(res, 503, { error: 'tts-key-not-configured' });
   }
 
