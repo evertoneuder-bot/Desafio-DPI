@@ -38,7 +38,7 @@
     for (const field of fields) {
       const value = corrected[field];
       if (typeof value !== 'string') continue;
-      const replacement = value.replace(/\\b(repetida|avaliada) seriamente\\b/gi, '$1 serialmente');
+      const replacement = value.replaceAll('repetida seriamente', 'repetida serialmente').replaceAll('avaliada seriamente', 'avaliada serialmente');
       if (replacement !== value) {
         if (corrected === question) corrected = { ...question };
         corrected[field] = replacement;
