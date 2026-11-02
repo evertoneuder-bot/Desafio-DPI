@@ -308,8 +308,8 @@
     root.document.addEventListener('click', event => {
       const link = event.target?.closest?.('.dpi-library-page a[href^="http"]');
       if (!link) return;
-      event.preventDefault();
-      root.location.assign(link.href);
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
     }, true);
   }
 
