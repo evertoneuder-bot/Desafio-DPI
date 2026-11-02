@@ -28,8 +28,27 @@
     return true;
   }
 
+  function correctSerialFollowupText(question) {
+    if (!question || typeof question !== 'object') return question;
+    const fields = [
+      'pergunta', 'alternativa_a', 'alternativa_b', 'alternativa_c', 'alternativa_d',
+      'resposta_correta_extenso', 'explicacao', 'dica', 'limitacao_clinica'
+    ];
+    let corrected = question;
+    for (const field of fields) {
+      const value = corrected[field];
+      if (typeof value !== 'string') continue;
+      const replacement = value.replace(/\\b(repetida|avaliada) seriamente\\b/gi, '$1 serialmente');
+      if (replacement !== value) {
+        if (corrected === question) corrected = { ...question };
+        corrected[field] = replacement;
+      }
+    }
+    return corrected;
+  }
+
   function merge(base, additions) {
-    const bank = Array.isArray(base) ? base.slice() : [];
+    const bank = Array.isArray(base) ? base.map(correctSerialFollowupText) : [];
     const ids = new Set(bank.map(question => String(question?.id || '')));
     const result = { bank, accepted: 0, rejected: 0, duplicates: 0 };
     if (!Array.isArray(additions)) {
