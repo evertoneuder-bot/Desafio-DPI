@@ -70,6 +70,32 @@
   // while the main cover and game are being converged on the shared design.
   function applyApprovedMobileShell() {
     const doc = root.document;
+    const logo = doc.querySelector('.dpi-topline .dpi-hero-logo');
+    if (logo) {
+      logo.style.setProperty('display', 'block', 'important');
+      logo.style.setProperty('width', 'auto', 'important');
+      logo.style.setProperty('height', 'clamp(64px, 8vw, 92px)', 'important');
+      logo.style.setProperty('max-width', 'min(48vw, 220px)', 'important');
+      logo.style.setProperty('max-height', '92px', 'important');
+      logo.style.setProperty('object-fit', 'contain', 'important');
+      logo.style.setProperty('object-position', 'left center', 'important');
+      logo.style.setProperty('flex', '0 1 auto', 'important');
+    }
+    const whatsapp = doc.querySelector('.footlinks a[href*="wa.me"]');
+    if (whatsapp && !whatsapp.querySelector('.dpi-whatsapp-quote-request')) {
+      whatsapp.dataset.elxQuote = 'true';
+      whatsapp.setAttribute('aria-label', 'WhatsApp — solicitar orçamento de telerradiologia');
+      for (const node of [...whatsapp.childNodes]) if (node.nodeType === 3) node.remove();
+      const copy = doc.createElement('span');
+      copy.className = 'dpi-whatsapp-copy';
+      const title = doc.createElement('span');
+      title.textContent = 'WhatsApp';
+      const quote = doc.createElement('small');
+      quote.className = 'dpi-whatsapp-quote-request';
+      quote.textContent = 'Solicitar orçamento de telerradiologia';
+      copy.append(title, quote);
+      whatsapp.append(copy);
+    }
     const libraryButton = typeof doc.querySelector === 'function'
       ? doc.querySelector('.utility button[onclick*="bankView"]')
       : null;
@@ -104,6 +130,7 @@
         #elx-conversation[data-voice-muted="true"] .voice-waves{display:none}
         #elx-conversation[data-voice-muted="true"] .voice-muted{display:block}
         .footlinks a svg{vertical-align:middle;flex-shrink:0}
+        .footlinks a[data-elx-quote="true"]{display:inline-flex;align-items:center;gap:7px;max-width:100%}.dpi-whatsapp-copy{display:flex;flex-direction:column;gap:2px;line-height:1.15;white-space:normal}.dpi-whatsapp-quote-request{font-size:clamp(10px,1vw,12px);font-weight:600;opacity:.9;max-width:42vw}
         #elx-character-stage .elx-mascot-motion-persona[data-voice-pose="speaking"],.dpi-play-mascot[data-voice-pose="speaking"],.dpi-wordgame-coach img[data-voice-pose="speaking"]{animation:dpiNaturalSpeak .72s ease-in-out infinite alternate!important;transform-origin:50% 90%}
         #elx-character-stage .elx-mascot-motion-persona[data-voice-pose="listening"],.dpi-play-mascot[data-voice-pose="listening"],.dpi-wordgame-coach img[data-voice-pose="listening"]{animation:dpiNaturalListen 1.5s ease-in-out infinite alternate!important;transform-origin:50% 90%}
         #elx-character-stage .elx-mascot-motion-persona[data-voice-pose="celebrate"],#elx-character-stage .elx-mascot-motion-persona[data-voice-pose="greeting"],.dpi-play-mascot[data-voice-pose="celebrate"],.dpi-play-mascot[data-voice-pose="greeting"],.dpi-wordgame-coach img[data-voice-pose="celebrate"],.dpi-wordgame-coach img[data-voice-pose="greeting"]{animation:dpiNaturalGreet .6s ease-in-out 3!important}
