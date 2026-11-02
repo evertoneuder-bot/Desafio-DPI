@@ -33,7 +33,8 @@ test('Estude, Pratique, Evolua e Compartilhe são controles clicáveis; Comparti
   const html = read('dpi-home.html');
   for (const feature of ['study','practice','evolve','share']) assert.match(html, new RegExp(`<button[^>]*data-feature="${feature}"`));
   const js = read('assets/dpi-home.js');
-  for (const target of ["navigate('feature', feature)","setItem('dpi-device-voice', '1')",'data-share-whatsapp','data-share-email','data-share-copy','navigator.share']) assert.ok(js.includes(target));
+  for (const target of ["navigate('feature', feature)",'data-share-whatsapp','data-share-email','data-share-copy','navigator.share']) assert.ok(js.includes(target));
+  assert.doesNotMatch(js, /setItem\('dpi-device-voice', '1'\)/);
   assert.match(js, /new URL\('\/', window\.location\.href\)/);
 });
 
@@ -101,4 +102,17 @@ test('a rota start configura a identificação e a rota de recurso abre a funç�
   assert.equal(feature.featureOpened, 'evolve');
   feature.root.dpiCloseFeatureDialog();
   assert.deepEqual(feature.assigned, ['../index.html']);
+});
+
+
+test('as correções preservam áudio aprovado, cadastro por e-mail, questões e PDFs em nova aba', () => {
+  const runtime = read('dpi-r18.1/ABRA-ESTA-PREVIA.html');
+  const router = read('dpi-r18.1/voz-e-mascotes/dpi-launch-router.js');
+  const rounds = read('dpi-r18.1/voz-e-mascotes/dpi-game-rounds.js');
+  assert.match(runtime, /lookupProfileByEmail/);
+  assert.match(runtime, /__ELX_PAUSE_1200__/);
+  assert.match(runtime, /deviceVoice=read\('dpi-device-voice'\)==='1'/);
+  assert.match(rounds, /Confirmar esta resposta/);
+  assert.match(rounds, /aria-pressed/);
+  assert.match(router, /link\.target = '_blank'/);
 });
