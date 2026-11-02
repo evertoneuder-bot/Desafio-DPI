@@ -213,10 +213,21 @@
       const explanation = [...node.querySelectorAll('p')].map(p => p.textContent.replace(/\s+/g,' ').trim()).filter(Boolean).slice(0,2).join('. ');
       speak([heading, explanation].filter(Boolean).join('. ').slice(0,650));
     };
+    let lastSpokenPrompt = '';
     const scan = () => {
       scanTimer = 0;
       const internal = doc.getElementById('internal');
       if (!internal) return;
+      const question = internal.querySelector('.dpi-round-question,.dpi-case-question,.question-text');
+      const prompt = question?.textContent?.replace(/\\s+/g, ' ').trim() || '';
+      if (prompt && prompt !== lastSpokenPrompt) {
+        lastSpokenPrompt = prompt;
+        root.setTimeout(() => {
+          if (!question.isConnected || question.textContent.replace(/\\s+/g, ' ').trim() !== prompt) return;
+          if (typeof root.dpiReadQuestion === 'function') root.dpiReadQuestion();
+          else speak(prompt);
+        }, 180);
+      }
       const result = internal.querySelector(resultSelector);
       if (result) { openResult(result); return; }
     };
