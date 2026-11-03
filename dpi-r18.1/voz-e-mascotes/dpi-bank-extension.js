@@ -72,5 +72,37 @@
     return result;
   }
 
+  // Corrige no acervo o link antigo do livro de Thrall, mantendo a abertura em nova aba.
+  function repairLibraryLink() {
+    if (new URLSearchParams(root.location.search).get('mode') !== 'bank') return false;
+    const oldId = '1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR';
+    const validId = '1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6';
+    let changed = false;
+    for (const anchor of root.document.querySelectorAll('a[href]')) {
+      if (!anchor.href.includes(oldId)) continue;
+      anchor.href = anchor.href.replace(oldId, validId);
+      anchor.target = '_blank';
+      anchor.rel = 'noopener noreferrer';
+      changed = true;
+    }
+    return changed;
+  }
+
+  if (root.document?.documentElement) {
+    repairLibraryLink();
+    const observer = new MutationObserver(() => {
+      if (repairLibraryLink()) observer.disconnect();
+    });
+    observer.observe(root.document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['href']
+    });
+    root.addEventListener('DOMContentLoaded', () => {
+      if (repairLibraryLink()) observer.disconnect();
+    }, { once: true });
+  }
+
   root.DPIBankExtension = Object.freeze({ validate, merge });
 })(window);
