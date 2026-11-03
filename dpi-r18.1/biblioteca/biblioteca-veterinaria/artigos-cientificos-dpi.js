@@ -70,7 +70,7 @@ window.DPI_ARTIGOS_CIENTIFICOS.localResources = [
   {
     "title": "diagnostico-de-radiologia-veterinario-donald-e-thrall-dvm-phd_compress.pdf",
     "type": "Livro PDF no Drive; direitos/licença a confirmar antes de republicação",
-    "url": "https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view",
+    "url": "https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view",
     "license_status": "unverified",
     "public_preview": "bibliographic_metadata_only"
   },
