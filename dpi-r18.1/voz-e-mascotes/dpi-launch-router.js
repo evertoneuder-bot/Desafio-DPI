@@ -70,7 +70,8 @@
         .dpi-play-speech:not(.is-speaking){display:none!important}
         .dpi-play-speech.is-speaking{display:block!important}
         @media(max-width:620px){
-          #internal .dpi-play-coach:not(.is-speaking){min-height:200px!important;height:auto!important}
+          #internal .dpi-play-coach.is-speaking{min-height:200px!important;height:auto!important}
+          #internal .dpi-play-coach:not(.is-speaking){min-height:120px!important;height:auto!important}
         }
       `;
       doc.head.append(style);
