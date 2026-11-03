@@ -1320,8 +1320,10 @@ function playCoachSpeech(who){
 }
 function enterGame(dest){route(dest)}
 function launchPlantao(){caseEntry()}
-function route(x){if(x==='home')showHome();else if(x==='quiz')quizMenu();else if(x==='challenges')challenges();else if(x==='plantao')launchPlantao();else caseView()}
-function beginDpi(){afterReg='challenges';if(!prof()){rn.value='';rc.value='';toggleVet();register.classList.add('on');return}route('challenges')}
+function route(x){if(x==='home')showHome();else if(x==='presentation')presentationMenu();else if(x==='quiz')quizMenu();else if(x==='challenges')challenges();else if(x==='plantao')launchPlantao();else if(x==='achievements')achievements();else caseView()}
+function beginDpi(){afterReg='presentation';if(!prof()){rn.value='';rc.value='';toggleVet();register.classList.add('on');return}route('presentation')}
+function startFromPresentation(){beginDpi()}
+function presentationMenu(){shell('Escolha como quer jogar',\`<p class="dpi-game-intro">Escolha um caminho: estude no quiz, pratique nos minijogos ou conduza um caso no Plantão.</p><div class="dpi-choice-grid"><button type="button" class="dpi-choice-card" onclick="quizMenu()"><span>10 / 25 / 50</span><b>Quiz diagnóstico</b><small>Escolha uma rodada de 10, 25 ou 50 questões.</small></button><button type="button" class="dpi-choice-card" onclick="challenges()"><span>7</span><b>Desafios</b><small>Pratique em sete formatos de jogo.</small></button><button type="button" class="dpi-choice-card" onclick="launchPlantao()"><span>🚨</span><b>Plantão DPI</b><small>Conduza casos e decisões clínicas.</small></button><button type="button" class="dpi-choice-card" onclick="achievements()"><span>✦</span><b>Minhas conquistas</b><small>Acompanhe pontos e progresso.</small></button></div><div class="navrow"><button class="btn secondary" onclick="showHome()">← VOLTAR À CAPA</button></div>\`)}
 const DPI_PATHWAY_ICONS={book:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 5.5v15M8 7h8M8 11h8"/></svg>',clock:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6M12 2v3"/></svg>',chart:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18M5 16l5-5 4 3 6-8"/><path d="M15 6h5v5"/></svg>',share:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.4M8.7 13.3l6.6 4.4"/></svg>'};
 
 function dpiPracticeDemo(){
