@@ -4,10 +4,35 @@
   if (!engine || !root.document) return;
   // Preserve the page's approved Plantão entry, which shows the full-screen siren.
   const approvedPlantaoEntry = typeof root.caseStart === 'function' ? root.caseStart : null;
-  const session = { mode: '', questions: [], index: 0, score: 0, correct: 0, reviewed: [], hint: 0, eliminated: new Set(), answered: false, timer: null, seconds: 60, wrongAttempts: 0 };
+  const session = { mode: '', questions: [], index: 0, score: 0, correct: 0, reviewed: [], hint: 0, eliminated: new Set(), answered: false, confirming: false, timer: null, seconds: 60, wrongAttempts: 0 };
   const hangman = { words: [], index: 0, wins: 0, missed: [], active: false };
   const association = { batchStart: 0, selectedLeft: null, selectedRight: null, matched: new Set(), errors: 0 };
   const esc = value => String(value || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  function confirmAction(title, copy, confirmLabel, cancelLabel) {
+    return new Promise(resolve => {
+      const previous = root.document.activeElement;
+      const overlay = root.document.createElement('div');
+      overlay.id = 'dpi-round-confirmation';
+      overlay.className = 'dpi-hint-overlay';
+      overlay.setAttribute('role', 'presentation');
+      overlay.innerHTML = '<section class="dpi-hint-dialog" role="dialog" aria-modal="true" aria-labelledby="dpi-round-confirm-title" aria-describedby="dpi-round-confirm-copy"><button type="button" class="dpi-hint-close" aria-label="Cancelar confirmação">×</button><span class="dpi-hint-kicker">EL-X VET · DESAFIO DPI</span><h2 id="dpi-round-confirm-title">' + esc(title) + '</h2><p id="dpi-round-confirm-copy">' + esc(copy) + '</p><div class="dpi-answer-confirm-actions"><button type="button" class="btn secondary">' + esc(cancelLabel) + '</button><button type="button" class="btn">' + esc(confirmLabel) + '</button></div></section>';
+      let settled = false;
+      const finish = accepted => {
+        if (settled) return;
+        settled = true;
+        overlay.remove();
+        previous?.focus?.();
+        resolve(accepted);
+      };
+      overlay.querySelector('.dpi-hint-close')?.addEventListener('click', () => finish(false));
+      overlay.querySelector('.dpi-answer-confirm-actions .secondary')?.addEventListener('click', () => finish(false));
+      overlay.querySelector('.dpi-answer-confirm-actions .btn:not(.secondary)')?.addEventListener('click', () => finish(true));
+      overlay.addEventListener('click', event => { if (event.target === overlay) finish(false); });
+      overlay.addEventListener('keydown', event => { if (event.key === 'Escape') finish(false); });
+      root.document.body.appendChild(overlay);
+      overlay.querySelector('.dpi-answer-confirm-actions .secondary')?.focus();
+    });
+  }
   const letters = ['A', 'B', 'C', 'D'];
   const modeNames = { lightning: '⚡ RELÂMPAGO', target: '🎯 ALVO', elimination: '✂ ELIMINAÇÃO', diagnosis: '🩺 FECHE O DIAGNÓSTICO', association: '🔗 ASSOCIAÇÃO' };
   function begin(mode) {
@@ -42,8 +67,8 @@
     if (stat) stat.textContent = session.wrongAttempts + ' tentativas incorretas · ' + session.score + ' pts';
     if (bar) bar.style.width = Math.round(association.matched.size / session.questions.length * 100) + '%';
   }
-  function pickPair(side, id) {
-    if (association.matched.has(id)) return;
+  async function pickPair(side, id) {
+    if (session.confirming || association.matched.has(id)) return;
     association[side === 'left' ? 'selectedLeft' : 'selectedRight'] = id;
     root.document.querySelectorAll('.dpi-assoc-choice').forEach(button => {
       if (button.dataset.side === side) button.classList.toggle('is-selected', button.dataset.pair === id);
@@ -51,14 +76,21 @@
     });
     if (!association.selectedLeft || !association.selectedRight) return;
     const leftId = association.selectedLeft, rightId = association.selectedRight;
-    if (typeof root.confirm === 'function' && !root.confirm('Confirmar esta associação?')) return;
-    association.selectedLeft = null; association.selectedRight = null;
     const leftButton = root.document.querySelector('.dpi-assoc-choice[data-side="left"][data-pair="' + leftId + '"]');
     const rightButton = root.document.querySelector('.dpi-assoc-choice[data-side="right"][data-pair="' + rightId + '"]');
+    const pair = session.questions.find(q => String(q.id) === String(leftId));
+    const concept = pair?.subtema || pair?.tema || leftButton?.querySelector('span')?.textContent || 'conceito selecionado';
+    const decision = pair?.resposta_correta_extenso || rightButton?.querySelector('span')?.textContent || 'decisão selecionada';
+    session.confirming = true;
+    let accepted = false;
+    try { accepted = await confirmAction('Confirmar associação?', concept + ' → ' + decision, 'Confirmar associação', 'Rever seleção'); }
+    finally { session.confirming = false; }
+    if (!accepted) return;
+    association.selectedLeft = null; association.selectedRight = null;
     if (leftId === rightId) {
       association.matched.add(leftId); session.correct++; session.score += 10;
-      if (leftButton) { leftButton.disabled = true; leftButton.classList.add('is-matched'); }
-      if (rightButton) { rightButton.disabled = true; rightButton.classList.add('is-matched'); }
+      if (leftButton) { leftButton.disabled = true; leftButton.classList.add('is-matched'); leftButton.classList.remove('is-selected'); leftButton.setAttribute('aria-pressed', 'false'); }
+      if (rightButton) { rightButton.disabled = true; rightButton.classList.add('is-matched'); rightButton.classList.remove('is-selected'); rightButton.setAttribute('aria-pressed', 'false'); }
       if (typeof root.trackMission === 'function') root.trackMission(true, 10);
       if (typeof root.livelyFx === 'function') root.livelyFx(true);
       const progressNode = root.document.getElementById('dpiPairProgress');
@@ -78,7 +110,6 @@
       if (rightButton) rightButton.classList.add('is-mismatch');
       const feedback = root.document.getElementById('dpiRoundFeedback');
       if (feedback) feedback.innerHTML = '<div class="dpi-round-result is-wrong"><b>AINDA NÃO FORMOU O PAR</b><p>Releia os dois lados e tente outra associação.</p></div>';
-      const pair = session.questions.find(q => String(q.id) === String(leftId));
       setTimeout(() => { leftButton?.classList.remove('is-selected', 'is-mismatch'); rightButton?.classList.remove('is-selected', 'is-mismatch'); leftButton?.setAttribute('aria-pressed', 'false'); rightButton?.setAttribute('aria-pressed', 'false'); }, 550);
     }
   }
@@ -134,9 +165,17 @@
     if (target) target.insertAdjacentHTML('beforeend', '<p class="dpi-round-hint"><b>PISTA ' + session.hint + '</b> ' + esc(session.currentHint) + '</p>');
     return session.currentHint;
   }
-  function submit(index, title, resultOverride) {
-    if (session.answered) return;
-    if (session.mode !== 'lightning' && resultOverride === undefined && index >= 0 && typeof root.confirm === 'function' && !root.confirm('Confirmar esta resposta?')) return;
+  async function submit(index, title, resultOverride, alreadyConfirmed = false) {
+    if (session.answered || session.confirming) return;
+    if (session.mode !== 'lightning' && resultOverride === undefined && index >= 0 && !alreadyConfirmed) {
+      const q = session.questions[session.index];
+      const choiceText = [q?.alternativa_a, q?.alternativa_b, q?.alternativa_c, q?.alternativa_d][index] || '';
+      session.confirming = true;
+      let accepted = false;
+      try { accepted = await confirmAction('Confirmar resposta?', 'Você selecionou a alternativa ' + letters[index] + '. ' + choiceText + ' Confirma sua escolha?', 'Confirmar resposta', 'Rever alternativas'); }
+      finally { session.confirming = false; }
+      if (!accepted) return;
+    }
     session.answered = true;
     clearInterval(session.timer);
     const q = session.questions[session.index];
@@ -163,12 +202,23 @@
     const feedback = root.document.getElementById('dpiRoundFeedback');
     if (feedback) feedback.innerHTML = '<div class="dpi-round-result ' + (correct ? 'is-correct' : 'is-wrong') + '"><b>' + (title || (correct ? '✓ BOA DECISÃO' : index < 0 ? '⏱ TEMPO ESGOTADO' : '↻ DECISÃO INCORRETA')) + '</b><p><strong>Resposta:</strong> ' + esc(q.resposta_correta_extenso) + '</p><p>' + esc(q.explicacao || q.dica) + '</p><button class="btn" onclick="DpiGameRounds.next()">' + (session.index + 1 < session.questions.length ? 'PRÓXIMA QUESTÃO →' : 'VER RESULTADO →') + '</button></div>';
   }
-  function eliminate(index) {
-    if (session.answered || session.eliminated.has(index)) return;
+  async function eliminate(index) {
+    if (session.answered || session.confirming || session.eliminated.has(index)) return;
     const q = session.questions[session.index];
     const button = root.document.querySelector('.dpi-round-option[data-choice="' + index + '"]');
     const correctIndex = letters.indexOf(String(q.letra_correta || '').toUpperCase());
-    if (index === correctIndex) { if (typeof root.confirm === 'function' && !root.confirm('Confirmar esta resposta?')) return; return submit(index, '✕ VOCÊ ELIMINOU A RESPOSTA CERTA', false); }
+    const correct = index === correctIndex;
+    const optionText = [q.alternativa_a, q.alternativa_b, q.alternativa_c, q.alternativa_d][index] || '';
+    session.confirming = true;
+    let accepted = false;
+    try {
+      accepted = await confirmAction(correct ? 'Confirmar resposta?' : 'Eliminar alternativa?', correct
+        ? 'A alternativa ' + letters[index] + ' é a resposta correta. Se confirmar, esta questão será encerrada como incorreta.'
+        : 'Deseja eliminar a alternativa ' + letters[index] + '? ' + optionText,
+        correct ? 'Confirmar resposta' : 'Eliminar alternativa', 'Rever opções');
+    } finally { session.confirming = false; }
+    if (!accepted) return;
+    if (correct) return submit(index, '✕ VOCÊ ELIMINOU A RESPOSTA CERTA', false, true);
     session.eliminated.add(index);
     if (button) { button.disabled = true; button.classList.add('is-eliminated'); }
     if (session.eliminated.size === 3) submit(correctIndex, '✓ VOCÊ ELIMINOU AS TRÊS ALTERNATIVAS INCORRETAS', true);
