@@ -15,7 +15,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'Aumenta a energia dos elétrons acelerados entre o cátodo e o ânodo, favorecendo a produção de raios X mais energéticos e penetrantes.', letra_correta: 'C', respostas_aceitas_voz: ['C', 'alternativa C', 'aumenta a energia dos elétrons acelerados entre cátodo e ânodo, produzindo raios X mais energéticos e penetrantes'],
     explicacao: 'O kVp representa o potencial elétrico aplicado entre o cátodo e o ânodo do tubo. O aumento desse potencial acelera os elétrons com maior energia cinética, favorecendo a produção de raios X mais energéticos e penetrantes.',
     dica: 'Pense no que a diferença de potencial faz com a velocidade e a energia dos elétrons.', limitacao_clinica: 'Questão conceitual de física radiográfica; a técnica clínica deve ser definida conforme paciente, região e equipamento.', pontuacao: 10, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-302', tema: 'Física da radiologia', subtema: 'Distância', dificuldade: 'fácil', tipo: 'multipla_escolha',
@@ -28,7 +28,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'A intensidade de raios X por unidade de área no receptor diminui.', letra_correta: 'A', respostas_aceitas_voz: ['A', 'alternativa A', 'a intensidade diminui'],
     explicacao: 'Com o aumento da distância foco-receptor, a intensidade do feixe distribuída por unidade de área diminui; isso pode reduzir a exposição recebida pelo receptor.',
     dica: 'Considere como o feixe se espalha ao se afastar da fonte.', limitacao_clinica: 'Conceito físico; ajustes de técnica devem seguir o equipamento e o protocolo local.', pontuacao: 10, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-303', tema: 'Radioproteção', subtema: 'Redução', dificuldade: 'difícil', tipo: 'multipla_escolha',
@@ -41,7 +41,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'A exposição cai para aproximadamente um quarto.', letra_correta: 'B', respostas_aceitas_voz: ['B', 'alternativa B', 'um quarto', 'cai para um quarto'],
     explicacao: 'A intensidade diminui com o quadrado da distância. Assim, dobrar a distância reduz a exposição para um quarto, mantidas as demais condições.',
     dica: 'A distância entra ao quadrado nessa relação.', limitacao_clinica: 'Conceito de radioproteção; siga as normas e os protocolos vigentes da instalação.', pontuacao: 20, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-304', tema: 'Geometria da imagem', subtema: 'Distorção', dificuldade: 'intermediária', tipo: 'multipla_escolha',
@@ -54,7 +54,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'Uma parte do objeto está mais próxima do tubo de raios X do que outra.', letra_correta: 'C', respostas_aceitas_voz: ['C', 'alternativa C', 'uma parte está mais perto do tubo que a outra'],
     explicacao: 'Quando partes do objeto ficam a distâncias diferentes do tubo, a magnificação pode ser desigual e alterar a forma representada na imagem.',
     dica: 'Compare a distância entre as diferentes partes do objeto e a fonte.', limitacao_clinica: 'A anatomia tridimensional sempre pode produzir alguma distorção; interprete considerando posicionamento e limitações do exame.', pontuacao: 10, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-305', tema: 'Geometria da imagem', subtema: 'Paralelo', dificuldade: 'fácil', tipo: 'multipla_escolha',
@@ -67,7 +67,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'Manter a região de interesse posicionada paralelamente ao receptor, quando a projeção permitir.', letra_correta: 'A', respostas_aceitas_voz: ['A', 'alternativa A', 'manter a região paralela ao receptor'],
     explicacao: 'O posicionamento padronizado, com a região paralela ao receptor quando apropriado, reduz magnificação desigual e facilita a comparação e a interpretação.',
     dica: 'Pense na relação entre a região examinada e o receptor.', limitacao_clinica: 'A posição deve respeitar a indicação clínica e a tolerância do paciente.', pontuacao: 10, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-306', tema: 'Radiografia digital', subtema: 'DICOM', dificuldade: 'intermediária', tipo: 'multipla_escolha',
@@ -80,7 +80,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'O pós-processamento de visualização não altera permanentemente a imagem original.', letra_correta: 'B', respostas_aceitas_voz: ['B', 'alternativa B', 'não altera permanentemente a imagem original'],
     explicacao: 'O texto diferencia os ajustes usados para visualizar a imagem da alteração permanente do arquivo original. A interpretação ainda deve considerar a série completa e o contexto clínico.',
     dica: 'Diferencie a visualização ajustada do arquivo original armazenado.', limitacao_clinica: 'A questão trata do fluxo de visualização descrito na fonte; sistemas e rotinas locais podem variar.', pontuacao: 10, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-307', tema: 'Radiografia digital', subtema: 'Contraste', dificuldade: 'intermediária', tipo: 'multipla_escolha',
@@ -93,7 +93,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'Porque o excesso de luz ambiente pode reduzir a diferença percebida entre áreas claras e escuras.', letra_correta: 'A', respostas_aceitas_voz: ['A', 'alternativa A', 'reduz a diferença percebida entre áreas claras e escuras'],
     explicacao: 'A fonte descreve que o aumento da luz ambiente diminui a diferença percebida entre claro e escuro no monitor, podendo prejudicar a interpretação.',
     dica: 'Considere como a luz externa interfere na percepção do contraste do monitor.', limitacao_clinica: 'A qualidade do monitor, calibração e condições de leitura também influenciam a avaliação.', pontuacao: 10, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-308', tema: 'Radiografia digital', subtema: 'Digital', dificuldade: 'fácil', tipo: 'multipla_escolha',
@@ -106,7 +106,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'A necessidade de posicionar o paciente e selecionar a projeção adequada.', letra_correta: 'A', respostas_aceitas_voz: ['A', 'alternativa A', 'posicionar o paciente e selecionar a projeção adequada'],
     explicacao: 'A aquisição digital facilita alguns aspectos do fluxo, mas não substitui o posicionamento correto nem a escolha da projeção radiográfica apropriada.',
     dica: 'A tecnologia do detector não decide sozinha como o paciente deve ser posicionado.', limitacao_clinica: 'A seleção da projeção depende da região, da pergunta clínica e da condição do paciente.', pontuacao: 10, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-309', tema: 'Nomenclatura radiográfica', subtema: 'Projeção', dificuldade: 'fácil', tipo: 'multipla_escolha',
@@ -119,7 +119,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'Entra ventralmente e sai dorsalmente.', letra_correta: 'B', respostas_aceitas_voz: ['B', 'alternativa B', 'ventral para dorsal'],
     explicacao: 'A denominação da projeção acompanha a direção do feixe: em VD, ele entra pela face ventral e emerge pela dorsal. Em DV, a direção é inversa.',
     dica: 'Leia o nome da projeção na ordem da entrada para a saída do feixe.', limitacao_clinica: 'A nomenclatura deve seguir o posicionamento efetivamente utilizado e a convenção anatômica aplicável.', pontuacao: 10, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   },
   {
     id: 'DPI-VET-310', tema: 'Geometria da imagem', subtema: 'Padrão', dificuldade: 'difícil', tipo: 'multipla_escolha',
@@ -132,7 +132,7 @@ window.DPI_QUESTOES_ADICIONAIS = [
     resposta_correta_extenso: 'Facilitar o reconhecimento de padrões de distorção e reduzir distorções inesperadas que confundem a interpretação.', letra_correta: 'C', respostas_aceitas_voz: ['C', 'alternativa C', 'facilitar o reconhecimento da distorção e reduzir distorções inesperadas'],
     explicacao: 'A fonte observa que a padronização ajuda a reconhecer a distorção anatômica esperada; posicionamento não padronizado pode produzir distorções desconhecidas e dificultar a interpretação.',
     dica: 'A padronização ajuda a comparar exames e reconhecer o que é esperado.', limitacao_clinica: 'A condição clínica pode limitar o posicionamento; registre e considere essas limitações na interpretação.', pontuacao: 20, ativo: true,
-    url_fonte: 'https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view'
+    url_fonte: 'https://drive.google.com/file/d/1djs62fxBu-qG-r5c7M55ZTYGuf0fhmx6/view'
   }
 ,
 
