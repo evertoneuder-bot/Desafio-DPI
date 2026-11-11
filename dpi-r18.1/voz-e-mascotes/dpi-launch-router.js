@@ -156,6 +156,7 @@
     const diagnostics = root.__dpiAudioDiagnostics ||= { questions: [], requests: [], speechStarts: [], mediaStarts: [] };
     diagnostics.mediaStarts ||= [];
     diagnostics.narrationCalls ||= [];
+    diagnostics.publicReads ||= [];
     const keep = (collection, entry) => {
       collection.push(entry);
       if (collection.length > 30) collection.shift();
@@ -165,17 +166,21 @@
     // Track that invocation so this observer does not stop and restart the
     // same speech 180 ms later. The wrapper preserves the original return.
     let lastPublicRead = null;
+    let lastPublicReadAt = null;
     let observedPublicReader = null;
     const ensurePublicReaderTracked = () => {
       const reader = root.dpiReadQuestion;
       if (typeof reader !== 'function' || reader === observedPublicReader) return;
       const wrapped = function () {
         const current = doc.querySelector('#internal .dpi-round-question,#internal .dpi-case-question,#internal .question-text');
+        const invokedAt = now();
         lastPublicRead = {
           question: current,
           prompt: current?.textContent?.replace(/\s+/g, ' ').trim() || '',
-          at: now()
+          at: invokedAt
         };
+        lastPublicReadAt = invokedAt;
+        keep(diagnostics.publicReads, { at: Math.round(invokedAt), kind: current?.matches?.('.dpi-case-question') ? 'plantao' : 'question' });
         const internal = doc.getElementById('internal');
         const plantaoText = current?.matches?.('.dpi-case-question') && internal
           ? caseNarration(internal, current) : '';
@@ -197,6 +202,7 @@
       const at = now();
       keep(diagnostics.speechStarts, {
         msAfterQuestionDetected: latestQuestionAt ? Math.round(at - latestQuestionAt) : null,
+        msAfterPublicRead: lastPublicReadAt !== null ? Math.round(at - lastPublicReadAt) : null,
         at: Math.round(at)
       });
     });
@@ -207,6 +213,7 @@
       const at = now();
       keep(diagnostics.mediaStarts, {
         msAfterQuestionDetected: latestQuestionAt ? Math.round(at - latestQuestionAt) : null,
+        msAfterPublicRead: lastPublicReadAt !== null ? Math.round(at - lastPublicReadAt) : null,
         at: Math.round(at)
       });
     }, true);
