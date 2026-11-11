@@ -251,7 +251,12 @@
       const result = internal.querySelector(resultSelector);
       if (result) { openResult(result); return; }
     };
-    const schedule = () => { root.clearTimeout(scanTimer); scanTimer = root.setTimeout(scan, 160); };
+    // Coalesce frequent DOM changes without postponing narration indefinitely.
+    // Preserve the existing 180 ms stability check before reading the prompt.
+    const schedule = () => {
+      if (scanTimer) return;
+      scanTimer = root.setTimeout(scan, 32);
+    };
     const internal = doc.getElementById('internal');
     if (internal && typeof root.MutationObserver === 'function') {
       new root.MutationObserver(schedule).observe(internal, { childList:true, subtree:true, characterData:true });
