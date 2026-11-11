@@ -152,6 +152,39 @@
     root.__dpiQuestionResultFlowInstalled = true;
     const resultSelector = '#internal .feedback.ok,#internal .feedback.no,#internal .dpi-case-feedback.is-correct,#internal .dpi-case-feedback.is-wrong,#internal .dpi-round-result.is-correct,#internal .dpi-round-result.is-wrong';
     let scanTimer = 0;
+    // Read-only, in-memory timings. No spoken content, IDs, credentials or UI changes.
+    const diagnostics = root.__dpiAudioDiagnostics ||= { questions: [], requests: [], speechStarts: [] };
+    const keep = (collection, entry) => {
+      collection.push(entry);
+      if (collection.length > 30) collection.shift();
+    };
+    const now = () => root.performance?.now?.() ?? Date.now();
+    let latestQuestionAt = 0;
+    root.addEventListener('elx-speech-start', () => {
+      const at = now();
+      keep(diagnostics.speechStarts, {
+        msAfterQuestionDetected: latestQuestionAt ? Math.round(at - latestQuestionAt) : null,
+        at: Math.round(at)
+      });
+    });
+    if (typeof root.PerformanceObserver === 'function') {
+      try {
+        const observeTts = new root.PerformanceObserver(list => {
+          list.getEntries().forEach(entry => {
+            if (!/\/api\/tts(?:\?|$)/.test(entry.name)) return;
+            keep(diagnostics.requests, {
+              startedAt: Math.round(entry.startTime),
+              totalMs: Math.round(entry.duration),
+              serverTimings: (entry.serverTiming || []).map(item => ({
+                name: item.name,
+                durationMs: Math.round(item.duration)
+              }))
+            });
+          });
+        });
+        observeTts.observe({ type: 'resource', buffered: true });
+      } catch (_) { /* PerformanceObserver is optional. */ }
+    }
     const assistant = () => root.ELXAssistentes;
     const speak = text => {
       const voice = assistant();
@@ -199,6 +232,8 @@
       const prompt = question?.textContent?.replace(/\\s+/g, ' ').trim() || '';
       if (prompt && prompt !== lastSpokenPrompt) {
         lastSpokenPrompt = prompt;
+        latestQuestionAt = now();
+        keep(diagnostics.questions, { detectedAt: Math.round(latestQuestionAt) });
         root.setTimeout(() => {
           if (!question.isConnected || question.textContent.replace(/\\s+/g, ' ').trim() !== prompt) return;
           if (typeof root.dpiReadQuestion === 'function') root.dpiReadQuestion();
