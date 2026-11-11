@@ -224,13 +224,16 @@
       speak([heading, explanation].filter(Boolean).join('. ').slice(0,650));
     };
     let lastSpokenPrompt = '';
+    let lastSpokenQuestion = null;
     const scan = () => {
       scanTimer = 0;
       const internal = doc.getElementById('internal');
       if (!internal) return;
       const question = internal.querySelector('.dpi-round-question,.dpi-case-question,.question-text');
       const prompt = question?.textContent?.replace(/\s+/g, ' ').trim() || '';
-      if (prompt && prompt !== lastSpokenPrompt) {
+      // A different rendered question must be narrated even when its wording repeats.
+      if (prompt && (question !== lastSpokenQuestion || prompt !== lastSpokenPrompt)) {
+        lastSpokenQuestion = question;
         lastSpokenPrompt = prompt;
         latestQuestionAt = now();
         keep(diagnostics.questions, {
