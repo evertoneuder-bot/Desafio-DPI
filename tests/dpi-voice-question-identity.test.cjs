@@ -144,3 +144,10 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
   assert.deepEqual(simulate('dialog'), { reads: 0, recorded: 0 });
   assert.deepEqual(simulate('replacement'), { reads: 1, recorded: 1 });
 });
+
+test('question identity resets when the question temporarily disappears', () => {
+  const scanBody = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
+  assert.match(scanBody, /if \(!prompt\) \{/);
+  assert.match(scanBody, /if \(lastSpokenQuestion\) \+\+narrationGeneration;/);
+  assert.match(scanBody, /lastSpokenQuestion = null;\s*lastSpokenPrompt = '';/);
+});
