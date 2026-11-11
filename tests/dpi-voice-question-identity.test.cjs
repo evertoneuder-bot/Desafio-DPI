@@ -310,3 +310,14 @@ test('public-read timing resets on disappearance or replacement of the question'
   assert.match(scan, /lastPublicRead = null;\s*lastPublicReadAt = null;\s*return;/);
   assert.match(scan, /if \(lastPublicRead\?\.question !== question \|\| lastPublicRead\.prompt !== prompt\) lastPublicReadAt = null;/);
 });
+
+test('static voice manifest readiness is recorded for diagnosing the initial delay', () => {
+  const block = router.match(/keep\(diagnostics\.publicReads, \{([\s\S]*?)\}\);/);
+  assert.ok(block);
+  assert.match(block[1], /staticCatalogPending: Boolean\(root\.DPIStaticVoice && !root\.DPIStaticVoice\.settled\)/);
+  assert.match(block[1], /persona: root\.ELXAssistentes\?\.getPersona/);
+  assert.doesNotMatch(block[1], /\b(text|prompt|patient|name|url|token|apiKey)\s*:/);
+  const fallback = router.match(/keep\(diagnostics\.narrationCalls, \{([\s\S]*?)\}\);/);
+  assert.ok(fallback);
+  assert.match(fallback[1], /staticCatalogPending:/);
+});
