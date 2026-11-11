@@ -68,3 +68,16 @@ test('narration timing uses the detection time of its own question', () => {
   assert.match(router, /msAfterQuestionDetected: Math\.round\(now\(\) - detectedAt\)/);
   assert.doesNotMatch(router, /msAfterQuestionDetected: Math\.round\(now\(\) - latestQuestionAt\)/);
 });
+
+test('answer feedback takes priority over scheduling question narration', () => {
+  const scanBody = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
+  assert.ok(scanBody.indexOf('const result = internal.querySelector(resultSelector)') < scanBody.indexOf('const question = internal.querySelector'));
+  assert.match(scanBody, /\+\+narrationGeneration;\s*openResult\(result\);\s*return;/);
+  assert.match(scanBody, /if \(doc\.querySelector\('\.dpi-answer-dialog'\)\) return;/);
+});
+
+test('pending question narration is suppressed if feedback appeared before playback', () => {
+  const scanBody = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
+  assert.match(scanBody, /internal\.querySelector\(resultSelector\) \|\| doc\.querySelector\('\.dpi-answer-dialog'\)/);
+  assert.match(scanBody, /generation !== narrationGeneration/);
+});
