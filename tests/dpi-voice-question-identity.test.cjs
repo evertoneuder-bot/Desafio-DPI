@@ -129,7 +129,14 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
       clock = toTime;
     }
     if (phase === 'normal') advance(300);
-    else if (phase === 'disappear-return') {
+    else if (phase === 'inline-reader-first') {
+      root.dpiReadQuestion();
+      advance(300);
+    } else if (phase === 'inline-reader-after-detection') {
+      advance(50);
+      root.dpiReadQuestion();
+      advance(300);
+    } else if (phase === 'disappear-return') {
       advance(300);
       const previousQuestion = question;
       question = null;
@@ -149,6 +156,8 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
     return { reads, recorded: root.__dpiAudioDiagnostics.narrationCalls.length };
   }
   assert.deepEqual(simulate('normal'), { reads: 1, recorded: 1 });
+  assert.deepEqual(simulate('inline-reader-first'), { reads: 1, recorded: 0 });
+  assert.deepEqual(simulate('inline-reader-after-detection'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('feedback'), { reads: 0, recorded: 0 });
   assert.deepEqual(simulate('dialog'), { reads: 0, recorded: 0 });
   assert.deepEqual(simulate('replacement'), { reads: 1, recorded: 1 });
@@ -160,4 +169,15 @@ test('question identity resets when the question temporarily disappears', () => 
   assert.match(scanBody, /if \(!prompt\) \{/);
   assert.match(scanBody, /if \(lastSpokenQuestion\) \+\+narrationGeneration;/);
   assert.match(scanBody, /lastSpokenQuestion = null;\s*lastSpokenPrompt = '';/);
+});
+
+test('public question reader is tracked without exposing prompt text or mutating its return', () => {
+  const from = router.indexOf("    // The inline game sometimes calls its own public reader");
+  assert.ok(from > 0);
+  const snippet = router.slice(from, router.indexOf('    let latestQuestionAt = 0;', from));
+  assert.match(snippet, /return originalReadQuestion\.apply\(this, arguments\);/);
+  assert.doesNotMatch(snippet, /keep\(diagnostics/);
+  const scan = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
+  assert.match(scan, /lastPublicRead\?\.question === question/);
+  assert.match(scan, /lastPublicRead\.prompt === prompt/);
 });
