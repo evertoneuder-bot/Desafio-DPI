@@ -64,6 +64,8 @@ module.exports = async function tts(req, res) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 20000);
   try {
+    // Diagnostic timings only: no voice IDs, text, API keys or credit balances.
+    const subscriptionStart = Date.now();
     // Never allow usage-based overages. Only request speech when the provider
     // confirms that overages are disabled and the included character balance
     // can cover this utterance. The text-length check is deliberately
@@ -84,6 +86,7 @@ module.exports = async function tts(req, res) {
       return json(res, 502, { error, providerStatus });
     }
     const subscription = await subscriptionResponse.json().catch(() => null);
+    const subscriptionMs = Date.now() - subscriptionStart;
     const overageLimit = subscription?.max_credit_limit_extension;
     const characterCount = Number(subscription?.character_count);
     const characterLimit = Number(subscription?.character_limit);
@@ -93,6 +96,7 @@ module.exports = async function tts(req, res) {
       return json(res, 429, { error: 'provider-quota-or-rate-limit' });
     }
 
+    const synthesisStart = Date.now();
     const upstream = await fetch(url, {
       method: 'POST',
       headers: {
@@ -108,6 +112,7 @@ module.exports = async function tts(req, res) {
       signal: controller.signal
     });
 
+    const synthesisHeadersMs = Date.now() - synthesisStart;
     if (!upstream.ok) {
       const providerStatus = Number(upstream.status) || 0;
       const error = providerStatus === 401 ? 'provider-auth-failed'
@@ -124,10 +129,13 @@ module.exports = async function tts(req, res) {
     if (!contentType.toLowerCase().startsWith('audio/') || declaredBytes > MAX_AUDIO_BYTES) {
       return json(res, 502, { error: 'invalid-provider-response' });
     }
+    const bufferStart = Date.now();
     const audio = Buffer.from(await upstream.arrayBuffer());
+    const bufferMs = Date.now() - bufferStart;
     if (!audio.length || audio.length > MAX_AUDIO_BYTES) {
       return json(res, 502, { error: 'invalid-provider-response' });
     }
+    res.setHeader('Server-Timing', `subscription;dur=${subscriptionMs}, synthesis_headers;dur=${synthesisHeadersMs}, buffer;dur=${bufferMs}`);
     res.setHeader('Cache-Control', 'no-store');
     res.setHeader('Content-Type', 'audio/mpeg');
     res.setHeader('Content-Length', String(audio.length));
