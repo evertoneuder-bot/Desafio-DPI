@@ -263,3 +263,43 @@ test('Plantão primary reader includes phase explanation, question and options i
   assert.doesNotMatch(spoken[0].text, /Alternativa A: A A imagem/);
   assert.equal(returned, spoken[0].text);
 });
+
+test('inline reader timing is recorded without user text, URLs or credentials', () => {
+  assert.match(router, /diagnostics\.publicReads \|\|= \[\]/);
+  assert.match(router, /lastPublicReadAt = invokedAt;/);
+  assert.match(router, /msAfterPublicRead: lastPublicReadAt !== null \? Math\.round\(at - lastPublicReadAt\) : null/);
+  const block = router.match(/keep\(diagnostics\.publicReads, \{([^}]+)\}\);/);
+  assert.ok(block);
+  assert.match(block[1], /kind:/);
+  assert.doesNotMatch(block[1], /\b(prompt|text|patient|name|url|secret|voiceId|token|apiKey)\s*:/);
+});
+
+test('inline public read yields audio timing even if it precedes observer question detection', () => {
+  const from = router.indexOf('  function installQuestionAndResultFlow() {');
+  const to = router.indexOf("  if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', installQuestionAndResultFlow");
+  const installer = router.slice(from, to);
+  const handlers = {}, media = {};
+  let clock = 100;
+  const question = {textContent:'Exemplo',matches:()=>false};
+  const internal = {querySelector:()=>null};
+  const doc = {
+    body:{}, getElementById:()=>internal,
+    querySelector:(s)=>s.startsWith('#internal .dpi-round-question')?question:null,
+    addEventListener:(name,fn)=>{media[name]=fn;}
+  };
+  const root = {document:doc, addEventListener:(name,fn)=>{handlers[name]=fn;},
+    performance:{now:()=>clock}, setTimeout:()=>1, clearTimeout:()=>{},
+    MutationObserver: class {observe() {}},
+    dpiReadQuestion:()=>undefined
+  };
+  new Function('root', installer+'\ninstallQuestionAndResultFlow();')(root);
+  root.dpiReadQuestion();
+  clock = 150;
+  handlers['elx-speech-start']({});
+  clock = 170;
+  media.playing({target:{tagName:'AUDIO'}});
+  assert.equal(root.__dpiAudioDiagnostics.publicReads.length,1);
+  assert.equal(root.__dpiAudioDiagnostics.speechStarts[0].msAfterPublicRead,50);
+  assert.equal(root.__dpiAudioDiagnostics.mediaStarts[0].msAfterPublicRead,70);
+  assert.equal(root.__dpiAudioDiagnostics.speechStarts[0].msAfterQuestionDetected,null);
+});
