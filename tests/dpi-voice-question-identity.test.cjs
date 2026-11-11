@@ -304,3 +304,9 @@ test('inline public read yields audio timing even if it precedes observer questi
   assert.equal(root.__dpiAudioDiagnostics.mediaStarts[0].msAfterPublicRead,70);
   assert.equal(root.__dpiAudioDiagnostics.speechStarts[0].msAfterQuestionDetected,null);
 });
+
+test('public-read timing resets on disappearance or replacement of the question', () => {
+  const scan = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
+  assert.match(scan, /lastPublicRead = null;\s*lastPublicReadAt = null;\s*return;/);
+  assert.match(scan, /if \(lastPublicRead\?\.question !== question \|\| lastPublicRead\.prompt !== prompt\) lastPublicReadAt = null;/);
+});
