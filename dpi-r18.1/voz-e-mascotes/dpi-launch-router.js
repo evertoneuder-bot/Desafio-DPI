@@ -180,7 +180,12 @@
           at: invokedAt
         };
         lastPublicReadAt = invokedAt;
-        keep(diagnostics.publicReads, { at: Math.round(invokedAt), kind: current?.matches?.('.dpi-case-question') ? 'plantao' : 'question' });
+        keep(diagnostics.publicReads, {
+          at: Math.round(invokedAt),
+          kind: current?.matches?.('.dpi-case-question') ? 'plantao' : 'question',
+          staticCatalogPending: Boolean(root.DPIStaticVoice && !root.DPIStaticVoice.settled),
+          persona: root.ELXAssistentes?.getPersona?.() === 'female' ? 'female' : 'male'
+        });
         const internal = doc.getElementById('internal');
         const plantaoText = current?.matches?.('.dpi-case-question') && internal
           ? caseNarration(internal, current) : '';
@@ -365,7 +370,8 @@
             msAfterQuestionDetected: Math.round(now() - detectedAt),
             path: viaReader ? 'public-question-reader' : 'assistant-fallback',
             browserVoiceSpeaking: Boolean(root.speechSynthesis?.speaking),
-            browserVoicePending: Boolean(root.speechSynthesis?.pending)
+            browserVoicePending: Boolean(root.speechSynthesis?.pending),
+            staticCatalogPending: Boolean(root.DPIStaticVoice && !root.DPIStaticVoice.settled)
           });
           const plantaoText = question.matches?.('.dpi-case-question') ? caseNarration(internal, question) : '';
           if (plantaoText && assistant()?.isEnabled?.()) speak(plantaoText);
