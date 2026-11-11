@@ -237,6 +237,7 @@
     };
     let lastSpokenPrompt = '';
     let lastSpokenQuestion = null;
+    let narrationGeneration = 0;
     const scan = () => {
       scanTimer = 0;
       const internal = doc.getElementById('internal');
@@ -248,6 +249,8 @@
         lastSpokenQuestion = question;
         lastSpokenPrompt = prompt;
         latestQuestionAt = now();
+        const detectedAt = latestQuestionAt;
+        const generation = ++narrationGeneration;
         keep(diagnostics.questions, {
           detectedAt: Math.round(latestQuestionAt),
           browserVoiceSpeaking: Boolean(root.speechSynthesis?.speaking),
@@ -255,11 +258,12 @@
           neuralAssistantEnabled: Boolean(assistant()?.isEnabled?.())
         });
         root.setTimeout(() => {
-          if (!question.isConnected || question.textContent.replace(/\s+/g, ' ').trim() !== prompt) return;
+          if (generation !== narrationGeneration || !question.isConnected || !internal.contains(question) ||
+              question.textContent.replace(/\s+/g, ' ').trim() !== prompt) return;
           const viaReader = typeof root.dpiReadQuestion === 'function';
           keep(diagnostics.narrationCalls, {
             at: Math.round(now()),
-            msAfterQuestionDetected: Math.round(now() - latestQuestionAt),
+            msAfterQuestionDetected: Math.round(now() - detectedAt),
             path: viaReader ? 'public-question-reader' : 'assistant-fallback',
             browserVoiceSpeaking: Boolean(root.speechSynthesis?.speaking),
             browserVoicePending: Boolean(root.speechSynthesis?.pending)
