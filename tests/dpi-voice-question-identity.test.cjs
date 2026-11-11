@@ -46,3 +46,12 @@ test('client audio playback timing is read-only and excludes media URLs or audio
   assert.ok(eventBlock);
   assert.doesNotMatch(eventBlock[1], /\b(src|url|text|prompt|voiceId|patient)\s*:/);
 });
+
+test('narration invocation diagnostics distinguish reader and fallback without storing speech text', () => {
+  assert.match(router, /diagnostics\.narrationCalls \|\|= \[\]/);
+  assert.match(router, /keep\(diagnostics\.narrationCalls, \{/);
+  assert.match(router, /path: viaReader \? 'public-question-reader' : 'assistant-fallback'/);
+  const block = router.match(/keep\(diagnostics\.narrationCalls, \{([\s\S]*?)\}\);/);
+  assert.ok(block);
+  assert.doesNotMatch(block[1], /\b(text|prompt|content|src|url|apiKey|voiceId)\s*:/);
+});
