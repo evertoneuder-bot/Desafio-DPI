@@ -255,8 +255,12 @@
       const prompt = question?.textContent?.replace(/\s+/g, ' ').trim() || '';
       if (!prompt) return '';
       const options = [...internal.querySelectorAll('.dpi-case-option')].slice(0, 4)
-        .map((button, index) => String.fromCharCode(65 + index) + '. ' + String(button.textContent || '').replace(/\s+/g, ' ').trim())
-        .filter(Boolean);
+        .map((button, index) => {
+          const label = String.fromCharCode(65 + index);
+          const answer = String(button.querySelector?.('span')?.textContent || button.textContent || '')
+            .replace(/\s+/g, ' ').replace(/^[A-D]\s*[.:)–-]?\s*/i, '').trim();
+          return answer ? 'Alternativa ' + label + ': ' + answer : '';
+        }).filter(Boolean);
       return ['Etapa do plantão: ' + phase + '.', phaseGuidance[phase], prompt, ...options].join(' ');
     };
     const openResult = node => {
