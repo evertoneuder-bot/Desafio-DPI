@@ -242,6 +242,15 @@
       scanTimer = 0;
       const internal = doc.getElementById('internal');
       if (!internal) return;
+      // Answer feedback takes precedence: never queue a question while its
+      // explanation is opening or being narrated.
+      const result = internal.querySelector(resultSelector);
+      if (result) {
+        ++narrationGeneration;
+        openResult(result);
+        return;
+      }
+      if (doc.querySelector('.dpi-answer-dialog')) return;
       const question = internal.querySelector('.dpi-round-question,.dpi-case-question,.question-text');
       const prompt = question?.textContent?.replace(/\s+/g, ' ').trim() || '';
       // A different rendered question must be narrated even when its wording repeats.
@@ -259,6 +268,7 @@
         });
         root.setTimeout(() => {
           if (generation !== narrationGeneration || !question.isConnected || !internal.contains(question) ||
+              internal.querySelector(resultSelector) || doc.querySelector('.dpi-answer-dialog') ||
               question.textContent.replace(/\s+/g, ' ').trim() !== prompt) return;
           const viaReader = typeof root.dpiReadQuestion === 'function';
           keep(diagnostics.narrationCalls, {
@@ -272,8 +282,6 @@
           else speak(prompt);
         }, 180);
       }
-      const result = internal.querySelector(resultSelector);
-      if (result) { openResult(result); return; }
     };
     // Coalesce frequent DOM changes without postponing narration indefinitely.
     // Preserve the existing 180 ms stability check before reading the prompt.
