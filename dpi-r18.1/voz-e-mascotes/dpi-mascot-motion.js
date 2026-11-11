@@ -31,7 +31,7 @@
     if (value === 'female' || value === 'male') stage.dataset.activePersona = value;
   }
   function react(name, who) {
-    persona(who);
+    persona(who || stage.dataset.activePersona || window.ELXAssistentes?.getPersona?.() || 'male');
     stage.dataset.reaction = name;
     stage.classList.remove('is-greeting', 'is-correct', 'is-incorrect');
     const state = name === 'greeting' ? 'is-greeting' : name === 'celebrate' ? 'is-correct' : name === 'incorrect' ? 'is-incorrect' : '';
