@@ -226,8 +226,8 @@ test('Plantão primary reader includes phase explanation, question and options i
   const question = { textContent: 'A imagem permite avaliação?', isConnected: true,
     matches: selector => selector === '.dpi-case-question' };
   const options = [
-    { textContent: 'Sim, está adequada' },
-    { textContent: 'Não, repetir aquisição' }
+    { textContent: 'A A imagem está adequada', querySelector: () => ({ textContent: 'A imagem está adequada' }) },
+    { textContent: 'B Não, repetir aquisição', querySelector: () => ({ textContent: 'Não, repetir aquisição' }) }
   ];
   const internal = {
     querySelector: selector => selector === '.dpi-case-phase b' ? phase :
@@ -258,6 +258,8 @@ test('Plantão primary reader includes phase explanation, question and options i
   assert.match(spoken[0].text, /QUALIDADE TÉCNICA/);
   assert.match(spoken[0].text, /Confira se as imagens permitem uma avaliação confiável/);
   assert.match(spoken[0].text, /A imagem permite avaliação/);
-  assert.match(spoken[0].text, /Sim, está adequada/);
+  assert.match(spoken[0].text, /Alternativa A: A imagem está adequada/);
+  assert.match(spoken[0].text, /Alternativa B: Não, repetir aquisição/);
+  assert.doesNotMatch(spoken[0].text, /Alternativa A: A A imagem/);
   assert.equal(returned, spoken[0].text);
 });
