@@ -176,6 +176,16 @@
           prompt: current?.textContent?.replace(/\s+/g, ' ').trim() || '',
           at: now()
         };
+        const internal = doc.getElementById('internal');
+        const plantaoText = current?.matches?.('.dpi-case-question') && internal
+          ? caseNarration(internal, current) : '';
+        // One voice invocation for the entire phase, including the question
+        // and choices. Preserve the legacy reader for all other situations.
+        if (plantaoText && assistant()?.isEnabled?.() &&
+            !internal.querySelector(resultSelector) && !doc.querySelector('.dpi-answer-dialog')) {
+          speak(plantaoText);
+          return plantaoText;
+        }
         return reader.apply(this, arguments);
       };
       observedPublicReader = wrapped;
