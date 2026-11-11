@@ -314,7 +314,7 @@ test('public-read timing resets on disappearance or replacement of the question'
 test('static voice manifest readiness is recorded for diagnosing the initial delay', () => {
   const block = router.match(/keep\(diagnostics\.publicReads, \{([\s\S]*?)\}\);/);
   assert.ok(block);
-  assert.match(block[1], /staticCatalogPending: root\.DPIStaticVoice && typeof root\.DPIStaticVoice\.settled === 'boolean' \? !root\.DPIStaticVoice\.settled : null/);
+  assert.match(block[1], /staticCatalogPending: typeof root\.DPIStaticVoice\?\.settled === 'boolean' \? !root\.DPIStaticVoice\.settled : null/);
   assert.match(block[1], /persona: root\.ELXAssistentes\?\.getPersona/);
   assert.doesNotMatch(block[1], /\b(text|prompt|patient|name|url|token|apiKey)\s*:/);
   const fallback = router.match(/keep\(diagnostics\.narrationCalls, \{([\s\S]*?)\}\);/);
@@ -327,4 +327,14 @@ test('static voice readiness remains unknown if no catalog state is exposed', ()
   assert.ok(block);
   assert.match(block[1], /staticCatalogPending:.*: null/);
   assert.doesNotMatch(block[1], /staticCatalogPending: Boolean\(/);
+});
+
+test('catalog pending diagnostic distinguishes missing, loading and completed catalog', () => {
+  const source = router.match(/staticCatalogPending: ([^\n,}]+)/)?.[1];
+  assert.ok(source);
+  const readPending = new Function('root', 'return ' + source);
+  assert.equal(readPending({}), null);
+  assert.equal(readPending({DPIStaticVoice:{}}), null);
+  assert.equal(readPending({DPIStaticVoice:{settled:false}}), true);
+  assert.equal(readPending({DPIStaticVoice:{settled:true}}), false);
 });
