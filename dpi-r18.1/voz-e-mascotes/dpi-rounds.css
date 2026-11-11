@@ -222,27 +222,29 @@
 #internal .dpi-patient-chip{color:#36566b!important}
 #internal .dpi-patient-label{color:#17364d!important;text-shadow:0 1px 0 #ffffffaa}
 
-/* R32: separate motion layers from the same approved transparent pair. */
+/* R32: separate motion layers from the same approved transparent pair.
+   R43: keep Fernanda smaller through every pose; all motions retain the
+   approved artwork, clipping boundaries and character positions. */
 #elx-character-stage .elx-approved-mascot-motion{position:relative!important;display:block!important;animation:none!important;overflow:visible!important;isolation:isolate}
-#elx-character-stage .elx-mascot-motion-persona{position:absolute;inset:0;display:block;pointer-events:none;transform-origin:50% 92%;clip-path:inset(0 48.32% 0 0);animation:elxMascotIdle 3.6s ease-in-out infinite}
-#elx-character-stage .elx-mascot-motion-persona[data-persona="female"]{clip-path:inset(0 0 0 51.68%);animation-delay:-1.4s}
+#elx-character-stage .elx-mascot-motion-persona{--elx-persona-scale:1;position:absolute;inset:0;display:block;pointer-events:none;transform-origin:27% 94%;clip-path:inset(0 48.32% 0 0);transform:scale(var(--elx-persona-scale));animation:elxMascotIdle 5.8s ease-in-out infinite}
+#elx-character-stage .elx-mascot-motion-persona[data-persona="female"]{--elx-persona-scale:.88;transform-origin:75% 95%;clip-path:inset(0 0 0 51.68%);animation-delay:-2.1s}
 #elx-character-stage .elx-mascot-motion-persona img{display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center bottom;user-select:none;-webkit-user-drag:none}
 #elx-character-stage[data-active-persona="male"].is-speaking .elx-mascot-motion-persona[data-persona="male"],
-#elx-character-stage[data-active-persona="female"].is-speaking .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotSpeak .48s ease-in-out infinite alternate}
-#elx-character-stage.is-listening .elx-mascot-motion-persona{animation:elxMascotListen .65s ease-in-out infinite alternate}
+#elx-character-stage[data-active-persona="female"].is-speaking .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotSpeak 2.1s ease-in-out infinite}
+#elx-character-stage.is-listening .elx-mascot-motion-persona{animation:elxMascotListen 3.3s ease-in-out infinite}
 #elx-character-stage.is-greeting .elx-mascot-motion-persona[data-persona="male"],
-#elx-character-stage.is-greeting .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotGreet .58s cubic-bezier(.2,.8,.25,1.2) 2}
+#elx-character-stage.is-greeting .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotGreet 1.25s ease-in-out 1}
 #elx-character-stage.is-correct .elx-mascot-motion-persona[data-persona="male"],
-#elx-character-stage.is-correct .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotCheer .65s ease-in-out 2}
+#elx-character-stage.is-correct .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotCheer 1.3s ease-in-out 1}
 #elx-character-stage.is-incorrect .elx-mascot-motion-persona[data-persona="male"],
-#elx-character-stage.is-incorrect .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotComfort .5s ease-in-out 2}
-@keyframes elxMascotIdle{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(-.35deg)}}
-@keyframes elxMascotSpeak{from{transform:translateY(0) scale(1)}to{transform:translateY(-3px) scale(1.012)}}
-@keyframes elxMascotListen{from{transform:translateY(0) rotate(0)}to{transform:translateY(-2px) rotate(-.45deg)}}
-@keyframes elxMascotGreet{0%,100%{transform:translateY(0) rotate(0)}45%{transform:translateY(-9px) rotate(-1deg)}}
-@keyframes elxMascotCheer{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(1.1deg)}}
-@keyframes elxMascotComfort{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(2px) rotate(-.8deg)}}
-@media(prefers-reduced-motion:reduce){#elx-character-stage .elx-mascot-motion-persona{animation:none!important}}
+#elx-character-stage.is-incorrect .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotComfort 1.35s ease-in-out 1}
+@keyframes elxMascotIdle{0%,100%{transform:translate3d(0,0,0) rotate(0) scale(var(--elx-persona-scale))}23%{transform:translate3d(0,-1px,0) rotate(-.13deg) scale(var(--elx-persona-scale))}54%{transform:translate3d(0,-3px,0) rotate(.16deg) scale(var(--elx-persona-scale))}78%{transform:translate3d(0,-1px,0) rotate(-.1deg) scale(var(--elx-persona-scale))}}
+@keyframes elxMascotSpeak{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}24%{transform:translateY(-1px) rotate(-.18deg) scale(var(--elx-persona-scale))}58%{transform:translateY(-2.5px) rotate(.24deg) scale(var(--elx-persona-scale))}82%{transform:translateY(-1px) rotate(-.12deg) scale(var(--elx-persona-scale))}}
+@keyframes elxMascotListen{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}52%{transform:translateY(-1.5px) rotate(-.22deg) scale(var(--elx-persona-scale))}}
+@keyframes elxMascotGreet{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}43%{transform:translateY(-5px) rotate(-.55deg) scale(var(--elx-persona-scale))}}
+@keyframes elxMascotCheer{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}40%{transform:translateY(-7px) rotate(.65deg) scale(var(--elx-persona-scale))}70%{transform:translateY(-3px) rotate(-.25deg) scale(var(--elx-persona-scale))}}
+@keyframes elxMascotComfort{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}48%{transform:translateY(2px) rotate(-.45deg) scale(var(--elx-persona-scale))}}
+@media(prefers-reduced-motion:reduce){#elx-character-stage .elx-mascot-motion-persona{animation:none!important;transform:scale(var(--elx-persona-scale))}}
 
 /* R33: review fixes — consistent error contrast, legible challenge cards,
    keyboard-board reveal, and a short transition between game phases. */
