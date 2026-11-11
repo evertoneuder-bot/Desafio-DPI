@@ -153,7 +153,8 @@
     const resultSelector = '#internal .feedback.ok,#internal .feedback.no,#internal .dpi-case-feedback.is-correct,#internal .dpi-case-feedback.is-wrong,#internal .dpi-round-result.is-correct,#internal .dpi-round-result.is-wrong';
     let scanTimer = 0;
     // Read-only, in-memory timings. No spoken content, IDs, credentials or UI changes.
-    const diagnostics = root.__dpiAudioDiagnostics ||= { questions: [], requests: [], speechStarts: [] };
+    const diagnostics = root.__dpiAudioDiagnostics ||= { questions: [], requests: [], speechStarts: [], mediaStarts: [] };
+    diagnostics.mediaStarts ||= [];
     const keep = (collection, entry) => {
       collection.push(entry);
       if (collection.length > 30) collection.shift();
@@ -167,6 +168,16 @@
         at: Math.round(at)
       });
     });
+    // 'playing' is the browser's media playback event, not merely a TTS request.
+    // It can also include sound effects or music; do not label it neural speech.
+    doc.addEventListener('playing', event => {
+      if (event.target?.tagName !== 'AUDIO') return;
+      const at = now();
+      keep(diagnostics.mediaStarts, {
+        msAfterQuestionDetected: latestQuestionAt ? Math.round(at - latestQuestionAt) : null,
+        at: Math.round(at)
+      });
+    }, true);
     if (typeof root.PerformanceObserver === 'function') {
       try {
         const observeTts = new root.PerformanceObserver(list => {
