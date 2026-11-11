@@ -223,6 +223,32 @@
       const voice = assistant();
       if (voice?.isEnabled?.() && text) voice.speak(text, voice.getPersona?.() || 'male', true);
     };
+    // Plantão phases use the existing label as their source of truth. Explain
+    // the learning objective, not a clinical diagnosis or a prescribed action.
+    const phaseGuidance = {
+      'AVALIAÇÃO INICIAL': 'Observe o estado geral e identifique prioridades.',
+      'HISTÓRICO E TRIAGEM': 'Relacione o histórico aos sinais e à urgência.',
+      'ESTABILIZAÇÃO E SEGURANÇA': 'Considere a estabilidade e a segurança antes da imagem.',
+      'PERGUNTA CLÍNICA': 'Defina qual dúvida o exame deve esclarecer.',
+      'PLANO DE IMAGEM': 'Escolha o método de imagem conforme o objetivo clínico.',
+      'MODALIDADE E PROJEÇÕES': 'Avalie quais projeções respondem à pergunta clínica.',
+      'AQUISIÇÃO E POSICIONAMENTO': 'Considere posicionamento e técnica para obter imagens adequadas.',
+      'QUALIDADE TÉCNICA': 'Confira se as imagens permitem uma avaliação confiável.',
+      'INTERPRETAÇÃO': 'Analise os achados e suas limitações.',
+      'INTEGRAÇÃO DOS ACHADOS': 'Relacione os achados à apresentação clínica.',
+      'REAVALIAÇÃO E PRÓXIMA CONDUTA': 'Reavalie a evolução e a necessidade de novas medidas.',
+      'REGISTRO E COMUNICAÇÃO': 'Organize as informações e comunique as conclusões.'
+    };
+    const caseNarration = (internal, question) => {
+      const phase = internal.querySelector('.dpi-case-phase b')?.textContent?.replace(/\s+/g, ' ').trim().toUpperCase();
+      if (!phase || !Object.prototype.hasOwnProperty.call(phaseGuidance, phase)) return '';
+      const prompt = question?.textContent?.replace(/\s+/g, ' ').trim() || '';
+      if (!prompt) return '';
+      const options = [...internal.querySelectorAll('.dpi-case-option')].slice(0, 4)
+        .map((button, index) => String.fromCharCode(65 + index) + '. ' + String(button.textContent || '').replace(/\s+/g, ' ').trim())
+        .filter(Boolean);
+      return ['Etapa do plantão: ' + phase + '.', phaseGuidance[phase], prompt, ...options].join(' ');
+    };
     const openResult = node => {
       if (!node?.isConnected || node.dataset.dpiDialogOpen || !node.matches(resultSelector)) return;
       node.dataset.dpiDialogOpen = 'true';
@@ -318,7 +344,9 @@
             browserVoiceSpeaking: Boolean(root.speechSynthesis?.speaking),
             browserVoicePending: Boolean(root.speechSynthesis?.pending)
           });
-          if (viaReader) root.dpiReadQuestion();
+          const plantaoText = question.matches?.('.dpi-case-question') ? caseNarration(internal, question) : '';
+          if (plantaoText && assistant()?.isEnabled?.()) speak(plantaoText);
+          else if (viaReader) root.dpiReadQuestion();
           else speak(prompt);
         }, 180);
       }
