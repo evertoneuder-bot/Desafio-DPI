@@ -253,6 +253,14 @@
       if (doc.querySelector('.dpi-answer-dialog')) return;
       const question = internal.querySelector('.dpi-round-question,.dpi-case-question,.question-text');
       const prompt = question?.textContent?.replace(/\s+/g, ' ').trim() || '';
+      // An emptied/removed question ends the current presentation. Re-rendering
+      // identical wording later is still a new question and must be readable.
+      if (!prompt) {
+        if (lastSpokenQuestion) ++narrationGeneration;
+        lastSpokenQuestion = null;
+        lastSpokenPrompt = '';
+        return;
+      }
       // A different rendered question must be narrated even when its wording repeats.
       if (prompt && (question !== lastSpokenQuestion || prompt !== lastSpokenPrompt)) {
         lastSpokenQuestion = question;
