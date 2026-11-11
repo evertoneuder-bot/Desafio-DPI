@@ -192,7 +192,8 @@ test('public question reader is tracked without exposing prompt text or mutating
   assert.ok(from > 0);
   const snippet = router.slice(from, router.indexOf('    let latestQuestionAt = 0;', from));
   assert.match(snippet, /return reader\.apply\(this, arguments\);/);
-  assert.doesNotMatch(snippet, /keep\(diagnostics/);
+  assert.match(snippet, /keep\(diagnostics\.publicReads/);
+  assert.doesNotMatch(snippet, /keep\(diagnostics\.publicReads, \{[^}]*\b(?:prompt|text|patient|name|url|token|apiKey)\s*:/);
   const scan = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
   assert.match(scan, /lastPublicRead\?\.question === question/);
   assert.match(scan, /lastPublicRead\.prompt === prompt/);
