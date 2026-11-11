@@ -216,3 +216,48 @@ test('Plantão narration guides each phase without a second competing speech', (
   assert.match(call, /if \(plantaoText && assistant\(\)\?\.isEnabled\?\.\(\)\) speak\(plantaoText\);/);
   assert.match(call, /else if \(viaReader\) root\.dpiReadQuestion\(\);/);
 });
+
+test('Plantão primary reader includes phase explanation, question and options in one speech', () => {
+  const from = router.indexOf('  function installQuestionAndResultFlow() {');
+  const to = router.indexOf("  if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', installQuestionAndResultFlow");
+  const installer = router.slice(from, to);
+  let nativeReads = 0, spoken = [];
+  const phase = { textContent: 'QUALIDADE TÉCNICA' };
+  const question = { textContent: 'A imagem permite avaliação?', isConnected: true,
+    matches: selector => selector === '.dpi-case-question' };
+  const options = [
+    { textContent: 'Sim, está adequada' },
+    { textContent: 'Não, repetir aquisição' }
+  ];
+  const internal = {
+    querySelector: selector => selector === '.dpi-case-phase b' ? phase :
+      selector.includes('.dpi-round-question') ? question : null,
+    querySelectorAll: selector => selector === '.dpi-case-option' ? options : [],
+    contains: node => node === question
+  };
+  const assistant = { isEnabled: () => true, getPersona: () => 'female',
+    speak: (text, persona) => { spoken.push({ text, persona }); } };
+  const doc = {
+    body: {},
+    getElementById: () => internal,
+    querySelector: selector => selector.startsWith('#internal .dpi-round-question') ? question : null,
+    addEventListener: () => {}
+  };
+  const root = {
+    document: doc, addEventListener: () => {},
+    performance: { now: () => 100 },
+    setTimeout: () => 1, clearTimeout: () => {},
+    MutationObserver: class { observe() {} },
+    ELXAssistentes: assistant,
+    dpiReadQuestion: () => { nativeReads++; return 'old'; }
+  };
+  new Function('root', installer + '\ninstallQuestionAndResultFlow();')(root);
+  const returned = root.dpiReadQuestion();
+  assert.equal(nativeReads, 0);
+  assert.equal(spoken.length, 1);
+  assert.match(spoken[0].text, /QUALIDADE TÉCNICA/);
+  assert.match(spoken[0].text, /Confira se as imagens permitem uma avaliação confiável/);
+  assert.match(spoken[0].text, /A imagem permite avaliação/);
+  assert.match(spoken[0].text, /Sim, está adequada/);
+  assert.equal(returned, spoken[0].text);
+});
