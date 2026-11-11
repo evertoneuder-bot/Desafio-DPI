@@ -233,7 +233,12 @@
       if (prompt && prompt !== lastSpokenPrompt) {
         lastSpokenPrompt = prompt;
         latestQuestionAt = now();
-        keep(diagnostics.questions, { detectedAt: Math.round(latestQuestionAt) });
+        keep(diagnostics.questions, {
+          detectedAt: Math.round(latestQuestionAt),
+          browserVoiceSpeaking: Boolean(root.speechSynthesis?.speaking),
+          browserVoicePending: Boolean(root.speechSynthesis?.pending),
+          neuralAssistantEnabled: Boolean(assistant()?.isEnabled?.())
+        });
         root.setTimeout(() => {
           if (!question.isConnected || question.textContent.replace(/\\s+/g, ' ').trim() !== prompt) return;
           if (typeof root.dpiReadQuestion === 'function') root.dpiReadQuestion();
