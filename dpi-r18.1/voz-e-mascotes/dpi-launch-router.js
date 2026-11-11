@@ -161,6 +161,22 @@
       if (collection.length > 30) collection.shift();
     };
     const now = () => root.performance?.now?.() ?? Date.now();
+    // The inline game sometimes calls its own public reader while rendering.
+    // Track that invocation so this observer does not stop and restart the
+    // same speech 180 ms later. The wrapper preserves the original return.
+    let lastPublicRead = null;
+    if (typeof root.dpiReadQuestion === 'function') {
+      const originalReadQuestion = root.dpiReadQuestion;
+      root.dpiReadQuestion = function () {
+        const current = doc.querySelector('#internal .dpi-round-question,#internal .dpi-case-question,#internal .question-text');
+        lastPublicRead = {
+          question: current,
+          prompt: current?.textContent?.replace(/\s+/g, ' ').trim() || '',
+          at: now()
+        };
+        return originalReadQuestion.apply(this, arguments);
+      };
+    }
     let latestQuestionAt = 0;
     root.addEventListener('elx-speech-start', () => {
       const at = now();
@@ -278,6 +294,11 @@
           if (generation !== narrationGeneration || !question.isConnected || !internal.contains(question) ||
               internal.querySelector(resultSelector) || doc.querySelector('.dpi-answer-dialog') ||
               question.textContent.replace(/\s+/g, ' ').trim() !== prompt) return;
+          // An inline read within the same rendering window takes priority.
+          // Retain automatic narration for screens that do not call the reader.
+          if (lastPublicRead?.question === question &&
+              lastPublicRead.prompt === prompt &&
+              now() - lastPublicRead.at >= 0 && now() - lastPublicRead.at <= 500) return;
           const viaReader = typeof root.dpiReadQuestion === 'function';
           keep(diagnostics.narrationCalls, {
             at: Math.round(now()),
