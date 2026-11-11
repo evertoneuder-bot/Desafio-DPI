@@ -129,7 +129,16 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
       clock = toTime;
     }
     if (phase === 'normal') advance(300);
-    else {
+    else if (phase === 'disappear-return') {
+      advance(300);
+      const previousQuestion = question;
+      question = null;
+      observer();
+      advance(350);
+      question = previousQuestion;
+      observer();
+      advance(650);
+    } else {
       advance(50);
       if (phase === 'feedback') feedback = { isConnected: false };
       if (phase === 'dialog') dialog = true;
@@ -143,6 +152,7 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
   assert.deepEqual(simulate('feedback'), { reads: 0, recorded: 0 });
   assert.deepEqual(simulate('dialog'), { reads: 0, recorded: 0 });
   assert.deepEqual(simulate('replacement'), { reads: 1, recorded: 1 });
+  assert.deepEqual(simulate('disappear-return'), { reads: 2, recorded: 2 });
 });
 
 test('question identity resets when the question temporarily disappears', () => {
