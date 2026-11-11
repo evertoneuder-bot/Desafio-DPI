@@ -183,7 +183,7 @@
         keep(diagnostics.publicReads, {
           at: Math.round(invokedAt),
           kind: current?.matches?.('.dpi-case-question') ? 'plantao' : 'question',
-          staticCatalogPending: root.DPIStaticVoice && typeof root.DPIStaticVoice.settled === 'boolean' ? !root.DPIStaticVoice.settled : null,
+          staticCatalogPending: typeof root.DPIStaticVoice?.settled === 'boolean' ? !root.DPIStaticVoice.settled : null,
           persona: root.ELXAssistentes?.getPersona?.() === 'female' ? 'female' : 'male'
         });
         const internal = doc.getElementById('internal');
@@ -371,7 +371,7 @@
             path: viaReader ? 'public-question-reader' : 'assistant-fallback',
             browserVoiceSpeaking: Boolean(root.speechSynthesis?.speaking),
             browserVoicePending: Boolean(root.speechSynthesis?.pending),
-            staticCatalogPending: root.DPIStaticVoice && typeof root.DPIStaticVoice.settled === 'boolean' ? !root.DPIStaticVoice.settled : null
+            staticCatalogPending: typeof root.DPIStaticVoice?.settled === 'boolean' ? !root.DPIStaticVoice.settled : null
           });
           const plantaoText = question.matches?.('.dpi-case-question') ? caseNarration(internal, question) : '';
           if (plantaoText && assistant()?.isEnabled?.()) speak(plantaoText);
