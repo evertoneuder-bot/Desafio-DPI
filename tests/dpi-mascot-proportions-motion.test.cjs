@@ -36,3 +36,15 @@ test('speech only animates the selected persona; both retain rest animation', ()
   assert.match(motion, /event\.detail\?\.persona/);
   assert.match(motion, /elx-speech-end/);
 });
+
+test('one persona reacts at a time, while the other keeps natural idle animation', () => {
+  for (const state of ['is-greeting', 'is-correct', 'is-incorrect']) {
+    for (const persona of ['male','female']) {
+      const selector = '#elx-character-stage[data-active-persona="' + persona + '"].' + state +
+        ' .elx-mascot-motion-persona[data-persona="' + persona + '"]';
+      assert.ok(css.includes(selector), 'Missing active selector '+selector);
+    }
+    assert.doesNotMatch(css, new RegExp('#elx-character-stage\\.'+state+' \\.elx-mascot-motion-persona'));
+  }
+  assert.match(motion, /persona\(who \|\| stage\.dataset\.activePersona \|\| window\.ELXAssistentes\?\.getPersona\?\.\(\) \|\| 'male'\)/);
+});
