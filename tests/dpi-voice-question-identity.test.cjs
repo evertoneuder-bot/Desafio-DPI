@@ -99,7 +99,8 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
     const doc = {
       body: {},
       getElementById: () => internal,
-      querySelector: selector => selector === '.dpi-answer-dialog' && dialog ? {} : null,
+      querySelector: selector => selector.includes('.dpi-round-question') && selector.startsWith('#internal ') ? question :
+        selector === '.dpi-answer-dialog' && dialog ? {} : null,
       addEventListener: () => {}
     };
     const root = {
