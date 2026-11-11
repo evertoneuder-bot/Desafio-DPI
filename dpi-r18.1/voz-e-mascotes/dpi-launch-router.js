@@ -332,10 +332,12 @@
         lastSpokenQuestion = null;
         lastSpokenPrompt = '';
         lastPublicRead = null;
+        lastPublicReadAt = null;
         return;
       }
       // A different rendered question must be narrated even when its wording repeats.
       if (prompt && (question !== lastSpokenQuestion || prompt !== lastSpokenPrompt)) {
+        if (lastPublicRead?.question !== question || lastPublicRead.prompt !== prompt) lastPublicReadAt = null;
         lastSpokenQuestion = question;
         lastSpokenPrompt = prompt;
         latestQuestionAt = now();
