@@ -30,3 +30,10 @@ test('voice diagnostics do not contain question text or identifiers', () => {
   assert.ok(diagnostic);
   assert.doesNotMatch(diagnostic[1], /\b(prompt|text|questionId|patient|key)\s*:/);
 });
+
+test('question scan uses a bounded, coalesced timer instead of an indefinitely reset debounce', () => {
+  assert.match(router, /if \(scanTimer\) return;/);
+  assert.match(router, /scanTimer = root\.setTimeout\(scan, 32\);/);
+  assert.match(router, /scanTimer = 0;/);
+  assert.doesNotMatch(router, /clearTimeout\(scanTimer\); scanTimer = root\.setTimeout\(scan, 160\)/);
+});
