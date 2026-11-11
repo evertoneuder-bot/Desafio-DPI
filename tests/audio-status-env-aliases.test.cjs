@@ -66,5 +66,43 @@ test('TTS refuses exhausted quota without calling synthesis', () => withEnv({
     await tts({ method: 'POST', headers: {}, body: { text: 'Pergunta curta', gender: 'male' } }, res);
     assert.equal(res.statusCode, 429);
     assert.deepEqual(res.body, { error: 'provider-quota-or-rate-limit' }); assert.equal(calls.length, 1);
+    assert.match(res.headers['Server-Timing'], /^subscription;dur=\d+$/);
+  } finally { global.fetch = originalFetch; }
+}));
+
+test('TTS reports provider failure timings without private data', () => withEnv({
+  ELX_TTS_ATIVADO: 'true', ELEVENLABS_API_KEY: 'test-key', ELEVENLABS_VOZ_MASCULINA: 'male-id'
+}, async () => {
+  const originalFetch = global.fetch;
+  let calls = 0;
+  global.fetch = async url => {
+    calls++;
+    if (String(url).includes('/user/subscription')) {
+      return { ok: true, json: async () => ({ max_credit_limit_extension: 0, character_count: 3, character_limit: 1000 }) };
+    }
+    return { ok: false, status: 429 };
+  };
+  try {
+    const res = response();
+    await tts({ method: 'POST', headers: {}, body: { text: 'Olá', gender: 'male' } }, res);
+    assert.equal(res.statusCode, 502);
+    assert.deepEqual(res.body, { error: 'provider-quota-or-rate-limit', providerStatus: 429 });
+    assert.match(res.headers['Server-Timing'], /^subscription;dur=\d+, synthesis_headers;dur=\d+$/);
+    assert.doesNotMatch(res.headers['Server-Timing'], /test-key|male-id|Olá/);
+    assert.equal(calls, 2);
+  } finally { global.fetch = originalFetch; }
+}));
+test('TTS reports subscription preflight failures without synthesis', () => withEnv({
+  ELX_TTS_ATIVADO: 'true', ELEVENLABS_API_KEY: 'test-key', ELEVENLABS_VOZ_MASCULINA: 'male-id'
+}, async () => {
+  const originalFetch = global.fetch;
+  let calls = 0;
+  global.fetch = async () => { calls++; return { ok: false, status: 429 }; };
+  try {
+    const res = response();
+    await tts({ method: 'POST', headers: {}, body: { text: 'Olá', gender: 'male' } }, res);
+    assert.equal(res.statusCode, 502);
+    assert.match(res.headers['Server-Timing'], /^subscription;dur=\d+$/);
+    assert.equal(calls, 1);
   } finally { global.fetch = originalFetch; }
 }));
