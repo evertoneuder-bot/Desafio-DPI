@@ -37,3 +37,12 @@ test('question scan uses a bounded, coalesced timer instead of an indefinitely r
   assert.match(router, /scanTimer = 0;/);
   assert.doesNotMatch(router, /clearTimeout\(scanTimer\); scanTimer = root\.setTimeout\(scan, 160\)/);
 });
+
+test('client audio playback timing is read-only and excludes media URLs or audio contents', () => {
+  assert.match(router, /doc\.addEventListener\('playing', event => \{/);
+  assert.match(router, /event\.target\?\.tagName !== 'AUDIO'/);
+  assert.match(router, /keep\(diagnostics\.mediaStarts, \{/);
+  const eventBlock = router.match(/keep\(diagnostics\.mediaStarts, \{([\s\S]*?)\}\);/);
+  assert.ok(eventBlock);
+  assert.doesNotMatch(eventBlock[1], /\b(src|url|text|prompt|voiceId|patient)\s*:/);
+});
