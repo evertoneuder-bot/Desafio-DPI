@@ -55,3 +55,16 @@ test('narration invocation diagnostics distinguish reader and fallback without s
   assert.ok(block);
   assert.doesNotMatch(block[1], /\b(text|prompt|content|src|url|apiKey|voiceId)\s*:/);
 });
+
+test('outdated narration cannot speak after a question is replaced or moved', () => {
+  assert.match(router, /let narrationGeneration = 0;/);
+  assert.match(router, /const generation = \+\+narrationGeneration;/);
+  assert.match(router, /generation !== narrationGeneration/);
+  assert.match(router, /!internal\.contains\(question\)/);
+});
+
+test('narration timing uses the detection time of its own question', () => {
+  assert.match(router, /const detectedAt = latestQuestionAt;/);
+  assert.match(router, /msAfterQuestionDetected: Math\.round\(now\(\) - detectedAt\)/);
+  assert.doesNotMatch(router, /msAfterQuestionDetected: Math\.round\(now\(\) - latestQuestionAt\)/);
+});
