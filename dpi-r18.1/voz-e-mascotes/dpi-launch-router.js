@@ -165,18 +165,23 @@
     // Track that invocation so this observer does not stop and restart the
     // same speech 180 ms later. The wrapper preserves the original return.
     let lastPublicRead = null;
-    if (typeof root.dpiReadQuestion === 'function') {
-      const originalReadQuestion = root.dpiReadQuestion;
-      root.dpiReadQuestion = function () {
+    let observedPublicReader = null;
+    const ensurePublicReaderTracked = () => {
+      const reader = root.dpiReadQuestion;
+      if (typeof reader !== 'function' || reader === observedPublicReader) return;
+      const wrapped = function () {
         const current = doc.querySelector('#internal .dpi-round-question,#internal .dpi-case-question,#internal .question-text');
         lastPublicRead = {
           question: current,
           prompt: current?.textContent?.replace(/\s+/g, ' ').trim() || '',
           at: now()
         };
-        return originalReadQuestion.apply(this, arguments);
+        return reader.apply(this, arguments);
       };
-    }
+      observedPublicReader = wrapped;
+      root.dpiReadQuestion = wrapped;
+    };
+    ensurePublicReaderTracked();
     let latestQuestionAt = 0;
     root.addEventListener('elx-speech-start', () => {
       const at = now();
@@ -256,6 +261,10 @@
     let narrationGeneration = 0;
     const scan = () => {
       scanTimer = 0;
+      // The large inline bundle may install or replace its reader after this
+      // module initializes; track the currently active function, not just the
+      // one available at DOMContentLoaded.
+      ensurePublicReaderTracked();
       const internal = doc.getElementById('internal');
       if (!internal) return;
       // Answer feedback takes precedence: never queue a question while its
@@ -300,6 +309,7 @@
           if (lastPublicRead?.question === question &&
               lastPublicRead.prompt === prompt &&
               now() - lastPublicRead.at >= 0 && now() - lastPublicRead.at <= 500) return;
+          ensurePublicReaderTracked();
           const viaReader = typeof root.dpiReadQuestion === 'function';
           keep(diagnostics.narrationCalls, {
             at: Math.round(now()),
