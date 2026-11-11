@@ -76,6 +76,7 @@ module.exports = async function tts(req, res) {
       signal: controller.signal
     });
     if (!subscriptionResponse.ok) {
+      res.setHeader('Server-Timing', `subscription;dur=${Date.now() - subscriptionStart}`);
       const providerStatus = Number(subscriptionResponse.status) || 0;
       const error = providerStatus === 401 ? 'provider-auth-failed'
         : providerStatus === 403 ? 'provider-permission-denied'
@@ -87,6 +88,7 @@ module.exports = async function tts(req, res) {
     }
     const subscription = await subscriptionResponse.json().catch(() => null);
     const subscriptionMs = Date.now() - subscriptionStart;
+    res.setHeader('Server-Timing', `subscription;dur=${subscriptionMs}`);
     const overageLimit = subscription?.max_credit_limit_extension;
     const characterCount = Number(subscription?.character_count);
     const characterLimit = Number(subscription?.character_limit);
@@ -113,6 +115,7 @@ module.exports = async function tts(req, res) {
     });
 
     const synthesisHeadersMs = Date.now() - synthesisStart;
+    res.setHeader('Server-Timing', `subscription;dur=${subscriptionMs}, synthesis_headers;dur=${synthesisHeadersMs}`);
     if (!upstream.ok) {
       const providerStatus = Number(upstream.status) || 0;
       const error = providerStatus === 401 ? 'provider-auth-failed'
