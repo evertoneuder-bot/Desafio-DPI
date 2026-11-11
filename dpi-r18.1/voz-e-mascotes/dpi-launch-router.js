@@ -155,6 +155,7 @@
     // Read-only, in-memory timings. No spoken content, IDs, credentials or UI changes.
     const diagnostics = root.__dpiAudioDiagnostics ||= { questions: [], requests: [], speechStarts: [], mediaStarts: [] };
     diagnostics.mediaStarts ||= [];
+    diagnostics.narrationCalls ||= [];
     const keep = (collection, entry) => {
       collection.push(entry);
       if (collection.length > 30) collection.shift();
@@ -255,7 +256,15 @@
         });
         root.setTimeout(() => {
           if (!question.isConnected || question.textContent.replace(/\s+/g, ' ').trim() !== prompt) return;
-          if (typeof root.dpiReadQuestion === 'function') root.dpiReadQuestion();
+          const viaReader = typeof root.dpiReadQuestion === 'function';
+          keep(diagnostics.narrationCalls, {
+            at: Math.round(now()),
+            msAfterQuestionDetected: Math.round(now() - latestQuestionAt),
+            path: viaReader ? 'public-question-reader' : 'assistant-fallback',
+            browserVoiceSpeaking: Boolean(root.speechSynthesis?.speaking),
+            browserVoicePending: Boolean(root.speechSynthesis?.pending)
+          });
+          if (viaReader) root.dpiReadQuestion();
           else speak(prompt);
         }, 180);
       }
