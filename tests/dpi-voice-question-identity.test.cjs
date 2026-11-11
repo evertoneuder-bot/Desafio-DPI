@@ -81,3 +81,66 @@ test('pending question narration is suppressed if feedback appeared before playb
   assert.match(scanBody, /internal\.querySelector\(resultSelector\) \|\| doc\.querySelector\('\.dpi-answer-dialog'\)/);
   assert.match(scanBody, /generation !== narrationGeneration/);
 });
+
+test('timed DOM simulation prevents question/feedback narration collisions', () => {
+  const from = router.indexOf('  function installQuestionAndResultFlow() {');
+  const to = router.indexOf("  if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', installQuestionAndResultFlow");
+  assert.ok(from >= 0 && to > from);
+  const installer = router.slice(from, to);
+  function simulate(phase) {
+    let clock = 0, nextId = 0, timers = [], observer;
+    let reads = 0, feedback = null, dialog = false;
+    let question = { textContent: 'Pergunta A', isConnected: true };
+    const internal = {
+      querySelector: selector => selector.startsWith('.dpi-round-question') ? question :
+        selector.startsWith('#internal .feedback') ? feedback : null,
+      contains: node => node === question
+    };
+    const doc = {
+      body: {},
+      getElementById: () => internal,
+      querySelector: selector => selector === '.dpi-answer-dialog' && dialog ? {} : null,
+      addEventListener: () => {}
+    };
+    const root = {
+      document: doc, performance: { now: () => clock }, addEventListener: () => {},
+      setTimeout(fn, delay) {
+        const timer = { at: clock + delay, id: ++nextId, fn };
+        timers.push(timer);
+        return timer.id;
+      },
+      clearTimeout(id) { timers = timers.filter(timer => timer.id !== id); },
+      MutationObserver: class {
+        constructor(callback) { observer = callback; }
+        observe() {}
+      },
+      dpiReadQuestion() { reads++; },
+      speechSynthesis: { speaking: false, pending: false }
+    };
+    new Function('root', installer + '\ninstallQuestionAndResultFlow();')(root);
+    function advance(toTime) {
+      for (;;) {
+        const job = timers.filter(item => item.at <= toTime).sort((a, b) => a.at - b.at || a.id - b.id)[0];
+        if (!job) break;
+        timers = timers.filter(item => item !== job);
+        clock = job.at;
+        job.fn();
+      }
+      clock = toTime;
+    }
+    if (phase === 'normal') advance(300);
+    else {
+      advance(50);
+      if (phase === 'feedback') feedback = { isConnected: false };
+      if (phase === 'dialog') dialog = true;
+      if (phase === 'replacement') question = { textContent: 'Pergunta B', isConnected: true };
+      observer();
+      advance(350);
+    }
+    return { reads, recorded: root.__dpiAudioDiagnostics.narrationCalls.length };
+  }
+  assert.deepEqual(simulate('normal'), { reads: 1, recorded: 1 });
+  assert.deepEqual(simulate('feedback'), { reads: 0, recorded: 0 });
+  assert.deepEqual(simulate('dialog'), { reads: 0, recorded: 0 });
+  assert.deepEqual(simulate('replacement'), { reads: 1, recorded: 1 });
+});
