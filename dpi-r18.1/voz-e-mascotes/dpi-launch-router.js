@@ -258,7 +258,7 @@
         .map((button, index) => {
           const label = String.fromCharCode(65 + index);
           const answer = String(button.querySelector?.('span')?.textContent || button.textContent || '')
-            .replace(/\s+/g, ' ').replace(/^[A-D]\s*[.:)–-]?\s*/i, '').trim();
+            .replace(/\s+/g, ' ').replace(/^[A-D]\s*[.:)–-]\s*/i, '').trim();
           return answer ? 'Alternativa ' + label + ': ' + answer : '';
         }).filter(Boolean);
       return ['Etapa do plantão: ' + phase + '.', phaseGuidance[phase], prompt, ...options].join(' ');
