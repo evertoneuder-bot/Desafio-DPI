@@ -229,7 +229,7 @@
       const internal = doc.getElementById('internal');
       if (!internal) return;
       const question = internal.querySelector('.dpi-round-question,.dpi-case-question,.question-text');
-      const prompt = question?.textContent?.replace(/\\s+/g, ' ').trim() || '';
+      const prompt = question?.textContent?.replace(/\s+/g, ' ').trim() || '';
       if (prompt && prompt !== lastSpokenPrompt) {
         lastSpokenPrompt = prompt;
         latestQuestionAt = now();
@@ -240,7 +240,7 @@
           neuralAssistantEnabled: Boolean(assistant()?.isEnabled?.())
         });
         root.setTimeout(() => {
-          if (!question.isConnected || question.textContent.replace(/\\s+/g, ' ').trim() !== prompt) return;
+          if (!question.isConnected || question.textContent.replace(/\s+/g, ' ').trim() !== prompt) return;
           if (typeof root.dpiReadQuestion === 'function') root.dpiReadQuestion();
           else speak(prompt);
         }, 180);
@@ -269,7 +269,7 @@
       }
       const voice = assistant();
       const title = doc.querySelector('#internal .dpi-play-content h2')?.textContent?.trim() || 'Desafio DPI';
-      const prompt = question?.textContent?.replace(/\\s+/g, ' ').trim() || '';
+      const prompt = question?.textContent?.replace(/\s+/g, ' ').trim() || '';
       const options = [...doc.querySelectorAll('#internal .option:not(:disabled),#internal .dpi-case-option:not(:disabled),#internal .dpi-round-option:not(:disabled)')]
         .slice(0, 4).map((button, index) => String.fromCharCode(65 + index) + ': ' + button.innerText.trim());
       const text = [title, prompt, ...options].filter(Boolean).join('. ');
