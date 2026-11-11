@@ -51,6 +51,8 @@ test('TTS accepts Portuguese voice aliases and synthesizes only after quota pref
     const res = response();
     await tts({ method: 'POST', headers: {}, body: { text: 'Pergunta curta', gender: 'female' } }, res);
     assert.equal(res.statusCode, 200); assert.equal(res.headers['Content-Type'], 'audio/mpeg');
+    assert.match(res.headers['Server-Timing'], /^subscription;dur=\d+, synthesis_headers;dur=\d+, buffer;dur=\d+$/);
+    assert.doesNotMatch(res.headers['Server-Timing'], /test-key|female-id|Pergunta curta/);
     assert.equal(calls.length, 2); assert.match(calls[1].url, /female-id/);
   } finally { global.fetch = originalFetch; }
 }));
