@@ -118,6 +118,7 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
       dpiReadQuestion() { reads++; },
       speechSynthesis: { speaking: false, pending: false }
     };
+    if (phase === 'reader-installed-late') delete root.dpiReadQuestion;
     new Function('root', installer + '\ninstallQuestionAndResultFlow();')(root);
     function advance(toTime) {
       for (;;) {
@@ -131,7 +132,6 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
     }
     if (phase === 'normal') advance(300);
     else if (phase === 'reader-installed-late') {
-      delete root.dpiReadQuestion;
       root.dpiReadQuestion = () => { reads++; return 'late'; };
       observer();
       advance(50);
