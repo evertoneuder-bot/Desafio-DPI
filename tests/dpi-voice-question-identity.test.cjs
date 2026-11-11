@@ -197,3 +197,22 @@ test('public question reader is tracked without exposing prompt text or mutating
   assert.match(scan, /lastPublicRead\?\.question === question/);
   assert.match(scan, /lastPublicRead\.prompt === prompt/);
 });
+
+test('Plantão narration guides each phase without a second competing speech', () => {
+  const start = router.indexOf('    const phaseGuidance = {');
+  const end = router.indexOf('    const openResult =', start);
+  assert.ok(start > 0 && end > start);
+  const block = router.slice(start, end);
+  for (const stage of [
+    'AVALIAÇÃO INICIAL', 'HISTÓRICO E TRIAGEM', 'ESTABILIZAÇÃO E SEGURANÇA',
+    'PERGUNTA CLÍNICA', 'PLANO DE IMAGEM', 'MODALIDADE E PROJEÇÕES',
+    'AQUISIÇÃO E POSICIONAMENTO', 'QUALIDADE TÉCNICA', 'INTERPRETAÇÃO',
+    'INTEGRAÇÃO DOS ACHADOS', 'REAVALIAÇÃO E PRÓXIMA CONDUTA', 'REGISTRO E COMUNICAÇÃO'
+  ]) assert.ok(block.includes("'" + stage + "':"));
+  assert.match(block, /\.dpi-case-phase b/);
+  assert.match(block, /\.dpi-case-option/);
+  assert.match(block, /Etapa do plantão:/);
+  const call = router.slice(router.indexOf("const plantaoText ="), router.indexOf("}, 180);",router.indexOf("const plantaoText =")));
+  assert.match(call, /if \(plantaoText && assistant\(\)\?\.isEnabled\?\.\(\)\) speak\(plantaoText\);/);
+  assert.match(call, /else if \(viaReader\) root\.dpiReadQuestion\(\);/);
+});
