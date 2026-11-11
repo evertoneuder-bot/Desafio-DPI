@@ -275,6 +275,7 @@
         if (lastSpokenQuestion) ++narrationGeneration;
         lastSpokenQuestion = null;
         lastSpokenPrompt = '';
+        lastPublicRead = null;
         return;
       }
       // A different rendered question must be narrated even when its wording repeats.
