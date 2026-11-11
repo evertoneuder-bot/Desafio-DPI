@@ -232,12 +232,12 @@
 #elx-character-stage[data-active-persona="male"].is-speaking .elx-mascot-motion-persona[data-persona="male"],
 #elx-character-stage[data-active-persona="female"].is-speaking .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotSpeak 2.1s ease-in-out infinite}
 #elx-character-stage.is-listening .elx-mascot-motion-persona{animation:elxMascotListen 3.3s ease-in-out infinite}
-#elx-character-stage.is-greeting .elx-mascot-motion-persona[data-persona="male"],
-#elx-character-stage.is-greeting .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotGreet 1.25s ease-in-out 1}
-#elx-character-stage.is-correct .elx-mascot-motion-persona[data-persona="male"],
-#elx-character-stage.is-correct .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotCheer 1.3s ease-in-out 1}
-#elx-character-stage.is-incorrect .elx-mascot-motion-persona[data-persona="male"],
-#elx-character-stage.is-incorrect .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotComfort 1.35s ease-in-out 1}
+#elx-character-stage[data-active-persona="male"].is-greeting .elx-mascot-motion-persona[data-persona="male"],
+#elx-character-stage[data-active-persona="female"].is-greeting .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotGreet 1.25s ease-in-out 1}
+#elx-character-stage[data-active-persona="male"].is-correct .elx-mascot-motion-persona[data-persona="male"],
+#elx-character-stage[data-active-persona="female"].is-correct .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotCheer 1.3s ease-in-out 1}
+#elx-character-stage[data-active-persona="male"].is-incorrect .elx-mascot-motion-persona[data-persona="male"],
+#elx-character-stage[data-active-persona="female"].is-incorrect .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotComfort 1.35s ease-in-out 1}
 @keyframes elxMascotIdle{0%,100%{transform:translate3d(0,0,0) rotate(0) scale(var(--elx-persona-scale))}23%{transform:translate3d(0,-1px,0) rotate(-.13deg) scale(var(--elx-persona-scale))}54%{transform:translate3d(0,-3px,0) rotate(.16deg) scale(var(--elx-persona-scale))}78%{transform:translate3d(0,-1px,0) rotate(-.1deg) scale(var(--elx-persona-scale))}}
 @keyframes elxMascotSpeak{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}24%{transform:translateY(-1px) rotate(-.18deg) scale(var(--elx-persona-scale))}58%{transform:translateY(-2.5px) rotate(.24deg) scale(var(--elx-persona-scale))}82%{transform:translateY(-1px) rotate(-.12deg) scale(var(--elx-persona-scale))}}
 @keyframes elxMascotListen{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}52%{transform:translateY(-1.5px) rotate(-.22deg) scale(var(--elx-persona-scale))}}
