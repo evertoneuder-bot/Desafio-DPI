@@ -2,7 +2,7 @@ BJoDJAO0AkoC5wGLATYB5wCdAFYAEADM/4b/PP/t/pn+Pv7c/XP9BP2Q/Bj8nvsk+676PvrX+Xz5Mfn4
 function prof(){try{return JSON.parse(localStorage.getItem(PK)||'null')}catch(e){return null}}
 function settingsObj(){try{return Object.assign({music:true,voice:true,fx:true},JSON.parse(localStorage.getItem(SETK)||'{}'))}catch(e){return {music:true,voice:true,fx:true}}}
 Object.assign(state,settingsObj());
-function showHome(){document.getElementById('internal').classList.remove('on');document.getElementById('home').classList.add('on')}
+function showHome(){stopSpeech();document.getElementById('internal').classList.remove('on');document.getElementById('home').classList.add('on')}
 function shell(title,body){home.classList.remove('on');internal.classList.add('on');internal.innerHTML=`<div class="panel"><h2>${title}</h2>${body}</div>`}
 function enterGame(dest){startMusic();if(!prof()){afterReg=dest;register.classList.add('on');return} route(dest)}
 function route(x){if(x==='quiz')quizMenu();else if(x==='challenges')challenges();else caseView()}
@@ -26,10 +26,12 @@ u.onstart=()=>{sample.startDelayMs=Math.round(clock()-calledAt);sample.outcome='
 u.onend=()=>{sample.outcome=run!==speechRun?'superseded-end':'ended';restore()};
 u.onerror=()=>{sample.outcome=run!==speechRun?'superseded-error':'error';restore()};
 try{speechSynthesis.speak(u)}catch(error){sample.outcome='exception';restore()}}
+function stopSpeech(){if(!('speechSynthesis'in window))return;++speechRun;try{speechSynthesis.cancel()}catch(error){}if(speechMusicVolume!==null){bgm.volume=speechMusicVolume;speechMusicVolume=null}}
 function quizMenu(){shell('QUIZ DPI',`<p class="muted">Escolha o tamanho da missão.</p><button class="btn" onclick="startQuiz(10)">10 QUESTÕES</button><button class="btn" onclick="startQuiz(25)">25 QUESTÕES</button><button class="btn" onclick="startQuiz(50)">50 QUESTÕES</button>`)}
 function startQuiz(n){startMusic();state.n=n;state.i=0;state.score=0;state.qs=[...BANK].sort(()=>Math.random()-.5).slice(0,n);renderQ()}
 function renderQ(){if(state.i>0 && state.i%3===0 && state.music){track=(track+1)%tracks.length;bgm.src=tracks[track];startMusic()}let q=state.qs[state.i];if(!q)return finish();bgm.volume=state.music?.075:0;let opts=[q.alternativa_a,q.alternativa_b,q.alternativa_c,q.alternativa_d];shell(`QUESTÃO ${state.i+1} / ${state.n}`,`<p class="question-text"><b>${q.pergunta}</b></p>${opts.map((o,i)=>`<button class="btn option" onclick="answer(${i},this)">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}<p class="muted">Pontuação: ${state.score}</p><div class="navrow"><button class="btn secondary" onclick="confirmExit()">← VOLTAR / SAIR</button></div>`);speak(q.pergunta)}
 function answer(i,el){
+ stopSpeech();
  let q=state.qs[state.i],correctLetter=String(q.letra_correta).toUpperCase(),ok=String.fromCharCode(65+i)===correctLetter;
  if(ok)state.score+=q.pontuacao||10;
  document.querySelectorAll('.option').forEach((b,idx)=>{b.disabled=true;if(String.fromCharCode(65+idx)===correctLetter)b.classList.add('okpick')});
