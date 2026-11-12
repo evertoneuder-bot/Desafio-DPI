@@ -13,6 +13,7 @@ test('desktop speech exposes elapsed time to first audio event without storing s
   let clock = 100;
   const win = { performance: { now: () => clock } };
   const synth = { cancel() {}, speak() {} };
+  win.speechSynthesis = synth;
   const bgm = { volume: 0.16 };
   class Utterance {
     constructor(text) { this.text = text; utterances.push(this); }
@@ -36,6 +37,7 @@ test('desktop timing holds bounded samples and does not let stale speech restore
   let clock = 0;
   const win = { performance: { now: () => clock } };
   const synth = { cancel() {}, speak() {} };
+  win.speechSynthesis = synth;
   const bgm = { volume: 0.12 };
   class Utterance { constructor(text) { utterances.push(this); } }
   const speak = new Function('state', 'window', 'speechSynthesis', 'bgm', 'SpeechSynthesisUtterance',
