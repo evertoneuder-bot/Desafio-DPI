@@ -162,6 +162,14 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
       // Simulate the browser running the existing fallback much later than due.
       timers.forEach(timer => { if (timer.at === 212) timer.at = 900; });
       advance(1000);
+    } else if (phase === 'same-node-after-feedback') {
+      advance(300);
+      feedback = { isConnected: false };
+      observer();
+      advance(350);
+      feedback = null;
+      observer();
+      advance(650);
     } else if (phase === 'disappear-return') {
       advance(300);
       const previousQuestion = question;
@@ -192,6 +200,7 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
   assert.deepEqual(simulate('dialog'), { reads: 0, recorded: 0 });
   assert.deepEqual(simulate('replacement'), { reads: 1, recorded: 1 });
   assert.deepEqual(simulate('disappear-return'), { reads: 2, recorded: 2 });
+  assert.deepEqual(simulate('same-node-after-feedback'), { reads: 2, recorded: 2 });
 });
 
 test('question identity resets when the question temporarily disappears', () => {
@@ -401,4 +410,10 @@ test('late fallback suppression uses rendered question identity, not a clock win
   assert.match(scan, /lastPublicRead\?\.question === question &&\s*lastPublicRead\.prompt === prompt\) return;/);
   assert.doesNotMatch(scan, /lastPublicRead\.at >= detectedAt - 500/);
   assert.doesNotMatch(scan, /now\(\) - lastPublicRead\.at <= 500/);
+});
+
+test('feedback resets question identity while preserving already-read duplicate suppression', () => {
+  const scan=router.slice(router.indexOf('const scan = () => {'),router.indexOf('// Coalesce frequent DOM changes'));
+  assert.match(scan,/if \(result\) \{\s*\+\+narrationGeneration;\s*\/\/[^\n]*\n[^\n]*\n[^\n]*\n\s*lastSpokenQuestion = null;/);
+  assert.match(scan,/lastSpokenQuestion = null;\s*lastSpokenPrompt = '';\s*lastPublicRead = null;\s*lastPublicReadAt = null;\s*openResult\(result\)/);
 });
