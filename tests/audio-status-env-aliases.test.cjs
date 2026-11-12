@@ -124,3 +124,42 @@ test('TTS fails closed if subscription omits overage policy without synthesizing
     assert.equal(requests,1);
   } finally { global.fetch = originalFetch; }
 }));
+
+test('TTS rejects null and missing credit usage rather than treating it as free balance', () => withEnv({
+  ELX_TTS_ATIVADO:'true', ELEVENLABS_API_KEY:'test-key', ELEVENLABS_VOZ_MASCULINA:'male-id'
+}, async () => {
+  const originalFetch = global.fetch;
+  try {
+    for (const current of [null, undefined, '', -1]) {
+      let requests = 0;
+      global.fetch = async () => {
+        requests++;
+        return { ok:true, json: async () => ({
+          max_credit_limit_extension:0, character_count:current, character_limit:1000
+        }) };
+      };
+      const res = response();
+      await tts({method:'POST',headers:{},body:{text:'Olá',gender:'male'}},res);
+      assert.equal(res.statusCode,429);
+      assert.deepEqual(res.body,{error:'provider-quota-or-rate-limit'});
+      assert.equal(requests,1);
+    }
+  } finally {global.fetch=originalFetch;}
+}));
+test('TTS rejects missing total balance rather than allowing synthesis', () => withEnv({
+  ELX_TTS_ATIVADO:'true', ELEVENLABS_API_KEY:'test-key', ELEVENLABS_VOZ_MASCULINA:'male-id'
+}, async () => {
+  const originalFetch = global.fetch;
+  try {
+    for (const total of [null, undefined, '']) {
+      let requests=0;
+      global.fetch = async () => { requests++; return {ok:true,json:async()=>({
+        max_credit_limit_extension:0,character_count:5,character_limit:total
+      })}; };
+      const res=response();
+      await tts({method:'POST',headers:{},body:{text:'Olá',gender:'male'}},res);
+      assert.equal(res.statusCode,429);
+      assert.equal(requests,1);
+    }
+  } finally {global.fetch=originalFetch;}
+}));
