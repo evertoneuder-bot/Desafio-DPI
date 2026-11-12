@@ -92,7 +92,8 @@ module.exports = async function tts(req, res) {
     const overageLimit = subscription?.max_credit_limit_extension;
     const characterCount = Number(subscription?.character_count);
     const characterLimit = Number(subscription?.character_limit);
-    if (Number(overageLimit) !== 0 || !Number.isFinite(characterCount) ||
+    if (overageLimit === null || overageLimit === undefined || overageLimit === '' ||
+        Number(overageLimit) !== 0 || !Number.isFinite(characterCount) ||
         !Number.isFinite(characterLimit) || characterLimit <= 0 ||
         characterCount + ttsText.length > characterLimit) {
       return json(res, 429, { error: 'provider-quota-or-rate-limit' });
