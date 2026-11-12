@@ -369,6 +369,11 @@ test('neural TTS network timing distinguishes first response byte from body tran
     {name:'https://test.example/music',startTime:100,duration:300,responseStart:200,responseEnd:400}
   ]});
   assert.equal(diagnostics.requests.length,1);
+  resourceObserver({getEntries:()=>[
+    {name:'https://test.example/api/tts',startTime:400,duration:0,responseStart:0,responseEnd:0,serverTiming:[]}
+  ]});
+  assert.equal(diagnostics.requests[1].msUntilFirstByte,null);
+  assert.equal(diagnostics.requests[1].msReceivingBody,null);
   assert.deepEqual(diagnostics.requests[0],{
     startedAt:100,totalMs:200,msUntilFirstByte:140,msReceivingBody:60,
     serverTimings:[{name:'subscription',durationMs:35}]
