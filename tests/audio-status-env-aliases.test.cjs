@@ -163,3 +163,29 @@ test('TTS rejects missing total balance rather than allowing synthesis', () => w
     }
   } finally {global.fetch=originalFetch;}
 }));
+
+test('TTS Server-Timing separates credit preflight, synthesis response and audio buffering', () => withEnv({
+  ELX_TTS_ATIVADO:'true', ELEVENLABS_API_KEY:'test-key', ELEVENLABS_VOZ_MASCULINA:'male-id'
+}, async () => {
+  const originalFetch=global.fetch, originalNow=Date.now;
+  let ms=1000;
+  Date.now=()=>ms;
+  global.fetch=async url => {
+    if (String(url).includes('/user/subscription')) {
+      ms+=40;
+      return {ok:true,json:async()=>{ms+=10;return {
+        max_credit_limit_extension:0,character_count:2,character_limit:1000
+      };}};
+    }
+    ms+=120;
+    return {ok:true,headers:{get:key=>key==='content-type'?'audio/mpeg':key==='content-length'?'3':null},
+      arrayBuffer:async()=>{ms+=70;return Uint8Array.from([1,2,3]).buffer;}};
+  };
+  try {
+    const res=response();
+    await tts({method:'POST',headers:{},body:{text:'Olá',gender:'male'}},res);
+    assert.equal(res.statusCode,200);
+    assert.equal(res.headers['Server-Timing'],'subscription;dur=50, synthesis_headers;dur=120, buffer;dur=70');
+    assert.doesNotMatch(res.headers['Server-Timing'],/test-key|male-id|Olá/);
+  } finally {Date.now=originalNow;global.fetch=originalFetch;}
+}));
