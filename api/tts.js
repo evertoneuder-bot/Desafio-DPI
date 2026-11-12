@@ -90,11 +90,16 @@ module.exports = async function tts(req, res) {
     const subscriptionMs = Date.now() - subscriptionStart;
     res.setHeader('Server-Timing', `subscription;dur=${subscriptionMs}`);
     const overageLimit = subscription?.max_credit_limit_extension;
-    const characterCount = Number(subscription?.character_count);
-    const characterLimit = Number(subscription?.character_limit);
+    const rawCount = subscription?.character_count;
+    const rawLimit = subscription?.character_limit;
+    const characterCount = Number(rawCount);
+    const characterLimit = Number(rawLimit);
+    // Missing or null balances must not silently become zero via Number(null).
     if (overageLimit === null || overageLimit === undefined || overageLimit === '' ||
+        rawCount === null || rawCount === undefined || rawCount === '' ||
+        rawLimit === null || rawLimit === undefined || rawLimit === '' ||
         Number(overageLimit) !== 0 || !Number.isFinite(characterCount) ||
-        !Number.isFinite(characterLimit) || characterLimit <= 0 ||
+        characterCount < 0 || !Number.isFinite(characterLimit) || characterLimit <= 0 ||
         characterCount + ttsText.length > characterLimit) {
       return json(res, 429, { error: 'provider-quota-or-rate-limit' });
     }
