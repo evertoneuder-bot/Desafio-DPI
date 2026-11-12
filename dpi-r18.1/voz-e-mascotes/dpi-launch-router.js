@@ -313,6 +313,9 @@
       close.focus({ preventScroll:true });
       const heading = node.querySelector('strong,b')?.textContent?.trim() || 'Vamos revisar esta resposta.';
       const explanation = [...node.querySelectorAll('p')].map(p => p.textContent.replace(/\s+/g,' ').trim()).filter(Boolean).slice(0,2).join('. ');
+      // Feedback has its own narration; do not attribute its playback to the
+      // earlier question's public reader when measuring audio latency.
+      lastPublicReadAt = null;
       speak([heading, explanation].filter(Boolean).join('. ').slice(0,650));
     };
     let lastSpokenPrompt = '';
