@@ -150,6 +150,12 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
       advance(50);
       root.dpiReadQuestion();
       advance(300);
+    } else if (phase === 'busy-browser-delayed-timer') {
+      advance(50);
+      root.dpiReadQuestion();
+      // Simulate the browser running the existing fallback much later than due.
+      timers.forEach(timer => { if (timer.at === 212) timer.at = 900; });
+      advance(1000);
     } else if (phase === 'disappear-return') {
       advance(300);
       const previousQuestion = question;
@@ -174,6 +180,7 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
   assert.deepEqual(simulate('reader-replaced'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('inline-reader-first'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('inline-reader-after-detection'), { reads: 1, recorded: 0 });
+  assert.deepEqual(simulate('busy-browser-delayed-timer'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('feedback'), { reads: 0, recorded: 0 });
   assert.deepEqual(simulate('dialog'), { reads: 0, recorded: 0 });
   assert.deepEqual(simulate('replacement'), { reads: 1, recorded: 1 });
@@ -375,4 +382,11 @@ test('feedback speech cannot inherit the previous question reader latency baseli
   assert.ok(from >= 0 && to > from);
   assert.match(block, /lastPublicReadAt = null;\s*speak\(\[heading, explanation\]/);
   assert.ok(block.indexOf('lastPublicReadAt = null;') < block.indexOf('speak([heading, explanation]'));
+});
+
+test('late fallback suppression uses question detection time instead of a 500 ms execution window', () => {
+  const scan = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
+  assert.match(scan, /lastPublicRead\.at >= detectedAt - 500/);
+  assert.match(scan, /lastPublicRead\.at <= now\(\)/);
+  assert.doesNotMatch(scan, /now\(\) - lastPublicRead\.at <= 500/);
 });
