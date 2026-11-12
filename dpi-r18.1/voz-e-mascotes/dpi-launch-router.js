@@ -368,11 +368,13 @@
           if (generation !== narrationGeneration || !question.isConnected || !internal.contains(question) ||
               internal.querySelector(resultSelector) || doc.querySelector('.dpi-answer-dialog') ||
               question.textContent.replace(/\s+/g, ' ').trim() !== prompt) return;
-          // An inline read within the same rendering window takes priority.
-          // Retain automatic narration for screens that do not call the reader.
+          // An inline read associated with this question takes priority,
+          // even when a busy browser delays this fallback timer beyond 500 ms.
+          // Compare invocation with detection, not timer execution time.
           if (lastPublicRead?.question === question &&
               lastPublicRead.prompt === prompt &&
-              now() - lastPublicRead.at >= 0 && now() - lastPublicRead.at <= 500) return;
+              lastPublicRead.at >= detectedAt - 500 &&
+              lastPublicRead.at <= now()) return;
           ensurePublicReaderTracked();
           const viaReader = typeof root.dpiReadQuestion === 'function';
           keep(diagnostics.narrationCalls, {
