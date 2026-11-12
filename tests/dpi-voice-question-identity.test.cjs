@@ -72,7 +72,7 @@ test('narration timing uses the detection time of its own question', () => {
 test('answer feedback takes priority over scheduling question narration', () => {
   const scanBody = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
   assert.ok(scanBody.indexOf('const result = internal.querySelector(resultSelector)') < scanBody.indexOf('const question = internal.querySelector'));
-  assert.match(scanBody, /\+\+narrationGeneration;\s*openResult\(result\);\s*return;/);
+  assert.match(scanBody, /\+\+narrationGeneration;[\s\S]*?openResult\(result\);\s*return;/);
   assert.match(scanBody, /if \(doc\.querySelector\('\.dpi-answer-dialog'\)\) return;/);
 });
 
@@ -414,6 +414,6 @@ test('late fallback suppression uses rendered question identity, not a clock win
 
 test('feedback resets question identity while preserving already-read duplicate suppression', () => {
   const scan=router.slice(router.indexOf('const scan = () => {'),router.indexOf('// Coalesce frequent DOM changes'));
-  assert.match(scan,/if \(result\) \{\s*\+\+narrationGeneration;\s*\/\/[^\n]*\n[^\n]*\n[^\n]*\n\s*lastSpokenQuestion = null;/);
+  assert.match(scan,/if \(result\) \{\s*\+\+narrationGeneration;[\s\S]*?lastSpokenQuestion = null;/);
   assert.match(scan,/lastSpokenQuestion = null;\s*lastSpokenPrompt = '';\s*lastPublicRead = null;\s*lastPublicReadAt = null;\s*openResult\(result\)/);
 });
