@@ -367,3 +367,12 @@ test('neural TTS network timing distinguishes first response byte from body tran
     serverTimings:[{name:'subscription',durationMs:35}]
   });
 });
+
+test('feedback speech cannot inherit the previous question reader latency baseline', () => {
+  const from = router.indexOf('    const openResult = node => {');
+  const to = router.indexOf('    let lastSpokenPrompt =',from);
+  const block = router.slice(from,to);
+  assert.ok(from >= 0 && to > from);
+  assert.match(block, /lastPublicReadAt = null;\s*speak\(\[heading, explanation\]/);
+  assert.ok(block.indexOf('lastPublicReadAt = null;') < block.indexOf('speak([heading, explanation]'));
+});
