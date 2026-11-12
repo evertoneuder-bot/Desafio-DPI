@@ -230,6 +230,13 @@
             keep(diagnostics.requests, {
               startedAt: Math.round(entry.startTime),
               totalMs: Math.round(entry.duration),
+              // These resource timestamps distinguish waiting for initial headers
+              // from receiving the response body; no URLs or audio content stored.
+              msUntilFirstByte: Number.isFinite(entry.responseStart) && entry.responseStart >= entry.startTime
+                ? Math.round(entry.responseStart - entry.startTime) : null,
+              msReceivingBody: Number.isFinite(entry.responseEnd) && Number.isFinite(entry.responseStart) &&
+                entry.responseEnd >= entry.responseStart && entry.responseStart > 0
+                ? Math.round(entry.responseEnd - entry.responseStart) : null,
               serverTimings: (entry.serverTiming || []).map(item => ({
                 name: item.name,
                 durationMs: Math.round(item.duration)
