@@ -369,13 +369,12 @@
           if (generation !== narrationGeneration || !question.isConnected || !internal.contains(question) ||
               internal.querySelector(resultSelector) || doc.querySelector('.dpi-answer-dialog') ||
               question.textContent.replace(/\s+/g, ' ').trim() !== prompt) return;
-          // An inline read associated with this question takes priority,
-          // even when a busy browser delays this fallback timer beyond 500 ms.
-          // Compare invocation with detection, not timer execution time.
+          // The original reader may run before this observer notices the
+          // question. Suppress its fallback by rendered question identity
+          // rather than clock proximity: heavy main-thread work can delay
+          // DOM observation well beyond any fixed time window.
           if (lastPublicRead?.question === question &&
-              lastPublicRead.prompt === prompt &&
-              lastPublicRead.at >= detectedAt - 500 &&
-              lastPublicRead.at <= now()) return;
+              lastPublicRead.prompt === prompt) return;
           ensurePublicReaderTracked();
           const viaReader = typeof root.dpiReadQuestion === 'function';
           keep(diagnostics.narrationCalls, {
