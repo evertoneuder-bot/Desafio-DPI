@@ -106,3 +106,21 @@ test('TTS reports subscription preflight failures without synthesis', () => with
     assert.equal(calls, 1);
   } finally { global.fetch = originalFetch; }
 }));
+
+test('TTS fails closed if subscription omits overage policy without synthesizing', () => withEnv({
+  ELX_TTS_ATIVADO: 'true', ELEVENLABS_API_KEY: 'test-key', ELEVENLABS_VOZ_MASCULINA: 'male-id'
+}, async () => {
+  const originalFetch = global.fetch;
+  let requests = 0;
+  global.fetch = async () => {
+    requests++;
+    return { ok: true, json: async () => ({ character_count: 10, character_limit: 1000 }) };
+  };
+  try {
+    const res = response();
+    await tts({method:'POST', headers:{}, body:{text:'Olá', gender:'male'}}, res);
+    assert.equal(res.statusCode,429);
+    assert.deepEqual(res.body,{error:'provider-quota-or-rate-limit'});
+    assert.equal(requests,1);
+  } finally { global.fetch = originalFetch; }
+}));
