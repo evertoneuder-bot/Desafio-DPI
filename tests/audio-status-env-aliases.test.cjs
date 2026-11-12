@@ -189,3 +189,28 @@ test('TTS Server-Timing separates credit preflight, synthesis response and audio
     assert.doesNotMatch(res.headers['Server-Timing'],/test-key|male-id|Olá/);
   } finally {Date.now=originalNow;global.fetch=originalFetch;}
 }));
+
+test('TTS rejects whitespace-only subscription fields without invoking synthesis', () => withEnv({
+  ELX_TTS_ATIVADO:'true', ELEVENLABS_API_KEY:'test-key', ELEVENLABS_VOZ_MASCULINA:'male-id'
+}, async () => {
+  const originalFetch = global.fetch;
+  try {
+    for (const field of ['max_credit_limit_extension','character_count','character_limit']) {
+      let calls = 0;
+      global.fetch = async () => {
+        calls++;
+        return {ok:true,json:async()=>({
+          max_credit_limit_extension:0,
+          character_count:10,
+          character_limit:1000,
+          [field]:'   '
+        })};
+      };
+      const res = response();
+      await tts({method:'POST', headers:{}, body:{text:'Olá',gender:'male'}},res);
+      assert.equal(res.statusCode,429);
+      assert.deepEqual(res.body,{error:'provider-quota-or-rate-limit'});
+      assert.equal(calls,1);
+    }
+  } finally {global.fetch=originalFetch;}
+}));
