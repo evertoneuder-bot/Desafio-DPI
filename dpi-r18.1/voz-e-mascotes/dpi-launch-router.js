@@ -232,7 +232,8 @@
               totalMs: Math.round(entry.duration),
               // These resource timestamps distinguish waiting for initial headers
               // from receiving the response body; no URLs or audio content stored.
-              msUntilFirstByte: Number.isFinite(entry.responseStart) && entry.responseStart >= entry.startTime
+              msUntilFirstByte: Number.isFinite(entry.responseStart) && entry.responseStart > 0 &&
+                entry.responseStart >= entry.startTime
                 ? Math.round(entry.responseStart - entry.startTime) : null,
               msReceivingBody: Number.isFinite(entry.responseEnd) && Number.isFinite(entry.responseStart) &&
                 entry.responseEnd >= entry.responseStart && entry.responseStart > 0
