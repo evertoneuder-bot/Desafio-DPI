@@ -335,6 +335,12 @@
       const result = internal.querySelector(resultSelector);
       if (result) {
         ++narrationGeneration;
+        // Feedback separates questions even if the inline game reuses the
+        // same DOM node and wording for the following round.
+        lastSpokenQuestion = null;
+        lastSpokenPrompt = '';
+        lastPublicRead = null;
+        lastPublicReadAt = null;
         openResult(result);
         return;
       }
