@@ -146,6 +146,12 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
     } else if (phase === 'inline-reader-first') {
       root.dpiReadQuestion();
       advance(300);
+    } else if (phase === 'busy-browser-late-observation') {
+      // Inline narration starts before a congested main thread lets
+      // MutationObserver's initial scan detect the question.
+      root.dpiReadQuestion();
+      timers.forEach(timer => { if (timer.at === 32) timer.at = 900; });
+      advance(1200);
     } else if (phase === 'inline-reader-after-detection') {
       advance(50);
       root.dpiReadQuestion();
@@ -179,6 +185,7 @@ test('timed DOM simulation prevents question/feedback narration collisions', () 
   assert.deepEqual(simulate('reader-installed-late'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('reader-replaced'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('inline-reader-first'), { reads: 1, recorded: 0 });
+  assert.deepEqual(simulate('busy-browser-late-observation'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('inline-reader-after-detection'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('busy-browser-delayed-timer'), { reads: 1, recorded: 0 });
   assert.deepEqual(simulate('feedback'), { reads: 0, recorded: 0 });
@@ -389,9 +396,9 @@ test('feedback speech cannot inherit the previous question reader latency baseli
   assert.ok(block.indexOf('lastPublicReadAt = null;') < block.indexOf('speak([heading, explanation]'));
 });
 
-test('late fallback suppression uses question detection time instead of a 500 ms execution window', () => {
+test('late fallback suppression uses rendered question identity, not a clock window', () => {
   const scan = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
-  assert.match(scan, /lastPublicRead\.at >= detectedAt - 500/);
-  assert.match(scan, /lastPublicRead\.at <= now\(\)/);
+  assert.match(scan, /lastPublicRead\?\.question === question &&\s*lastPublicRead\.prompt === prompt\) return;/);
+  assert.doesNotMatch(scan, /lastPublicRead\.at >= detectedAt - 500/);
   assert.doesNotMatch(scan, /now\(\) - lastPublicRead\.at <= 500/);
 });
