@@ -338,3 +338,31 @@ test('catalog pending diagnostic distinguishes missing, loading and completed ca
   assert.equal(readPending({DPIStaticVoice:{settled:false}}), true);
   assert.equal(readPending({DPIStaticVoice:{settled:true}}), false);
 });
+
+test('neural TTS network timing distinguishes first response byte from body transfer', () => {
+  const block = router.match(/keep\(diagnostics\.requests, \{([\s\S]*?)\}\);/);
+  assert.ok(block);
+  assert.match(block[1], /msUntilFirstByte:/);
+  assert.match(block[1], /msReceivingBody:/);
+  assert.doesNotMatch(block[1], /\b(text|prompt|content|src|url|apiKey|voiceId)\s*:/);
+  const snippet = router.slice(router.indexOf('if (typeof root.PerformanceObserver'), router.indexOf('    const assistant ='));
+  let resourceObserver;
+  const diagnostics = {requests:[]};
+  const root = {PerformanceObserver:class{
+    constructor(callback){resourceObserver=callback;}
+    observe(){}
+  }};
+  const keep=(items,entry)=>items.push(entry);
+  const setup=snippet.replace('const observeTts = new root.PerformanceObserver', 'const observeTts = new root.PerformanceObserver');
+  new Function('root','diagnostics','keep',setup)(root,diagnostics,keep);
+  resourceObserver({getEntries:()=>[
+    {name:'https://test.example/api/tts',startTime:100,duration:200,responseStart:240,responseEnd:300,
+     serverTiming:[{name:'subscription',duration:35}]},
+    {name:'https://test.example/music',startTime:100,duration:300,responseStart:200,responseEnd:400}
+  ]});
+  assert.equal(diagnostics.requests.length,1);
+  assert.deepEqual(diagnostics.requests[0],{
+    startedAt:100,totalMs:200,msUntilFirstByte:140,msReceivingBody:60,
+    serverTimings:[{name:'subscription',durationMs:35}]
+  });
+});
