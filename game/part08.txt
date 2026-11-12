@@ -23,8 +23,8 @@ const timing=window.__dpiDesktopSpeechTiming||={samples:[]};const sample={run,ca
 timing.samples.push(sample);if(timing.samples.length>30)timing.samples.shift();
 speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';bgm.volume=.025;const restore=()=>{if(run!==speechRun)return;bgm.volume=speechMusicVolume;speechMusicVolume=null};
 u.onstart=()=>{sample.startDelayMs=Math.round(clock()-calledAt);sample.outcome='started';if(run!==speechRun)sample.outcome='superseded-start'};
-u.onend=()=>{if(sample.outcome!=='superseded-start')sample.outcome='ended';restore()};
-u.onerror=()=>{sample.outcome='error';restore()};
+u.onend=()=>{sample.outcome=run!==speechRun?'superseded-end':'ended';restore()};
+u.onerror=()=>{sample.outcome=run!==speechRun?'superseded-error':'error';restore()};
 try{speechSynthesis.speak(u)}catch(error){sample.outcome='exception';restore()}}
 function quizMenu(){shell('QUIZ DPI',`<p class="muted">Escolha o tamanho da missão.</p><button class="btn" onclick="startQuiz(10)">10 QUESTÕES</button><button class="btn" onclick="startQuiz(25)">25 QUESTÕES</button><button class="btn" onclick="startQuiz(50)">50 QUESTÕES</button>`)}
 function startQuiz(n){startMusic();state.n=n;state.i=0;state.score=0;state.qs=[...BANK].sort(()=>Math.random()-.5).slice(0,n);renderQ()}
