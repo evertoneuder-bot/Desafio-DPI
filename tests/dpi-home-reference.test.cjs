@@ -116,3 +116,28 @@ test('as correções preservam áudio aprovado, cadastro por e-mail, questões e
   assert.match(rounds, /aria-pressed/);
   assert.match(router, /link\.target = '_blank'/);
 });
+
+
+test('mobile redirects without fetching the desktop game; desktop retains original game loader', async () => {
+  const html = read('index.html');
+  const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match=>match[1]);
+  assert.equal(scripts.length,2);
+  async function simulate(mobile) {
+    const assigned=[],fetched=[],written=[];
+    const window={matchMedia:()=>({matches:mobile}),location:{replace:url=>assigned.push(url)}};
+    const document={open(){},write:html=>written.push(html),close(){},getElementById:()=>({textContent:''})};
+    const fetch=async url=>{fetched.push(url);return {ok:true,text:async()=>url}};
+    for (const script of scripts) await vm.runInNewContext(script,{window,document,fetch});
+    // The second script invokes an async loader; let its microtasks complete.
+    for(let i=0;i<20;i++)await Promise.resolve();
+    return {assigned,fetched,written};
+  }
+  const mobile=await simulate(true);
+  assert.deepEqual(mobile.assigned,['/dpi-home.html']);
+  assert.equal(mobile.fetched.length,0);
+  assert.equal(mobile.written.length,0);
+  const desktop=await simulate(false);
+  assert.equal(desktop.assigned.length,0);
+  assert.equal(desktop.fetched.length,8);
+  assert.equal(desktop.written.length,1);
+});
