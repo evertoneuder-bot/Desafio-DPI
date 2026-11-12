@@ -95,9 +95,9 @@ module.exports = async function tts(req, res) {
     const characterCount = Number(rawCount);
     const characterLimit = Number(rawLimit);
     // Missing or null balances must not silently become zero via Number(null).
-    if (overageLimit === null || overageLimit === undefined || overageLimit === '' ||
-        rawCount === null || rawCount === undefined || rawCount === '' ||
-        rawLimit === null || rawLimit === undefined || rawLimit === '' ||
+    if (overageLimit === null || overageLimit === undefined || String(overageLimit).trim() === '' ||
+        rawCount === null || rawCount === undefined || String(rawCount).trim() === '' ||
+        rawLimit === null || rawLimit === undefined || String(rawLimit).trim() === '' ||
         Number(overageLimit) !== 0 || !Number.isFinite(characterCount) ||
         characterCount < 0 || !Number.isFinite(characterLimit) || characterLimit <= 0 ||
         characterCount + ttsText.length > characterLimit) {
