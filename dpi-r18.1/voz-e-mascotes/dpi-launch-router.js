@@ -317,6 +317,7 @@
       // Feedback has its own narration; do not attribute its playback to the
       // earlier question's public reader when measuring audio latency.
       lastPublicReadAt = null;
+      latestQuestionAt = 0;
       speak([heading, explanation].filter(Boolean).join('. ').slice(0,650));
     };
     let lastSpokenPrompt = '';
@@ -355,6 +356,7 @@
         lastSpokenPrompt = '';
         lastPublicRead = null;
         lastPublicReadAt = null;
+        latestQuestionAt = 0;
         return;
       }
       // A different rendered question must be narrated even when its wording repeats.
