@@ -47,3 +47,40 @@ test('desktop audio cancellation preserves last baseline across several replacem
   utterances[2].onend();
   assert.equal(bgm.volume,0.075);
 });
+
+test('disabling desktop voice cancels the active utterance and restores music', () => {
+  const start = source.indexOf('function setOpt(k,v)');
+  const end = source.indexOf('function quizMenu()', start);
+  assert.ok(start >= 0 && end > start);
+  const state={voice:true,music:true,fx:true},bgm={volume:0.16,paused:false,addEventListener() {},play(){return Promise.resolve()},pause(){}};
+  let cancelled=0;const utterances=[];
+  const synth={cancel(){cancelled++},speak(){}};
+  class Utterance{constructor(text){this.text=text;utterances.push(this)}}
+  const runtime=new Function('state','window','speechSynthesis','bgm','SpeechSynthesisUtterance','localStorage','SETK','partyFx','document','tracks','track',
+    source.slice(start,end)+'\nreturn {setOpt,speak,startMusic};'
+  )(state,{speechSynthesis:synth},synth,bgm,Utterance,{setItem(){}},'test',()=>{}, {addEventListener(){}},[],0);
+  runtime.speak('Pergunta');
+  assert.equal(bgm.volume,0.025);
+  runtime.setOpt('voice',false);
+  assert.equal(cancelled,2);
+  assert.equal(bgm.volume,0.16);
+  utterances[0].onend();
+  assert.equal(bgm.volume,0.16,'cancelled speech cannot modify music after voice is off');
+});
+
+test('resuming music during speech does not overpower the narrator', () => {
+  const start=source.indexOf('function setOpt(k,v)');
+  const end=source.indexOf('function quizMenu()',start);
+  const state={voice:true,music:true,fx:true},bgm={volume:0.16,paused:true,addEventListener(){},play(){this.paused=false;return Promise.resolve()},pause(){this.paused=true}};
+  const synth={cancel(){},speak(){}},utterances=[];
+  class Utterance{constructor(text){utterances.push(this)}}
+  const runtime=new Function('state','window','speechSynthesis','bgm','SpeechSynthesisUtterance','localStorage','SETK','partyFx','document','tracks','track',
+    source.slice(start,end)+'\nreturn {setOpt,speak,startMusic};'
+  )(state,{speechSynthesis:synth},synth,bgm,Utterance,{setItem(){}},'test',()=>{}, {addEventListener(){}},[],0);
+  runtime.speak('Pergunta');
+  bgm.paused=true;
+  runtime.startMusic();
+  assert.equal(bgm.volume,0.025);
+  utterances[0].onend();
+  assert.equal(bgm.volume,0.16);
+});
