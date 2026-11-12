@@ -345,7 +345,8 @@ test('neural TTS network timing distinguishes first response byte from body tran
   assert.match(block[1], /msUntilFirstByte:/);
   assert.match(block[1], /msReceivingBody:/);
   assert.doesNotMatch(block[1], /\b(text|prompt|content|src|url|apiKey|voiceId)\s*:/);
-  const snippet = router.slice(router.indexOf('if (typeof root.PerformanceObserver'), router.indexOf('    const assistant ='));
+  const from = router.indexOf('if (typeof root.PerformanceObserver');
+  const snippet = router.slice(from, router.indexOf('    const assistant =', from));
   let resourceObserver;
   const diagnostics = {requests:[]};
   const root = {PerformanceObserver:class{
