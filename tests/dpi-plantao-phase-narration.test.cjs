@@ -22,14 +22,14 @@ const phases = [
 ];
 
 test('Plantão has exactly twelve ordered, distinct narration phase guides', () => {
-  const block = source.match(/const phaseGuidance = \\{([\\s\\S]*?)\\n    \\};/);
+  const block = source.match(/const phaseGuidance = \{([\s\S]*?)\n    \};/);
   assert.ok(block, 'phaseGuidance definition must exist');
-  const actual = [...block[1].matchAll(/^\\s*'([^']+)':/gm)].map(match => match[1]);
+  const actual = [...block[1].matchAll(/^\s*'([^']+)':/gm)].map(match => match[1]);
   assert.deepEqual(actual, phases);
 });
 
 test('Plantão narration is gated by known phase and rendered case question', () => {
-  assert.match(source, /Object\\.prototype\\.hasOwnProperty\\.call\\(phaseGuidance, phase\\)/);
+  assert.match(source, /Object\.prototype\.hasOwnProperty\.call\(phaseGuidance, phase\)/);
   assert.ok(source.includes("question.matches?.('.dpi-case-question') ? caseNarration(internal, question) : ''"));
   assert.ok(source.includes("'Etapa do plantão: ' + phase + '.'"));
 });
