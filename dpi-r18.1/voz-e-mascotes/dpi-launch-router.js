@@ -95,12 +95,14 @@
 
     let captionTimer = 0;
     let captionHideTimer = 0;
+    let captionPersona = null;
     root.addEventListener('elx-speech-start', event => {
       const bubble = doc.querySelector('#internal .dpi-play-speech');
       if (!bubble) return;
       root.clearInterval(captionTimer);
       root.clearTimeout(captionHideTimer);
-      const name = event.detail?.persona === 'female' ? 'Fernanda' : 'Tom';
+      captionPersona = event.detail?.persona || null;
+      const name = captionPersona === 'female' ? 'Fernanda' : 'Tom';
       const text = String(event.detail?.text || '').trim();
       const speaker = doc.createElement('b');
       const caption = doc.createElement('p');
@@ -114,7 +116,9 @@
         if (index >= text.length) root.clearInterval(captionTimer);
       }, 18);
     });
-    const closeCaption = () => {
+    const closeCaption = event => {
+      const endedPersona = event?.detail?.persona;
+      if (endedPersona && captionPersona && endedPersona !== captionPersona) return;
       root.clearInterval(captionTimer);
       root.clearTimeout(captionHideTimer);
       captionHideTimer = root.setTimeout(() => {
