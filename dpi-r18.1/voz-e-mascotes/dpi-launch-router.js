@@ -100,7 +100,7 @@
       if (!bubble) return;
       root.clearInterval(captionTimer);
       root.clearTimeout(captionHideTimer);
-      const name = event.detail?.persona === 'female' ? 'Fernanda' : 'Everton';
+      const name = event.detail?.persona === 'female' ? 'Fernanda' : 'Tom';
       const text = String(event.detail?.text || '').trim();
       const speaker = doc.createElement('b');
       const caption = doc.createElement('p');
