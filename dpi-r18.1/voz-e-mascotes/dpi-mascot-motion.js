@@ -27,6 +27,7 @@
   stage.classList.add('elx-motion-active');
 
   let reactionTimer;
+  let speakingPersona = null;
   function persona(value) {
     if (value === 'female' || value === 'male') stage.dataset.activePersona = value;
   }
@@ -44,15 +45,18 @@
   }
   window.addEventListener('elx-speech-start', event => {
     persona(event.detail?.persona || window.ELXAssistentes?.getPersona?.());
+    speakingPersona = stage.dataset.activePersona || null;
     stage.classList.add('is-speaking');
     stage.classList.remove('is-listening');
   });
   window.addEventListener('elx-speech-end', event => {
     const endedPersona = event.detail?.persona;
-    if (endedPersona && endedPersona !== stage.dataset.activePersona) return;
+    if (endedPersona && speakingPersona && endedPersona !== speakingPersona) return;
+    speakingPersona = null;
     stage.classList.remove('is-speaking');
   });
   window.addEventListener('elx-user-speaking', () => {
+    speakingPersona = null;
     stage.classList.remove('is-speaking');
     stage.classList.add('is-listening');
   });
