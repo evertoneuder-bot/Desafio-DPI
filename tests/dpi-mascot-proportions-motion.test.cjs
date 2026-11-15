@@ -10,7 +10,7 @@ const motion = fs.readFileSync(path.join(__dirname, '../dpi-r18.1/voz-e-mascotes
 test('approved art is retained, with independent male and female layers', () => {
   assert.match(motion, /sourceImage\.replaceWith\(art\)/);
   assert.match(motion, /img\.src = src/);
-  assert.match(motion, /\['male', 'Everton'\]/);
+  assert.match(motion, /\['male', 'Tom'\]/);
   assert.match(motion, /\['female', 'Fernanda'\]/);
   assert.match(css, /clip-path:inset\(0 48\.32% 0 0\)/);
   assert.match(css, /clip-path:inset\(0 0 0 51\.68%\)/);
