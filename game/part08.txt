@@ -21,7 +21,8 @@ function speak(t){if(!state.voice||!('speechSynthesis'in window))return;const ru
 const clock=()=>window.performance?.now?.()??Date.now(),calledAt=clock();
 const timing=window.__dpiDesktopSpeechTiming||={samples:[]};const sample={run,callAt:Math.round(calledAt),startDelayMs:null,outcome:'pending'};
 timing.samples.push(sample);if(timing.samples.length>30)timing.samples.shift();
-speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';bgm.volume=.025;const restore=()=>{if(run!==speechRun)return;bgm.volume=speechMusicVolume;speechMusicVolume=null};
+// Do not reset an idle speech engine before every question: some browsers restart voice initialization after cancel().
+if(speechSynthesis.speaking||speechSynthesis.pending||speechSynthesis.paused)speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';bgm.volume=.025;const restore=()=>{if(run!==speechRun)return;bgm.volume=speechMusicVolume;speechMusicVolume=null};
 u.onstart=()=>{sample.startDelayMs=Math.round(clock()-calledAt);sample.outcome='started';if(run!==speechRun)sample.outcome='superseded-start'};
 u.onend=()=>{sample.outcome=run!==speechRun?'superseded-end':'ended';restore()};
 u.onerror=()=>{sample.outcome=run!==speechRun?'superseded-error':'error';restore()};
