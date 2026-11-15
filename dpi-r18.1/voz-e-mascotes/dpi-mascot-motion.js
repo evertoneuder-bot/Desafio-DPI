@@ -47,7 +47,11 @@
     stage.classList.add('is-speaking');
     stage.classList.remove('is-listening');
   });
-  window.addEventListener('elx-speech-end', () => stage.classList.remove('is-speaking'));
+  window.addEventListener('elx-speech-end', event => {
+    const endedPersona = event.detail?.persona;
+    if (endedPersona && endedPersona !== stage.dataset.activePersona) return;
+    stage.classList.remove('is-speaking');
+  });
   window.addEventListener('elx-user-speaking', () => {
     stage.classList.remove('is-speaking');
     stage.classList.add('is-listening');
