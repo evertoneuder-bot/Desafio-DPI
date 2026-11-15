@@ -9,8 +9,8 @@
   const art = document.createElement('div');
   art.className = 'elx-approved-mascot-pair elx-approved-mascot-motion';
   art.setAttribute('role', 'img');
-  art.setAttribute('aria-label', 'Everton e Fernanda, mascotes veterinários com radioproteção');
-  for (const [persona, label] of [['male', 'Everton'], ['female', 'Fernanda']]) {
+  art.setAttribute('aria-label', 'Tom e Fernanda, mascotes veterinários com radioproteção');
+  for (const [persona, label] of [['male', 'Tom'], ['female', 'Fernanda']]) {
     const figure = document.createElement('span');
     figure.className = 'elx-mascot-motion-persona';
     figure.dataset.persona = persona;
