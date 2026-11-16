@@ -22,7 +22,7 @@
 })(typeof window==='object'?window:null,function(root){
   'use strict';
   const silence='data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAAAAAA==';
-  const apiBlobTiming=new WeakMap(),apiUrlTiming=new Map(),nativeFetch=root.fetch?.bind(root),nativeCreateURL=root.URL?.createObjectURL?.bind(root.URL),nativeRevokeURL=root.URL?.revokeObjectURL?.bind(root.URL);
+  const apiBlobTiming=new WeakMap(),apiUrlTiming=new Map(),nativeFetch=root?.fetch?.bind(root),nativeCreateURL=root?.URL?.createObjectURL?.bind(root.URL),nativeRevokeURL=root?.URL?.revokeObjectURL?.bind(root.URL);
   const metricNames=new Set(['subscription','synthesis_headers','buffer']);
   const parseServerTiming=value=>Object.fromEntries(String(value||'').split(',').map(part=>{const m=part.trim().match(/^([a-z_]+);dur=([0-9.]+)$/i);return m&&metricNames.has(m[1])?[m[1],Math.round(Number(m[2])*10)/10]:null}).filter(Boolean));
   if(nativeFetch)root.fetch=async function(input,init){
