@@ -97,3 +97,23 @@ test('two personas in one speech generation receive distinct event identities',(
  const {events,emit}=emitter();emit('elx-speech-start',{persona:'male'});emit('elx-speech-start',{persona:'female'});emit('elx-speech-end');
  assert.deepEqual(events.map(e=>e.detail.speechId),[7,8,8]);
 });
+
+test('legacy cover caption is normalized again before a speech-end handler after client navigation',()=>{
+  const speaker={nodeType:1,textContent:'Tom & Fernanda'};
+  const cover={
+    childNodes:[speaker,{nodeType:1,tagName:'BR'},{nodeType:3,textContent:'Toque para falar com a gente'}],
+    querySelector(selector){return selector==='b'?this.childNodes.find(node=>node===speaker):selector==='span'?this.childNodes.find(node=>node.tagName==='SPAN'):null},
+    replaceChildren(...nodes){this.childNodes=nodes}
+  };
+  const document={querySelector:()=>cover,createElement(tag){return tag==='span'?{nodeType:1,tagName:'SPAN',textContent:''}:{nodeType:1,tagName:'BR'}}};
+  const window=new EventTarget();window.document=document;window.ELXAssistentes={};
+  vm.runInNewContext(fs.readFileSync('dpi-r18.1/voz-e-mascotes/dpi-speech-events.js','utf8'),{window,Number});
+  const start=new Event('elx-speech-start');start.detail={speechId:1};window.dispatchEvent(start);
+  const event=new Event('elx-speech-end');event.detail={speechId:1};
+  // Navigation recreated the legacy bubble without the span between start and end.
+  cover.childNodes=[speaker,{nodeType:1,tagName:'BR'},{nodeType:3,textContent:'Toque para falar com a gente'}];
+  let receivedSpan=false;
+  window.addEventListener('elx-speech-end',()=>{receivedSpan=Boolean(cover.querySelector('span'))});
+  window.dispatchEvent(event);
+  assert.equal(receivedSpan,true);
+});
