@@ -25,7 +25,7 @@ button,a{font:inherit;-webkit-tap-highlight-color:transparent}
 .dpi-hero-scene{position:relative;z-index:1;width:min(100%,860px);height:236px;display:grid;grid-template-columns:minmax(0,1fr) minmax(144px,190px) minmax(0,1fr);align-items:center;justify-items:center}
 .dpi-hero-mascot{width:auto;aspect-ratio:.6;height:220px;justify-self:center;background-image:url("../dpi-r18.1/voz-e-mascotes/mascotes-radioprotecao-aprovados.png");background-repeat:no-repeat;background-size:auto 100%;filter:drop-shadow(0 10px 10px #00111b88);animation:mascot-arrive .55s ease-out both,mascot-bob 4.2s ease-in-out .55s infinite;will-change:transform}
 .dpi-hero-mascot.everton{background-position:left center;transform-origin:bottom right}
-.dpi-hero-mascot.fernanda{background-position:right center;animation-delay:.12s,1s;transform-origin:bottom left}
+.dpi-hero-mascot.fernanda{background-position:right center;animation-delay:.12s,1s;transform:scale(.7);transform-origin:bottom center}
 .dpi-emblem{width:100%;display:flex;align-items:center;justify-content:center;margin:0;text-align:center}
 .dpi-emblem img{display:block;width:min(100%,190px);height:auto;object-fit:contain;filter:drop-shadow(0 0 11px #52f22a55)}
 .dpi-hero h1{position:relative;margin:2px 0 0;display:flex;flex-direction:column;align-items:center;text-align:center;font-style:italic;line-height:.98;letter-spacing:.07em;text-shadow:0 0 8px #22d8ff}
