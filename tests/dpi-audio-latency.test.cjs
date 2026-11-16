@@ -23,3 +23,36 @@ test('records independent non-sensitive timing for subsequent audio turns',async
   p.cancel();
   assert.equal(p.timingSnapshot().length,2);
 });
+
+const fs = require('node:fs');
+const vm = require('node:vm');
+test('correlates safe TTS Server-Timing metrics with browser playback turn',async()=>{
+  const listeners={};
+  const fakeURL={
+    createObjectURL:blob=>'blob:private-audio',
+    revokeObjectURL:()=>{}
+  };
+  const fakeWindow={
+    document:{body:{dataset:{}},getElementById:()=>null,addEventListener(){}},
+    URL:fakeURL,location:{href:'https://preview.test/'},
+    performance:{now:(()=>{let n=100;return()=>++n})()},
+    addEventListener:(name,fn)=>(listeners[name] ||= []).push(fn),
+    dispatchEvent(){},CustomEvent:class{constructor(type,init){this.type=type;this.detail=init.detail}},
+    Audio:FakeAudio,ELXAssistentes:{isEnabled:()=>false},
+    fetch:async()=>({status:200,headers:{get:()=> 'subscription;dur=4.2, synthesis_headers;dur=850, buffer;dur=12.5'},blob:async()=>new Blob(['audio'])})
+  };
+  const source=fs.readFileSync(require.resolve('../dpi-r18.1/voz-e-mascotes/dpi-audio-playback.js'),'utf8');
+  vm.runInNewContext(source,{window:fakeWindow,URL,Date,Promise,WeakMap,Map,Set,Math,Number,String,Object,JSON});
+  const response=await fakeWindow.fetch('/api/tts',{method:'POST'});
+  const blob=await response.blob();
+  const url=fakeWindow.URL.createObjectURL(blob);
+  const playback=fakeWindow.ELXVoicePlayback;
+  await playback.play(url,1,1);
+  const [turn]=playback.timingSnapshot();
+  assert.equal(turn.turn,1);
+  assert.equal(turn.api.status,200);
+  assert.deepEqual({...turn.api.serverTiming},{subscription:4.2,synthesis_headers:850,buffer:12.5});
+  assert(turn.api.responseMs>=0&&turn.api.blobReadMs>=0);
+  assert(!('src' in turn)&&!('text' in turn)&&!('url' in turn.api));
+  assert.equal(JSON.parse(fakeWindow.document.body.dataset.dpiAudioTiming)[0].api.serverTiming.synthesis_headers,850);
+});
