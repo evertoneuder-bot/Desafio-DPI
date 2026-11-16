@@ -49,3 +49,8 @@ test('one persona reacts at a time, while the other keeps natural idle animation
   assert.match(motion, /persona\(who\);reaction=next/);
   assert.match(motion, /data-active-persona=\"\$\{who\}\"/);
 });
+
+test('idle puppet motion is not globally overridden by an unconditional animation reset', () => {
+  assert.ok(motion.includes('animation:dpi2DIdle 4.8s ease-in-out infinite!important'));
+  assert.ok(!motion.includes('#elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona],#elx-character-stage.elx-motion-active .elx-mascot-motion-persona{animation:none!important;transform:none!important}'));
+});

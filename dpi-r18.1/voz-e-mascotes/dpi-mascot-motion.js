@@ -71,7 +71,7 @@
 @media(prefers-reduced-motion:reduce){html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-head,html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-eye{animation:none!important}}
 `;
   style.textContent+='html[data-dpi-mascot-motion="off"] #elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona]{animation:none!important}';
-  style.textContent+=`#elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona],#elx-character-stage.elx-motion-active .elx-mascot-motion-persona{animation:none!important;transform:none!important}`;
+
   document.head?.append?.(style);
   let reactionTimer,reaction='',speaking=false,listening=false,attention=false,speakingPersona=null;
   function sync(){
