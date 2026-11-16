@@ -49,6 +49,27 @@ test('buffering playing events do not restart captions and mute closes one activ
   assert.deepEqual(seen.map(x=>x[0]),['elx-speech-start','elx-speech-paused']);
   emit('elx-speech-start',{speechId:6});assert.equal(seen.length,3);
 });
+test('legacy cover caption is normalized before the speech-start listener updates it',()=>{
+  const speaker={nodeType:1,textContent:'Tom & Fernanda'};
+  const prompt={nodeType:3,textContent:'Toque para falar com a gente'};
+  const cover={
+    childNodes:[speaker,{nodeType:1,tagName:'BR'},prompt],
+    querySelector(selector){return selector==='b'?this.childNodes.find(node=>node===speaker):selector==='span'?this.childNodes.find(node=>node.tagName==='SPAN'):null},
+    replaceChildren(...nodes){this.childNodes=nodes}
+  };
+  const document={querySelector:()=>cover,createElement(tag){return tag==='span'?{nodeType:1,tagName:'SPAN',textContent:''}:{nodeType:1,tagName:'BR'}}};
+  const window=new EventTarget();window.document=document;window.ELXAssistentes={};
+  vm.runInNewContext(fs.readFileSync('dpi-r18.1/voz-e-mascotes/dpi-speech-events.js','utf8'),{window,Number});
+  window.addEventListener('elx-speech-start',()=>{
+    const caption=cover.querySelector('span');
+    assert.ok(caption,'caption listener receives the span expected by the inline cover handler');
+    caption.textContent='Pergunta narrada';
+  });
+  const event=new Event('elx-speech-start');event.detail={speechId:1,persona:'male'};window.dispatchEvent(event);
+  assert.equal(cover.querySelector('b'),speaker);
+  assert.equal(cover.querySelector('span').textContent,'Pergunta narrada');
+  assert.equal(prompt.textContent,'Toque para falar com a gente');
+});
 test('legacy recording listeners cannot change persona behind the assistant owner',()=>{
   const from=html.indexOf('  let currentAudio = null;');
   const to=html.indexOf("  window.addEventListener('elx-speech-start'",from);
