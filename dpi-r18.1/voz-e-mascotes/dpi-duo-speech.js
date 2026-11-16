@@ -28,6 +28,6 @@
   const options=String(text).split(/(?=Alternativa [A-D]:)/).map(s=>s.trim()).filter(Boolean),chunks=[];
   for(const part of options){if(part.length<=850){chunks.push(part);continue}let buffer='';for(const word of part.split(/\s+/)){if(buffer&&buffer.length+word.length+1>800){chunks.push(buffer);buffer=''}buffer+=(buffer?' ':'')+word}if(buffer)chunks.push(buffer)}return chunks;
  }
- function next(text){const first=nextLead;nextLead=other(first);return plan(text,first)}
+ function next(text){const first=nextLead;nextLead=other(first);const turns=plan(text,first);if(typeof document!=='undefined'&&turns[0])document.dispatchEvent(new CustomEvent('elx-audio-persona',{bubbles:true,detail:{persona:turns[0].persona}}));return turns}
  return {plan,next,peek:text=>plan(text,nextLead),other};
 });
