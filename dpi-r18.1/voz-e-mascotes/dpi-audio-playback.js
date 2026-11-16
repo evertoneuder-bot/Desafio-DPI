@@ -8,6 +8,21 @@
     if(label)label.textContent=message;
     if(detail.state==='blocked'||detail.state==='error')root.dispatchEvent(new CustomEvent('elx-voice-unavailable',{detail:{reason:'audio-playback-'+detail.state,message}}));
   };
+  const apiBlobTiming=new WeakMap(),apiUrlTiming=new Map(),nativeFetch=root.fetch?.bind(root),nativeCreateURL=root.URL?.createObjectURL?.bind(root.URL),nativeRevokeURL=root.URL?.revokeObjectURL?.bind(root.URL);
+  const metricNames=new Set(['subscription','synthesis_headers','buffer']);
+  const parseServerTiming=value=>Object.fromEntries(String(value||'').split(',').map(part=>{const m=part.trim().match(/^([a-z_]+);dur=([0-9.]+)$/i);return m&&metricNames.has(m[1])?[m[1],Math.round(Number(m[2])*10)/10]:null}).filter(Boolean));
+  if(nativeFetch)root.fetch=async function(input,init){
+    let target='';try{target=new URL(typeof input==='string'?input:input.url,root.location?.href).pathname}catch{}
+    if(target!=='/api/tts')return nativeFetch(input,init);
+    const requestAt=typeof root.performance?.now==='function'?root.performance.now():Date.now();
+    const response=await nativeFetch(input,init),headersAt=typeof root.performance?.now==='function'?root.performance.now():Date.now();
+    const meta={requestAt,responseMs:Math.round((headersAt-requestAt)*10)/10,status:response.status,serverTiming:parseServerTiming(response.headers?.get?.('Server-Timing'))};
+    const readBlob=response.blob.bind(response);
+    response.blob=async function(){const started=typeof root.performance?.now==='function'?root.performance.now():Date.now();const blob=await readBlob();const ended=typeof root.performance?.now==='function'?root.performance.now():Date.now();apiBlobTiming.set(blob,{...meta,blobReadMs:Math.round((ended-started)*10)/10});return blob};
+    return response;
+  };
+  if(nativeCreateURL)root.URL.createObjectURL=function(blob){const url=nativeCreateURL(blob),meta=apiBlobTiming.get(blob);if(meta)apiUrlTiming.set(url,meta);return url};
+  if(nativeRevokeURL)root.URL.revokeObjectURL=function(url){apiUrlTiming.delete(url);return nativeRevokeURL(url)};
   root.ELXVoicePlayback=api.createPlayback(()=>new root.Audio(),report);
   root.document.addEventListener('click',event=>{
     if(!event.isTrusted||!root.ELXAssistentes?.isEnabled?.())return;
@@ -28,16 +43,18 @@
     // Bounded diagnostics: never store a transcript, voice ID or audio URL.
     const timingHistory=[];
     let timingSequence=0, currentTiming=null;
+    const publishTimings=()=>{const snapshot=timingSnapshot();if(root?.document?.body?.dataset)root.document.body.dataset.dpiAudioTiming=JSON.stringify(snapshot)};
     const now=()=>typeof root?.performance?.now==='function'?root.performance.now():Date.now();
     function recordTiming(mark,entry){
       if(!entry||entry.revision!==revision||entry[mark]!=null)return;
       entry[mark]=Math.round((now()-entry.startedAt)*10)/10;
       const detail={turn:entry.turn,persona:entry.persona,stage:mark,elapsedMs:entry[mark]};
+      publishTimings();
       if(typeof root?.dispatchEvent==='function'&&typeof root?.CustomEvent==='function'){
         root.dispatchEvent(new root.CustomEvent('elx-audio-timing',{detail}));
       }
     }
-    function timingSnapshot(){return timingHistory.map(({turn,persona,canplayMs,playingMs,failedMs})=>({turn,persona,canplayMs,playingMs,failedMs}));}
+    function timingSnapshot(){return timingHistory.map(({turn,persona,canplayMs,playingMs,failedMs,api})=>({turn,persona,canplayMs,playingMs,failedMs,api:api?{status:api.status,responseMs:api.responseMs,blobReadMs:api.blobReadMs,requestToPlaybackMs:api.requestToPlaybackMs,serverTiming:api.serverTiming}:null}));}
     function emit(state){phase=state;report({state});}
     function updateGain(){if(!gainNode||!context)return;const gain=persona==='male'?1.55:1;try{gainNode.gain.setTargetAtTime(gain,context.currentTime,.025)}catch{gainNode.gain.value=gain}}
     function setPersona(value){persona=value==='male'?'male':'female';updateGain()}
@@ -74,7 +91,7 @@
       return Promise.resolve(target.play()).then(()=>{if(current===revision&&target.src===silence)target.pause();return true;},()=>{prepared=false;return false;});
     }
     function cancel(){revision++;currentTiming=null;pending=false;const interrupted=['playing','loading','blocked','paused'].includes(phase);if(interrupted)phase='idle';if(audio){audio.pause();audio.onplaying=null;audio.onended=null;audio.onerror=null;}if(interrupted)emit('stopped');}
-    function play(src,volume,speed){revision++;currentTiming={turn:++timingSequence,persona,revision,startedAt:now()};timingHistory.push(currentTiming);if(timingHistory.length>40)timingHistory.shift();const target=element();target.src=src;target.volume=volume;target.muted=false;target.playbackRate=speed;target.preservesPitch=true;pending=false;emit('loading');return attempt();}
+    function play(src,volume,speed){revision++;const startedAt=now(),api=apiUrlTiming.get(src);currentTiming={turn:++timingSequence,persona,revision,startedAt,api:api?{...api,requestToPlaybackMs:Math.round((startedAt-api.requestAt)*10)/10}:null};timingHistory.push(currentTiming);if(timingHistory.length>40)timingHistory.shift();publishTimings();const target=element();target.src=src;target.volume=volume;target.muted=false;target.playbackRate=speed;target.preservesPitch=true;pending=false;emit('loading');return attempt();}
     return {element,activate,play,cancel,pending:()=>pending,setPersona,timingSnapshot};
   }
   return {createPlayback};
