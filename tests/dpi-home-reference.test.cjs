@@ -6,20 +6,20 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
 
-test('a raiz mantém o carregamento web e direciona automaticamente apenas telefones à capa mobile', () => {
+test('a raiz direciona à capa compartilhada sem carregar o jogo legado', () => {
   const html = read('index.html');
-  assert.match(html, /matchMedia\('\(max-width: 600px\)'\)/);
+  assert.match(html, /new URL\('\/dpi-home\.html'/);
   const hosting = JSON.parse(read('vercel.json'));
   assert.equal((hosting.rewrites || []).some(route => route.source === '/' && route.destination === '/dpi-r18.1/ABRA-ESTA-PREVIA.html'), false);
-  assert.match(html, /location\.replace\('\/dpi-home\.html'\)/);
-  for (const part of ['part01.txt','part02.txt','part08.txt']) assert.ok(html.includes(part));
+  assert.match(html, /location\.replace\(destination\.href\)/);
+  assert.doesNotMatch(html, /fetch\(|document\.write/);
   assert.ok(fs.existsSync(path.join(root, 'dpi-home.html')));
 });
 
-test('a capa aprovada mantém logo original e mascotes, usa fundo radiográfico real e não antecipa jogos', () => {
+test('a capa recuperada mantém sua marca SVG, mascotes e fundo, sem antecipar jogos', () => {
   const html = read('dpi-home.html');
   const css = read('assets/dpi-home.css');
-  assert.equal((html.match(/marca-elx-oficial-escura\.png/g) || []).length, 2);
+  assert.equal((html.match(/<img src="\.\/assets\/marca-elx-vet-vetor-fundo-escuro\.svg"/g) || []).length, 2);
   assert.match(html, /class="dpi-hero-mascot everton"/);
   assert.match(html, /class="dpi-hero-mascot fernanda"/);
   assert.match(css, /url\("\.\/clinic-background\.webp"\)/);
@@ -41,9 +41,9 @@ test('Estude, Pratique, Evolua e Compartilhe são controles clicáveis; Comparti
 test('o roteador pede cadastro no início, segue ao menu do jogo e devolve recursos informativos à capa', () => {
   const router = read('dpi-r18.1/voz-e-mascotes/dpi-launch-router.js');
   assert.match(router, /start:\s*'startFromPresentation'/);
-  assert.ok(router.includes("root.profile();\n    if (root.document.querySelector('#register.on')) root.afterReg = 'home';"));
+  assert.ok(router.includes("root.profile();\n    if (root.document.querySelector('#register.on')) root.afterReg = 'modeMenu';"));
   assert.match(router, /feature:\s*'openPresentationFeature'/);
-  assert.match(router, /root\.location\.assign\('\.\.\/index\.html'\)/);
+  assert.match(router, /root\.location\.assign\('\/dpi-home\.html'\)/);
   assert.match(router, /root\.dpiFeatureDialog\(presentationFeature\)/);
 });
 
@@ -77,7 +77,10 @@ test('a rota start configura a identificação e a rota de recurso abre a funç�
         readyState: 'complete',
         documentElement: { classList: { add: value => classes.add(value), remove: value => classes.delete(value) } },
         querySelector: selector => selector === '#register.on' && registrationOpen ? {} : null,
-        getElementById: () => null
+        getElementById: () => null,
+        createElement: () => ({ textContent: '' }),
+        head: { append() {} },
+        addEventListener() {}
       },
       console,
       setTimeout: callback => callback(),
@@ -95,13 +98,13 @@ test('a rota start configura a identificação e a rota de recurso abre a funç�
     return { root, classes, assigned, get homeOpened() { return homeOpened; }, get featureOpened() { return featureOpened; } };
   }
   const start = contextFor('?mode=start&return=dpi');
-  assert.equal(start.root.afterReg, 'home');
+  assert.equal(start.root.afterReg, 'modeMenu');
   assert.equal(start.homeOpened, false);
   assert.equal(start.classes.has('dpi-route-pending'), false);
   const feature = contextFor('?mode=feature&feature=evolve&return=dpi');
   assert.equal(feature.featureOpened, 'evolve');
   feature.root.dpiCloseFeatureDialog();
-  assert.deepEqual(feature.assigned, ['../index.html']);
+  assert.deepEqual(feature.assigned, ['/dpi-home.html']);
 });
 
 
@@ -111,33 +114,23 @@ test('as correções preservam áudio aprovado, cadastro por e-mail, questões e
   const rounds = read('dpi-r18.1/voz-e-mascotes/dpi-game-rounds.js');
   assert.match(runtime, /lookupProfileByEmail/);
   assert.match(runtime, /__ELX_PAUSE_1200__/);
-  assert.match(runtime, /deviceVoice=read\('dpi-device-voice'\)==='1'/);
-  assert.match(rounds, /Confirmar esta resposta/);
+  const say = runtime.slice(runtime.indexOf('function say(text,who=persona'),runtime.indexOf('function toggle(',runtime.indexOf('function say(text,who=persona')));
+  assert.match(say, /neuralSay\(text,who,done\)/);
+  assert.doesNotMatch(say, /sayDevice\(|browserSay\(/);
+  assert.match(rounds, /confirmAction\('Confirmar resposta\?/);
   assert.match(rounds, /aria-pressed/);
   assert.match(router, /link\.target = '_blank'/);
 });
 
 
-test('mobile redirects without fetching the desktop game; desktop retains original game loader', async () => {
+test('phone and desktop entry both retain query and hash without legacy requests', async () => {
   const html = read('index.html');
-  const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match=>match[1]);
-  assert.equal(scripts.length,2);
-  async function simulate(mobile) {
-    const assigned=[],fetched=[],written=[];
-    const window={matchMedia:()=>({matches:mobile}),location:{replace:url=>assigned.push(url)}};
-    const document={open(){},write:html=>written.push(html),close(){},getElementById:()=>({textContent:''})};
-    const fetch=async url=>{fetched.push(url);return {ok:true,text:async()=>url}};
-    for (const script of scripts) await vm.runInNewContext(script,{window,document,fetch});
-    // The second script invokes an async loader; let its microtasks complete.
-    for(let i=0;i<20;i++)await Promise.resolve();
-    return {assigned,fetched,written};
+  const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+  for (const mobile of [true,false]) {
+    const assigned=[],fetched=[];
+    const window={matchMedia:()=>({matches:mobile}),location:{href:'https://preview.example/?mode=start#entry',search:'?mode=start',hash:'#entry',replace:url=>assigned.push(url)}};
+    for(const script of scripts)await vm.runInNewContext(script,{window,URL,fetch:url=>fetched.push(url)});
+    assert.deepEqual(assigned,['https://preview.example/dpi-home.html?mode=start#entry']);
+    assert.equal(fetched.length,0);
   }
-  const mobile=await simulate(true);
-  assert.deepEqual(mobile.assigned,['/dpi-home.html']);
-  assert.equal(mobile.fetched.length,0);
-  assert.equal(mobile.written.length,0);
-  const desktop=await simulate(false);
-  assert.equal(desktop.assigned.length,0);
-  assert.equal(desktop.fetched.length,8);
-  assert.equal(desktop.written.length,1);
 });

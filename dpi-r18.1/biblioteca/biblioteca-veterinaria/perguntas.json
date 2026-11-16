@@ -1,0 +1,182 @@
+[
+  {
+    "id": "medicina_veterinaria_01",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "O que caracteriza uma zoonose?",
+    "opcoes": {
+      "A": "Doença transmitida entre animais e seres humanos",
+      "B": "Doença exclusiva de plantas",
+      "C": "Qualquer doença hereditária animal",
+      "D": "Doença causada somente por alimentação"
+    },
+    "resposta_correta": "A",
+    "explicacao": "Zoonoses são doenças ou infecções naturalmente transmissíveis entre animais e seres humanos.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_02",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "Qual é um objetivo da vigilância de zoonoses?",
+    "opcoes": {
+      "A": "Substituir todos os serviços veterinários clínicos",
+      "B": "Eliminar qualquer animal sem avaliação",
+      "C": "Tratar somente animais de produção",
+      "D": "Identificar riscos e orientar prevenção e controle"
+    },
+    "resposta_correta": "B",
+    "explicacao": "A vigilância reúne informação e ações para prevenir e controlar riscos à saúde pública.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_03",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "Em ações de prevenção da raiva, qual medida aparece no manual?",
+    "opcoes": {
+      "A": "Vacinar apenas animais silvestres em domicílio",
+      "B": "Usar antibióticos preventivamente em todos os animais",
+      "C": "Vacinação de cães e gatos conforme campanha e orientação oficial",
+      "D": "Suspender a vacinação animal"
+    },
+    "resposta_correta": "C",
+    "explicacao": "A vacinação de cães e gatos é uma medida central de prevenção da raiva.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_04",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "O que deve orientar o manejo de animal recolhido por serviço público?",
+    "opcoes": {
+      "A": "Alimentação restrita por padrão",
+      "B": "Bem-estar, segurança e procedimentos definidos",
+      "C": "Apenas rapidez, sem registro",
+      "D": "Contato direto sem proteção"
+    },
+    "resposta_correta": "D",
+    "explicacao": "O manual prevê cuidados de alojamento, alimentação, hidratação, higiene e biossegurança.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_05",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "Para que servem EPI e EPC no trabalho com zoonoses?",
+    "opcoes": {
+      "A": "Reduzir exposição a riscos ocupacionais",
+      "B": "Aumentar a circulação de agentes infecciosos",
+      "C": "Substituir a avaliação do risco",
+      "D": "Dispensar higiene das mãos"
+    },
+    "resposta_correta": "A",
+    "explicacao": "Equipamentos individuais e coletivos integram as medidas de biossegurança.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_06",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "Qual atitude é adequada diante de suspeita de zoonose?",
+    "opcoes": {
+      "A": "Publicar diagnóstico sem confirmação",
+      "B": "Administrar qualquer medicamento por conta própria",
+      "C": "Ignorar o caso se o animal parecer saudável",
+      "D": "Seguir fluxo de vigilância e comunicar o serviço responsável"
+    },
+    "resposta_correta": "B",
+    "explicacao": "A suspeita deve ser manejada conforme os fluxos oficiais de vigilância e diagnóstico.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_07",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "A leishmaniose visceral é abordada no manual em ações de:",
+    "opcoes": {
+      "A": "Nutrição esportiva",
+      "B": "Controle de doenças exclusivamente genéticas",
+      "C": "Vigilância, prevenção e controle",
+      "D": "Apenas cirurgia de animais"
+    },
+    "resposta_correta": "C",
+    "explicacao": "O manual apresenta ações de vigilância, prevenção e controle para leishmaniose visceral.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_08",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "Por que a identificação do risco local é importante?",
+    "opcoes": {
+      "A": "Serve somente para estatística sem ação",
+      "B": "Ajuda a direcionar medidas de prevenção e controle",
+      "C": "Define que todas as regiões têm o mesmo risco",
+      "D": "Substitui o diagnóstico laboratorial em todo caso"
+    },
+    "resposta_correta": "D",
+    "explicacao": "A avaliação e o monitoramento ajudam a escolher respostas compatíveis com o território.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_09",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "Qual item é parte do cuidado básico de animais sob custódia de UVZ?",
+    "opcoes": {
+      "A": "Água e alimentação adequadas",
+      "B": "Isolamento sem inspeção",
+      "C": "Exposição ao calor para reduzir custos",
+      "D": "Ausência de limpeza"
+    },
+    "resposta_correta": "A",
+    "explicacao": "O manual inclui alimentação, hidratação, alojamento e higiene entre os cuidados.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  },
+  {
+    "id": "medicina_veterinaria_10",
+    "area": "Medicina_Veterinaria",
+    "pergunta": "Qual fonte deve embasar protocolos locais de vigilância?",
+    "opcoes": {
+      "A": "Mensagens sem autoria em redes sociais",
+      "B": "Opiniões individuais sem avaliação",
+      "C": "Publicidade de produtos veterinários",
+      "D": "Normas técnicas e orientações oficiais atualizadas"
+    },
+    "resposta_correta": "B",
+    "explicacao": "O manual é uma referência técnica oficial e deve ser articulado com orientações vigentes.",
+    "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+    "ano": "Ministério da Saúde, 2016",
+    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "dificuldade": "basica",
+    "tipo": "multipla_escolha"
+  }
+]

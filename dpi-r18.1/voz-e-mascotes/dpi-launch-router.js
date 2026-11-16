@@ -102,7 +102,7 @@
       root.clearInterval(captionTimer);
       root.clearTimeout(captionHideTimer);
       captionPersona = event.detail?.persona || null;
-      const name = captionPersona === 'female' ? 'Fernanda' : 'Tom';
+      const name = event.detail?.persona === 'female' ? 'Fernanda' : 'Tom';
       const text = String(event.detail?.text || '').trim();
       const speaker = doc.createElement('b');
       const caption = doc.createElement('p');
@@ -110,11 +110,7 @@
       caption.setAttribute('aria-live', 'polite');
       bubble.replaceChildren(speaker, caption);
       bubble.classList.add('is-speaking');
-      let index = 0;
-      captionTimer = root.setInterval(() => {
-        caption.textContent = text.slice(0, ++index);
-        if (index >= text.length) root.clearInterval(captionTimer);
-      }, 18);
+      caption.textContent = text;
     });
     const closeCaption = event => {
       const endedPersona = event?.detail?.persona;

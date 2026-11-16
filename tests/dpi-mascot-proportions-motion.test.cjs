@@ -9,7 +9,7 @@ const motion = fs.readFileSync(path.join(__dirname, '../dpi-r18.1/voz-e-mascotes
 
 test('approved art is retained, with independent male and female layers', () => {
   assert.match(motion, /sourceImage\.replaceWith\(art\)/);
-  assert.match(motion, /img\.src = src/);
+  assert.match(motion, /window\.DPI2DArtwork\.create\(src,persona\)/);
   assert.match(motion, /\['male', 'Tom'\]/);
   assert.match(motion, /\['female', 'Fernanda'\]/);
   assert.match(css, /clip-path:inset\(0 48\.32% 0 0\)/);
@@ -46,5 +46,6 @@ test('one persona reacts at a time, while the other keeps natural idle animation
     }
     assert.doesNotMatch(css, new RegExp('#elx-character-stage\\.'+state+' \\.elx-mascot-motion-persona'));
   }
-  assert.match(motion, /persona\(who \|\| stage\.dataset\.activePersona \|\| window\.ELXAssistentes\?\.getPersona\?\.\(\) \|\| 'male'\)/);
+  assert.match(motion, /persona\(who\);reaction=next/);
+  assert.match(motion, /data-active-persona=\"\$\{who\}\"/);
 });

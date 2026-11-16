@@ -1,0 +1,302 @@
+✔ audio status accepts the Portuguese Vercel variable names (2.478198ms)
+✔ audio status remains disabled without the explicit activation flag (0.346779ms)
+✔ TTS accepts Portuguese voice aliases and synthesizes only after quota preflight (1.416419ms)
+✔ TTS refuses exhausted quota without calling synthesis (0.640368ms)
+✔ TTS reports provider failure timings without private data (0.622491ms)
+✔ TTS reports subscription preflight failures without synthesis (0.480278ms)
+✔ TTS fails closed if subscription omits overage policy without synthesizing (0.503483ms)
+✔ TTS rejects null and missing credit usage rather than treating it as free balance (0.809841ms)
+✔ TTS rejects missing total balance rather than allowing synthesis (0.823182ms)
+✔ TTS Server-Timing separates credit preflight, synthesis response and audio buffering (0.94925ms)
+✔ TTS rejects whitespace-only subscription fields without invoking synthesis (0.658245ms)
+✔ superseded desktop speech does not count as completed or failed playback (0.92208ms)
+✔ desktop music stays lowered while a replacement utterance plays (1.17625ms)
+✔ desktop audio cancellation preserves last baseline across several replacements (0.281692ms)
+✔ disabling desktop voice cancels the active utterance and restores music (0.50759ms)
+✔ resuming music during speech does not overpower the narrator (0.434179ms)
+✔ desktop speech exposes elapsed time to first audio event without storing spoken text (0.887448ms)
+✔ desktop timing holds bounded samples and does not let stale speech restore music (0.358086ms)
+✔ answer and home paths stop ongoing question narration (1.102019ms)
+✔ stopSpeech cancels active voice, restores music and ignores late events (0.549271ms)
+✔ stopSpeech is safe before the first utterance (0.237826ms)
+✔ a raiz mantém o carregamento web e direciona automaticamente apenas telefones à capa mobile (1.567375ms)
+✖ a capa aprovada mantém logo original e mascotes, usa fundo radiográfico real e não antecipa jogos (1.334627ms)
+✔ Estude, Pratique, Evolua e Compartilhe são controles clicáveis; Compartilhe oferece só ações de envio (0.559086ms)
+✖ o roteador pede cadastro no início, segue ao menu do jogo e devolve recursos informativos à capa (6.674557ms)
+✔ o clique de Começar abre a rota de identificação, não começa direto um desafio (3.188701ms)
+✖ a rota start configura a identificação e a rota de recurso abre a função apropriada (3.587287ms)
+✖ as correções preservam áudio aprovado, cadastro por e-mail, questões e PDFs em nova aba (17.675226ms)
+✔ mobile redirects without fetching the desktop game; desktop retains original game loader (3.484434ms)
+✔ approved art is retained, with independent male and female layers (1.154097ms)
+✔ Fernanda is smaller than Tom in every animation state (0.338096ms)
+✔ motion is slower and eased rather than a mechanically looping bounce (0.295142ms)
+✔ speech only animates the selected persona; both retain rest animation (0.092208ms)
+✔ one persona reacts at a time, while the other keeps natural idle animation (0.167531ms)
+✔ voice question detection distinguishes a new DOM question from repeated text (1.413715ms)
+✔ question text uses real whitespace normalization, not a literal slash-s (0.40091ms)
+✔ voice diagnostics do not contain question text or identifiers (0.282693ms)
+✔ question scan uses a bounded, coalesced timer instead of an indefinitely reset debounce (0.15336ms)
+✔ client audio playback timing is read-only and excludes media URLs or audio contents (0.229303ms)
+✔ narration invocation diagnostics distinguish reader and fallback without storing speech text (0.29407ms)
+✔ outdated narration cannot speak after a question is replaced or moved (0.163956ms)
+✔ narration timing uses the detection time of its own question (0.121151ms)
+✔ answer feedback takes priority over scheduling question narration (0.221542ms)
+✔ pending question narration is suppressed if feedback appeared before playback (0.241972ms)
+✔ timed DOM simulation prevents question/feedback narration collisions (6.205024ms)
+✔ question identity resets when the question temporarily disappears (0.213078ms)
+✔ public question reader is tracked without exposing prompt text or mutating its return (0.208151ms)
+✔ Plantão narration guides each phase without a second competing speech (0.266308ms)
+✔ Plantão primary reader includes phase explanation, question and options in one speech (0.786187ms)
+✔ inline reader timing is recorded without user text, URLs or credentials (0.218547ms)
+✔ inline public read yields audio timing even if it precedes observer question detection (0.370795ms)
+✔ public-read timing resets on disappearance or replacement of the question (0.171367ms)
+✔ static voice manifest readiness is recorded for diagnosing the initial delay (0.216253ms)
+✔ static voice readiness remains unknown if no catalog state is exposed (0.098768ms)
+✔ catalog pending diagnostic distinguishes missing, loading and completed catalog (0.150104ms)
+✔ neural TTS network timing distinguishes first response byte from body transfer (0.509292ms)
+✔ feedback speech cannot inherit the previous question reader latency baseline (0.122353ms)
+✔ late fallback suppression uses rendered question identity, not a clock window (0.074381ms)
+✔ feedback resets question identity while preserving already-read duplicate suppression (0.072428ms)
+✔ question timing resets before feedback speech and after disappearing question (0.081332ms)
+✔ entrega DPI é individual e não contém rotas ou logos de outras áreas (17.886211ms)
+✖ a biblioteca entregue é clínica veterinária e preserva o banco editorial DPI (0.215342ms)
+✖ imagens externas do jogo apontam a arquivos presentes e o rig só carrega mascotes DPI (10.488053ms)
+ℹ tests 63
+ℹ suites 0
+ℹ pass 57
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 198.949716
+
+✖ failing tests:
+
+test at tests/dpi-home-reference.test.cjs:19:1
+✖ a capa aprovada mantém logo original e mascotes, usa fundo radiográfico real e não antecipa jogos (1.334627ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/tmp/dpi-baseline-sdx0czhg/tests/dpi-home-reference.test.cjs:22:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/dpi-home-reference.test.cjs:41:1
+✖ o roteador pede cadastro no início, segue ao menu do jogo e devolve recursos informativos à capa (6.674557ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(router.includes("root.profile();\n    if (root.document.querySelector('#register.on')) root.afterReg = 'home';"))
+  
+      at TestContext.<anonymous> (/tmp/dpi-baseline-sdx0czhg/tests/dpi-home-reference.test.cjs:44:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/dpi-home-reference.test.cjs:65:1
+✖ a rota start configura a identificação e a rota de recurso abre a função apropriada (3.587287ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'modeMenu' !== 'home'
+  
+      at TestContext.<anonymous> (/tmp/dpi-baseline-sdx0czhg/tests/dpi-home-reference.test.cjs:98:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'modeMenu',
+    expected: 'home',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/dpi-home-reference.test.cjs:108:1
+✖ as correções preservam áudio aprovado, cadastro por e-mail, questões e PDFs em nova aba (17.675226ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Confirmar esta resposta/. Input:
+  
+  '(function (root) {\n' +
+    "  'use strict';\n" +
+    '  const engine = root.DpiRoundEngine;\n' +
+    '  if (!engine || !root.document) return;\n' +
+    "  // Preserve the page's approved Plantão entry, which shows the full-screen siren.\n" +
+    "  const approvedPlantaoEntry = typeof root.caseStart === 'function' ? root.caseStart : null;\n" +
+    "  const session = { mode: '', questions: [], index: 0, score: 0, correct: 0, reviewed: [], hint: 0, eliminated: new Set(), answered: false, confirming: false, timer: null, seconds: 60, wrongAttempts: 0 };\n" +
+    '  const hangman = { words: [], index: 0, wins: 0, missed: [], active: false };\n' +
+    '  const association = { batchStart: 0, selectedLeft: null, selectedRight: null, matched: new Set(), errors: 0 };\n' +
+    `  const esc = value => String(value || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));\n` +
+    '  function confirmAction(title, copy, confirmLabel, cancelLabel) {\n' +
+    '    return new Promise(resolve => {\n' +
+    '      const previous = root.document.activeElement;\n' +
+    "      const overlay = root.document.createElement('div');\n" +
+    "      overlay.id = 'dpi-round-confirmation';\n" +
+    "      overlay.className = 'dpi-hint-overlay';\n" +
+    "      overlay.setAttribute('role', 'presentation');\n" +
+    `      overlay.innerHTML = '<section class="dpi-hint-dialog" role="dialog" aria-modal="true" aria-labelledby="dpi-round-confirm-title" aria-describedby="dpi-round-confirm-copy"><button type="button" class="dpi-hint-close" aria-label="Cancelar confirmação">×</button><span class="dpi-hint-kicker">EL-X VET · DESAFIO DPI</span><h2 id="dpi-round-confirm-title">' + esc(title) + '</h2><p id="dpi-round-confirm-copy">' + esc(copy) + '</p><div class="dpi-answer-confirm-actions"><button type="button" class="btn secondary">' + esc(cancelLabel) + '</button><button type="button" class="btn">' + esc(confirmLabel) + '</button></div></section>';\n` +
+    '      let settled = false;\n' +
+    '      const finish = accepted => {\n' +
+    '        if (settled) return;\n' +
+    '        settled = true;\n' +
+    '        overlay.remove();\n' +
+    '        previous?.focus?.();\n' +
+    '        resolve(accepted);\n' +
+    '      };\n' +
+    "      overlay.querySelector('.dpi-hint-close')?.addEventListener('click', () => finish(false));\n" +
+    "      overlay.querySelector('.dpi-answer-confirm-actions .secondary')?.addEventListener('click', () => finish(false));\n" +
+    "      overlay.querySelector('.dpi-answer-confirm-actions .btn:not(.secondary)')?.addEventListener('click', () => finish(true));\n" +
+    "      overlay.addEventListener('click', event => { if (event.target === overlay) finish(false); });\n" +
+    "      overlay.addEventListener('keydown', event => { if (event.key === 'Escape') finish(false); });\n" +
+    '      root.document.body.appendChild(overlay);\n' +
+    "      overlay.querySelector('.dpi-answer-confirm-actions .secondary')?.focus();\n" +
+    '    });\n' +
+    '  }\n' +
+    "  const letters = ['A', 'B', 'C', 'D'];\n" +
+    "  const modeNames = { lightning: '⚡ RELÂMPAGO', target: '🎯 ALVO', elimination: '✂ ELIMINAÇÃO', diagnosis: '🩺 FECHE O DIAGNÓSTICO', association: '🔗 ASSOCIAÇÃO' };\n" +
+    '  function begin(mode) {\n' +
+    '    clearInterval(session.timer);\n' +
+    "    Object.assign(session, { mode, seconds: 60, questions: engine.createFreshRound(BANK, { size: 10, historyKey: 'elx-session' }), index: 0, score: 0, correct: 0, reviewed: [], hint: 0, currentHint: '', eliminated: new Set(), answered: false, wrongAttempts: 0 });\n" +
+    '    if (!session.questions.length) {\n' +
+    `      shell('DESAFIO DPI', '<p>Não há questões válidas suficientes para iniciar esta rodada.</p><button class="btn secondary" onclick="challenges()">VOLTAR AOS MINIJOGOS</button>');\n` +
+    '      return;\n' +
+    '    }\n' +
+    "    if (mode === 'association') { Object.assign(association, { batchStart: 0, selectedLeft: null, selectedRight: null, matched: new Set(), errors: 0 }); renderAssociation(); }\n" +
+    '    else render();\n' +
+    '  }\n' +
+    '  function progress() {\n' +
+    '    const pct = Math.round(session.index / session.questions.length * 100);\n' +
+    "    const label = session.mode === 'association' ? 'PARES ASSOCIADOS ' + session.index + ' / ' + session.questions.length : 'QUESTÃO ' + (session.index + 1) + ' / ' + session.questions.length;\n" +
+    "    const stat = session.mode === 'association' ? session.wrongAttempts + ' tentativas incorretas · ' + session.score + ' pts' : session.correct + ' acertos · ' + session.score + ' pts';\n" +
+    `    return '<div class="dpi-round-meter"><div><b>' + label + '</b><span>' + stat + '</span></div><div class="dpi-round-track"><i style="width:' + pct + '%"></i></div></div>';\n` +
+    '  }\n' +
+    '  function renderAssociation() {\n' +
+    '    const start = association.batchStart, batch = session.questions.slice(start, start + 4);\n' +
+    '    if (!batch.length) return finish();\n' +
+    '    const rights = batch.slice().sort(() => Math.random() - 0.5);\n' +
+    `    const left = batch.map(q => '<button class="dpi-assoc-choice" data-side="left" data-pair="' + esc(q.id) + '" onclick="DpiGameRounds.pickPair(\\'left\\',\\'' + esc(q.id) + '\\')"><b>CONCEITO</b><span>' + esc(q.subtema) + '</span><small>' + esc(q.tema) + '</small></button>').join('');\n` +
+    `    const right = rights.map(q => '<button class="dpi-assoc-choice" data-side="right" data-pair="' + esc(q.id) + '" onclick="DpiGameRounds.pickPair(\\'right\\',\\'' + esc(q.id) + '\\')"><b>DECISÃO</b><span>' + esc(q.resposta_correta_extenso) + '</span></button>').join('');\n` +
+    `    shell(modeNames.association, '<section class="dpi-round-session">' + progress() + '<h3 class="dpi-round-question">Relacione o conceito ao princípio técnico correspondente.</h3><p class="dpi-round-instruction">Toque em um conceito e depois na decisão correta. A rodada tem dez pares, em três telas para manter a leitura confortável.</p><p id="dpiPairProgress" class="dpi-round-source">' + association.matched.size + ' de ' + session.questions.length + ' pares concluídos</p><div class="dpi-assoc-grid"><div>' + left + '</div><div>' + right + '</div></div><div id="dpiRoundFeedback" aria-live="polite"></div><p class="dpi-round-source">Conteúdo para estudo · Fonte vinculada em cada registro do banco.</p>' + miniNav() + '</section>');\n` +
+    '  }\n' +
+    '  function updateAssociationProgress() {\n' +
+    "    const label = root.document.querySelector('.dpi-round-meter b');\n" +
+    "    const stat = root.document.querySelector('.dpi-round-meter span');\n" +
+    "    const bar = root.document.querySelector('.dpi-round-track i');\n" +
+    "    if (label) label.textContent = 'PARES ASSOCIADOS ' + association.matched.size + ' / ' + session.questions.length;\n" +
+    "    if (stat) stat.textContent = session.wrongAttempts + ' tentativas incorretas · ' + session.score + ' pts';\n" +
+    "    if (bar) bar.style.width = Math.round(association.matched.size / session.questions.length * 100) + '%';\n" +
+    '  }\n' +
+    '  async function pickPair(side, id) {\n' +
+    '    if (session.confirming || association.matched.has(id)) return;\n' +
+    "    association[side === 'left' ? 'selectedLeft' : 'selectedRight'] = id;\n" +
+    "    root.document.querySelectorAll('.dpi-assoc-choice').forEach(button => {\n" +
+    "      if (button.dataset.side === side) button.classList.toggle('is-selected', button.dataset.pair === id);\n" +
+    "      button.setAttribute('aria-pressed', String(button.dataset.pair === id));\n" +
+    '    });\n' +
+    '    if (!association.selectedLeft || !association.selectedRight) return;\n' +
+    '    const leftId = association.selectedLeft, rightId = association.selectedRight;\n' +
+    `    const leftButton = root.document.querySelector('.dpi-assoc-choice[data-side="left"][data-pair="' + leftId + '"]');\n` +
+    `    const rightButton = root.document.querySelector('.dpi-assoc-choice[data-side="right"][data-pair="' + rightId + '"]');\n` +
+    '    const pair = session.questions.find(q => String(q.id) === String(leftId));\n' +
+    "    const concept = pair?.subtema || pair?.tema || leftButton?.querySelector('span')?.textContent || 'conceito selecionado';\n" +
+    "    const decision = pair?.resposta_correta_extenso || rightButton?.querySelector('span')?.textContent || 'decisão selecionada';\n" +
+    '    session.confirming = true;\n' +
+    '    let accepted = false;\n' +
+    "    try { accepted = await confirmAction('Confirmar associação?', concept + ' → ' + decision, 'Confirmar associação', 'Rever seleção'); }\n" +
+    '    finally { session.confirming = false; }\n' +
+    '    if (!accepted) return;\n' +
+    '    association.selectedLeft = null; association.selectedRight = null;\n' +
+    '    if (leftId === rightId) {\n' +
+    '      association.matched.add(leftId); session.correct++; session.score += 10;\n' +
+    "      if (leftButton) { leftButton.disabled = true; leftButton.classList.add('is-matched'); leftButton.classList.remove('is-selected'); leftButton.setAttribute('aria-pressed', 'false'); }\n" +
+    "      if (rightButton) { rightButton.disabled = true; rightButton.classList.add('is-matched'); rightButton.classList.remove('is-selected'); rightButton.setAttribute('aria-pressed', 'false'); }\n" +
+    "      if (typeof root.trackMission === 'function') root.trackMission(true, 10);\n" +
+    "      if (typeof root.livelyFx === 'function') root.livelyFx(true);\n" +
+    "      const progressNode = root.document.getElementById('dpiPairProgress');\n" +
+    "      if (progressNode) progressNode.textContent = association.matched.size + ' de ' + session.questions.length + ' pares concluídos';\n" +
+    '      updateAssociationProgress();\n' +
+    '      if (association.matched.size === Math.min(4, session.questions.length - association.batchStart)) {\n' +
+    '        const end = Math.min(association.batchStart + 4, session.questions.length);\n' +
+    '        session.index = end;\n' +
+    "        const feedback = root.document.getElementById('dpiRoundFeedback');\n" +
+    `        if (feedback) feedback.innerHTML = '<div class="dpi-round-result is-correct"><b>✓ BLOCO CONCLUÍDO</b><p>' + end + ' de ' + session.questions.length + ' pares associados.</p><button class="btn" onclick="DpiGameRounds.nextAssociation()">' + (end < session.questions.length ? 'PRÓXIMO BLOCO →' : 'VER RESULTADO →') + '</button></div>';\n` +
+    '      }\n' +
+    '    } else {\n' +
+    '      association.errors++; session.wrongAttempts++;\n' +
+    "      if (typeof root.trackMission === 'function') root.trackMission(false, 5);\n" +
+    '      updateAssociationProgress();\n' +
+    "      if (leftButton) leftButton.classList.add('is-mismatch');\n" +
+    "      if (rightButton) rightButton.classList.add('is-mismatch');\n" +
+    "      const feedback = root.document.getElementById('dpiRoundFeedback');\n" +
+    `      if (feedback) feedback.innerHTML = '<div class="dpi-round-result is-wrong"><b>AINDA NÃO FORMOU O PAR</b><p>Releia`... 19757 more characters
+  
+      at TestContext.<anonymous> (/tmp/dpi-baseline-sdx0czhg/tests/dpi-home-reference.test.cjs:115:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: `(function (root) {\n  'use strict';\n  const engine = root.DpiRoundEngine;\n  if (!engine || !root.document) return;\n  // Preserve the page's approved Plantão entry, which shows the full-screen siren.\n  const approvedPlantaoEntry = typeof root.caseStart === 'function' ? root.caseStart : null;\n  const session = { mode: '', questions: [], index: 0, score: 0, correct: 0, reviewed: [], hint: 0, eliminated: new Set(), answered: false, confirming: false, timer: null, seconds: 60, wrongAttempts: 0 };\n  const hangman = { words: [], index: 0, wins: 0, missed: [], active: false };\n  const association = { batchStart: 0, selectedLeft: null, selectedRight: null, matched: new Set(), errors: 0 };\n  const esc = value => String(value || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));\n  function confirmAction(title, copy, confirmLabel, cancelLabel) {\n    return new Promise(resolve => {\n      const previous = root.document.activeElement;\n      const overlay = root.document.createElement('div');\n      overlay.id = 'dpi-round-confirmation';\n      overlay.className = 'dpi-hint-overlay';\n      overlay.setAttribute('role', 'presentation');\n      overlay.innerHTML = '<section class="dpi-hint-dialog" role="dialog" aria-modal="true" aria-labelledby="dpi-round-confirm-title" aria-describedby="dpi-round-confirm-copy"><button type="button" class="dpi-hint-close" aria-label="Cancelar confirmação">×</button><span class="dpi-hint-kicker">EL-X VET · DESAFIO DPI</span><h2 id="dpi-round-confirm-title">' + esc(title) + '</h2><p id="dpi-round-confirm-copy">' + esc(copy) + '</p><div class="dpi-answer-confirm-actions"><button type="button" class="btn secondary">' + esc(cancelLabel) + '</button><button type="button" class="btn">' + esc(confirmLabel) + '</button></div></section>';\n      let settled = false;\n      const finish = accepted => {\n        if (settled) return;\n        settled = true;\n        overlay.remove();\n        previous?.focus?.();\n        resolve(accepted);\n      };\n      overlay.querySelector('.dpi-hint-close')?.addEventListener('click', () => finish(false));\n      overlay.querySelector('.dpi-answer-confirm-actions .secondary')?.addEventListener('click', () => finish(false));\n      overlay.querySelector('.dpi-answer-confirm-actions .btn:not(.secondary)')?.addEventListener('click', () => finish(true));\n      overlay.addEventListener('click', event => { if (event.target === overlay) finish(false); });\n      overlay.addEventListener('keydown', event => { if (event.key === 'Escape') finish(false); });\n      root.document.body.appendChild(overlay);\n      overlay.querySelector('.dpi-answer-confirm-actions .secondary')?.focus();\n    });\n  }\n  const letters = ['A', 'B', 'C', 'D'];\n  const modeNames = { lightning: '⚡ RELÂMPAGO', target: '🎯 ALVO', elimination: '✂ ELIMINAÇÃO', diagnosis: '🩺 FECHE O DIAGNÓSTICO', association: '🔗 ASSOCIAÇÃO' };\n  function begin(mode) {\n    clearInterval(session.timer);\n    Object.assign(session, { mode, seconds: 60, questions: engine.createFreshRound(BANK, { size: 10, historyKey: 'elx-session' }), index: 0, score: 0, correct: 0, reviewed: [], hint: 0, currentHint: '', eliminated: new Set(), answered: false, wrongAttempts: 0 });\n    if (!session.questions.length) {\n      shell('DESAFIO DPI', '<p>Não há questões válidas suficientes para iniciar esta rodada.</p><button class="btn secondary" onclick="challenges()">VOLTAR AOS MINIJOGOS</button>');\n      return;\n    }\n    if (mode === 'association') { Object.assign(association, { batchStart: 0, selectedLeft: null, selectedRight: null, matched: new Set(), errors: 0 }); renderAssociation(); }\n    else render();\n  }\n  function progress() {\n    const pct = Math.round(session.index / session.questions.length * 100);\n    const label = session.mode === 'association' ? 'PARES ASSOCIADOS ' + session.index + ' / ' + session.questions.length : 'QUESTÃO ' + (session.index + 1) + ' / ' + session.questions.length;\n    const stat = session.mode === 'association' ? session.wrongAttempts + ' tentativas incorretas · ' + session.score + ' pts' : session.correct + ' acertos · ' + session.score + ' pts';\n    return '<div class="dpi-round-meter"><div><b>' + label + '</b><span>' + stat + '</span></div><div class="dpi-round-track"><i style="width:' + pct + '%"></i></div></div>';\n  }\n  function renderAssociation() {\n    const start = association.batchStart, batch = session.questions.slice(start, start + 4);\n    if (!batch.length) return finish();\n    const rights = batch.slice().sort(() => Math.random() - 0.5);\n    const left = batch.map(q => '<button class="dpi-assoc-choice" data-side="left" data-pair="' + esc(q.id) + '" onclick="DpiGameRounds.pickPair(\\'left\\',\\'' + esc(q.id) + '\\')"><b>CONCEITO</b><span>' + esc(q.subtema) + '</span><small>' + esc(q.tema) + '</small></button>').join('');\n    const right = rights.map(q => '<button class="dpi-assoc-choice" data-side="right" data-pair="' + esc(q.id) + '" onclick="DpiGameRounds.pickPair(\\'right\\',\\'' + esc(q.id) + '\\')"><b>DECISÃO</b><span>' + esc(q.resposta_correta_extenso) + '</span></button>').join('');\n    shell(modeNames.association, '<section class="dpi-round-session">' + progress() + '<h3 class="dpi-round-question">Relacione o conceito ao princípio técnico correspondente.</h3><p class="dpi-round-instruction">Toque em um conceito e depois na decisão correta. A rodada tem dez pares, em três telas para manter a leitura confortável.</p><p id="dpiPairProgress" class="dpi-round-source">' + association.matched.size + ' de ' + session.questions.length + ' pares concluídos</p><div class="dpi-assoc-grid"><div>' + left + '</div><div>' + right + '</div></div><div id="dpiRoundFeedback" aria-live="polite"></div><p class="dpi-round-source">Conteúdo para estudo · Fonte vinculada em cada registro do banco.</p>' + miniNav() + '</section>');\n  }\n  function updateAssociationProgress() {\n    const label = root.document.querySelector('.dpi-round-meter b');\n    const stat = root.document.querySelector('.dpi-round-meter span');\n    const bar = root.document.querySelector('.dpi-round-track i');\n    if (label) label.textContent = 'PARES ASSOCIADOS ' + association.matched.size + ' / ' + session.questions.length;\n    if (stat) stat.textContent = session.wrongAttempts + ' tentativas incorretas · ' + session.score + ' pts';\n    if (bar) bar.style.width = Math.round(association.matched.size / session.questions.length * 100) + '%';\n  }\n  async function pickPair(side, id) {\n    if (session.confirming || association.matched.has(id)) return;\n    association[side === 'left' ? 'selectedLeft' : 'selectedRight'] = id;\n    root.document.querySelectorAll('.dpi-assoc-choice').forEach(button => {\n      if (button.dataset.side === side) button.classList.toggle('is-selected', button.dataset.pair === id);\n      button.setAttribute('aria-pressed', String(button.dataset.pair === id));\n    });\n    if (!association.selectedLeft || !association.selectedRight) return;\n    const leftId = association.selectedLeft, rightId = association.selectedRight;\n    const leftButton = root.document.querySelector('.dpi-assoc-choice[data-side="left"][data-pair="' + leftId + '"]');\n    const rightButton = root.document.querySelector('.dpi-assoc-choice[data-side="right"][data-pair="' + rightId + '"]');\n    const pair = session.questions.find(q => String(q.id) === String(leftId));\n    const concept = pair?.subtema || pair?.tema || leftButton?.querySelector('span')?.textContent || 'conceito selecionado';\n    const decision = pair?.resposta_correta_extenso || rightButton?.querySelector('span')?.textContent || 'decisão selecionada';\n    session.confirming = true;\n    let accepted = false;\n    try { accepted = await confirmAction('Confirmar associação?', concept + ' → ' + decision, 'Confirmar associação', 'Rever seleção'); }\n    finally { session.confirming = false; }\n    if (!accepted) return;\n    association.selectedLeft = null; association.selectedRight = null;\n    if (leftId === rightId) {\n      association.matched.add(leftId); session.correct++; session.score += 10;\n      if (leftButton) { leftButton.disabled = true; leftButton.classList.add('is-matched'); leftButton.classList.remove('is-selected'); leftButton.setAttribute('aria-pressed', 'false'); }\n      if (rightButton) { rightButton.disabled = true; rightButton.classList.add('is-matched'); rightButton.classList.remove('is-selected'); rightButton.setAttribute('aria-pressed', 'false'); }\n      if (typeof root.trackMission === 'function') root.trackMission(true, 10);\n      if (typeof root.livelyFx === 'function') root.livelyFx(true);\n      const progressNode = root.document.getElementById('dpiPairProgress');\n      if (progressNode) progressNode.textContent = association.matched.size + ' de ' + session.questions.length + ' pares concluídos';\n      updateAssociationProgress();\n      if (association.matched.size === Math.min(4, session.questions.length - association.batchStart)) {\n        const end = Math.min(association.batchStart + 4, session.questions.length);\n        session.index = end;\n        const feedback = root.document.getElementById('dpiRoundFeedback');\n        if (feedback) feedback.innerHTML = '<div class="dpi-round-result is-correct"><b>✓ BLOCO CONCLUÍDO</b><p>' + end + ' de ' + session.questions.length + ' pares associados.</p><button class="btn" onclick="DpiGameRounds.nextAssociation()">' + (end < session.questions.length ? 'PRÓXIMO BLOCO →' : 'VER RESULTADO →') + '</button></div>';\n      }\n    } else {\n      association.errors++; session.wrongAttempts++;\n      if (typeof root.trackMission === 'function') root.trackMission(false, 5);\n      updateAssociationProgress();\n      if (leftButton) leftButton.classList.add('is-mismatch');\n      if (rightButton) rightButton.classList.add('is-mismatch');\n      const feedback = root.document.getElementById('dpiRoundFeedback');\n      if (feedback) feedback.innerHTML = '<div class="dpi-round-result is-wrong"><b>AINDA NÃO FORMOU O PAR</b><p>Releia`... 19757 more characters,
+    expected: /Confirmar esta resposta/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/portal-integration.test.cjs:24:1
+✖ a biblioteca entregue é clínica veterinária e preserva o banco editorial DPI (0.215342ms)
+  Error: ENOENT: no such file or directory, stat '/tmp/dpi-baseline-sdx0czhg/dpi-r18.1/biblioteca/biblioteca-veterinaria/CATALOGO-BIBLIOTECA-DPI.md'
+      at Object.statSync (node:fs:1794:25)
+      at TestContext.<anonymous> (/tmp/dpi-baseline-sdx0czhg/tests/portal-integration.test.cjs:26:16)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'stat',
+    path: '/tmp/dpi-baseline-sdx0czhg/dpi-r18.1/biblioteca/biblioteca-veterinaria/CATALOGO-BIBLIOTECA-DPI.md'
+  }
+
+test at tests/portal-integration.test.cjs:33:1
+✖ imagens externas do jogo apontam a arquivos presentes e o rig só carrega mascotes DPI (10.488053ms)
+  Error: ENOENT: no such file or directory, open '/tmp/dpi-baseline-sdx0czhg/dpi-r18.1/voz-e-mascotes/elx-rig.js'
+      at Object.readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (/tmp/dpi-baseline-sdx0czhg/tests/portal-integration.test.cjs:37:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/tmp/dpi-baseline-sdx0czhg/dpi-r18.1/voz-e-mascotes/elx-rig.js'
+  }

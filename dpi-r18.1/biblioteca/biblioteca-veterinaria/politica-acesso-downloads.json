@@ -1,0 +1,42 @@
+{
+  "project": "EL-X VET — Desafio DPI",
+  "version": "1.0",
+  "date": "2026-10-21",
+  "scope": "library_assets_only",
+  "default": {
+    "unverified_license": true,
+    "viewing": "screen_only_when_source_platform_allows",
+    "download": "deny",
+    "print_full_file": "deny",
+    "screen_capture": "source_platform_terms_apply",
+    "public_preview": "bibliographic_metadata_only"
+  },
+  "public_license": {
+    "download": "requires_upload_of_another_new_file_not_already_on_platform",
+    "attribution_and_license_terms_required": true
+  },
+  "company_rx": {
+    "download": "deny",
+    "print": "deny",
+    "in_game_screen_capture": "deny",
+    "public_preview": "exclude"
+  },
+  "unique_contribution": {
+    "required": true,
+    "user_must_upload_another_file_before_download": true,
+    "must_not_already_exist_on_platform": true,
+    "verification": [
+      "sha256",
+      "platform_file_id"
+    ],
+    "enforcement": "server_required",
+    "available_in_static_preview": false,
+    "downloads_disabled_until_server_verification": true
+  },
+  "platform_limit": {
+    "operating_system_screenshot_blocking": "not_reliable_from_a_web_app",
+    "mitigation": "exclude_company_branded_material_from_public_preview; disable in-app print/download; apply restrictions on source platform"
+  },
+  "items_without_verified_license": 20,
+  "current_preview": "bibliographic_metadata_only_no_library_downloads_or_source_files"
+}

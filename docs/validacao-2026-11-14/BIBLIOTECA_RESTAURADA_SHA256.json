@@ -1,0 +1,37 @@
+[
+  {
+    "path": "dpi-r18.1/biblioteca/biblioteca-veterinaria/CATALOGO-BIBLIOTECA-DPI.md",
+    "origin": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/biblioteca/biblioteca-veterinaria/CATALOGO-BIBLIOTECA-DPI.md",
+    "sha256": "4cff12cb7cbb35ddc09a721a390585b54ba8ff1f88f3eec7f3cd2be56a7f2fc9"
+  },
+  {
+    "path": "dpi-r18.1/biblioteca/biblioteca-veterinaria/FONTES_E_LICENCAS.txt",
+    "origin": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/biblioteca/biblioteca-veterinaria/FONTES_E_LICENCAS.txt",
+    "sha256": "eeb47ecd1683e451a1a7f46e0cf4cc44a646a3cf036ac7b9522f880856312e40"
+  },
+  {
+    "path": "dpi-r18.1/biblioteca/biblioteca-veterinaria/LEIA-ME.txt",
+    "origin": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/biblioteca/biblioteca-veterinaria/LEIA-ME.txt",
+    "sha256": "e8e8362e03833e9d5caff388e6ad68951e7ae2cc859b2c36e07625614f3c6318"
+  },
+  {
+    "path": "dpi-r18.1/biblioteca/biblioteca-veterinaria/Manual_Zoonoses_MS.pdf",
+    "origin": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/biblioteca/biblioteca-veterinaria/Manual_Zoonoses_MS.pdf",
+    "sha256": "062405e080ec779a4aba73c9f4deb24897ffa284f58540d2c154997d88e5e5cc"
+  },
+  {
+    "path": "dpi-r18.1/biblioteca/biblioteca-veterinaria/bibliografia-dpi.json",
+    "origin": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/biblioteca/biblioteca-veterinaria/bibliografia-dpi.json",
+    "sha256": "2f332f43e5af4fb76e6816af4ee2f631f56926e9ad1a8c30a8fe5e3ca4f09fc1"
+  },
+  {
+    "path": "dpi-r18.1/biblioteca/biblioteca-veterinaria/perguntas.json",
+    "origin": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/biblioteca/biblioteca-veterinaria/perguntas.json",
+    "sha256": "72e7863f77246a98cd6cb7f5db6e7e4f99eff294dc482e8957c90416acd27091"
+  },
+  {
+    "path": "dpi-r18.1/biblioteca/biblioteca-veterinaria/politica-acesso-downloads.json",
+    "origin": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/biblioteca/biblioteca-veterinaria/politica-acesso-downloads.json",
+    "sha256": "d4e4b42efec0ce5d131802680b540da57bad341d55b5542e567b0982e31cb09d"
+  }
+]

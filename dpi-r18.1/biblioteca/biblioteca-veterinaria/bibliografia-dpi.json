@@ -1,0 +1,533 @@
+{
+  "project": "EL-X VET — Desafio DPI",
+  "version": "R18",
+  "question_count": 300,
+  "bank_reference_groups": [
+    {
+      "source_as_recorded": "AAHA Dental Care Guidelines for Dogs and Cats 2019; Thrall",
+      "question_count": 13
+    },
+    {
+      "source_as_recorded": "ACVAA Small Animal Anesthesia and Sedation Monitoring Guidelines 2025, doi:10.1016/j.vaa.2025.03.015; ACVR radiation safety",
+      "question_count": 13
+    },
+    {
+      "source_as_recorded": "ACVR/ECVDI consensus 2022, doi:10.1111/vru.13151; Thrall",
+      "question_count": 13
+    },
+    {
+      "source_as_recorded": "ACVR/ECVDI imaging report foundations 2025, doi:10.1111/vru.13471",
+      "question_count": 9
+    },
+    {
+      "source_as_recorded": "ACVR/ECVDI report/teleradiology consensus; boas práticas de comunicação clínica",
+      "question_count": 8
+    },
+    {
+      "source_as_recorded": "Boysen/Lisciandro - veterinary POCUS/FAST literature; revisões veterinárias de POCUS",
+      "question_count": 20
+    },
+    {
+      "source_as_recorded": "CBRV - normas para avaliação de DCF; literatura especializada",
+      "question_count": 9
+    },
+    {
+      "source_as_recorded": "CBRV/IEWG e literatura veterinária especializada",
+      "question_count": 6
+    },
+    {
+      "source_as_recorded": "CFMV/CRMV e normas brasileiras vigentes; ACVR radiation safety statement",
+      "question_count": 9
+    },
+    {
+      "source_as_recorded": "Diretrizes e literatura cardiológica veterinária ACVIM",
+      "question_count": 6
+    },
+    {
+      "source_as_recorded": "Literatura veterinária de Doppler; ACVIM/ultrassonografia",
+      "question_count": 5
+    },
+    {
+      "source_as_recorded": "Literatura veterinária de ultrassonografia cervical",
+      "question_count": 3
+    },
+    {
+      "source_as_recorded": "Literatura veterinária de ultrassonografia musculoesquelética; Thrall",
+      "question_count": 4
+    },
+    {
+      "source_as_recorded": "Literatura veterinária de ultrassonografia ocular",
+      "question_count": 3
+    },
+    {
+      "source_as_recorded": "POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf; Thrall",
+      "question_count": 11
+    },
+    {
+      "source_as_recorded": "Thrall - articulações de cães e gatos",
+      "question_count": 8
+    },
+    {
+      "source_as_recorded": "Thrall - coluna de cães e gatos",
+      "question_count": 11
+    },
+    {
+      "source_as_recorded": "Thrall - crânio de cães e gatos; manual de posicionamento anexado",
+      "question_count": 8
+    },
+    {
+      "source_as_recorded": "Thrall - doenças articulares",
+      "question_count": 7
+    },
+    {
+      "source_as_recorded": "Thrall - doenças ósseas generalizadas",
+      "question_count": 5
+    },
+    {
+      "source_as_recorded": "Thrall - estudos contrastados",
+      "question_count": 5
+    },
+    {
+      "source_as_recorded": "Thrall - princípios de formação e qualidade de imagem",
+      "question_count": 6
+    },
+    {
+      "source_as_recorded": "Thrall - Textbook of Veterinary Diagnostic Radiology, abdômen de cães e gatos",
+      "question_count": 13
+    },
+    {
+      "source_as_recorded": "Thrall - Textbook of Veterinary Diagnostic Radiology, tórax de cães e gatos",
+      "question_count": 15
+    },
+    {
+      "source_as_recorded": "Thrall - tumores ósseos",
+      "question_count": 5
+    },
+    {
+      "source_as_recorded": "Thrall, Textbook of Veterinary Diagnostic Radiology; materiais de trauma anexados",
+      "question_count": 20
+    },
+    {
+      "source_as_recorded": "Thrall; consensos ACVR/ECVDI",
+      "question_count": 12
+    },
+    {
+      "source_as_recorded": "Thrall; literatura de ultrassonografia reprodutiva canina/felina",
+      "question_count": 4
+    },
+    {
+      "source_as_recorded": "Thrall; literatura ortopédica veterinária",
+      "question_count": 20
+    },
+    {
+      "source_as_recorded": "Thrall; manual de posicionamento anexado",
+      "question_count": 5
+    },
+    {
+      "source_as_recorded": "Thrall; materiais de quadril anexados",
+      "question_count": 8
+    },
+    {
+      "source_as_recorded": "Thrall; POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
+      "question_count": 16
+    }
+  ],
+  "bibliographic_sources": [
+    {
+      "authors": "Coulson, Arlene; Lewis, Noreen D.",
+      "title": "An atlas of interpretative radiographic anatomy of the dog and cat",
+      "edition": "2. ed.",
+      "publisher": "Blackwell",
+      "place": "Iowa, USA",
+      "year": 2008,
+      "reported_in": "POP de Radiologia Veterinária, p. 84",
+      "source_status": "Transcrição da bibliografia do manual; exemplar não incluído no pacote."
+    },
+    {
+      "authors": "Evans, Howard E.; de Lahunta, Alexander et al.",
+      "title": "Miller’s anatomy of the dog",
+      "edition": "4. ed.",
+      "publisher": "Elsevier",
+      "place": "Missouri, USA",
+      "year": 2013,
+      "reported_in": "POP de Radiologia Veterinária, p. 84",
+      "source_status": "Transcrição da bibliografia do manual; exemplar não incluído no pacote."
+    },
+    {
+      "authors": "Herring, William",
+      "title": "Radiologia básica: aspectos fundamentais",
+      "edition": "3. ed.",
+      "translator": "Vania Regina de Souza Albuquerque; Rebeca Andrade; Soraya Imon de Oliveira",
+      "publisher": "Elsevier",
+      "place": "Rio de Janeiro",
+      "year": 2017,
+      "reported_in": "POP de Radiologia Veterinária, p. 84",
+      "source_status": "Transcrição da bibliografia do manual; exemplar não incluído no pacote."
+    },
+    {
+      "authors": "Marchiori, Edson; Santos, Maria Lúcia",
+      "title": "Introdução à Radiologia",
+      "edition": "2. ed. [reimpr.]",
+      "publisher": "Guanabara Koogan",
+      "place": "Rio de Janeiro",
+      "year": 2017,
+      "reported_in": "POP de Radiologia Veterinária, p. 84",
+      "source_status": "Transcrição da bibliografia do manual; exemplar não incluído no pacote."
+    },
+    {
+      "authors": "Lavin, Lisa M.",
+      "title": "Radiography in Veterinary Technology",
+      "edition": "4. ed.",
+      "publisher": "Saunders Elsevier",
+      "place": "Missouri, USA",
+      "year": 2007,
+      "reported_in": "POP de Radiologia Veterinária, p. 84",
+      "source_status": "Transcrição da bibliografia do manual; exemplar não incluído no pacote."
+    },
+    {
+      "authors": "Owens, Jerry M.; Biery, Darryl N.",
+      "title": "Radiographic interpretation for the small animal clinician",
+      "edition": "2. ed.",
+      "publisher": "Williams & Wilkins",
+      "place": "Maryland, USA",
+      "year": 1999,
+      "reported_in": "POP de Radiologia Veterinária, p. 84",
+      "source_status": "Transcrição da bibliografia do manual; exemplar não incluído no pacote."
+    },
+    {
+      "authors": "Thrall, Donald E.; Robertson, Ian D.",
+      "title": "Atlas of normal radiographic anatomy & anatomic variants in the dog and cat",
+      "edition": "2. ed.",
+      "publisher": "Elsevier",
+      "place": "Missouri, USA",
+      "year": 2016,
+      "reported_in": "POP de Radiologia Veterinária, p. 84",
+      "source_status": "Transcrição da bibliografia do manual; exemplar não incluído no pacote."
+    },
+    {
+      "authors": "Thrall, Donald E. et al.",
+      "title": "Textbook of veterinary diagnostic radiology",
+      "edition": "7. ed.",
+      "publisher": "Elsevier",
+      "place": "Missouri, USA",
+      "year": 2018,
+      "format": "E-book",
+      "reported_in": "POP de Radiologia Veterinária, p. 84",
+      "source_status": "Transcrição da bibliografia do manual; exemplar não incluído no pacote."
+    }
+  ],
+  "library_resources": [
+    {
+      "title": "POP TRAUMA.pptx",
+      "type": "Apresentação de protocolo/trauma",
+      "url": "https://drive.google.com/file/d/1bt7NSlqzTE1Zec5yn_KfZutPOrUM_x5G/view",
+      "folder": "Pasta Drive de POPs e protocolos radiográficos",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Instruções raio-x.pptx",
+      "type": "Apresentação de instruções radiográficas",
+      "url": "https://drive.google.com/file/d/1m9AMWygLYZO0icEkTmaUJDl3LaJ6nwgW/view",
+      "folder": "Pasta Drive de POPs e protocolos radiográficos",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "POP de Radiologia Veterinária — Daniel dos Santos Baptista",
+      "type": "Manual PDF; inclui bibliografia na p. 84",
+      "url": "https://drive.google.com/file/d/15CBAzZyxKUkEdt8SKt88qiR8xYNf3Trx/view",
+      "duplicate_copy_url": "https://drive.google.com/file/d/17a6mCtWc77mpNveBz6E6rOd9WNycxv2l/view",
+      "folder": "Duas pastas de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Posicionamentos radiográficos.pptx",
+      "type": "Apresentação de posicionamentos",
+      "url": "https://drive.google.com/file/d/1BWU8K0LXKusCzz0b4Dg1eMqF1LGlSFbT/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Padrão Solicitações..pdf",
+      "type": "Documento de solicitações",
+      "url": "https://drive.google.com/file/d/14O2aDEFmn3fLtWpPCm9fJgJIBRgjmIS2/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "diagnostico-de-radiologia-veterinario-donald-e-thrall-dvm-phd_compress.pdf",
+      "type": "Livro PDF no Drive; direitos/licença a confirmar antes de republicação",
+      "url": "https://drive.google.com/file/d/1Q1gtoiPRJ3TvK4r9X3WKMijSKoXEsXdR/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Identificação das imagens radiográficas.pptx",
+      "type": "Apresentação de identificação das imagens",
+      "url": "https://drive.google.com/file/d/1fBo3iNKf81BSnFRwv_kcT-D2dXOPgCmx/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "EBOOK - 200 Descrições de Alterações Radiográficas.pdf",
+      "type": "E-book; direitos/licença a confirmar antes de republicação",
+      "url": "https://drive.google.com/file/d/18hEIL89clnlpxpp2iHV0vaKfK2BilQig/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Identificação das imagens radiográficas.pdf",
+      "type": "Material de estudo em PDF",
+      "url": "https://drive.google.com/file/d/1qNF-bCdgiWPlXdykZriENFkTg3xejMDG/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "EBOOK_200_Descrições_de_Alterações_Ultrassonográficas (atalho)",
+      "type": "Atalho para material de ultrassonografia; requer abrir no Drive",
+      "url": "https://drive.google.com/file/d/13CS94mfD_6UMMYQR9p9N6PJyUKAfo22y/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Protocolos DPI-CMA.pptx",
+      "type": "Apresentação de protocolos DPI",
+      "url": "https://drive.google.com/file/d/1iiAGTFmul5PzdhbodTknhT4GJcDNfImA/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Protocolos DPI.pptx",
+      "type": "Apresentação de protocolos DPI",
+      "url": "https://drive.google.com/file/d/19bmO4rbEHOqqQU2OUoqPJ1oh3NaLpu_X/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Preparo ultrassonografico-CMA.pptx",
+      "type": "Apresentação de preparo para ultrassonografia",
+      "url": "https://drive.google.com/file/d/1ELOLtBbdeuDKecz-n30pMs9lY_QKw24u/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Preparo ultrassonografico.pptx",
+      "type": "Apresentação de preparo para ultrassonografia",
+      "url": "https://drive.google.com/file/d/1mmjQrqvxZ2vb2FJSbJark3y1f98krLsH/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Prazo para entrega de RX e US-CMA.pptx",
+      "type": "Apresentação de prazos/fluxo",
+      "url": "https://drive.google.com/file/d/1za9TK_C2SsJWaIi4NSlsNyIe4vQL20Yu/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Prazo para entrega de RX e US.pptx",
+      "type": "Apresentação de prazos/fluxo",
+      "url": "https://drive.google.com/file/d/1oKSIugZN67LTQVWo1Nc7E8JDw2jVuGPB/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "Instruções para realização de exame radiográfico — Meireles.mp4",
+      "type": "Vídeo de instruções radiográficas",
+      "url": "https://drive.google.com/file/d/1O8YE7NT8O7d_dzahVL1Otlv6bcXRXRAW/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "CR. Meireles e Messejana.zip",
+      "type": "Arquivo de apoio de radiologia digital",
+      "url": "https://drive.google.com/file/d/1TdcP6VM1rQySN5xHsz5lN2aER3wZQ2dr/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "CR. Meireles e Messejana.mp4",
+      "type": "Vídeo de apoio de radiologia digital",
+      "url": "https://drive.google.com/file/d/1hmzffZ5jETnEDwHwS8brLmzmd2Wp8rB4/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    },
+    {
+      "title": "TERMO CISTOCENTESE GUIADA PS.pdf",
+      "type": "Termo clínico PDF; fora da bibliografia principal do jogo",
+      "url": "https://drive.google.com/file/d/1dqnZQL8Wj1cayPwJqtlJpkUAb-hdddQC/view",
+      "folder": "Biblioteca de radiologia no Drive",
+      "license_status": "unverified",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "public_preview": "bibliographic_metadata_only",
+      "company_logo_rx_status": "not_audited",
+      "company_logo_rx_download": "deny_if_present",
+      "company_logo_rx_print": "deny_if_present"
+    }
+  ],
+  "notes": [
+    "O banco contém questões e campos de fonte; não é, por si só, a biblioteca.",
+    "Os 32 grupos de fonte reproduzem o texto registrado nas 300 questões; entradas abreviadas não foram expandidas por suposição.",
+    "A bibliografia de oito obras foi transcrita da seção Referências bibliográficas, p. 84, do POP de Radiologia Veterinária localizado no Drive.",
+    "Materiais de radiologia encontrados no Drive são referenciados por links; o catálogo não redistribui PDFs, e-books ou vídeos com licença não confirmada.",
+    "O Manual de Zoonoses do Ministério da Saúde é o único manual completo de acesso local já incluído no pacote."
+  ],
+  "access_policy": {
+    "scope": "library_assets_only",
+    "default": {
+      "license_status": "unverified",
+      "download": "deny",
+      "print": "catalog_metadata_only",
+      "public_preview": "bibliographic_metadata_only"
+    },
+    "public_license": {
+      "download": "requires_unique_new_contribution",
+      "print": "license_terms_apply",
+      "attribution_required": true
+    },
+    "company_rx": {
+      "download": "deny",
+      "print": "deny",
+      "public_preview": "exclude",
+      "manual_screen_capture_prevention": "not_guaranteed_by_web_app"
+    },
+    "unique_contribution": {
+      "required": true,
+      "must_not_already_exist_on_platform": true,
+      "verification": "sha256_and_platform_id",
+      "enforcement": "server_required",
+      "current_preview_available": false,
+      "downloads_disabled_until_verification": true
+    },
+    "items_without_verified_license": 20,
+    "policy_note": "Unknown license or company ownership defaults to no full-file download. Public preview shows only bibliographic metadata. A public website cannot block operating-system screenshots."
+  },
+  "local_resources": [
+    {
+      "title": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
+      "file": "Manual_Zoonoses_MS.pdf",
+      "source": "Ministério da Saúde, 2016",
+      "license": "CC BY-NC-SA 4.0 (as indicated in the source document)",
+      "license_status": "public_license_confirmed",
+      "download_allowed_in_public_preview": false,
+      "print_source_allowed_in_public_preview": false,
+      "unique_contribution_required_before_download": true,
+      "company_logo_rx": false,
+      "public_preview": "bibliographic_metadata_only"
+    }
+  ]
+}

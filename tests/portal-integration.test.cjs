@@ -9,7 +9,7 @@ const files = (dir) => fs.readdirSync(path.join(root, dir), {withFileTypes:true}
 test('entrega DPI é individual e não contém rotas ou logos de outras áreas', () => {
   for (const omitted of ['rx-vet.html','direito-audiencia.html','assets/portal.css','assets/vet.css']) assert.equal(fs.existsSync(path.join(root,omitted)),false,omitted);
   assert.ok(fs.existsSync(path.join(root,'index.html')));
-  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'),/max-width: 600px/);
+  assert.match(fs.readFileSync(path.join(root,'index.html'),'utf8'),/new URL\('\/dpi-home\.html'/);
   const app = fs.readFileSync(path.join(root,'dpi-home.html'),'utf8');
   assert.match(app,/EL-X VET/);
   assert.match(app,/DESAFIO DPI/);
@@ -26,15 +26,19 @@ test('a biblioteca entregue é clínica veterinária e preserva o banco editoria
   assert.ok(fs.statSync(path.join(lib,'CATALOGO-BIBLIOTECA-DPI.md')).size > 0);
   assert.ok(fs.statSync(path.join(lib,'bibliografia-dpi.json')).size > 0);
   assert.ok(fs.statSync(path.join(lib,'Manual_Zoonoses_MS.pdf')).size > 0);
-  const bank = JSON.parse(fs.readFileSync(path.join(root,'dpi-r18.1/dados/banco-dpi-300.json'),'utf8'));
+  const runtime = fs.readFileSync(path.join(root,'dpi-r18.1/ABRA-ESTA-PREVIA.html'),'utf8');
+  const bank = JSON.parse(runtime.match(/const DPI_BANCO_BASE=(\[[^\n]+\]);/)[1]);
   assert.equal(bank.length,300);
 });
 
-test('imagens externas do jogo apontam a arquivos presentes e o rig só carrega mascotes DPI', () => {
+test('imagens externas e módulos de personagens do candidato recuperado existem', () => {
   const runtime = fs.readFileSync(path.join(root,'dpi-r18.1/ABRA-ESTA-PREVIA.html'),'utf8');
   const refs = new Set([...runtime.matchAll(/(?:src|href)=["'](\/assets\/[^"']+)|url\(["']?(\/assets\/[^)"']+)/g)].map(m => m[1] || m[2]));
   for (const ref of refs) assert.ok(fs.existsSync(path.join(root,ref.slice(1))), `asset sem arquivo: ${ref}`);
-  const rig = fs.readFileSync(path.join(root,'dpi-r18.1/voz-e-mascotes/elx-rig.js'),'utf8');
-  assert.match(rig,/const configs=\{"health"/);
-  assert.doesNotMatch(rig,/"law"\s*:\s*\{|"sports"\s*:\s*\{|"field"\s*:\s*\{/);
+  const driver = fs.readFileSync(path.join(root,'assets/dpi-puppet-driver.js'),'utf8');
+  assert.match(driver,/acting-clips\.js/);
+  const clips = fs.readFileSync(path.join(root,'assets/fsm/acting-clips.js'),'utf8');
+  assert.match(clips,/everton/);
+  for(const filename of ['everton-acting.avif','fernanda-acting.avif'])assert.ok(fs.statSync(path.join(root,'assets',filename)).size>0);
+  assert.doesNotMatch(driver,/law|sports|direito-audiencia/);
 });

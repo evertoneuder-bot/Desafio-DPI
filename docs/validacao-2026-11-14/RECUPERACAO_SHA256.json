@@ -1,0 +1,110 @@
+{
+  "origin": "/workspace/scratch/d4b95970c586/dpi-refine-20261107",
+  "base": "ff56b03db2f2f4c5359b2d0532d9a64f41ea2c01",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "87ba2b2d70f016561bc4386608525734039ceed94490561d36d79a60e6207177"
+    },
+    {
+      "path": "dpi-home.html",
+      "sha256": "9657e967b4ae80728e0a88e01a23bc15e5831fd4b148dfa529b121b35a37ad50"
+    },
+    {
+      "path": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "sha256": "2a3ee71bc42b1677f00796f759fc795d53318cd5bd3003bc46a9cd4b8bf92d7a"
+    },
+    {
+      "path": "assets/dpi-2d-art.js",
+      "sha256": "4364ee9dcc7c22d73deac0fd34a069d8d3217e9fd2ebb0a338c47a01bd3f5a51"
+    },
+    {
+      "path": "assets/dpi-puppet-driver.js",
+      "sha256": "63b234b0ca9b8a9a37b178e8c0dbfbba2afdd31e89c511b66ea77071f2032076"
+    },
+    {
+      "path": "tools/browser-voice-engine-patch.cjs",
+      "sha256": "6572c7a61fa62f854be5c9d3bd9c2cfe494aff07473c87ee481065a7eab183b5"
+    },
+    {
+      "path": "tools/build-browser-voice.cjs",
+      "sha256": "97d823c04dc46a8020a2748ad74f888ea22ecc91249d26de0abc3cd840924c9d"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-menu-cards.js",
+      "sha256": "2eabe0716a5fa22ad05326fe9fc13ffbf5d9d657ba10e3c0bda8ed1ad5434a49"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-browser-voice.js",
+      "sha256": "9118eb4ece82c3bce84ca2113609f2cd20f429af9591d3063a597024629c2ec1"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-audio-playback.js",
+      "sha256": "4d9975c9453c987a069b14bef028ad45d714d16e43ce4b9f9bc829f64c1b2d6b"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-speech-stream.js",
+      "sha256": "a4e2db57b77bb68ed816f2369ce0cb6c2b7db4ce947a63867372bd980de7c489"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-mascot-motion.js",
+      "sha256": "11cc8d8bf25ccd50a449b44f50e9c5b91e8caccb37e75313e4428efca3b46b35"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-profile-draft.js",
+      "sha256": "e4bec58a45c34f816e574d90087a423f9e0aa5e4d9d2bdb8b5b9633f6c2e5556"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-speech-timing.js",
+      "sha256": "167a352cf8dd2f2aad056f68163eb10851e3a617d1fae2cd3051eac57776d401"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-duo-speech.js",
+      "sha256": "8cf7ac5321cc6d589e65ce696e7e73f1796cf2d2193a61bdf3165985aebba3ea"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-spoken-text.js",
+      "sha256": "1204873aed985575c6ba9c912e5bd932f4a146e868b3edf0d5789a6f2e0539d2"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-launch-router.js",
+      "sha256": "70e9392f15e5717b44e87e207602ebd82e03a932113d1058a24c780b68f45eaf"
+    },
+    {
+      "path": "dpi-r18.1/voz-e-mascotes/dpi-browser-voice-worker.js",
+      "sha256": "e36caea62586b38d217fcfc07698858f5466ebb98b3a2b3a8607de2fac7a1956"
+    },
+    {
+      "path": "assets/fsm/tom-nameplate.js",
+      "sha256": "ef5dfd8011e1d0e1640797c2fc3e2996463d3ada467cc868618b1b887e7cfa73"
+    },
+    {
+      "path": "assets/fsm/acting-mouths.js",
+      "sha256": "f7351937dea96197e142e987fd90b3c9d01c57b0f9e237200888c40bcf001e2e"
+    },
+    {
+      "path": "assets/fsm/sprite-renderer.js",
+      "sha256": "cdd3408472dc2123f4b5af5ab078211a9fde1800c98a2ba1b4211cc35e5e5c0a"
+    },
+    {
+      "path": "assets/fsm/character-state-machine.js",
+      "sha256": "3187def3bf56a1cca225018865c1709c29db0e270217117bedc3e086e81ab0a3"
+    },
+    {
+      "path": "assets/fsm/acting-clips.js",
+      "sha256": "debf7b7ffa9f257f8b870ceb9533f6158e7fa82ffad1a02d8eb5651eb7335446"
+    },
+    {
+      "path": "assets/fsm/wordgame-stage.js",
+      "sha256": "91bd4f3b28ac09b6e7811555b29e6443f5aa5525e05e0f3d94d744a9d486cfc3"
+    },
+    {
+      "path": "assets/everton-acting.avif",
+      "sha256": "7b794febabbd72c5367ad7c63e07bb65fd37eda7efc3094d8239f0981ee889da"
+    },
+    {
+      "path": "assets/fernanda-acting.avif",
+      "sha256": "16217f7274cf444dcdbf31db03b508fcac9f3bbdee66fd211b214108f1e0bca2"
+    }
+  ]
+}

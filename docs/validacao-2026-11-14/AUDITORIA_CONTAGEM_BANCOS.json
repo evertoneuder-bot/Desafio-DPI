@@ -1,0 +1,106 @@
+{
+  "candidates": [
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/dados/banco-dpi-300.json",
+      "kind": "historical-json",
+      "count": 300,
+      "unique": 300
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/dados/banco-dpi-adicional.js",
+      "kind": "additional",
+      "count": 25,
+      "unique": 25
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-voice-fix/dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "kind": "base",
+      "count": 300,
+      "unique": 300
+    },
+    {
+      "path": "/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/dpi-r18.1/dados/banco-dpi-adicional.js",
+      "kind": "additional",
+      "count": 25,
+      "unique": 25
+    },
+    {
+      "path": "/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "kind": "base",
+      "count": 300,
+      "unique": 300
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/voice-recovery-20261107/recovered/dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "kind": "base",
+      "count": 300,
+      "unique": 300
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-refine-20261107/verify-overlay/dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "kind": "base",
+      "count": 300,
+      "unique": 300
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-inspecao/dpi-r18.1/dados/banco-dpi-adicional.js",
+      "kind": "additional",
+      "count": 25,
+      "unique": 25
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-inspecao/dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "kind": "base",
+      "count": 300,
+      "unique": 300
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-refine-20261107/project/dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "kind": "base",
+      "count": 300,
+      "unique": 300
+    },
+    {
+      "path": "/workspace/scratch/cdf1ec7ab7c4/repo/dpi-r18.1/dados/banco-dpi-adicional.js",
+      "kind": "additional",
+      "count": 25,
+      "unique": 25
+    },
+    {
+      "path": "/workspace/scratch/cdf1ec7ab7c4/repo/dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "kind": "base",
+      "count": 300,
+      "unique": 300
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-refine-20261107/local-preview/dist/dpi-r18.1/dados/banco-dpi-adicional.js",
+      "kind": "additional",
+      "count": 25,
+      "unique": 25
+    },
+    {
+      "path": "/workspace/scratch/d4b95970c586/dpi-refine-20261107/local-preview/dist/dpi-r18.1/ABRA-ESTA-PREVIA.html",
+      "kind": "base",
+      "count": 300,
+      "unique": 300
+    }
+  ],
+  "additionalHistory": [
+    {
+      "commit": "690e0c702504bfe6ececb2d17a79f33bbdcf5554",
+      "count": 25
+    },
+    {
+      "commit": "f8cbfb280760f7c70ac7493fa1f6362d6dd23aae",
+      "count": 25
+    },
+    {
+      "commit": "1eaf1ae4b6cc78b8153ae77aedee27dc75f3f830",
+      "count": 25
+    },
+    {
+      "commit": "44df0606de30bc39261cdcb88594cdc97c08c8b6",
+      "count": 25
+    }
+  ]
+}

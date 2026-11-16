@@ -1,0 +1,7 @@
+(function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.DPISpokenText=api})(typeof window!=='undefined'?window:this,function(){
+ 'use strict';
+ const terms={DCF:'displasia coxofemoral',RX:'radiografia',US:'ultrassonografia',TC:'tomografia computadorizada',RM:'ressonância magnética',ATM:'articulação temporomandibular',EPI:'equipamento de proteção individual',EPIs:'equipamentos de proteção individual',POCUS:'ultrassonografia no ponto de atendimento',AFAST:'avaliação ultrassonográfica abdominal focada no trauma',TFAST:'avaliação ultrassonográfica torácica focada no trauma',FAST:'avaliação ultrassonográfica focada no trauma',PRF:'frequência de repetição de pulsos',ALARA:'tão baixo quanto razoavelmente exequível',VHS:'tamanho cardíaco vertebral',LLD:'laterolateral direita',LLE:'laterolateral esquerda',VD:'ventrodorsal',DV:'dorsoventral',CrCd:'craniocaudal',CdCr:'caudocranial',ML:'mediolateral',MTD:'membro torácico direito',MTE:'membro torácico esquerdo',MPD:'membro pélvico direito',MPE:'membro pélvico esquerdo',CFMV:'Conselho Federal de Medicina Veterinária',CRMV:'Conselho Regional de Medicina Veterinária',DPI:'diagnóstico por imagem',ACVR:'Colégio Americano de Radiologia Veterinária',ECVDI:'Colégio Europeu de Diagnóstico por Imagem Veterinário'};
+ const pattern=new RegExp('\\b('+Object.keys(terms).sort((a,b)=>b.length-a.length).join('|')+')\\b','g');
+ function expand(value){return String(value||'').replace(pattern,word=>terms[word])}
+ return{expand};
+});

@@ -1,0 +1,187 @@
+[
+  {
+    "source": "dpi-home.html",
+    "ref": "./assets/marca-elx-vet-vetor-fundo-escuro.svg",
+    "exists": true
+  },
+  {
+    "source": "dpi-home.html",
+    "ref": "./assets/dpi-home.css",
+    "exists": true
+  },
+  {
+    "source": "dpi-home.html",
+    "ref": "./dpi-home.html",
+    "exists": true
+  },
+  {
+    "source": "dpi-home.html",
+    "ref": "./assets/marca-elx-vet-vetor-fundo-escuro.svg",
+    "exists": true
+  },
+  {
+    "source": "dpi-home.html",
+    "ref": "./assets/marca-elx-vet-vetor-fundo-escuro.svg",
+    "exists": true
+  },
+  {
+    "source": "dpi-home.html",
+    "ref": "./assets/dpi-2d-art.js?v=story-half-fernanda-v1",
+    "exists": true
+  },
+  {
+    "source": "dpi-home.html",
+    "ref": "./assets/dpi-puppet-driver.js?v=story-half-fernanda-v1",
+    "exists": true
+  },
+  {
+    "source": "dpi-home.html",
+    "ref": "./assets/dpi-home.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-speech-events.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-rounds.css",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./biblioteca/biblioteca-veterinaria/artigos-cientificos-dpi.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "/favicon.ico",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "/assets/marca-elx-vet-vetor-fundo-escuro.svg",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "/assets/marca-elx-oficial-escura.png",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./dados/banco-dpi-adicional.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-bank-extension.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-spoken-text.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-audio-playback.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-browser-voice.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-speech-stream.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-duo-speech.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-speech-timing.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-round-engine.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-game-rounds.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-menu-cards.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-launch-router.js",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "../assets/dpi-2d-art.js?v=story-half-fernanda-v1",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "../assets/dpi-puppet-driver.js?v=story-half-fernanda-v1",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-mascot-motion.js?v=story-half-fernanda-v1",
+    "exists": true
+  },
+  {
+    "source": "dpi-r18.1/ABRA-ESTA-PREVIA.html",
+    "ref": "./voz-e-mascotes/dpi-profile-draft.js",
+    "exists": true
+  },
+  {
+    "source": "assets/dpi-puppet-driver.js",
+    "ref": "./fsm/wordgame-stage.js",
+    "exists": true
+  },
+  {
+    "source": "assets/dpi-puppet-driver.js",
+    "ref": "./fsm/character-state-machine.js",
+    "exists": true
+  },
+  {
+    "source": "assets/dpi-puppet-driver.js",
+    "ref": "./fsm/sprite-renderer.js",
+    "exists": true
+  },
+  {
+    "source": "assets/dpi-puppet-driver.js",
+    "ref": "./fsm/acting-clips.js",
+    "exists": true
+  },
+  {
+    "source": "assets/dpi-puppet-driver.js",
+    "ref": "./fsm/acting-mouths.js",
+    "exists": true
+  },
+  {
+    "source": "assets/fsm/sprite-renderer.js",
+    "ref": "./tom-nameplate.js",
+    "exists": true
+  },
+  {
+    "source": "assets/fsm/acting-clips.js",
+    "ref": "./character-state-machine.js",
+    "exists": true
+  }
+]

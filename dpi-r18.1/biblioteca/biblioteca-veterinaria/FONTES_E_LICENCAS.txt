@@ -1,0 +1,23 @@
+Área: Medicina Veterinaria
+
+Fonte: Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais
+Instituição/ano: Ministério da Saúde, 2016
+Acesso oficial: https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/zoonose/manual-zoonoses-tecnicas-e-operacionais.pdf
+Situação de licença: CC BY-NC-SA 4.0 (conforme indicação no documento)
+
+As perguntas deste pacote foram redigidas originalmente para fins educativos, com base nos conceitos da fonte; não são transcrições literais. Confira a página/seção citada antes de publicar ou adaptar. O quiz é material educativo e não substitui avaliação veterinária nem protocolos clínicos vigentes.
+
+Bibliografia DPI localizada no Drive:
+O arquivo POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf, de Daniel dos Santos Baptista, contém uma seção “Referências bibliográficas” na página impressa 84. Oito obras nela listadas foram transcritas para CATALOGO-BIBLIOTECA-DPI.md e bibliografia-dpi.json. O manual permanece na pasta de origem do Drive, pois a licença de redistribuição do PDF não foi confirmada. O link consta no catálogo e na tela Banco / Biblioteca.
+
+Materiais complementares no Drive:
+Foram localizados POPs, apresentações de posicionamento, identificação radiográfica, protocolos DPI, um e-book de descrições radiográficas, material de Thrall e arquivos audiovisuais. Consulte os links e notas em CATALOGO-BIBLIOTECA-DPI.md. Os arquivos não foram copiados para o pacote: a licença/escopo de redistribuição não foi verificado, e alguns títulos podem ser materiais comerciais ou internos.
+
+Política de acesso para a prévia pública (21/10/2026):
+- Licença pública não confirmada: se a plataforma de origem autorizar a consulta, ela é somente na tela; o jogo não distribui o arquivo integral nem oferece impressão integral. Capturas de tela seguem os termos da fonte.
+- Licença pública confirmada: ainda exige atribuição e cumprimento dos termos. A prévia também não libera download sem a validação de uma contribuição nova e única.
+- Regra de contribuição: antes de baixar um item permitido, a pessoa precisa enviar outro arquivo que ainda não exista na plataforma. O servidor verifica licença, hash e identificador da plataforma. Este protótipo estático não possui essa validação; por isso, todos os downloads ficam desligados.
+- Arquivo empresarial com logo RX: excluir da biblioteca e da prévia pública; não permitir download, impressão ou captura dentro do jogo. Um site não consegue bloquear de forma confiável uma captura feita pelo sistema operacional, por isso o conteúdo RX deve permanecer fora da página.
+- Os links de origem listados neste catálogo são um índice interno de curadoria, não uma autorização de redistribuição nem parte do site público.
+
+O banco de questões registra 32 formulações distintas de fonte. Essas formulações e a contagem de itens correspondente são mantidas em bibliografia-dpi.json; não representam necessariamente 32 citações completas ou 32 arquivos locais.

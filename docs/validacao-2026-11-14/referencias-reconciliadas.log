@@ -1,0 +1,160 @@
+✔ audio status accepts the Portuguese Vercel variable names (2.912008ms)
+✔ audio status remains disabled without the explicit activation flag (0.32879ms)
+✔ TTS accepts Portuguese voice aliases and synthesizes only after quota preflight (1.058968ms)
+✔ TTS refuses exhausted quota without calling synthesis (0.482558ms)
+✔ TTS reports provider failure timings without private data (0.520916ms)
+✔ TTS reports subscription preflight failures without synthesis (0.329972ms)
+✔ TTS fails closed if subscription omits overage policy without synthesizing (0.47698ms)
+✔ TTS rejects null and missing credit usage rather than treating it as free balance (0.393627ms)
+✔ TTS rejects missing total balance rather than allowing synthesis (0.372505ms)
+✔ TTS Server-Timing separates credit preflight, synthesis response and audio buffering (1.952989ms)
+✔ TTS rejects whitespace-only subscription fields without invoking synthesis (0.570329ms)
+✔ superseded desktop speech does not count as completed or failed playback (1.164084ms)
+✔ desktop music stays lowered while a replacement utterance plays (0.846451ms)
+✔ desktop audio cancellation preserves last baseline across several replacements (0.406746ms)
+✔ disabling desktop voice cancels the active utterance and restores music (0.559423ms)
+✔ resuming music during speech does not overpower the narrator (0.787513ms)
+✔ desktop speech exposes elapsed time to first audio event without storing spoken text (1.228971ms)
+✔ desktop timing holds bounded samples and does not let stale speech restore music (0.481838ms)
+✔ answer and home paths stop ongoing question narration (0.833752ms)
+✔ stopSpeech cancels active voice, restores music and ignores late events (0.381368ms)
+✔ stopSpeech is safe before the first utterance (0.170744ms)
+✔ root redirects phone preserving parameters without running legacy loader (3.252084ms)
+✔ root redirects desktop preserving parameters without running legacy loader (1.097475ms)
+✔ a raiz direciona à capa compartilhada sem carregar o jogo legado (1.518903ms)
+✔ a capa recuperada mantém sua marca SVG, mascotes e fundo, sem antecipar jogos (0.52369ms)
+✔ Estude, Pratique, Evolua e Compartilhe são controles clicáveis; Compartilhe oferece só ações de envio (0.477792ms)
+✔ o roteador pede cadastro no início, segue ao menu do jogo e devolve recursos informativos à capa (0.480666ms)
+✔ o clique de Começar abre a rota de identificação, não começa direto um desafio (2.481255ms)
+✔ a rota start configura a identificação e a rota de recurso abre a função apropriada (7.451319ms)
+✔ as correções preservam áudio aprovado, cadastro por e-mail, questões e PDFs em nova aba (61.046916ms)
+✔ phone and desktop entry both retain query and hash without legacy requests (1.801053ms)
+✔ approved art is retained, with independent male and female layers (0.692742ms)
+✔ Fernanda is smaller than Tom in every animation state (0.359826ms)
+✔ motion is slower and eased rather than a mechanically looping bounce (0.155161ms)
+✔ speech only animates the selected persona; both retain rest animation (0.088572ms)
+✔ one persona reacts at a time, while the other keeps natural idle animation (0.192818ms)
+✔ automatic inline observer yields question to the installed router (2.096523ms)
+✔ automatic inline observer yields feedback to the installed router (0.323943ms)
+✔ explicit public reader can still narrate the complete question (0.606564ms)
+✔ legacy minigame prompts retain automatic narration when the router has no reader for them (0.14127ms)
+✔ actual dpiReadQuestion entry bypasses only the automatic observer suppression (2.093549ms)
+✔ Plantão has exactly twelve ordered, distinct narration phase guides (1.225005ms)
+✔ Plantão narration is gated by known phase and rendered case question (0.241009ms)
+✖ Plantão cranio reaches decision 12 with distinct answers and one submission per decision (10.945505ms)
+✖ Plantão pelve reaches decision 12 with distinct answers and one submission per decision (5.808923ms)
+✔ Plantão membro reaches decision 12 with distinct answers and one submission per decision (9.984483ms)
+✔ Plantão respiratorio reaches decision 12 with distinct answers and one submission per decision (10.824784ms)
+✔ Plantão reprodutivo reaches decision 12 with distinct answers and one submission per decision (7.369988ms)
+✔ Plantão misto reaches decision 12 with distinct answers and one submission per decision (7.583096ms)
+✔ Plantão timeout submits once and zero vitality ends the simulation (7.454444ms)
+✔ Plantão correctness follows displayed answer text after option reordering (6.567553ms)
+✔ all 300 approved base questions remain byte-for-byte identical to 42f5ae4 (2.958597ms)
+✔ every inline stylesheet remains identical to the recovered candidate baseline (5.931285ms)
+✔ gameplay, registration, scoring, review, ranking and legacy minigames retain the recovered candidate code (3.715505ms)
+✔ all inline executable scripts compile without syntax errors (35.138352ms)
+✔ the executed bank includes all 325 unique questions: 300 base plus 25 additions (12.29831ms)
+✔ recovered candidate regression: crossword-input (166.342749ms)
+✔ recovered candidate regression: crossword-review (49.853462ms)
+✔ recovered candidate regression: minigame-reaction (38.885274ms)
+✔ recovered candidate regression: story-timing (42.482032ms)
+✔ recovered candidate regression: duo-speech (42.004049ms)
+✔ recovered candidate regression: profile-draft (49.44921ms)
+✔ recovered candidate regression: entry-share (39.058367ms)
+✔ recovered candidate regression: approved-dispatch (55.170806ms)
+✔ recovered candidate regression: motion-lifecycle (43.972131ms)
+✔ recovered candidate regression: spoken-text (35.831554ms)
+✔ speech events identify each playback turn for late-event rejection (0.988252ms)
+✔ speech events reach document captions and window mascots through one bubbling event (0.229362ms)
+✔ late starts, progress and ends cannot replace or stop the current narrator (1.688185ms)
+✔ buffering playing events do not restart captions and mute closes one active speech (1.197484ms)
+✔ legacy recording listeners cannot change persona behind the assistant owner (0.881122ms)
+✔ a completed device utterance cannot restart animation or invoke completion twice (2.276891ms)
+✔ two personas in one speech generation receive distinct event identities (0.164155ms)
+✔ late playing from Tom cannot reset Fernanda caption after turn transition (2.945258ms)
+✔ buffering playing event does not duplicate the same turn (0.719261ms)
+✔ voice question detection distinguishes a new DOM question from repeated text (1.393626ms)
+✔ question text uses real whitespace normalization, not a literal slash-s (0.429079ms)
+✔ voice diagnostics do not contain question text or identifiers (0.432093ms)
+✔ question scan uses a bounded, coalesced timer instead of an indefinitely reset debounce (0.305425ms)
+✔ client audio playback timing is read-only and excludes media URLs or audio contents (0.258485ms)
+✔ narration invocation diagnostics distinguish reader and fallback without storing speech text (0.223994ms)
+✔ outdated narration cannot speak after a question is replaced or moved (0.158927ms)
+✔ narration timing uses the detection time of its own question (0.106068ms)
+✔ answer feedback takes priority over scheduling question narration (0.896065ms)
+✔ pending question narration is suppressed if feedback appeared before playback (0.430411ms)
+✔ timed DOM simulation prevents question/feedback narration collisions (5.874702ms)
+✔ question identity resets when the question temporarily disappears (0.216742ms)
+✔ public question reader is tracked without exposing prompt text or mutating its return (0.222431ms)
+✔ Plantão narration guides each phase without a second competing speech (0.205436ms)
+✔ Plantão primary reader includes phase explanation, question and options in one speech (1.10772ms)
+✔ inline reader timing is recorded without user text, URLs or credentials (0.266187ms)
+✔ inline public read yields audio timing even if it precedes observer question detection (0.425393ms)
+✔ public-read timing resets on disappearance or replacement of the question (0.168752ms)
+✔ static voice manifest readiness is recorded for diagnosing the initial delay (0.179457ms)
+✔ static voice readiness remains unknown if no catalog state is exposed (0.127781ms)
+✔ catalog pending diagnostic distinguishes missing, loading and completed catalog (0.153769ms)
+✔ neural TTS network timing distinguishes first response byte from body transfer (0.529709ms)
+✔ feedback speech cannot inherit the previous question reader latency baseline (0.176392ms)
+✔ late fallback suppression uses rendered question identity, not a clock window (0.122012ms)
+✔ feedback resets question identity while preserving already-read duplicate suppression (0.138536ms)
+✔ question timing resets before feedback speech and after disappearing question (0.152787ms)
+✔ entrega DPI é individual e não contém rotas ou logos de outras áreas (23.016645ms)
+✔ a biblioteca entregue é clínica veterinária e preserva o banco editorial DPI (13.731104ms)
+✔ imagens externas e módulos de personagens do candidato recuperado existem (29.119987ms)
+✔ primeiro trecho é curto e a fala inteira é preservada em ordem (0.854543ms)
+✔ prepara próximo trecho enquanto o primeiro toca e termina sem perder texto (0.783367ms)
+✔ cancelar impede reprodução de trecho que ainda está sendo preparado (1.153609ms)
+✔ erro na preparação seguinte é tratado sem rejeição solta durante a reprodução (0.741304ms)
+✔ cancelar durante a reprodução encerra imediatamente sem tocar o próximo trecho (0.261209ms)
+✔ a dupla troca de locutor somente após o áudio anterior terminar (0.614285ms)
+ℹ tests 110
+ℹ suites 0
+ℹ pass 108
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 821.882528
+
+✖ failing tests:
+
+test at tests/dpi-plantao-progression.test.cjs:17:85
+✖ Plantão cranio reaches decision 12 with distinct answers and one submission per decision (10.945505ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 12
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-plantao-progression.test.cjs:20:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/dpi-plantao-progression.test.cjs:17:85
+✖ Plantão pelve reaches decision 12 with distinct answers and one submission per decision (5.808923ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  9 !== 12
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-plantao-progression.test.cjs:20:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 9,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

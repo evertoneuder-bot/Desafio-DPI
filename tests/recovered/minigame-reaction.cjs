@@ -1,0 +1,5 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+(async()=>{const code=fs.readFileSync(__dirname+'/../../assets/fsm/character-state-machine.js','utf8');const {CharacterStateMachine,STATES:S,TRIGGERS:T}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const actor=new CharacterStateMachine({persona:'Tom',random:()=>.5});actor.trigger(T.START_MINIGAME);for(let i=0;i<13;i++)actor.update(.1);assert.equal(actor.state,S.MINIGAME_CHEERING);
+assert.equal(actor.trigger(T.CORRECT),true,'Acerto do minijogo precisa acionar reação');assert.equal(actor.state,S.CORRECT_ANSWER);assert.equal(actor.trigger(T.INCORRECT),false,'Não interromper reação por evento repetido');for(let i=0;i<21;i++)actor.update(.1);assert.equal(actor.state,S.MINIGAME_CHEERING);assert(actor.trigger(T.INCORRECT));assert.equal(actor.state,S.INCORRECT_ANSWER);
+console.log('Acerto/erro dos minijogos acionam reação e retornam à torcida sem interromper reação vigente.');})().catch(e=>{console.error(e);process.exitCode=1});

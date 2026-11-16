@@ -1,0 +1,583 @@
+✔ audio status accepts the Portuguese Vercel variable names (2.979828ms)
+✔ audio status remains disabled without the explicit activation flag (2.672979ms)
+✔ TTS accepts Portuguese voice aliases and synthesizes only after quota preflight (1.664339ms)
+✔ TTS refuses exhausted quota without calling synthesis (0.815399ms)
+✔ TTS reports provider failure timings without private data (0.729201ms)
+✔ TTS reports subscription preflight failures without synthesis (0.629221ms)
+✔ TTS fails closed if subscription omits overage policy without synthesizing (0.785806ms)
+✔ TTS rejects null and missing credit usage rather than treating it as free balance (0.944312ms)
+✔ TTS rejects missing total balance rather than allowing synthesis (0.910071ms)
+✔ TTS Server-Timing separates credit preflight, synthesis response and audio buffering (0.886406ms)
+✔ TTS rejects whitespace-only subscription fields without invoking synthesis (0.645155ms)
+✔ superseded desktop speech does not count as completed or failed playback (0.767488ms)
+✔ desktop music stays lowered while a replacement utterance plays (1.172093ms)
+✔ desktop audio cancellation preserves last baseline across several replacements (0.393659ms)
+✔ disabling desktop voice cancels the active utterance and restores music (0.68853ms)
+✔ resuming music during speech does not overpower the narrator (0.805435ms)
+✔ desktop speech exposes elapsed time to first audio event without storing spoken text (0.951604ms)
+✔ desktop timing holds bounded samples and does not let stale speech restore music (0.36757ms)
+✔ answer and home paths stop ongoing question narration (1.00281ms)
+✔ stopSpeech cancels active voice, restores music and ignores late events (0.556983ms)
+✔ stopSpeech is safe before the first utterance (0.34087ms)
+✔ root redirects phone preserving parameters without running legacy loader (3.406154ms)
+✔ root redirects desktop preserving parameters without running legacy loader (0.877813ms)
+✖ a raiz mantém o carregamento web e direciona automaticamente apenas telefones à capa mobile (1.5708ms)
+✖ a capa aprovada mantém logo original e mascotes, usa fundo radiográfico real e não antecipa jogos (0.584754ms)
+✔ Estude, Pratique, Evolua e Compartilhe são controles clicáveis; Compartilhe oferece só ações de envio (0.517154ms)
+✖ o roteador pede cadastro no início, segue ao menu do jogo e devolve recursos informativos à capa (5.747417ms)
+✔ o clique de Começar abre a rota de identificação, não começa direto um desafio (1.770648ms)
+✔ a rota start configura a identificação e a rota de recurso abre a função apropriada (2.923072ms)
+✖ as correções preservam áudio aprovado, cadastro por e-mail, questões e PDFs em nova aba (12.703262ms)
+✖ mobile redirects without fetching the desktop game; desktop retains original game loader (0.49503ms)
+✖ approved art is retained, with independent male and female layers (2.809212ms)
+✔ Fernanda is smaller than Tom in every animation state (0.874258ms)
+✔ motion is slower and eased rather than a mechanically looping bounce (0.229523ms)
+✔ speech only animates the selected persona; both retain rest animation (0.411035ms)
+✖ one persona reacts at a time, while the other keeps natural idle animation (0.819926ms)
+✔ automatic inline observer yields question to the installed router (1.484971ms)
+✔ automatic inline observer yields feedback to the installed router (0.283153ms)
+✔ explicit public reader can still narrate the complete question (0.163654ms)
+✔ legacy minigame prompts retain automatic narration when the router has no reader for them (0.08652ms)
+✔ Plantão has exactly twelve ordered, distinct narration phase guides (1.854875ms)
+✔ Plantão narration is gated by known phase and rendered case question (0.336183ms)
+✖ Plantão cranio reaches decision 12 with distinct answers and one submission per decision (9.602643ms)
+✖ Plantão pelve reaches decision 12 with distinct answers and one submission per decision (5.754958ms)
+✔ Plantão membro reaches decision 12 with distinct answers and one submission per decision (9.021304ms)
+✔ Plantão respiratorio reaches decision 12 with distinct answers and one submission per decision (10.888417ms)
+✔ Plantão reprodutivo reaches decision 12 with distinct answers and one submission per decision (8.754174ms)
+✔ Plantão misto reaches decision 12 with distinct answers and one submission per decision (9.062926ms)
+✔ Plantão timeout submits once and zero vitality ends the simulation (15.297051ms)
+✔ Plantão correctness follows displayed answer text after option reordering (9.399619ms)
+✔ all 300 approved base questions remain byte-for-byte identical to 42f5ae4 (3.49643ms)
+✔ every inline stylesheet remains identical to the recovered candidate baseline (7.552227ms)
+✔ gameplay, registration, scoring, review, ranking and legacy minigames retain the recovered candidate code (4.945874ms)
+✔ all inline executable scripts compile without syntax errors (20.126471ms)
+✔ recovered candidate regression: crossword-input (96.134877ms)
+✔ recovered candidate regression: crossword-review (60.125685ms)
+✔ recovered candidate regression: minigame-reaction (39.974333ms)
+✔ recovered candidate regression: story-timing (71.697414ms)
+✔ recovered candidate regression: duo-speech (41.637762ms)
+✔ recovered candidate regression: profile-draft (46.757681ms)
+✔ recovered candidate regression: entry-share (40.556403ms)
+✔ recovered candidate regression: approved-dispatch (67.753975ms)
+✔ recovered candidate regression: motion-lifecycle (42.029967ms)
+✔ recovered candidate regression: spoken-text (34.350842ms)
+✔ speech events identify each playback turn for late-event rejection (0.992866ms)
+✔ speech events reach document captions and window mascots through one bubbling event (0.278056ms)
+✔ late starts, progress and ends cannot replace or stop the current narrator (1.603728ms)
+✔ buffering playing events do not restart captions and mute closes one active speech (1.45088ms)
+✔ legacy recording listeners cannot change persona behind the assistant owner (1.131272ms)
+✔ a completed device utterance cannot restart animation or invoke completion twice (2.628011ms)
+✔ two personas in one speech generation receive distinct event identities (0.207039ms)
+✔ late playing from Tom cannot reset Fernanda caption after turn transition (1.988835ms)
+✔ buffering playing event does not duplicate the same turn (0.483814ms)
+✔ voice question detection distinguishes a new DOM question from repeated text (0.903801ms)
+✔ question text uses real whitespace normalization, not a literal slash-s (0.374761ms)
+✔ voice diagnostics do not contain question text or identifiers (0.269153ms)
+✔ question scan uses a bounded, coalesced timer instead of an indefinitely reset debounce (0.182753ms)
+✔ client audio playback timing is read-only and excludes media URLs or audio contents (0.260109ms)
+✔ narration invocation diagnostics distinguish reader and fallback without storing speech text (0.19369ms)
+✔ outdated narration cannot speak after a question is replaced or moved (3.387371ms)
+✔ narration timing uses the detection time of its own question (0.117937ms)
+✔ answer feedback takes priority over scheduling question narration (0.179929ms)
+✔ pending question narration is suppressed if feedback appeared before playback (0.147841ms)
+✔ timed DOM simulation prevents question/feedback narration collisions (3.989948ms)
+✔ question identity resets when the question temporarily disappears (0.16701ms)
+✔ public question reader is tracked without exposing prompt text or mutating its return (0.139599ms)
+✔ Plantão narration guides each phase without a second competing speech (0.119789ms)
+✔ Plantão primary reader includes phase explanation, question and options in one speech (0.498576ms)
+✔ inline reader timing is recorded without user text, URLs or credentials (0.200971ms)
+✔ inline public read yields audio timing even if it precedes observer question detection (0.263424ms)
+✔ public-read timing resets on disappearance or replacement of the question (0.112969ms)
+✔ static voice manifest readiness is recorded for diagnosing the initial delay (0.127681ms)
+✔ static voice readiness remains unknown if no catalog state is exposed (0.058738ms)
+✔ catalog pending diagnostic distinguishes missing, loading and completed catalog (0.099879ms)
+✔ neural TTS network timing distinguishes first response byte from body transfer (0.38817ms)
+✔ feedback speech cannot inherit the previous question reader latency baseline (0.091477ms)
+✔ late fallback suppression uses rendered question identity, not a clock window (0.100821ms)
+✔ feedback resets question identity while preserving already-read duplicate suppression (0.085448ms)
+✔ question timing resets before feedback speech and after disappearing question (0.10042ms)
+✖ entrega DPI é individual e não contém rotas ou logos de outras áreas (1.529849ms)
+✔ a biblioteca entregue é clínica veterinária e preserva o banco editorial DPI (45.147071ms)
+✖ imagens externas do jogo apontam a arquivos presentes e o rig só carrega mascotes DPI (44.81226ms)
+✔ primeiro trecho é curto e a fala inteira é preservada em ordem (1.093826ms)
+✔ prepara próximo trecho enquanto o primeiro toca e termina sem perder texto (1.093656ms)
+✔ cancelar impede reprodução de trecho que ainda está sendo preparado (0.848449ms)
+✔ erro na preparação seguinte é tratado sem rejeição solta durante a reprodução (0.441861ms)
+✔ cancelar durante a reprodução encerra imediatamente sem tocar o próximo trecho (0.364876ms)
+✔ a dupla troca de locutor somente após o áudio anterior terminar (0.750643ms)
+ℹ tests 108
+ℹ suites 0
+ℹ pass 97
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 756.20072
+
+✖ failing tests:
+
+test at tests/dpi-home-reference.test.cjs:9:1
+✖ a raiz mantém o carregamento web e direciona automaticamente apenas telefones à capa mobile (1.5708ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /matchMedia\('\(max-width: 600px\)'\)/. Input:
+  
+  `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Desafio DPI — EL-X VET</title><script>const destination=new URL('/dpi-home.html',window.location.href);destination.search=window.location.search;destination.hash=window.location.hash;window.location.replace(destination.href)</script></head><body><div id="status">Carregando Desafio DPI…</div></body></html>`
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-home-reference.test.cjs:11:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Desafio DPI — EL-X VET</title><script>const destination=new URL('/dpi-home.html',window.location.href);destination.search=window.location.search;destination.hash=window.location.hash;window.location.replace(destination.href)</script></head><body><div id="status">Carregando Desafio DPI…</div></body></html>`,
+    expected: /matchMedia\('\(max-width: 600px\)'\)/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/dpi-home-reference.test.cjs:19:1
+✖ a capa aprovada mantém logo original e mascotes, usa fundo radiográfico real e não antecipa jogos (0.584754ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-home-reference.test.cjs:22:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/dpi-home-reference.test.cjs:41:1
+✖ o roteador pede cadastro no início, segue ao menu do jogo e devolve recursos informativos à capa (5.747417ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(router.includes("root.profile();\n    if (root.document.querySelector('#register.on')) root.afterReg = 'home';"))
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-home-reference.test.cjs:44:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/dpi-home-reference.test.cjs:111:1
+✖ as correções preservam áudio aprovado, cadastro por e-mail, questões e PDFs em nova aba (12.703262ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /deviceVoice=read\('dpi-device-voice'\)==='1'/. Input:
+  
+  '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">\n' +
+    '<script src="./voz-e-mascotes/dpi-speech-events.js"></script>\n' +
+    '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' +
+    '<script>if(new URLSearchParams(location.search).has("mode"))document.documentElement.classList.add("dpi-route-pending");</script>\n' +
+    '<style>html.dpi-route-pending body{visibility:hidden}\n' +
+    '.dpi-case-track-label{display:block;margin:1rem 0 .4rem;color:#153b52;font-weight:850;letter-spacing:.06em;font-size:.8rem}.dpi-case-track-select{display:block;width:min(100%,34rem);min-height:48px;padding:.7rem 1rem;border:2px solid #7aa9be;border-radius:14px;background:#fff;color:#153b52;font:700 1rem inherit}.dpi-case-track-note{max-width:58rem;color:#395d6f;line-height:1.55}.dpi-case-phase{margin:.7rem 0 1rem;padding:.7rem 1rem;border-left:4px solid #29a8bf;border-radius:0 12px 12px 0;b
+    '</style>\n' +
+    '<title>Desafio DPI — EL-X VET</title>\n' +
+    '<style>\n' +
+    '*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#021a31;color:#fff;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}\n' +
+    'body{display:flex;justify-content:center}button,input,select{font:inherit}button{color:#fff}\n' +
+    '.app{position:relative;width:100%;max-width:430px;min-height:100dvh;overflow:hidden;background:\n' +
+    'radial-gradient(circle at 84% 14%,#0a8b8b88 0 10%,transparent 32%),\n' +
+    'radial-gradient(circle at 8% 58%,#0069a577 0 8%,transparent 30%),\n' +
+    'radial-gradient(circle at 74% 78%,#00a76c44,transparent 27%),\n' +
+    'linear-gradient(155deg,#031b37 0%,#064765 48%,#00605c 100%);padding-bottom:max(18px,env(safe-area-inset-bottom))}\n' +
+    '.app:before,.app:after{content:"";position:absolute;border-radius:50%;pointer-events:none;border:14px solid #23d7f218;box-shadow:0 0 45px #1bd7ff18}\n' +
+    '.app:before{width:280px;height:280px;left:-185px;top:185px}.app:after{width:360px;height:360px;right:-260px;top:290px;border-color:#6bff4013}\n' +
+    'header{position:relative;z-index:3;margin:10px 10px 0;border:1px solid #20bfe788;border-radius:16px;background:#031f3cdd;box-shadow:0 0 24px #18c7f52a;overflow:hidden}\n' +
+    '.brandbar{height:52px;display:flex;align-items:center;padding:0 12px;gap:9px;border-bottom:1px solid #19aedd55}\n' +
+    '.exit{border:0;background:none;font-size:23px;width:25px;padding:0}.divider{height:25px;width:1px;background:#23d1f07a}\n' +
+    '.brandmini{width:27px;height:auto;max-height:27px;object-fit:contain}.brandname{font-weight:900;letter-spacing:2px;font-size:17px}.subtitle{font-size:7px;letter-spacing:2px;color:#d5f7ff;white-space:nowrap}\n' +
+    '.utility{display:grid;grid-template-columns:repeat(4,1fr);height:57px}.utility button{border:0;border-right:1px solid #25c7e766;background:#052a49aa;font-size:8px;font-weight:800;padding:4px 1px}.utility button:last-child{border-right:0}.utility b{display:block;font-size:18px;margin-bottom:2px;filter:drop-shadow(0 0 8px currentColor)}\n' +
+    '.utility button:nth-child(1) b{color:#6cf25c}.utility button:nth-child(2) b{color:#39d8ff}.utility button:nth-child(3) b{color:#ffd44a}.utility button:nth-child(4) b{color:#bf72ff}\n' +
+    'main{position:relative;z-index:2;padding:10px 12px 8px}\n' +
+    '.hero{position:relative;min-height:322px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}\n' +
+    '.hero:before{content:"";position:absolute;width:245px;height:245px;border-radius:50%;border:14px solid #1bd8f014;box-shadow:0 0 65px #32e4d622}\n' +
+    '.emblem{width:176px;height:auto;max-height:176px;object-fit:contain;filter:drop-shadow(0 0 18px #52ff6144)}\n' +
+    '.wordmark{font-size:37px;font-weight:900;letter-spacing:4px;margin-top:-9px}.submark{font-size:9px;letter-spacing:3px;margin-top:2px}.plantao{font-size:9px;letter-spacing:4px;color:#6df348;margin-top:13px;text-shadow:0 0 10px #55ff66}\n' +
+    '.sideleft,.sideright{position:absolute;font-size:11px;line-height:1.5;max-width:122px;text-align:left}.sideleft{left:0;top:91px;font-style:italic;transform:rotate(-5deg)}.sideright{right:0;top:75px;text-align:right}.sideright strong{display:block;color:#d8ffff;font-size:11px;letter-spacing:1px}.evolve{margin-top:20px;color:#fff;font-size:11px;line-height:1.5;letter-spacing:1px}\n' +
+    '.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:2px}.action{min-height:105px;border-radius:21px;padding:13px;text-align:left;position:relative;overflow:hidden;border:2px solid;box-shadow:inset 0 1px #ffffff22;transition:.15s transform,.15s filter}.action:active{transform:scale(.975);filter:brightness(1.16)}.action i{display:inline-grid;place-items:center;width:43px;height:43px;border:2px solid currentColor;border-radius:13px;font-style:normal;font-size:22px;box-shadow
+    'footer{position:relative;z-index:3;margin:9px 10px 0;border:1px solid #20c8e877;border-radius:17px;background:#03223ddd;overflow:hidden}.footlinks{display:grid;grid-template-columns:1fr 1fr;min-height:62px}.footlinks a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;font-size:10px;border-right:1px solid #2bd2ee77}.footlinks a:last-child{border:0}.footlinks b{font-size:22px;color:#58ef64}.footlinks small{display:block;font-size:6px;color:#9fd5dd
+    '.view{display:none}.view.on{display:block}.panel{margin:8px 0 12px;padding:14px;border:1px solid #31d6f0;border-radius:20px;background:linear-gradient(145deg,#04314feF,#075d68eF);box-shadow:0 12px 30px #00182d99,0 0 20px #2bd6ee22}.panel h2{margin:0 0 7px}.muted{font-size:10px;color:#b9dce4}.btn{width:100%;margin:6px 0;padding:12px;border:1px solid #37d6f3;border-radius:15px;background:linear-gradient(145deg,#064d72,#087c80);font-weight:800}.option{text-align:left}.field{width:100%;padding:
+    '.modal{position:fixed;z-index:1000;inset:0;display:none;place-items:center;background:#011426eF;padding:16px}.modal.on{display:grid}.modalbox{width:min(400px,100%);max-height:90dvh;overflow:auto;padding:17px;border:1px solid #32d8f2;border-radius:24px;background:linear-gradient(145deg,#043653,#08626b);box-shadow:0 0 55px #28d8ee44}\n' +
+    '#party{position:fixed;z-index:1100;inset:0;pointer-events:none;overflow:hidden}.confetti{position:absolute;top:-15px;width:8px;height:14px;animation:fall 1.55s ease-in forwards}@keyframes fall{to{transform:translate(var(--dx),105vh) rotate(720deg);opacity:.1}}.react{position:fixed;left:50%;top:43%;font-size:74px;animation:pop .9s ease forwards}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.3)}50%{transform:translate(-50%,-50%) scale(1.35)}100%{transform:translate(-50%,-50%) scale(1
+    '@media(max-width:365px){.wordmark{font-size:32px}.emblem{width:158px;height:158px}.hero{min-height:300px}.sideleft,.sideright{font-size:7px;max-width:78px}.utility button{font-size:7px}}\n' +
+    '</style>\n' +
+    '<style id="dpi-internal-redesign">\n' +
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-home-reference.test.cjs:117:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    expected: /deviceVoice=read\('dpi-device-voice'\)==='1'/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/dpi-home-reference.test.cjs:124:1
+✖ mobile redirects without fetching the desktop game; desktop retains original game loader (0.49503ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-home-reference.test.cjs:127:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/dpi-mascot-proportions-motion.test.cjs:10:1
+✖ approved art is retained, with independent male and female layers (2.809212ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /img\.src = src/. Input:
+  
+  '/* R32: motion states for the approved transparent mascot art. */\n' +
+    '(function () {\n' +
+    "  'use strict';\n" +
+    "  const stage = document.getElementById('elx-character-stage');\n" +
+    "  const sourceImage = stage?.querySelector('img.elx-approved-mascot-pair');\n" +
+    '  if (!stage || !sourceImage) return;\n' +
+    '\n' +
+    '  const src = sourceImage.currentSrc || sourceImage.src;\n' +
+    "  const art = document.createElement('div');\n" +
+    "  art.className = 'elx-approved-mascot-pair elx-approved-mascot-motion';\n" +
+    "  art.setAttribute('role', 'img');\n" +
+    "  art.setAttribute('aria-label', 'Tom e Fernanda, mascotes veterinários com radioproteção');\n" +
+    "  for (const [persona, label] of [['male', 'Tom'], ['female', 'Fernanda']]) {\n" +
+    "    const figure = document.createElement('span');\n" +
+    "    figure.className = 'elx-mascot-motion-persona';\n" +
+    '    figure.dataset.persona = persona;\n' +
+    "    figure.setAttribute('aria-hidden', 'true');\n" +
+    '    // All layers sample the SAME approved source; no regenerated facial artwork.\n' +
+    '    figure.innerHTML=window.DPI2DArtwork.create(src,persona);\n' +
+    '    art.appendChild(figure);\n' +
+    '  }\n' +
+    '  sourceImage.replaceWith(art);\n' +
+    "  stage.classList.add('elx-motion-active');\n" +
+    '\n' +
+    "  const style=document.createElement('style');\n" +
+    "  style.id='dpi-articulated-2d-motion';stage.dataset.animationVersion='puppet-2d-v8';\n" +
+    '  style.textContent=`\n' +
+    '#elx-character-stage .elx-mascot-motion-persona[data-persona="male"]{left:0;right:auto;width:50%;clip-path:none!important}\n' +
+    '#elx-character-stage .elx-mascot-motion-persona[data-persona="female"]{left:50%;right:auto;width:50%;clip-path:none!important}\n' +
+    '#elx-character-stage .elx-mascot-hotspot{pointer-events:auto!important;cursor:pointer}\n' +
+    '#elx-character-stage.elx-motion-active .elx-mascot-motion-persona{animation:dpi2DIdle 4.8s ease-in-out infinite!important;transform-origin:25% 92%}\n' +
+    '#elx-character-stage.elx-motion-active .elx-mascot-motion-persona[data-persona="female"]{transform-origin:75% 92%;animation-delay:-1.7s!important}\n' +
+    '#elx-character-stage[data-active-persona="male"] .elx-mascot-motion-persona[data-persona="male"],#elx-character-stage[data-active-persona="female"] .elx-mascot-motion-persona[data-persona="female"]{animation-delay:0s!important}\n' +
+    '`;\n' +
+    "  for(const [state,keyframes,timing] of [['speaking','dpi2DSpeak','1.1s ease-in-out infinite'],['listening','dpi2DListen','2s ease-in-out infinite'],['greeting','dpi2DGreet','1.4s ease-in-out 1'],['celebrate','dpi2DCheer','1.4s ease-in-out 1'],['incorrect','dpi2DComfort','1.4s ease-in-out 1'],['hover','dpi2DListen','2s ease-in-out infinite']]){\n" +
+    '    for(const who of [\'male\',\'female\'])style.textContent+=`#elx-character-stage.elx-motion-active[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"]{animation:${keyframes} ${timing}!important}`;\n' +
+    '  }\n' +
+    '  style.textContent+=`\n' +
+    '@keyframes dpi2DIdle{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}\n' +
+    '@keyframes dpi2DSpeak{0%,100%{transform:translateY(0) rotate(0)}40%{transform:translateY(-2px) rotate(.18deg)}70%{transform:translateY(-.8px) rotate(-.12deg)}}\n' +
+    '@keyframes dpi2DListen{0%,100%{transform:rotate(0)}50%{transform:rotate(.35deg)}}\n' +
+    '@keyframes dpi2DGreet{0%,100%{transform:translateY(0) rotate(0)}35%{transform:translateY(-3px) rotate(-.45deg)}70%{transform:translateY(-1px) rotate(.2deg)}}\n' +
+    '@keyframes dpi2DCheer{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-12px) rotate(1deg)}65%{transform:translateY(-2px) rotate(-.2deg)}}\n' +
+    '@keyframes dpi2DComfort{0%,100%{transform:translateY(0) rotate(0)}45%{transform:translateY(1px) rotate(-.4deg)}}\n' +
+    '#elx-character-stage[data-motion-paused="true"] .elx-mascot-motion-persona{animation-play-state:paused!important}\n' +
+    '@media(prefers-reduced-motion:reduce){html:not([data-dpi-mascot-motion="full"]) #elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona]{animation:none!important}}\n' +
+    '`;\n' +
+    '  style.textContent+=`\n' +
+    '#elx-character-stage .dpi-2d-rig{display:block;width:100%;height:100%;overflow:visible;pointer-events:none}\n' +
+    '#elx-character-stage .dpi-2d-head{transform-box:view-box;animation:dpiHeadIdle 4s ease-in-out infinite}\n' +
+    '#elx-character-stage .dpi-2d-eye{transform-box:view-box;animation:dpiBlink 4.7s linear infinite}\n' +
+    '#elx-character-stage .elx-mascot-motion-persona[data-persona="female"] .dpi-2d-head{animation-delay:-1.6s}\n' +
+    '#elx-character-stage .elx-mascot-motion-persona[data-persona="female"] .dpi-2d-eye{animation-delay:-2.1s}\n' +
+    '`;\n' +
+    "  for(const [state,anim] of [['speaking','dpiHeadTalk 1.15s ease-in-out infinite'],['greeting','dpiHeadGreet 1.5s ease-in-out 1'],['celebrate','dpiHeadGreet 1.5s ease-in-out 1'],['incorrect','dpiHeadConcern 1.5s ease-in-out 1'],['listening','dpiHeadListen 2.5s ease-in-out infinite'],['hover','dpiHeadListen 2.5s ease-in-out infinite']]){\n" +
+    '    for(const who of [\'male\',\'female\'])style.textContent+=`#elx-character-stage[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"] .dpi-2d-head{animation:${anim};animation-delay:0s}`;\n' +
+    '  }\n' +
+    '  style.textContent+=`\n' +
+    '@keyframes dpiHeadIdle{0%,100%{transform:rotate(0)}42%{transform:rotate(.35deg)}68%{transform:rotate(-.25deg)}}\n' +
+    '@keyframes dpiHeadTalk{0%,100%{transform:rotate(0) translateY(0)}30%{transform:rotate(-.6deg) translateY(1px)}65%{transform:rotate(.8deg) translateY(-1px)}}\n' +
+    '@keyframes dpiHeadListen{0%,100%{transform:rotate(0)}50%{transform:rotate(1.2deg)}}\n' +
+    '@keyframes dpiHeadGreet{0%,100%{transform:rotate(0)}25%{transform:rotate(-1.6deg)}60%{transform:rotate(1.2deg)}}\n' +
+    '@keyframes dpiHeadConcern{0%,100%{transform:rotate(0)}35%{transform:rotate(-1.4deg) translateY(1px)}70%{transform:rotate(.6deg)}}\n' +
+    '@keyframes dpiBlink{0%,41%,45%,100%{transform:scaleY(1)}43%{transform:scaleY(.04)}}\n' +
+    '#elx-character-stage[data-motion-paused="true"] .dpi-2d-head,#elx-character-stage[data-motion-paused="true"] .dpi-2d-eye{animation-play-state:paused!important}\n' +
+    '@media(prefers-reduced-motion:reduce){html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-head,html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-eye{animation:none!important}}\n' +
+    '`;\n' +
+    `  style.textContent+='html[data-dpi-mascot-motion="off"] #elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona]{animation:none!important}';\n` +
+    '  style.textContent+=`#elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona],#elx-character-stage.elx-motion-active .elx-mascot-motion-persona{animation:none!important;transform:none!important}`;\n' +
+    '  document.head.append(style);\n' +
+    "  let reactionTimer,reaction='',speaking=false,listening=false,attention=false;\n" +
+    '  function sync(){\n' +
+    "    stage.classList.remove('is-speaking','is-listening','is-greeting','is-correct','is-incorrect');\n" +
+    "    const state=reaction||(speaking?'speaking':listening?'listening':attention?'hover':'idle');\n" +
+    '    stage.dataset.motionState=state;\n' +
+    "    if(speaking)stage.classList.add('is-speaking');\n" +
+    "    if(listening)stage.classList.add('is-listening');\n" +
+    "    const cls={greeting:'is-greeting',celebrate:'is-correct',incorrect:'is-incorrect'}[reaction];\n" +
+    '    if(cls)stage.classList.add(cls);\n' +
+    '  }\n' +
+    "  function persona(value){if(value==='female'||value==='male')stage.dataset.activePersona=value}\n" +
+    '  function react(name,who){\n' +
+    "    const poses={celebrate:'celebrate',incorrect:'incorrect',greeting:'greeting','guide-right':'hover','guide-left':'hover'};\n" +
+    '    const next=poses[name];if(!next)return;\n' +
+    '    // A hover or greeting must not replace feedback for a committed answer.\n' +
+    "    if(['celebrate','incorrect'].includes(reaction)&&!['celebrate','incorrect'].includes(next))return;\n" +
+    '    persona(who);reaction=next;stage.dataset.reaction=next;sync();clearTimeout(reactionTimer);\n' +
+    "    reactionTimer=setTimeout(()=>{reaction='';delete stage.dataset.reaction;sync()},1500);\n" +
+    '  }\n' +
+    "  window.addEventListener('elx-speech-start',event=>{persona(event.detail?.persona||window.ELXAssistentes?.getPersona?.());speaking=true;listening=false;sync()});\n" +
+    "  for(const event of ['elx-speech-end','elx-speech-paused','elx-voice-unavailable'])window.addEventListener(event,()=>{speaking=false;sync()});\n" +
+    "  window.addEventListener('elx-user-speaking',()=>{speaking=false;listening=true;sync()});\n" +
+    "  window.addEventListener('elx-user-speech-end',()=>{listening=false;sync()});\n" +
+    "  window.addEventListener('elx-mascot-react',event=>react(event.detail?.pose,event.detail?.who));\n" +
+    "  window.addEventListener('elx-persona-setting',event=>{persona(event.detail?.persona);sync()});\n" +
+    "  const selector='.option,.dpi-case-option,.dpi-round-option,.dpi-target-dot';\n" +
+    "  for(const type of ['pointerover','focusin'])document.addEventListener(type,event=>{const button=event.target.closest?.(selector);if(button&&!button.disabled){attention=true;sync()}});\n" +
+    "  for(const type of ['pointerout','focusout'])document.addEventListener(type,event=>{if(event.target.closest?.(selector)&&!event.relatedTarget?.closest?.(selector)){attention=false;sync()}});\n" +
+    '  // Results can reuse a DOM node: track its committed class/content, not just its identity.\n' +
+    '  const seen=new WeakMap();let queued=false;\n' +
+    "  function scanResults(){queued=false;document.querySelectorAll('.feedback.ok,.feedback.no,.dpi-case-feedback.is-correct,.dpi-case-feedback.is-wrong,.dpi-round-result.is-correct,.dpi-round-result.is-wrong').forEach(node=>{\n" +
+    '    if(node.getClientRects&&!node.getClientRects().length)return;\n' +
+    "    const state=node.matches('.ok,.is-correct')?'celebrate':'incorrect',signature=state+'|'+node.textContent;\n" +
+    "    if(seen.get(node)===signature)return;seen.set(node,signature);window.dispatchEvent(new CustomEvent('dpi-animation-result',{detail:{correct:state==='celebrate'}}));attention=false;react(state,window.ELXAssistentes?.getPersona?.());\n" +
+    '  })}\n' +
+    "  new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(scanResults)}}).observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class']});\n" +
+    "  document.addEventListener('visibilitychange',()=>{stage.dataset.motionPaused=String(document"... 674 more characters
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-mascot-proportions-motion.test.cjs:12:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    expected: /img\.src = src/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/dpi-mascot-proportions-motion.test.cjs:40:1
+✖ one persona reacts at a time, while the other keeps natural idle animation (0.819926ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /persona\(who \|\| stage\.dataset\.activePersona \|\| window\.ELXAssistentes\?\.getPersona\?\.\(\) \|\| 'male'\)/. Input:
+  
+  '/* R32: motion states for the approved transparent mascot art. */\n' +
+    '(function () {\n' +
+    "  'use strict';\n" +
+    "  const stage = document.getElementById('elx-character-stage');\n" +
+    "  const sourceImage = stage?.querySelector('img.elx-approved-mascot-pair');\n" +
+    '  if (!stage || !sourceImage) return;\n' +
+    '\n' +
+    '  const src = sourceImage.currentSrc || sourceImage.src;\n' +
+    "  const art = document.createElement('div');\n" +
+    "  art.className = 'elx-approved-mascot-pair elx-approved-mascot-motion';\n" +
+    "  art.setAttribute('role', 'img');\n" +
+    "  art.setAttribute('aria-label', 'Tom e Fernanda, mascotes veterinários com radioproteção');\n" +
+    "  for (const [persona, label] of [['male', 'Tom'], ['female', 'Fernanda']]) {\n" +
+    "    const figure = document.createElement('span');\n" +
+    "    figure.className = 'elx-mascot-motion-persona';\n" +
+    '    figure.dataset.persona = persona;\n' +
+    "    figure.setAttribute('aria-hidden', 'true');\n" +
+    '    // All layers sample the SAME approved source; no regenerated facial artwork.\n' +
+    '    figure.innerHTML=window.DPI2DArtwork.create(src,persona);\n' +
+    '    art.appendChild(figure);\n' +
+    '  }\n' +
+    '  sourceImage.replaceWith(art);\n' +
+    "  stage.classList.add('elx-motion-active');\n" +
+    '\n' +
+    "  const style=document.createElement('style');\n" +
+    "  style.id='dpi-articulated-2d-motion';stage.dataset.animationVersion='puppet-2d-v8';\n" +
+    '  style.textContent=`\n' +
+    '#elx-character-stage .elx-mascot-motion-persona[data-persona="male"]{left:0;right:auto;width:50%;clip-path:none!important}\n' +
+    '#elx-character-stage .elx-mascot-motion-persona[data-persona="female"]{left:50%;right:auto;width:50%;clip-path:none!important}\n' +
+    '#elx-character-stage .elx-mascot-hotspot{pointer-events:auto!important;cursor:pointer}\n' +
+    '#elx-character-stage.elx-motion-active .elx-mascot-motion-persona{animation:dpi2DIdle 4.8s ease-in-out infinite!important;transform-origin:25% 92%}\n' +
+    '#elx-character-stage.elx-motion-active .elx-mascot-motion-persona[data-persona="female"]{transform-origin:75% 92%;animation-delay:-1.7s!important}\n' +
+    '#elx-character-stage[data-active-persona="male"] .elx-mascot-motion-persona[data-persona="male"],#elx-character-stage[data-active-persona="female"] .elx-mascot-motion-persona[data-persona="female"]{animation-delay:0s!important}\n' +
+    '`;\n' +
+    "  for(const [state,keyframes,timing] of [['speaking','dpi2DSpeak','1.1s ease-in-out infinite'],['listening','dpi2DListen','2s ease-in-out infinite'],['greeting','dpi2DGreet','1.4s ease-in-out 1'],['celebrate','dpi2DCheer','1.4s ease-in-out 1'],['incorrect','dpi2DComfort','1.4s ease-in-out 1'],['hover','dpi2DListen','2s ease-in-out infinite']]){\n" +
+    '    for(const who of [\'male\',\'female\'])style.textContent+=`#elx-character-stage.elx-motion-active[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"]{animation:${keyframes} ${timing}!important}`;\n' +
+    '  }\n' +
+    '  style.textContent+=`\n' +
+    '@keyframes dpi2DIdle{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}\n' +
+    '@keyframes dpi2DSpeak{0%,100%{transform:translateY(0) rotate(0)}40%{transform:translateY(-2px) rotate(.18deg)}70%{transform:translateY(-.8px) rotate(-.12deg)}}\n' +
+    '@keyframes dpi2DListen{0%,100%{transform:rotate(0)}50%{transform:rotate(.35deg)}}\n' +
+    '@keyframes dpi2DGreet{0%,100%{transform:translateY(0) rotate(0)}35%{transform:translateY(-3px) rotate(-.45deg)}70%{transform:translateY(-1px) rotate(.2deg)}}\n' +
+    '@keyframes dpi2DCheer{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-12px) rotate(1deg)}65%{transform:translateY(-2px) rotate(-.2deg)}}\n' +
+    '@keyframes dpi2DComfort{0%,100%{transform:translateY(0) rotate(0)}45%{transform:translateY(1px) rotate(-.4deg)}}\n' +
+    '#elx-character-stage[data-motion-paused="true"] .elx-mascot-motion-persona{animation-play-state:paused!important}\n' +
+    '@media(prefers-reduced-motion:reduce){html:not([data-dpi-mascot-motion="full"]) #elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona]{animation:none!important}}\n' +
+    '`;\n' +
+    '  style.textContent+=`\n' +
+    '#elx-character-stage .dpi-2d-rig{display:block;width:100%;height:100%;overflow:visible;pointer-events:none}\n' +
+    '#elx-character-stage .dpi-2d-head{transform-box:view-box;animation:dpiHeadIdle 4s ease-in-out infinite}\n' +
+    '#elx-character-stage .dpi-2d-eye{transform-box:view-box;animation:dpiBlink 4.7s linear infinite}\n' +
+    '#elx-character-stage .elx-mascot-motion-persona[data-persona="female"] .dpi-2d-head{animation-delay:-1.6s}\n' +
+    '#elx-character-stage .elx-mascot-motion-persona[data-persona="female"] .dpi-2d-eye{animation-delay:-2.1s}\n' +
+    '`;\n' +
+    "  for(const [state,anim] of [['speaking','dpiHeadTalk 1.15s ease-in-out infinite'],['greeting','dpiHeadGreet 1.5s ease-in-out 1'],['celebrate','dpiHeadGreet 1.5s ease-in-out 1'],['incorrect','dpiHeadConcern 1.5s ease-in-out 1'],['listening','dpiHeadListen 2.5s ease-in-out infinite'],['hover','dpiHeadListen 2.5s ease-in-out infinite']]){\n" +
+    '    for(const who of [\'male\',\'female\'])style.textContent+=`#elx-character-stage[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"] .dpi-2d-head{animation:${anim};animation-delay:0s}`;\n' +
+    '  }\n' +
+    '  style.textContent+=`\n' +
+    '@keyframes dpiHeadIdle{0%,100%{transform:rotate(0)}42%{transform:rotate(.35deg)}68%{transform:rotate(-.25deg)}}\n' +
+    '@keyframes dpiHeadTalk{0%,100%{transform:rotate(0) translateY(0)}30%{transform:rotate(-.6deg) translateY(1px)}65%{transform:rotate(.8deg) translateY(-1px)}}\n' +
+    '@keyframes dpiHeadListen{0%,100%{transform:rotate(0)}50%{transform:rotate(1.2deg)}}\n' +
+    '@keyframes dpiHeadGreet{0%,100%{transform:rotate(0)}25%{transform:rotate(-1.6deg)}60%{transform:rotate(1.2deg)}}\n' +
+    '@keyframes dpiHeadConcern{0%,100%{transform:rotate(0)}35%{transform:rotate(-1.4deg) translateY(1px)}70%{transform:rotate(.6deg)}}\n' +
+    '@keyframes dpiBlink{0%,41%,45%,100%{transform:scaleY(1)}43%{transform:scaleY(.04)}}\n' +
+    '#elx-character-stage[data-motion-paused="true"] .dpi-2d-head,#elx-character-stage[data-motion-paused="true"] .dpi-2d-eye{animation-play-state:paused!important}\n' +
+    '@media(prefers-reduced-motion:reduce){html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-head,html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-eye{animation:none!important}}\n' +
+    '`;\n' +
+    `  style.textContent+='html[data-dpi-mascot-motion="off"] #elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona]{animation:none!important}';\n` +
+    '  style.textContent+=`#elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona],#elx-character-stage.elx-motion-active .elx-mascot-motion-persona{animation:none!important;transform:none!important}`;\n' +
+    '  document.head.append(style);\n' +
+    "  let reactionTimer,reaction='',speaking=false,listening=false,attention=false;\n" +
+    '  function sync(){\n' +
+    "    stage.classList.remove('is-speaking','is-listening','is-greeting','is-correct','is-incorrect');\n" +
+    "    const state=reaction||(speaking?'speaking':listening?'listening':attention?'hover':'idle');\n" +
+    '    stage.dataset.motionState=state;\n' +
+    "    if(speaking)stage.classList.add('is-speaking');\n" +
+    "    if(listening)stage.classList.add('is-listening');\n" +
+    "    const cls={greeting:'is-greeting',celebrate:'is-correct',incorrect:'is-incorrect'}[reaction];\n" +
+    '    if(cls)stage.classList.add(cls);\n' +
+    '  }\n' +
+    "  function persona(value){if(value==='female'||value==='male')stage.dataset.activePersona=value}\n" +
+    '  function react(name,who){\n' +
+    "    const poses={celebrate:'celebrate',incorrect:'incorrect',greeting:'greeting','guide-right':'hover','guide-left':'hover'};\n" +
+    '    const next=poses[name];if(!next)return;\n' +
+    '    // A hover or greeting must not replace feedback for a committed answer.\n' +
+    "    if(['celebrate','incorrect'].includes(reaction)&&!['celebrate','incorrect'].includes(next))return;\n" +
+    '    persona(who);reaction=next;stage.dataset.reaction=next;sync();clearTimeout(reactionTimer);\n' +
+    "    reactionTimer=setTimeout(()=>{reaction='';delete stage.dataset.reaction;sync()},1500);\n" +
+    '  }\n' +
+    "  window.addEventListener('elx-speech-start',event=>{persona(event.detail?.persona||window.ELXAssistentes?.getPersona?.());speaking=true;listening=false;sync()});\n" +
+    "  for(const event of ['elx-speech-end','elx-speech-paused','elx-voice-unavailable'])window.addEventListener(event,()=>{speaking=false;sync()});\n" +
+    "  window.addEventListener('elx-user-speaking',()=>{speaking=false;listening=true;sync()});\n" +
+    "  window.addEventListener('elx-user-speech-end',()=>{listening=false;sync()});\n" +
+    "  window.addEventListener('elx-mascot-react',event=>react(event.detail?.pose,event.detail?.who));\n" +
+    "  window.addEventListener('elx-persona-setting',event=>{persona(event.detail?.persona);sync()});\n" +
+    "  const selector='.option,.dpi-case-option,.dpi-round-option,.dpi-target-dot';\n" +
+    "  for(const type of ['pointerover','focusin'])document.addEventListener(type,event=>{const button=event.target.closest?.(selector);if(button&&!button.disabled){attention=true;sync()}});\n" +
+    "  for(const type of ['pointerout','focusout'])document.addEventListener(type,event=>{if(event.target.closest?.(selector)&&!event.relatedTarget?.closest?.(selector)){attention=false;sync()}});\n" +
+    '  // Results can reuse a DOM node: track its committed class/content, not just its identity.\n' +
+    '  const seen=new WeakMap();let queued=false;\n' +
+    "  function scanResults(){queued=false;document.querySelectorAll('.feedback.ok,.feedback.no,.dpi-case-feedback.is-correct,.dpi-case-feedback.is-wrong,.dpi-round-result.is-correct,.dpi-round-result.is-wrong').forEach(node=>{\n" +
+    '    if(node.getClientRects&&!node.getClientRects().length)return;\n' +
+    "    const state=node.matches('.ok,.is-correct')?'celebrate':'incorrect',signature=state+'|'+node.textContent;\n" +
+    "    if(seen.get(node)===signature)return;seen.set(node,signature);window.dispatchEvent(new CustomEvent('dpi-animation-result',{detail:{correct:state==='celebrate'}}));attention=false;react(state,window.ELXAssistentes?.getPersona?.());\n" +
+    '  })}\n' +
+    "  new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(scanResults)}}).observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class']});\n" +
+    "  document.addEventListener('visibilitychange',()=>{stage.dataset.motionPaused=String(document"... 674 more characters
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-mascot-proportions-motion.test.cjs:49:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    expected: /persona\(who \|\| stage\.dataset\.activePersona \|\| window\.ELXAssistentes\?\.getPersona\?\.\(\) \|\| 'male'\)/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/dpi-plantao-progression.test.cjs:17:85
+✖ Plantão cranio reaches decision 12 with distinct answers and one submission per decision (9.602643ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 12
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-plantao-progression.test.cjs:20:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/dpi-plantao-progression.test.cjs:17:85
+✖ Plantão pelve reaches decision 12 with distinct answers and one submission per decision (5.754958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  9 !== 12
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/dpi-plantao-progression.test.cjs:20:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 9,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/portal-integration.test.cjs:9:1
+✖ entrega DPI é individual e não contém rotas ou logos de outras áreas (1.529849ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /max-width: 600px/. Input:
+  
+  `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Desafio DPI — EL-X VET</title><script>const destination=new URL('/dpi-home.html',window.location.href);destination.search=window.location.search;destination.hash=window.location.hash;window.location.replace(destination.href)</script></head><body><div id="status">Carregando Desafio DPI…</div></body></html>`
+  
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/portal-integration.test.cjs:12:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Desafio DPI — EL-X VET</title><script>const destination=new URL('/dpi-home.html',window.location.href);destination.search=window.location.search;destination.hash=window.location.hash;window.location.replace(destination.href)</script></head><body><div id="status">Carregando Desafio DPI…</div></body></html>`,
+    expected: /max-width: 600px/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/portal-integration.test.cjs:34:1
+✖ imagens externas do jogo apontam a arquivos presentes e o rig só carrega mascotes DPI (44.81226ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/dpi-r18.1/voz-e-mascotes/elx-rig.js'
+      at Object.readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/tests/portal-integration.test.cjs:38:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/cdf1ec7ab7c4/Desafio-DPI/dpi-r18.1/voz-e-mascotes/elx-rig.js'
+  }

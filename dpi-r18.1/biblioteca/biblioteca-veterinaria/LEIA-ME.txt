@@ -1,0 +1,18 @@
+PACOTE DE JOGO — EL-X VET / Desafio DPI
+
+O banco de 300 questões não é a biblioteca. A tela Banco / Biblioteca separa as questões, a bibliografia e os materiais de estudo.
+
+Arquivos deste diretório:
+- Manual_Zoonoses_MS.pdf: Manual de Vigilância, Prevenção e Controle de Zoonoses (Ministério da Saúde, 2016).
+- perguntas.json: 10 questões educativas de zoonoses em JSON.
+- bibliografia-dpi.json: 8 obras bibliográficas, 32 grupos de fontes do banco e metadados de materiais localizados no Drive.
+- CATALOGO-BIBLIOTECA-DPI.md: catálogo legível com a bibliografia, links do acervo e contagem das fontes por questão.
+- FONTES_E_LICENCAS.txt: origem e notas de uso.
+
+As fontes abreviadas permanecem como foram registradas. Os materiais do Drive continuam vinculados à origem e seguem as permissões da conta. Confira licenças antes de republicar arquivos. Conteúdo educativo; consulte a obra e as diretrizes vigentes.
+
+Política de distribuição da prévia pública:
+- Sem licença pública confirmada: quando a plataforma permitir, a consulta ocorre somente na tela; o arquivo integral não pode ser baixado ou impresso.
+- Material com logo RX da empresa: fica fora da prévia pública e não pode ser baixado, impresso ou capturado dentro do jogo.
+- Para baixar um arquivo autorizado, será exigido o envio de outro arquivo inédito e validação de unicidade no servidor. Como esta prévia estática não possui esse validador, downloads ficam desativados.
+- Capturas feitas pelo sistema operacional não podem ser bloqueadas por um site.
