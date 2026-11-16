@@ -15,6 +15,27 @@
     feature: 'openPresentationFeature'
   };
   const returningToDpiCover = params.get('return') === 'dpi';
+
+  // Prefetch the same first speech segment that the quiz reader will speak,
+  // including the alternatives. The earlier caller passed only the prompt,
+  // so every later question missed the prepared audio cache.
+  const prepareQuestionSpeech = root.dpiPrepareNextQuestion;
+  if (typeof prepareQuestionSpeech === 'function') {
+    root.dpiPrepareNextQuestion = function (prompt) {
+      let text = String(prompt || '').trim();
+      try {
+        const question = typeof state !== 'undefined' && Array.isArray(state.qs)
+          ? state.qs.find(item => item?.pergunta === text) : null;
+        if (question) {
+          const options = [question.alternativa_a, question.alternativa_b, question.alternativa_c, question.alternativa_d]
+            .map((value, index) => ({ value: String(value || '').trim(), letter: String.fromCharCode(65 + index) }))
+            .filter(item => item.value);
+          text += options.map(item => ' Alternativa ' + item.letter + ': ' + item.value).join('');
+        }
+      } catch (_) { /* Keep the original question-only prefetch if unavailable. */ }
+      return prepareQuestionSpeech(text);
+    };
+  }
   const presentationFeature = params.get('feature');
 
   // Keep the question narrator's shared helpers in the global scope. The
