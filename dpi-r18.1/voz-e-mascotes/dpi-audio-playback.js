@@ -25,6 +25,19 @@
   function createPlayback(createAudio,report=()=>{}){
     let audio=null,pending=false,prepared=false,revision=0,phase='idle';
     let context=null,gainNode=null,compressor=null,persona='female';
+    // Bounded diagnostics: never store a transcript, voice ID or audio URL.
+    const timingHistory=[];
+    let timingSequence=0, currentTiming=null;
+    const now=()=>typeof root?.performance?.now==='function'?root.performance.now():Date.now();
+    function recordTiming(mark,entry){
+      if(!entry||entry.revision!==revision||entry[mark]!=null)return;
+      entry[mark]=Math.round((now()-entry.startedAt)*10)/10;
+      const detail={turn:entry.turn,persona:entry.persona,stage:mark,elapsedMs:entry[mark]};
+      if(typeof root?.dispatchEvent==='function'&&typeof root?.CustomEvent==='function'){
+        root.dispatchEvent(new root.CustomEvent('elx-audio-timing',{detail}));
+      }
+    }
+    function timingSnapshot(){return timingHistory.map(({turn,persona,canplayMs,playingMs,failedMs})=>({turn,persona,canplayMs,playingMs,failedMs}));}
     function emit(state){phase=state;report({state});}
     function updateGain(){if(!gainNode||!context)return;const gain=persona==='male'?1.55:1;try{gainNode.gain.setTargetAtTime(gain,context.currentTime,.025)}catch{gainNode.gain.value=gain}}
     function setPersona(value){persona=value==='male'?'male':'female';updateGain()}
@@ -42,7 +55,7 @@
       }
       if(context?.state==='suspended')context.resume()?.catch?.(()=>{});
     }
-    function element(){if(!audio){audio=createAudio();audio.setAttribute('playsinline','');audio.preload='auto';audio.addEventListener?.('ended',()=>{if(audio.ended&&phase==='playing')emit('ended');});audio.addEventListener?.('pause',()=>{if(audio.paused&&phase==='playing')emit('paused');});}return audio;}
+    function element(){if(!audio){audio=createAudio();audio.setAttribute('playsinline','');audio.preload='auto';audio.addEventListener?.('canplay',()=>recordTiming('canplayMs',currentTiming));audio.addEventListener?.('playing',()=>recordTiming('playingMs',currentTiming));audio.addEventListener?.('ended',()=>{if(audio.ended&&phase==='playing')emit('ended');});audio.addEventListener?.('pause',()=>{if(audio.paused&&phase==='playing')emit('paused');});}return audio;}
     if(root?.addEventListener){
       root.addEventListener('elx-audio-persona',event=>setPersona(event.detail?.persona));
       root.addEventListener('elx-persona-setting',event=>setPersona(event.detail?.persona));
@@ -50,7 +63,7 @@
     async function attempt(){
       const current=revision;
       try{await element().play();if(current===revision){prepared=true;pending=false;emit('playing');}return true;}
-      catch(error){if(current!==revision)return false;if(error?.name==='NotAllowedError'){pending=true;emit('blocked');return false;}pending=false;emit('error');throw error;}
+      catch(error){if(current!==revision)return false;recordTiming('failedMs',currentTiming);if(error?.name==='NotAllowedError'){pending=true;emit('blocked');return false;}pending=false;emit('error');throw error;}
     }
     function activate(){
       if(pending)return attempt();
@@ -60,9 +73,9 @@
       // play() is invoked synchronously inside the trusted click handler.
       return Promise.resolve(target.play()).then(()=>{if(current===revision&&target.src===silence)target.pause();return true;},()=>{prepared=false;return false;});
     }
-    function cancel(){revision++;pending=false;const interrupted=['playing','loading','blocked','paused'].includes(phase);if(interrupted)phase='idle';if(audio){audio.pause();audio.onplaying=null;audio.onended=null;audio.onerror=null;}if(interrupted)emit('stopped');}
-    function play(src,volume,speed){revision++;const target=element();target.src=src;target.volume=volume;target.muted=false;target.playbackRate=speed;target.preservesPitch=true;pending=false;emit('loading');return attempt();}
-    return {element,activate,play,cancel,pending:()=>pending,setPersona};
+    function cancel(){revision++;currentTiming=null;pending=false;const interrupted=['playing','loading','blocked','paused'].includes(phase);if(interrupted)phase='idle';if(audio){audio.pause();audio.onplaying=null;audio.onended=null;audio.onerror=null;}if(interrupted)emit('stopped');}
+    function play(src,volume,speed){revision++;currentTiming={turn:++timingSequence,persona,revision,startedAt:now()};timingHistory.push(currentTiming);if(timingHistory.length>40)timingHistory.shift();const target=element();target.src=src;target.volume=volume;target.muted=false;target.playbackRate=speed;target.preservesPitch=true;pending=false;emit('loading');return attempt();}
+    return {element,activate,play,cancel,pending:()=>pending,setPersona,timingSnapshot};
   }
   return {createPlayback};
 });
