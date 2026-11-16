@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
   <title>Desafio DPI — EL-X VET</title>
   <script>
-    const isPhone = window.matchMedia?.('(max-width: 600px)').matches === true;
+    const isPhone = window.matchMedia?.('(max-width: 760px), (pointer: coarse)').matches === true;
     const route = isPhone ? './dpi-home.html' : './dpi-r18.1/ABRA-ESTA-PREVIA.html';
     const destination = new URL(route, window.location.href);
     destination.search = window.location.search;
