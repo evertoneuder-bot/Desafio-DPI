@@ -54,6 +54,6 @@ test('a stale speech-end from the other persona cannot stop the active mascot', 
 });
 
 test('untagged legacy speech-end still stops speaking', () => {
-  assert.match(source, /if \(endedPersona && endedPersona !== stage\.dataset\.activePersona\) return;/);
+  assert.match(source, /if \(endedPersona && speakingPersona && endedPersona !== speakingPersona\) return;/);
   assert.match(source, /stage\.classList\.remove\('is-speaking'\)/);
 });

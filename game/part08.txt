@@ -11,23 +11,24 @@ function saveProfile(){let o={name:rn.value.trim(),cat:rc.value,crmv:rcrmv.value
 function profile(){let p=prof();if(!p){afterReg=null;register.classList.add('on');return}shell('MEU PERFIL',`<p><b>${p.name}</b></p><p class="muted">${p.cat==='academic'?'Acadêmico de Medicina Veterinária':p.cat==='dpi'?'Médico-veterinário — Diagnóstico por Imagem':'Médico-veterinário — outras áreas'}${p.crmv?'<br>CRMV '+p.crmv+' / '+p.uf:''}</p><button class="btn" onclick="editProfile()">EDITAR PERFIL</button>`)}
 function editProfile(){let p=prof();rn.value=p.name;rc.value=p.cat;rcrmv.value=p.crmv||'';ruf.value=p.uf||'';toggleVet();register.classList.add('on')}
 function settings(){shell('CONFIGURAÇÕES',`<label><input type="checkbox" ${state.music?'checked':''} onchange="setOpt('music',this.checked)"> Música</label><br><label><input type="checkbox" ${state.voice?'checked':''} onchange="setOpt('voice',this.checked)"> Voz</label><br><label><input type="checkbox" ${state.fx?'checked':''} onchange="setOpt('fx',this.checked)"> Efeitos</label><button class="btn" onclick="testAV()">TESTAR SOM E EFEITOS</button><p class="muted">Ao tocar em testar, deve tocar música, voz e efeito visual.</p>`)}
-function setOpt(k,v){state[k]=v;localStorage.setItem(SETK,JSON.stringify({music:state.music,voice:state.voice,fx:state.fx}));if(k==='music'){v?startMusic():bgm.pause()}if(k==='voice'&&!v&&'speechSynthesis'in window){++speechRun;speechSynthesis.cancel();if(speechMusicVolume!==null){bgm.volume=speechMusicVolume;speechMusicVolume=null}}}
+function setOpt(k,v){state[k]=v;localStorage.setItem(SETK,JSON.stringify({music:state.music,voice:state.voice,fx:state.fx}));if(k==='music'){v?startMusic():bgm.pause()}if(k==='voice'&&!v&&'speechSynthesis'in window)stopSpeech()}
 function testAV(){startMusic();partyFx(true);speak('Desafio DPI. Aqui o plantão vira jogo.')}
 function startMusic(){if(!state.music)return;if(bgm.paused){bgm.volume = speechMusicVolume === null ? .16 : .025;bgm.play().catch(()=>{})}}
 bgm.addEventListener('ended',()=>{track=(track+1)%tracks.length;bgm.src=tracks[track];startMusic()});
 ['pointerdown','touchstart','click'].forEach(ev=>document.addEventListener(ev,startMusic,{once:true,passive:true}))
 let speechRun=0,speechMusicVolume=null;
+let speechActiveRun=0;
 function speak(t){if(!state.voice||!('speechSynthesis'in window))return;const run=++speechRun;if(speechMusicVolume===null)speechMusicVolume=bgm.volume;
 const clock=()=>window.performance?.now?.()??Date.now(),calledAt=clock();
 const timing=window.__dpiDesktopSpeechTiming||={samples:[]};const sample={run,callAt:Math.round(calledAt),startDelayMs:null,outcome:'pending'};
 timing.samples.push(sample);if(timing.samples.length>30)timing.samples.shift();
 // Do not reset an idle speech engine before every question: some browsers restart voice initialization after cancel().
-if(speechSynthesis.speaking||speechSynthesis.pending||speechSynthesis.paused)speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';bgm.volume=.025;const restore=()=>{if(run!==speechRun)return;bgm.volume=speechMusicVolume;speechMusicVolume=null};
+if(speechSynthesis.speaking||speechSynthesis.pending||speechSynthesis.paused)speechSynthesis.cancel();speechActiveRun=run;let u=new SpeechSynthesisUtterance(t);u.lang='pt-BR';bgm.volume=.025;const restore=()=>{if(run!==speechRun)return;bgm.volume=speechMusicVolume;speechMusicVolume=null};
 u.onstart=()=>{sample.startDelayMs=Math.round(clock()-calledAt);sample.outcome='started';if(run!==speechRun)sample.outcome='superseded-start'};
-u.onend=()=>{sample.outcome=run!==speechRun?'superseded-end':'ended';restore()};
-u.onerror=()=>{sample.outcome=run!==speechRun?'superseded-error':'error';restore()};
-try{speechSynthesis.speak(u)}catch(error){sample.outcome='exception';restore()}}
-function stopSpeech(){if(!('speechSynthesis'in window))return;++speechRun;try{speechSynthesis.cancel()}catch(error){}if(speechMusicVolume!==null){bgm.volume=speechMusicVolume;speechMusicVolume=null}}
+u.onend=()=>{sample.outcome=run!==speechRun?'superseded-end':'ended';if(run===speechActiveRun)speechActiveRun=0;restore()};
+u.onerror=()=>{sample.outcome=run!==speechRun?'superseded-error':'error';if(run===speechActiveRun)speechActiveRun=0;restore()};
+try{speechSynthesis.speak(u)}catch(error){sample.outcome='exception';if(run===speechActiveRun)speechActiveRun=0;restore()}}
+function stopSpeech(){if(!('speechSynthesis'in window))return;const synthActive=speechActiveRun!==0||speechSynthesis.speaking||speechSynthesis.pending||speechSynthesis.paused;++speechRun;speechActiveRun=0;try{if(synthActive)speechSynthesis.cancel()}catch(error){}if(speechMusicVolume!==null){bgm.volume=speechMusicVolume;speechMusicVolume=null}}
 function quizMenu(){shell('QUIZ DPI',`<p class="muted">Escolha o tamanho da missão.</p><button class="btn" onclick="startQuiz(10)">10 QUESTÕES</button><button class="btn" onclick="startQuiz(25)">25 QUESTÕES</button><button class="btn" onclick="startQuiz(50)">50 QUESTÕES</button>`)}
 function startQuiz(n){startMusic();state.n=n;state.i=0;state.score=0;state.qs=[...BANK].sort(()=>Math.random()-.5).slice(0,n);renderQ()}
 function renderQ(){if(state.i>0 && state.i%3===0 && state.music){track=(track+1)%tracks.length;bgm.src=tracks[track];startMusic()}let q=state.qs[state.i];if(!q)return finish();bgm.volume=state.music?.075:0;let opts=[q.alternativa_a,q.alternativa_b,q.alternativa_c,q.alternativa_d];shell(`QUESTÃO ${state.i+1} / ${state.n}`,`<p class="question-text"><b>${q.pergunta}</b></p>${opts.map((o,i)=>`<button class="btn option" onclick="answer(${i},this)">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}<p class="muted">Pontuação: ${state.score}</p><div class="navrow"><button class="btn secondary" onclick="confirmExit()">← VOLTAR / SAIR</button></div>`);speak(q.pergunta)}

@@ -62,7 +62,7 @@ test('disabling desktop voice cancels the active utterance and restores music', 
   runtime.speak('Pergunta');
   assert.equal(bgm.volume,0.025);
   runtime.setOpt('voice',false);
-  assert.equal(cancelled,2);
+  assert.equal(cancelled,1);
   assert.equal(bgm.volume,0.16);
   utterances[0].onend();
   assert.equal(bgm.volume,0.16,'cancelled speech cannot modify music after voice is off');

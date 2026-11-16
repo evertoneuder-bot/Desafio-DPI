@@ -26,7 +26,23 @@ test('stopSpeech cancels active voice, restores music and ignores late events', 
   assert.equal(bgm.volume, 0.075);
   utterances[0].onend();
   assert.equal(bgm.volume, 0.075);
-  assert.equal(cancellations, 2);
+  assert.equal(cancellations, 1);
+});
+
+test('a completed question does not cancel the idle engine before the next question', () => {
+  const utterances = [];
+  let cancellations = 0;
+  const synth = {cancel() { cancellations++; }, speak() {}};
+  class Utterance { constructor(text) { this.text=text; utterances.push(this); } }
+  const {speak, stopSpeech} = new Function('state','window','speechSynthesis','bgm','SpeechSynthesisUtterance',
+    speechCode + '\nreturn {speak,stopSpeech};'
+  )({voice:true},{speechSynthesis:synth},synth,{volume:0.16},Utterance);
+  speak('Pergunta 1');
+  utterances[0].onstart();
+  utterances[0].onend();
+  stopSpeech();
+  speak('Pergunta 2');
+  assert.equal(cancellations, 0);
 });
 
 test('stopSpeech is safe before the first utterance', () => {
