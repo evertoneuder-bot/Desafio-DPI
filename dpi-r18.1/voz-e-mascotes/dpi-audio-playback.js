@@ -8,6 +8,20 @@
     if(label)label.textContent=message;
     if(detail.state==='blocked'||detail.state==='error')root.dispatchEvent(new CustomEvent('elx-voice-unavailable',{detail:{reason:'audio-playback-'+detail.state,message}}));
   };
+  root.ELXVoicePlayback=api.createPlayback(()=>new root.Audio(),report);
+  root.document.addEventListener('click',event=>{
+    if(!event.isTrusted||!root.ELXAssistentes?.isEnabled?.())return;
+    // Retrying an already downloaded utterance must consume this tap instead
+    // of generating another one and losing the browser's media activation.
+    const pending=root.ELXVoicePlayback.pending();
+    root.ELXVoicePlayback.activate().catch(()=>{});
+    if(pending&&event.target.closest?.('button[onclick="testAV()"]')){
+      event.preventDefault();event.stopImmediatePropagation();
+    }
+  },true);
+})(typeof window==='object'?window:null,function(root){
+  'use strict';
+  const silence='data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAAAAAA==';
   const apiBlobTiming=new WeakMap(),apiUrlTiming=new Map(),nativeFetch=root.fetch?.bind(root),nativeCreateURL=root.URL?.createObjectURL?.bind(root.URL),nativeRevokeURL=root.URL?.revokeObjectURL?.bind(root.URL);
   const metricNames=new Set(['subscription','synthesis_headers','buffer']);
   const parseServerTiming=value=>Object.fromEntries(String(value||'').split(',').map(part=>{const m=part.trim().match(/^([a-z_]+);dur=([0-9.]+)$/i);return m&&metricNames.has(m[1])?[m[1],Math.round(Number(m[2])*10)/10]:null}).filter(Boolean));
@@ -23,20 +37,6 @@
   };
   if(nativeCreateURL)root.URL.createObjectURL=function(blob){const url=nativeCreateURL(blob),meta=apiBlobTiming.get(blob);if(meta)apiUrlTiming.set(url,meta);return url};
   if(nativeRevokeURL)root.URL.revokeObjectURL=function(url){apiUrlTiming.delete(url);return nativeRevokeURL(url)};
-  root.ELXVoicePlayback=api.createPlayback(()=>new root.Audio(),report);
-  root.document.addEventListener('click',event=>{
-    if(!event.isTrusted||!root.ELXAssistentes?.isEnabled?.())return;
-    // Retrying an already downloaded utterance must consume this tap instead
-    // of generating another one and losing the browser's media activation.
-    const pending=root.ELXVoicePlayback.pending();
-    root.ELXVoicePlayback.activate().catch(()=>{});
-    if(pending&&event.target.closest?.('button[onclick="testAV()"]')){
-      event.preventDefault();event.stopImmediatePropagation();
-    }
-  },true);
-})(typeof window==='object'?window:null,function(root){
-  'use strict';
-  const silence='data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAAAAAA==';
   function createPlayback(createAudio,report=()=>{}){
     let audio=null,pending=false,prepared=false,revision=0,phase='idle';
     let context=null,gainNode=null,compressor=null,persona='female';
