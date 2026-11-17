@@ -51,6 +51,13 @@ test('correlates safe TTS Server-Timing metrics with browser playback turn',asyn
   const [turn]=playback.timingSnapshot();
   assert.equal(turn.turn,1);
   assert.equal(turn.api.status,200);
+  assert.equal(turn.attribution.serverReportedMs,866.7);
+  assert(turn.attribution.networkAndServerMs>=0);
+  assert.equal(turn.attribution.playbackAfterReadyMs,turn.playingMs);
+  assert.equal(turn.attribution.totalRequestToPlayingMs,
+    Math.round((turn.api.requestToPlaybackMs+turn.playingMs)*10)/10);
+  assert(!('text' in turn.attribution)&&!('url' in turn.attribution));
+
   assert.deepEqual({...turn.api.serverTiming},{subscription:4.2,synthesis_headers:850,buffer:12.5});
   assert(turn.api.responseMs>=0&&turn.api.blobReadMs>=0);
   assert(!('src' in turn)&&!('text' in turn)&&!('url' in turn.api));
