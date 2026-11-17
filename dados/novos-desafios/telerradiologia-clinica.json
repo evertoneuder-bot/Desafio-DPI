@@ -16,7 +16,7 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Repetir a projeção ML com maior colimação, sem alterar a incidência."
+          "text": "Repetir a projeção mediolateral com maior colimação, mantendo a mesma orientação do feixe e a mesma sobreposição dos fragmentos."
         },
         {
           "id": "B",
@@ -59,7 +59,7 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Padrão intersticial difuso, sugestivo de edema pulmonar não cardiogênico."
+          "text": "Padrão intersticial difuso, com suspeita de edema pulmonar não cardiogênico como interpretação principal apesar da distribuição brônquica."
         },
         {
           "id": "B",
@@ -98,7 +98,7 @@
         },
         {
           "id": "B",
-          "text": "A rotação compromete apenas a comparação das estruturas abdominais."
+          "text": "A rotação compromete apenas a avaliação das estruturas abdominais sobrepostas, sem afetar a comparação entre as articulações coxofemorais."
         },
         {
           "id": "C",
@@ -137,7 +137,7 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "A equipe remota define a técnica e dispensa a revisão local da aquisição."
+          "text": "A equipe remota define a técnica de exposição, assume a contenção física do paciente e dispensa a conferência local das projeções."
         },
         {
           "id": "B",
@@ -183,7 +183,7 @@
         },
         {
           "id": "B",
-          "text": "Identificação do paciente, valor cobrado e prazo administrativo solicitado."
+          "text": "Identificação do paciente, valores administrativos cobrados, prazo solicitado para o laudo e a preferência de tratamento informada pelo tutor."
         },
         {
           "id": "C",
@@ -213,7 +213,7 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Permitir laudos remotos sem necessidade de identificação do paciente."
+          "text": "Permitir laudos remotos sem necessidade de identificação do paciente quando os arquivos digitais estiverem agrupados por data de aquisição."
         },
         {
           "id": "B",
@@ -251,7 +251,7 @@
         },
         {
           "id": "B",
-          "text": "Estudos anteriores sem datas, mas com comentários subjetivos do tutor."
+          "text": "Estudos anteriores sem identificação de datas ou incidências, acompanhados apenas de relatos subjetivos sobre a melhora clínica do paciente."
         },
         {
           "id": "C",
@@ -281,7 +281,7 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Priorizar contenção manual do detector quando houver movimento do equino."
+          "text": "Priorizar contenção manual do detector pelo auxiliar dentro do feixe primário quando houver movimento do equino, para reduzir repetição de imagens."
         },
         {
           "id": "B",
@@ -316,7 +316,7 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Emitir impressão definitiva, registrando a limitação apenas no rodapé."
+          "text": "Emitir impressão diagnóstica definitiva com base na projeção disponível, registrando as limitações técnicas somente no rodapé do documento."
         },
         {
           "id": "B",
@@ -362,7 +362,7 @@
         },
         {
           "id": "B",
-          "text": "Quando a imagem já é suficiente e a questão é exclusivamente financeira."
+          "text": "Quando a imagem já é tecnicamente suficiente e a única questão pendente é a definição do valor financeiro do serviço de interpretação."
         },
         {
           "id": "C",
