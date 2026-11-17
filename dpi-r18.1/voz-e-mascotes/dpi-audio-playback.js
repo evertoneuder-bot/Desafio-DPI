@@ -54,7 +54,7 @@
         root.dispatchEvent(new root.CustomEvent('elx-audio-timing',{detail}));
       }
     }
-    function timingSnapshot(){return timingHistory.map(({turn,persona,canplayMs,playingMs,failedMs,api})=>({turn,persona,canplayMs,playingMs,failedMs,api:api?{status:api.status,responseMs:api.responseMs,blobReadMs:api.blobReadMs,requestToPlaybackMs:api.requestToPlaybackMs,serverTiming:api.serverTiming}:null}));}
+    function timingSnapshot(){return timingHistory.map(({turn,persona,canplayMs,playingMs,failedMs,api})=>({turn,persona,canplayMs,playingMs,failedMs,api:api?{status:api.status,responseMs:api.responseMs,blobReadMs:api.blobReadMs,requestToPlaybackMs:api.requestToPlaybackMs,serverTiming:api.serverTiming}:null,attribution:api?{requestToPlaybackMs:api.requestToPlaybackMs,networkAndServerMs:Math.round((api.responseMs+api.blobReadMs)*10)/10,serverReportedMs:Math.round(Object.values(api.serverTiming||{}).reduce((sum,n)=>sum+n,0)*10)/10,playbackAfterReadyMs:playingMs==null?null:Math.round((playingMs-(api.requestToPlaybackMs||0))*10)/10}:null}));}
     function emit(state){phase=state;report({state});}
     function updateGain(){if(!gainNode||!context)return;const gain=persona==='male'?1.55:1;try{gainNode.gain.setTargetAtTime(gain,context.currentTime,.025)}catch{gainNode.gain.value=gain}}
     function setPersona(value){persona=value==='male'?'male':'female';updateGain()}
