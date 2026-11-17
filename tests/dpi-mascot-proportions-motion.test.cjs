@@ -38,7 +38,7 @@ test('speech only animates the selected persona; both retain rest animation', ()
   for (const state of ['dpi2DIdle','dpi2DSpeak','dpi2DListen','dpi2DGreet','dpi2DCheer','dpi2DComfort']) {
     const keyframe = motion.split('@keyframes '+state+'{')[1]?.split('}')[0];
     assert.ok(keyframe, 'Missing articulated motion '+state);
-    assert.match(keyframe, /scale\\(var\\(--elx-persona-scale\\)\\)/, 'Scale must survive '+state);
+    assert.ok(keyframe.includes('scale(var(--elx-persona-scale))'), 'Scale must survive '+state);
   }
 });
 
