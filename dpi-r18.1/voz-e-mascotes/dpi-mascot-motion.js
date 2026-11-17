@@ -61,11 +61,11 @@
     for(const who of ['male','female'])style.textContent+=`#elx-character-stage[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"] .dpi-2d-head{animation:${anim};animation-delay:0s}`;
   }
   style.textContent+=`
-@keyframes dpiHeadIdle{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}42%{transform:rotate(.35deg) scale(var(--elx-persona-scale))}68%{transform:rotate(-.25deg)}}
+@keyframes dpiHeadIdle{0%,100%{transform:rotate(0)}42%{transform:rotate(.35deg)}68%{transform:rotate(-.25deg)}}
 @keyframes dpiHeadTalk{0%,100%{transform:rotate(0) translateY(0)}30%{transform:rotate(-.6deg) translateY(1px)}65%{transform:rotate(.8deg) translateY(-1px)}}
-@keyframes dpiHeadListen{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}50%{transform:rotate(1.2deg)}}
-@keyframes dpiHeadGreet{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}25%{transform:rotate(-1.6deg)}60%{transform:rotate(1.2deg)}}
-@keyframes dpiHeadConcern{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}35%{transform:rotate(-1.4deg) translateY(1px)}70%{transform:rotate(.6deg)}}
+@keyframes dpiHeadListen{0%,100%{transform:rotate(0)}50%{transform:rotate(1.2deg)}}
+@keyframes dpiHeadGreet{0%,100%{transform:rotate(0)}25%{transform:rotate(-1.6deg)}60%{transform:rotate(1.2deg)}}
+@keyframes dpiHeadConcern{0%,100%{transform:rotate(0)}35%{transform:rotate(-1.4deg) translateY(1px)}70%{transform:rotate(.6deg)}}
 @keyframes dpiBlink{0%,41%,45%,100%{transform:scaleY(1)}43%{transform:scaleY(.04)}}
 #elx-character-stage[data-motion-paused="true"] .dpi-2d-head,#elx-character-stage[data-motion-paused="true"] .dpi-2d-eye{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-head,html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-eye{animation:none!important}}
