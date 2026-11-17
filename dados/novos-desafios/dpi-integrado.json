@@ -2,5 +2,216 @@
   "schema_version": 1,
   "mode": "dpi-integrado",
   "status": "em_preparacao",
-  "cases": []
+  "cases": [
+    {
+      "id": "INT-001",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Cão com claudicação após trauma de antebraço; há suspeita clínica de fratura diafisária.",
+      "imaging_modality": "RX",
+      "question": "Qual planejamento inicial melhor permite avaliar a lesão e sua extensão?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Uma incidência lateral apenas, com colimação restrita ao ponto doloroso.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "B",
+          "text": "Duas projeções ortogonais do antebraço, abrangendo articulações proximal e distal.",
+          "rationale": "A avaliação radiográfica inicial de ossos longos deve incluir duas projeções ortogonais e, diante de suspeita de lesão óssea, as articulações adjacentes."
+        },
+        {
+          "id": "C",
+          "text": "Uma projeção oblíqua do carpo, sem imagem do rádio e da ulna.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "D",
+          "text": "Ultrassonografia abdominal antes de qualquer exame do membro.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–559 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Caso preliminar baseado no capítulo 14 efetivamente consultado; revisar distratores e confrontar segunda fonte antes de liberar."
+    },
+    {
+      "id": "INT-002",
+      "species": "equino",
+      "difficulty": "intermediario",
+      "clinical_context": "Equino com claudicação localizada no carpo, sem sinais sistêmicos; o estudo radiográfico será interpretado posteriormente por especialista.",
+      "imaging_modality": "RX",
+      "question": "Qual estratégia de aquisição melhor investiga superfícies articulares complexas?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Uma projeção lateromedial é suficiente em qualquer caso.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "B",
+          "text": "Dispensar as projeções ortogonais e fazer apenas uma imagem oblíqua.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "C",
+          "text": "Obter incidências básicas e acrescentar oblíquas pertinentes à região, com radioproteção e suporte de detector.",
+          "rationale": "Thrall descreve a importância das incidências oblíquas para articulações complexas, especialmente em equinos, e orienta medidas de radioproteção."
+        },
+        {
+          "id": "D",
+          "text": "Segurar manualmente o detector no feixe primário para evitar artefatos.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–559 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Caso preliminar baseado no capítulo 14 efetivamente consultado; revisar distratores e confrontar segunda fonte antes de liberar."
+    },
+    {
+      "id": "INT-003",
+      "species": "canino",
+      "difficulty": "avancado",
+      "clinical_context": "Cão com dor crônica no ombro e suspeita de lesão relacionada ao sulco bicipital. As incidências ortogonais iniciais não esclareceram a dúvida.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção complementar descrita por Thrall pode demonstrar melhor o sulco bicipital?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Cranioproximal–craniodistal do úmero proximal.",
+          "rationale": "Thrall, capítulo 14, descreve a projeção cranioproximal–craniodistal do úmero proximal para avaliar o sulco bicipital."
+        },
+        {
+          "id": "B",
+          "text": "Dorsoplantar flexionada do tarso.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "C",
+          "text": "Dorsopalmar do carpo contralateral.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "D",
+          "text": "Ventrodorsal da pelve.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–559 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Caso preliminar baseado no capítulo 14 efetivamente consultado; revisar distratores e confrontar segunda fonte antes de liberar."
+    },
+    {
+      "id": "INT-004",
+      "species": "canino",
+      "difficulty": "avancado",
+      "clinical_context": "Cão jovem com suspeita de osteocondrose na tróclea do tálus. A sobreposição do calcâneo limita a avaliação na incidência convencional.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção complementar é descrita para reduzir essa sobreposição?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Craniocaudal do úmero.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "B",
+          "text": "Laterolateral do tórax.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "C",
+          "text": "Ventrodorsal do abdômen.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "D",
+          "text": "Dorsoplantar flexionada do tarso.",
+          "rationale": "Thrall descreve a projeção dorsoplantar flexionada do tarso para avaliar a tróclea do tálus sem a sobreposição do calcâneo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–559 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Caso preliminar baseado no capítulo 14 efetivamente consultado; revisar distratores e confrontar segunda fonte antes de liberar."
+    },
+    {
+      "id": "INT-005",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Cão com suspeita de remodelamento da borda acetabular dorsal; o exame básico da pelve não caracterizou adequadamente essa superfície.",
+      "imaging_modality": "RX",
+      "question": "Qual incidência especial pode complementar o estudo?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Dorsopalmar do carpo.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "B",
+          "text": "Incidência da borda acetabular dorsal (DAR).",
+          "rationale": "Thrall descreve a incidência da borda acetabular dorsal para avaliar aspectos laterais do acetábulo e seu remodelamento."
+        },
+        {
+          "id": "C",
+          "text": "Mediolateral do antebraço.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        },
+        {
+          "id": "D",
+          "text": "Craniocaudal do cotovelo.",
+          "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–559 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Caso preliminar baseado no capítulo 14 efetivamente consultado; revisar distratores e confrontar segunda fonte antes de liberar."
+    }
+  ]
 }
