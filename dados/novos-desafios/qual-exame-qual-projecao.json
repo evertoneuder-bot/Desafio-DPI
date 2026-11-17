@@ -52,7 +52,7 @@
       "difficulty": "basico",
       "clinical_context": "É necessário obter uma radiografia abdominal ventrodorsal de um cão.",
       "imaging_modality": "RX",
-      "question": "Qual decúbito corresponde ao posicionamento ilustrado no material?",
+      "question": "Para a projeção ventrodorsal abdominal demonstrada no material, em qual decúbito o cão é posicionado?",
       "alternatives": [
         {
           "id": "A",
@@ -439,7 +439,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção laterolateral do abdômen para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência laterolateral da região abdômen?",
+      "question": "Qual abreviação identifica a incidência laterolateral do abdômen?",
       "alternatives": [
         {
           "id": "A",
@@ -473,8 +473,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-012",
@@ -482,7 +482,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção ventrodorsal abdominal para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência ventrodorsal da região abdômen?",
+      "question": "Qual abreviação identifica a incidência ventrodorsal do abdômen?",
       "alternatives": [
         {
           "id": "A",
@@ -516,8 +516,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-013",
@@ -525,7 +525,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção laterolateral torácica para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência laterolateral da região tórax?",
+      "question": "Qual abreviação identifica a incidência laterolateral do tórax?",
       "alternatives": [
         {
           "id": "A",
@@ -559,8 +559,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-014",
@@ -568,7 +568,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção ventrodorsal torácica para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência ventrodorsal da região tórax?",
+      "question": "Qual abreviação identifica a incidência ventrodorsal do tórax?",
       "alternatives": [
         {
           "id": "A",
@@ -602,8 +602,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-015",
@@ -611,7 +611,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção dorsoventral torácica para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência dorsoventral da região tórax?",
+      "question": "Qual abreviação identifica a incidência dorsoventral do tórax?",
       "alternatives": [
         {
           "id": "A",
@@ -645,8 +645,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-016",
@@ -654,7 +654,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção mediolateral do ombro e braço para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência mediolateral da região ombro?",
+      "question": "Qual abreviação identifica a incidência mediolateral do ombro?",
       "alternatives": [
         {
           "id": "A",
@@ -688,8 +688,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-017",
@@ -697,7 +697,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção caudocranial do ombro e braço para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência caudocranial da região ombro?",
+      "question": "Qual abreviação identifica a incidência caudocranial do ombro?",
       "alternatives": [
         {
           "id": "A",
@@ -731,8 +731,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-018",
@@ -740,7 +740,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção mediolateral do cotovelo para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência mediolateral da região cotovelo?",
+      "question": "Qual abreviação identifica a incidência mediolateral do cotovelo?",
       "alternatives": [
         {
           "id": "A",
@@ -774,8 +774,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-019",
@@ -783,7 +783,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção craniocaudal do cotovelo e antebraço para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência craniocaudal da região antebraço?",
+      "question": "Qual abreviação identifica a incidência craniocaudal do antebraço?",
       "alternatives": [
         {
           "id": "A",
@@ -817,8 +817,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-020",
@@ -826,7 +826,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção mediolateral do carpo para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência mediolateral da região carpo?",
+      "question": "Qual abreviação identifica a incidência mediolateral do carpo?",
       "alternatives": [
         {
           "id": "A",
@@ -860,8 +860,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-021",
@@ -869,7 +869,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção oblíqua mediopalmar-dorsolateral do carpo para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência oblíqua mediopalmar-dorsolateral da região carpo?",
+      "question": "Qual abreviação identifica a incidência oblíqua mediopalmar-dorsolateral do carpo?",
       "alternatives": [
         {
           "id": "A",
@@ -903,8 +903,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-022",
@@ -912,7 +912,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção dorsopalmar do carpo para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência dorsopalmar da região carpo?",
+      "question": "Qual abreviação identifica a incidência dorsopalmar do carpo?",
       "alternatives": [
         {
           "id": "A",
@@ -946,8 +946,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-023",
@@ -955,7 +955,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção laterolateral da pelve para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência laterolateral da região pelve?",
+      "question": "Qual abreviação identifica a incidência laterolateral da pelve?",
       "alternatives": [
         {
           "id": "A",
@@ -989,8 +989,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-024",
@@ -998,7 +998,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção ventrodorsal da pelve para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência ventrodorsal da região pelve?",
+      "question": "Qual abreviação identifica a incidência ventrodorsal da pelve?",
       "alternatives": [
         {
           "id": "A",
@@ -1032,8 +1032,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-025",
@@ -1041,7 +1041,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção mediolateral da coxa e joelho para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência mediolateral da região joelho?",
+      "question": "Qual abreviação identifica a incidência mediolateral do joelho?",
       "alternatives": [
         {
           "id": "A",
@@ -1075,8 +1075,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-026",
@@ -1084,7 +1084,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção craniocaudal do joelho para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência craniocaudal da região joelho?",
+      "question": "Qual abreviação identifica a incidência craniocaudal do joelho?",
       "alternatives": [
         {
           "id": "A",
@@ -1118,8 +1118,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-027",
@@ -1127,7 +1127,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção tangencial do joelho para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência tangencial (skyline) da região joelho?",
+      "question": "Qual abreviação identifica a incidência tangencial (skyline) do joelho?",
       "alternatives": [
         {
           "id": "A",
@@ -1161,8 +1161,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-028",
@@ -1170,7 +1170,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção mediolateral do tarso para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência mediolateral da região tarso?",
+      "question": "Qual abreviação identifica a incidência mediolateral do tarso?",
       "alternatives": [
         {
           "id": "A",
@@ -1204,8 +1204,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-029",
@@ -1213,7 +1213,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção dorsoplantar do tarso para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência dorsoplantar da região tarso?",
+      "question": "Qual abreviação identifica a incidência dorsoplantar do tarso?",
       "alternatives": [
         {
           "id": "A",
@@ -1247,8 +1247,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-PRO-030",
@@ -1256,7 +1256,7 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção oblíqua dorsolateral-medioplantar do tarso para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência oblíqua dorsolateral-medioplantar da região tarso?",
+      "question": "Qual abreviação identifica a incidência oblíqua dorsolateral-medioplantar do tarso?",
       "alternatives": [
         {
           "id": "A",
@@ -1290,8 +1290,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+      "review_status": "requer_aprofundamento_clinico",
+      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
     },
     {
       "id": "QP-RX-FEI-031",
@@ -1333,8 +1333,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-032",
@@ -1376,8 +1376,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-033",
@@ -1419,8 +1419,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-034",
@@ -1462,8 +1462,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-035",
@@ -1505,8 +1505,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-036",
@@ -1548,8 +1548,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-037",
@@ -1591,8 +1591,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-038",
@@ -1634,8 +1634,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-039",
@@ -1677,8 +1677,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-040",
@@ -1720,8 +1720,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-042",
@@ -1763,8 +1763,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-043",
@@ -1806,8 +1806,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-044",
@@ -1849,8 +1849,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-045",
@@ -1892,8 +1892,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-046",
@@ -1935,8 +1935,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-048",
@@ -1978,8 +1978,8 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-FEI-049",
@@ -2021,14 +2021,14 @@
           "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
         }
       ],
-      "review_status": "pendente_revisao_editorial",
-      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+      "review_status": "requer_reescrita",
+      "reviewer_notes": "AUDITORIA 1: distratores genéricos, sobreposição de conceitos e possível repetição; substituir por decisão de posicionamento com alternativas específicas. Referência de nomenclatura verificada, mas qualidade pedagógica insuficiente."
     },
     {
       "id": "QP-RX-CRA-048",
       "species": "canino",
       "difficulty": "basico",
-      "clinical_context": "É solicitada uma projeção laterolateral da região crânio.",
+      "clinical_context": "É solicitada uma projeção laterolateral do crânio.",
       "imaging_modality": "RX",
       "question": "Qual abreviação representa a projeção laterolateral solicitada?",
       "alternatives": [
@@ -2071,7 +2071,7 @@
       "id": "QP-RX-CRA-049",
       "species": "canino",
       "difficulty": "basico",
-      "clinical_context": "É solicitada uma projeção dorsoventral da região crânio.",
+      "clinical_context": "É solicitada uma projeção dorsoventral do crânio.",
       "imaging_modality": "RX",
       "question": "Qual abreviação representa a projeção dorsoventral solicitada?",
       "alternatives": [
@@ -2114,7 +2114,7 @@
       "id": "QP-RX-COL-050",
       "species": "canino",
       "difficulty": "basico",
-      "clinical_context": "É solicitada uma projeção laterolateral da região coluna torácica.",
+      "clinical_context": "É solicitada uma projeção laterolateral da coluna torácica.",
       "imaging_modality": "RX",
       "question": "Qual abreviação representa a projeção laterolateral solicitada?",
       "alternatives": [
