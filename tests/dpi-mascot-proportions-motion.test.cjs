@@ -53,7 +53,7 @@ test('speech only animates the selected persona; both retain rest animation', ()
 
 test('head articulation never reapplies body persona scale', () => {
   for (const state of ['dpiHeadIdle','dpiHeadTalk','dpiHeadListen','dpiHeadGreet','dpiHeadConcern']) {
-    const keyframe = motion.split('@keyframes '+state+'{')[1]?.split('\\n')[0];
+    const keyframe = motion.split('@keyframes '+state+'{')[1]?.split('}')[0];
     assert.ok(keyframe, 'Missing head motion '+state);
     assert.ok(!keyframe.includes('--elx-persona-scale'), 'Head must not scale independently in '+state);
   }
