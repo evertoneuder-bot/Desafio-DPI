@@ -23,6 +23,7 @@ Atualizado: 17/11/2026. Branch: `codex/diagnostico-audio-dpi-20261111`.
 - Resultado atualizado: **151 aprovados, 0 falhas**.
 - Auditoria estrutural: 0 IDs/gabaritos/estruturas inválidos nos quatro JSONs (40 + 50 + 10 questões e 50 roteiros). Esse resultado não é homologação científica.
 - Contagem das respostas corretas entre as alternativas de maior comprimento: DPI Integrado 32/40 (80%); Qual Exame 14/50 (28%); Telerradiologia 0/10; Olhar 30/50 (60%). DPI Integrado e Olhar ainda exigem revisão do viés; ver `AUDITORIA_VIES_COMPRIMENTO_2026-11-17.md`.
+- Auditoria do banco clínico legado encontrou viés muito maior: 299/300 respostas corretas são as alternativas mais longas; no conjunto ativo de 325, 318/325 (97,8%) têm essa característica. O total de 325 itens foi preservado, mas a revisão editorial das alternativas ainda não foi feita; ver a auditoria detalhada antes de tratar o banco como validado.
 
 ## Teste real em desktop
 
@@ -36,14 +37,14 @@ Na rota original da Arena, houve reprodução neural real com `data-dpi-voice-so
 
 - O check Vercel associado ao commit anterior indicou a prévia `https://desafio-dpi-veterinario-v40-previe-git-ceb3de-evertoneuder-6390.vercel.app`.
 - O check GitHub do commit `97faa2c` apresenta `Vercel: success` e aponta para o dashboard de deployment `https://vercel.com/evertoneuder-6390/desafio-dpi-veterinario-v40-preview/4jkQvtMTWzegQQTGjTpFJwD1kMz7`.
-- A API Vercel da conta conectada retorna zero projetos/deployments, mesmo sem filtro; `get_deployment` e a busca autenticada da URL antiga retornam 404. A tentativa autorizada de link de proteção foi recusada com HTTP 403; o fallback CLI não está instalado. O status de build está verde, mas a nova URL pública do Preview e seu conteúdo não puderam ser obtidos nesta sessão.
+- A API Vercel conectada lista a equipe correta, mas retorna zero projetos; a consulta pelo nome e pelo ID histórico do projeto retorna 404, e a listagem de deployments retorna 403. O check GitHub continua `success`, mas o deployment não pode ser inspecionado nem seu link de preview recuperado por esta conexão. O fallback CLI não está instalado.
 - O Chromium local não conseguiu iniciar neste ambiente gerenciado (`socket() failed: Operation not permitted`). Portanto, os 151 testes são regressão automatizada; a rechecagem interativa do novo pacote depende de acesso à prévia atualizada.
 - Nenhum deploy de produção, promoção, alteração de DNS ou mudança do layout aprovado foi feita.
 
 ## Pendências restantes
 
 1. Conferir o Preview da atualização e testar novamente os três bancos JSON (HTTP 200, carregamento, justificativa, fonte, situação editorial e progressão).
-2. Concluir revisão científica e editorial dupla dos 100 itens; revisar primeiro o viés de extensão em DPI Integrado e Olhar.
+2. Corrigir o viés de extensão e concluir revisão científica/editorial dos 300 itens legados e dos 100 itens novos; o banco legado tem 299/300 gabaritos entre as alternativas mais longas. Manter gabaritos e conteúdo clínico fundamentados nas fontes, sem correção estatística automática.
 3. Obter imagens RX/US reutilizáveis com direitos, anonimização e diagnóstico de referência para os 50 roteiros visuais; incorporar diversidade de modalidades e espécies sem inventar imagens clínicas.
 4. Corrigir e testar a latência neural no navegador, confirmando início, voz de Tom e Fernanda, volume e ausência de sobreposição.
 5. Executar a validação celular somente na etapa final, conforme solicitado.
