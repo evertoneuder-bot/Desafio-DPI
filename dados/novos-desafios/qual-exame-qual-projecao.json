@@ -2023,6 +2023,135 @@
       ],
       "review_status": "pendente_revisao_editorial",
       "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-CRA-048",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "É solicitada uma projeção laterolateral da região crânio.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação representa a projeção laterolateral solicitada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "VD",
+          "rationale": "Representa outra direção de incidência."
+        },
+        {
+          "id": "B",
+          "text": "LL",
+          "rationale": "A página 25 apresenta radiografias laterais do crânio de cães e gatos."
+        },
+        {
+          "id": "C",
+          "text": "DV",
+          "rationale": "Representa outra direção de incidência."
+        },
+        {
+          "id": "D",
+          "text": "CrCd",
+          "rationale": "Representa outra direção de incidência."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 25, legenda da projeção radiográfica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Verificar relevância e repetição com outros itens na primeira auditoria."
+    },
+    {
+      "id": "QP-RX-CRA-049",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "É solicitada uma projeção dorsoventral da região crânio.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação representa a projeção dorsoventral solicitada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "CrCd",
+          "rationale": "Representa outra direção de incidência."
+        },
+        {
+          "id": "B",
+          "text": "LL",
+          "rationale": "Representa outra direção de incidência."
+        },
+        {
+          "id": "C",
+          "text": "DV",
+          "rationale": "A página 29 apresenta posicionamento dorsoventral do crânio."
+        },
+        {
+          "id": "D",
+          "text": "VD",
+          "rationale": "Representa outra direção de incidência."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 29, legenda da projeção radiográfica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Verificar relevância e repetição com outros itens na primeira auditoria."
+    },
+    {
+      "id": "QP-RX-COL-050",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "É solicitada uma projeção laterolateral da região coluna torácica.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação representa a projeção laterolateral solicitada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LL",
+          "rationale": "A página 34 apresenta radiografia lateral da coluna torácica de cão."
+        },
+        {
+          "id": "B",
+          "text": "DV",
+          "rationale": "Representa outra direção de incidência."
+        },
+        {
+          "id": "C",
+          "text": "CrCd",
+          "rationale": "Representa outra direção de incidência."
+        },
+        {
+          "id": "D",
+          "text": "VD",
+          "rationale": "Representa outra direção de incidência."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 34, legenda da projeção radiográfica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Verificar relevância e repetição com outros itens na primeira auditoria."
     }
   ]
 }
