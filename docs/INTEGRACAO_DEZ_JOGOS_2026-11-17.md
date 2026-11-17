@@ -1,31 +1,40 @@
-# Integração da prévia — dez jogos
-
+# Relatório de integração e validação do preview DPI
 Data: 17/11/2026
 
-## O que mudou
+## Estado de origem confirmado
+- Repositório: `evertoneuder-bot/Desafio-DPI`
+- Branch: `codex/diagnostico-audio-dpi-20261111`
+- Commit validado antes deste relatório: `aad3c95837ca5e46b07c8cc76c23080d2554016d`
+- A capa aprovada e os estilos originais não foram alterados pela integração da prévia.
 
-- `ABRIR-PREVIA-INTEGRADA.html` agora funciona como entrada única para os sete minijogos originais e três desafios adicionais.
-- Arena original: Relâmpago, Alvo, Eliminação, Associação, Caça-palavras, Forca clínica e Palavras cruzadas.
-- Desafios adicionais: Questões clínicas, Desafio do Olhar e Detetive da Imagem.
-- Os desafios adicionais apontam para os arquivos locais do próprio pacote. O Detetive da Imagem foi incluído em `avaliacao/Detetive_da_Imagem_PREVIA.html`.
-- Não foram alterados o HTML/CSS da capa original, o arquivo do jogo legado, as artes ou as folhas de estilo aprovadas.
+## Integração disponível
+- `ABRIR-PREVIA-INTEGRADA.html` oferece a Arena original e três protótipos adicionais: Questões clínicas, Desafio do Olhar e Detetive da Imagem.
+- A página do hub é uma rota separada. A capa original não ganhou controles novos nem teve cores, imagens, posições ou proporções alteradas.
+- Os protótipos adicionais continuam independentes do cadastro, pontuação e ranking da Arena.
+- O texto das páginas identifica os esquemas gráficos como sintéticos, sem alegar que sejam radiografias ou ultrassonografias reais.
 
-## Verificações concluídas
+## Testes automatizados
+- Comando: `node --test tests/*.test.cjs tests/recovered/*.test.cjs`
+- Resultado local: 148 aprovados, 0 falhas.
+- GitHub Actions, execução `44034669294`, no commit `aad3c95837ca5e46b07c8cc76c23080d2554016d`: sucesso.
+- O check Vercel associado ao commit concluiu com sucesso e indicou a prévia `https://desafio-dpi-veterinario-v40-previe-git-ceb3de-evertoneuder-6390.vercel.app`.
 
-- Suíte Node: 142 testes aprovados, 0 falhas.
-- Verificação automatizada confirma os sete nomes, os três arquivos e os três links do menu integrado.
-- Chromium desktop: a página do menu carregou pelo servidor local; a captura mostrou a Arena e os três módulos novos. O clique em “Abrir Arena DPI” formou a rota esperada `dpi-r18.1/ABRA-ESTA-PREVIA.html?mode=start&return=dpi`.
-- O fluxo de jogo dentro dessa rota não foi concluído no navegador nesta sessão; a conexão do servidor local foi interrompida durante a navegação.
+## Testes manuais no desktop
+Na prévia acima, o navegador abriu a capa e percorreu o cadastro como visitante, menu, Arena e hub integrado.
+- Questões clínicas: carregou o banco offline com 20 questões; uma resposta correta mostrou correção e feedback.
+- Desafio do Olhar: exibiu caso RX esquemático; a resposta correta atualizou acertos e justificativa. As imagens são esquemas didáticos.
+- Detetive da Imagem: a missão de fissura óssea aceitou a marcação do achado e registrou 100 pontos.
+- Arena original: abriram Relâmpago, Alvo, Eliminação, Associação, Caça-palavras, Forca clínica, Palavras cruzadas e Feche o Diagnóstico. Foram exercitadas respostas/associações em mais de um modo.
+- A execução completa das rodadas de todos os modos não foi feita.
 
-## Estado de homologação
+## Pendências comprovadas
+1. **Contagem:** o hub anuncia sete jogos originais; na Arena existem sete cartões, mas o cartão de palavras abre Caça-palavras e Forca clínica, e também há Feche o Diagnóstico. Portanto, os modos acionáveis observados na Arena são oito. O escopo “dez jogos” precisa ser reconciliado sem remover um modo já existente.
+2. **Navegação:** o hub é acessível pela rota direta, mas ainda não está ligado a um controle da navegação principal. A integração testada funciona como prévia independente.
+3. **Questões e fontes:** a demonstração de 20 questões está marcada como preliminar. A bibliografia apresentada é geral, não uma referência individual auditável em cada item. Os bancos remotos não foram validados nesta execução.
+4. **Imagens:** os dois jogos visuais usam esquemas sintéticos. Não foram inseridas imagens extraídas de livros/PDFs ou prontuários; é necessário confirmar licença e anonimização antes de redistribuir imagens reais no repositório/prévia.
+5. **Voz:** a execução no browser não comprova a voz neural aprovada nem sua latência/volume real.
+6. **Celular:** teste deliberadamente reservado para a etapa final, conforme instrução do usuário.
+7. **Vercel API:** a API conectada lista o time `evertoneuder-6390`, mas retorna zero projetos e 404 ao consultar o projeto histórico. Ainda assim, o check oficial do GitHub forneceu uma prévia funcional, testada no desktop. A gestão do projeto pelas ferramentas Vercel continua sem acesso verificável.
 
-- A integração nesta cópia de prévia está concluída; não há evidência de publicação desta cópia ou de deploy em produção.
-- Questões clínicas usa banco local de demonstração; bancos adicionais precisam estar no pacote para carregar.
-- Desafio do Olhar usa três esquemas didáticos, explicitamente identificados como não sendo radiografias/ultrassonografias reais.
-- Os módulos novos não compartilham cadastro, pontuação ou ranking com o jogo original.
-- Não há validação neural auditiva nesta sessão. O acesso Vercel consultado antes não identificou o deployment do projeto.
-- O teste no celular fica deliberadamente para o fim, conforme orientação do usuário; ainda não realizado.
-
-## Integridade da interface aprovada
-
-A alteração foi limitada ao lançador de prévia e à inclusão do arquivo do Detetive. As páginas `dpi-home.html`, `dpi-r18.1/ABRA-ESTA-PREVIA.html` e folhas de estilo do jogo foram mantidas como recebidas no pacote de origem.
+## Segurança de publicação
+Nenhuma promoção ou alteração de produção foi feita nesta execução. Não foram adicionados ao repositório PDFs, imagens de pacientes, credenciais ou arquivos privados.
