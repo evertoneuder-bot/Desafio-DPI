@@ -25,6 +25,14 @@ test('Fernanda is smaller than Tom in every animation state', () => {
   }
   assert.match(css, /prefers-reduced-motion:reduce\)\{#elx-character-stage \.elx-mascot-motion-persona\{animation:none!important;transform:scale\(var\(--elx-persona-scale\)\)/);
 });
+test('canvas renderer halves Fernanda exactly once; fallback image retains CSS half-scale', () => {
+  const renderer = fs.readFileSync(path.join(__dirname, '../assets/fsm/sprite-renderer.js'), 'utf8');
+  const artwork = fs.readFileSync(path.join(__dirname, '../assets/dpi-2d-art.js'), 'utf8');
+  assert.match(renderer, /characterScale = canvas\.dataset\.persona === 'female' \? \.5 : 1/);
+  assert.match(artwork, /dpi-acting-canvas/);
+  assert.ok(css.includes('[data-persona="female"]:has(> .dpi-acting-canvas){--elx-persona-scale:1}'));
+  assert.ok(css.includes('[data-persona="female"]{--elx-persona-scale:.5;'));
+});
 test('motion is slower and eased rather than a mechanically looping bounce', () => {
   assert.match(css, /animation:elxMascotIdle 5\.8s ease-in-out infinite/);
   assert.match(css, /animation:elxMascotSpeak 2\.1s ease-in-out infinite/);
