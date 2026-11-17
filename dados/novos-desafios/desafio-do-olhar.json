@@ -2,5 +2,261 @@
   "schema_version": 1,
   "mode": "desafio-do-olhar",
   "status": "em_preparacao",
-  "cases": []
+  "cases": [
+    {
+      "id": "OLH-001",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Radiografia de antebraço de cão jovem com redução generalizada da opacidade óssea; imagem original autorizada ainda não selecionada.",
+      "imaging_modality": "RX",
+      "question": "Em um estudo com adelgaçamento cortical difuso, qual achado morfológico deve ser identificado antes de propor diferenciais?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Aumento difuso da mineralização cortical.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "B",
+          "text": "Redução difusa da radiopacidade óssea e adelgaçamento das corticais.",
+          "rationale": "Thrall descreve redução da radiopacidade e corticais delgadas em doenças ósseas metabólicas, mas a imagem específica e o diagnóstico de referência ainda precisam ser validados."
+        },
+        {
+          "id": "C",
+          "text": "Aumento de opacidade pulmonar alveolar.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "D",
+          "text": "Deslocamento da silhueta cardíaca.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, páginas 600–603 do PDF consultado; verificação exata por caso pendente",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Radiografia de membro longo com osteopenia difusa, identificação anonimizada e diagnóstico de referência documentado.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro condicional, não é questão visual jogável. Não mostrar até possuir imagem licenciada, anonimizada e diagnóstico de referência; revalidar gabarito à luz da imagem real."
+    },
+    {
+      "id": "OLH-002",
+      "species": "canino",
+      "difficulty": "avancado",
+      "clinical_context": "Estudo radiográfico de paciente em crescimento com atraso na ossificação epifisária; imagem autorizada ainda não selecionada.",
+      "imaging_modality": "RX",
+      "question": "Qual padrão de desenvolvimento ósseo seria relevante reconhecer na imagem?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Mineralização epifisária reduzida ou tardia.",
+          "rationale": "Thrall descreve ossificação epifisária tardia em hipotireoidismo congênito; esse padrão não permite diagnóstico definitivo isolado."
+        },
+        {
+          "id": "B",
+          "text": "Consolidação de todas as fises antes da maturidade.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "C",
+          "text": "Pneumotórax bilateral.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "D",
+          "text": "Dilatação de alças intestinais.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, páginas 600–603 do PDF consultado; verificação exata por caso pendente",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Radiografia de joelho/carpo de paciente jovem com atraso epifisário confirmado e controle etário.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro condicional, não é questão visual jogável. Não mostrar até possuir imagem licenciada, anonimizada e diagnóstico de referência; revalidar gabarito à luz da imagem real."
+    },
+    {
+      "id": "OLH-003",
+      "species": "canino",
+      "difficulty": "avancado",
+      "clinical_context": "Radiografia de paciente com doença óssea sistêmica e alterações epifisárias múltiplas; imagem autorizada ainda não selecionada.",
+      "imaging_modality": "RX",
+      "question": "Qual descrição objetiva deve anteceder a impressão diagnóstica?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Fratura traumática confirmada sem análise das superfícies.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "B",
+          "text": "Diagnóstico molecular definitivo pela radiografia.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "C",
+          "text": "Epífises pequenas, mineralização irregular e alterações de múltiplas articulações, quando efetivamente demonstradas.",
+          "rationale": "Thrall descreve alterações epifisárias generalizadas em mucopolissacaridoses; a descrição só será válida após confronto com a imagem real."
+        },
+        {
+          "id": "D",
+          "text": "Ausência obrigatória de alterações vertebrais.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, páginas 600–603 do PDF consultado; verificação exata por caso pendente",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Radiografias de paciente com displasia epifisária generalizada e diagnóstico clínico de referência.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro condicional, não é questão visual jogável. Não mostrar até possuir imagem licenciada, anonimizada e diagnóstico de referência; revalidar gabarito à luz da imagem real."
+    },
+    {
+      "id": "OLH-004",
+      "species": "equino",
+      "difficulty": "avancado",
+      "clinical_context": "Radiografia de osso navicular equino com fragmentação e margens suaves; imagem autorizada ainda não selecionada.",
+      "imaging_modality": "RX",
+      "question": "Qual característica visual deve ser documentada para diferenciar variação multipartida de fratura?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Cor da pelagem do animal.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "B",
+          "text": "Presença de sopro cardíaco.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "C",
+          "text": "Apenas a idade do tutor.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "D",
+          "text": "Contornos dos fragmentos, simetria bilateral e alterações ósseas adjacentes.",
+          "rationale": "Thrall descreve margens regulares e bilateralidade como elementos úteis na análise, sem permitir diferenciação definitiva em todos os casos."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, páginas 600–603 do PDF consultado; verificação exata por caso pendente",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Radiografias bilaterais naviculares autorizadas com avaliação de margens e histórico clínico.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro condicional, não é questão visual jogável. Não mostrar até possuir imagem licenciada, anonimizada e diagnóstico de referência; revalidar gabarito à luz da imagem real."
+    },
+    {
+      "id": "OLH-005",
+      "species": "equino",
+      "difficulty": "avancado",
+      "clinical_context": "Radiografias seriadas de osso navicular após ferida perfurante; imagens autorizadas ainda não selecionadas.",
+      "imaging_modality": "RX",
+      "question": "Qual achado de acompanhamento pode sustentar suspeita de osteomielite navicular?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Irregularidade progressiva e áreas de menor opacidade no córtex flexor do navicular.",
+          "rationale": "Thrall descreve áreas focais de menor opacidade e irregularidade cortical como possíveis sinais radiográficos de infecção navicular."
+        },
+        {
+          "id": "B",
+          "text": "Aumento isolado do tamanho da silhueta cardíaca.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "C",
+          "text": "Redução do conteúdo fecal no cólon.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        },
+        {
+          "id": "D",
+          "text": "Presença de ar no estômago.",
+          "rationale": "Não corresponde ao padrão radiográfico específico proposto."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, páginas 600–603 do PDF consultado; verificação exata por caso pendente",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Radiografias seriadas anonimizadas com diagnóstico de referência e intervalo temporal documentado.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro condicional, não é questão visual jogável. Não mostrar até possuir imagem licenciada, anonimizada e diagnóstico de referência; revalidar gabarito à luz da imagem real."
+    }
+  ]
 }
