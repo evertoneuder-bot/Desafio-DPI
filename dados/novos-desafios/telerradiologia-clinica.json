@@ -5,10 +5,10 @@
   "branding": {
     "company": "EL-X Vet",
     "logo_original_url": "https://www.elx-vet.com.br/elx-vet-logo.png",
-    "logo_policy": "Exibir somente o arquivo original verificado do site; se indisponível, omitir a marca nominativa na interface, sem substituí-la por logo inventada.",
+    "logo_policy": "Sempre que o nome EL-X Vet aparecer no conteúdo visual, acompanhá-lo da logomarca original do site oficial, sem redesenho, distorção ou substituição. Caso a imagem não carregue, ocultar a menção visual à marca naquele elemento; em narração, pronunciar somente o nome. Validar em desktop e mobile.",
     "placement": "Contexto ou explicação quando pertinente, sem induzir gabarito"
   },
-  "editorial_policy": "Não confundir alegações institucionais com evidência científica; sem promessa de prazo, superioridade, acurácia ou resultado garantido.",
+  "editorial_policy": "Não confundir alegações institucionais com evidência científica; sem promessa de prazo, superioridade, acurácia ou resultado garantido. Menções institucionais discretas e somente quando pertinentes; evitar marca como pista do gabarito.",
   "cases": [
     {
       "id": "TEL-001",
@@ -200,6 +200,193 @@
           "url": "https://www.elx-vet.com.br/",
           "verified_on": "2026-11-17",
           "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
+        }
+      ],
+      "review_status": "pendente_dupla_auditoria"
+    },
+    {
+      "id": "TEL-006",
+      "question": "Um hospital de outra cidade pretende encaminhar radiografias digitais para telerradiologia. Qual benefício operacional é compatível com esse modelo?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Dispensar a aquisição de imagens no local."
+        },
+        {
+          "id": "B",
+          "text": "Garantir que toda imagem seja diagnóstica independentemente da técnica."
+        },
+        {
+          "id": "C",
+          "text": "Permitir interpretação à distância de estudos adquiridos localmente, mantendo a necessidade de dados clínicos e qualidade técnica."
+        },
+        {
+          "id": "D",
+          "text": "Eliminar a responsabilidade do clínico pela decisão terapêutica."
+        }
+      ],
+      "correct_id": "C",
+      "rationale": "A interpretação remota pode conectar serviços geograficamente distantes, sem substituir o exame local nem a decisão clínica.",
+      "references": [
+        {
+          "type": "site_institucional",
+          "title": "EL-X Vet — Telerradiologia Veterinária",
+          "url": "https://www.elx-vet.com.br/",
+          "verified_on": "2026-11-17",
+          "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
+        }
+      ],
+      "review_status": "pendente_dupla_auditoria"
+    },
+    {
+      "id": "TEL-007",
+      "question": "Uma cadela com doença respiratória crônica possui exames radiográficos de diferentes datas. O clínico solicita comparação evolutiva à equipe de telerradiologia. Qual informação favorece uma análise longitudinal confiável?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Imagens anteriores identificadas por data e incidência, acompanhadas da evolução clínica."
+        },
+        {
+          "id": "B",
+          "text": "Somente o exame mais recente, sem indicação das projeções."
+        },
+        {
+          "id": "C",
+          "text": "Um relato de que a paciente melhorou, sem datas."
+        },
+        {
+          "id": "D",
+          "text": "Imagens de outro animal com quadro semelhante."
+        }
+      ],
+      "correct_id": "A",
+      "rationale": "Comparações exigem identificação correta dos estudos, atenção a diferenças técnicas e correlação com evolução clínica. O site da EL-X Vet descreve a utilidade dos exames anteriores quando relevantes.",
+      "references": [
+        {
+          "type": "site_institucional",
+          "title": "EL-X Vet — Telerradiologia Veterinária",
+          "url": "https://www.elx-vet.com.br/",
+          "verified_on": "2026-11-17",
+          "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
+        }
+      ],
+      "review_status": "pendente_dupla_auditoria"
+    },
+    {
+      "id": "TEL-008",
+      "question": "Um equino necessita de radiografias de extremidade. A clínica pretende enviar o estudo posteriormente para interpretação remota. Qual medida durante a aquisição é mais adequada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Segurar o detector com as mãos diretamente no feixe primário para evitar tremor."
+        },
+        {
+          "id": "B",
+          "text": "Utilizar suporte apropriado para o detector, respeitar a radioproteção e obter as incidências indicadas para a região."
+        },
+        {
+          "id": "C",
+          "text": "Dispensar projeções oblíquas em qualquer estudo equino."
+        },
+        {
+          "id": "D",
+          "text": "Deixar o paciente sem identificação porque os arquivos serão enviados eletronicamente."
+        }
+      ],
+      "correct_id": "B",
+      "rationale": "Thrall destaca os riscos de manipulação manual de cassetes em equinos, a preferência por suporte e a necessidade frequente de projeções oblíquas conforme a região.",
+      "references": [
+        {
+          "type": "livro",
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "author": "Donald E. Thrall",
+          "edition": "6ª",
+          "locator": "Capítulo 14, páginas 557–559 do PDF consultado",
+          "scope": "Projeções ortogonais, centralização e técnica radiográfica; não valida promessas comerciais"
+        }
+      ],
+      "review_status": "pendente_dupla_auditoria"
+    },
+    {
+      "id": "TEL-009",
+      "question": "Uma clínica discute com a EL-X Vet o envio de radiografias para interpretação. A suspeita clínica não está esclarecida e uma projeção está tecnicamente limitada. Qual abordagem é mais adequada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Emitir conclusão categórica sem ressalvas."
+        },
+        {
+          "id": "B",
+          "text": "Afirmar que a telerradiologia dispensa informações clínicas."
+        },
+        {
+          "id": "C",
+          "text": "Repetir automaticamente todo o estudo, mesmo se houver contraindicação clínica."
+        },
+        {
+          "id": "D",
+          "text": "Esclarecer a pergunta clínica, indicar as limitações observadas e avaliar a necessidade de incidência complementar conforme segurança e pertinência."
+        }
+      ],
+      "correct_id": "D",
+      "rationale": "O site da EL-X Vet destaca contexto, técnica e interpretação; a necessidade de repetir ou complementar imagens depende do caso.",
+      "references": [
+        {
+          "type": "site_institucional",
+          "title": "EL-X Vet — Telerradiologia Veterinária",
+          "url": "https://www.elx-vet.com.br/",
+          "verified_on": "2026-11-17",
+          "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
+        },
+        {
+          "type": "livro",
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "author": "Donald E. Thrall",
+          "edition": "6ª",
+          "locator": "Capítulo 14, páginas 557–559 do PDF consultado",
+          "scope": "Projeções ortogonais, centralização e técnica radiográfica; não valida promessas comerciais"
+        }
+      ],
+      "review_status": "pendente_dupla_auditoria"
+    },
+    {
+      "id": "TEL-010",
+      "question": "Uma equipe deseja escolher entre suporte remoto à aquisição, segunda opinião e interpretação de rotina. Em qual situação a consultoria técnica antes de novas imagens tende a ser especialmente útil?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Quando existe dúvida sobre posicionamento ou incidências necessárias para responder à pergunta clínica."
+        },
+        {
+          "id": "B",
+          "text": "Quando o objetivo é substituir o exame físico."
+        },
+        {
+          "id": "C",
+          "text": "Sempre que se deseja omitir a justificativa do exame."
+        },
+        {
+          "id": "D",
+          "text": "Quando se pretende garantir um resultado positivo no laudo."
+        }
+      ],
+      "correct_id": "A",
+      "rationale": "O site institucional descreve consultoria prévia e suporte quando há dúvidas técnicas ou imagens limitadas; a necessidade deve ser individualizada.",
+      "references": [
+        {
+          "type": "site_institucional",
+          "title": "EL-X Vet — Telerradiologia Veterinária",
+          "url": "https://www.elx-vet.com.br/",
+          "verified_on": "2026-11-17",
+          "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
+        },
+        {
+          "type": "livro",
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "author": "Donald E. Thrall",
+          "edition": "6ª",
+          "locator": "Capítulo 14, páginas 557–559 do PDF consultado",
+          "scope": "Projeções ortogonais, centralização e técnica radiográfica; não valida promessas comerciais"
         }
       ],
       "review_status": "pendente_dupla_auditoria"
