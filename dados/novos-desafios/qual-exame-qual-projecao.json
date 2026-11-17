@@ -2,5 +2,49 @@
   "schema_version": 1,
   "mode": "qual-exame-qual-projecao",
   "status": "em_preparacao",
-  "cases": []
+  "cases": [
+    {
+      "id": "QP-RX-NOM-001",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Estudo radiográfico de membro torácico: identificar a direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "O que define uma projeção craniocaudal (CrCd)?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O feixe incide cranialmente e emerge caudalmente.",
+          "rationale": "É a direção craniocaudal."
+        },
+        {
+          "id": "B",
+          "text": "O feixe incide caudalmente e emerge cranialmente.",
+          "rationale": "Define a direção caudocranial."
+        },
+        {
+          "id": "C",
+          "text": "O feixe incide dorsalmente e emerge ventralmente.",
+          "rationale": "Define a direção dorsoventral."
+        },
+        {
+          "id": "D",
+          "text": "O feixe incide ventralmente e emerge dorsalmente.",
+          "rationale": "Define a direção ventrodorsal."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, Nomenclatura - Posicionamentos",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Página original inspecionada; verificar autoria e revisão científica antes da liberação."
+    }
+  ]
 }
