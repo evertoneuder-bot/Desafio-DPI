@@ -217,6 +217,221 @@
       ],
       "review_status": "pendente_revisao_editorial",
       "reviewer_notes": "Conferir se haverá necessidade de incluir a imagem e autorização correspondente."
+    },
+    {
+      "id": "QP-RX-CAR-006",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Cão com avaliação radiográfica do carpo; o solicitante pede incidência dorsopalmar.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção atende à solicitação?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Dorsopalmar (DP)",
+          "rationale": "A incidência solicitada consta na página 14 do material."
+        },
+        {
+          "id": "B",
+          "text": "Dorsoplantar (DPl)",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "C",
+          "text": "Craniocaudal (CrCd)",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "D",
+          "text": "Caudocranial (CdCr)",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 14, posicionamento radiográfico da região",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de reconhecimento de protocolo; validar relevância clínica, distractores e fonte antes de aprovação."
+    },
+    {
+      "id": "QP-RX-PEL-007",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Para documentar a pelve canina, o protocolo inclui incidência ventrodorsal.",
+      "imaging_modality": "RX",
+      "question": "Qual posicionamento está documentado no material para essa incidência?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Projeção dorsoventral",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "B",
+          "text": "Projeção ventrodorsal",
+          "rationale": "A incidência solicitada consta na página 16 do material."
+        },
+        {
+          "id": "C",
+          "text": "Projeção mediolateral",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "D",
+          "text": "Projeção caudocranial",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 16, posicionamento radiográfico da região",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de reconhecimento de protocolo; validar relevância clínica, distractores e fonte antes de aprovação."
+    },
+    {
+      "id": "QP-RX-JOE-008",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Um cão tem indicação de radiografia do joelho com avaliação adicional da articulação femoropatelar em incidência tangencial.",
+      "imaging_modality": "RX",
+      "question": "Qual incidência adicional é mostrada no material?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Mediolateral do carpo",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "B",
+          "text": "Dorsopalmar do tarso",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "C",
+          "text": "Tangencial do joelho (skyline)",
+          "rationale": "A incidência solicitada consta na página 19 do material."
+        },
+        {
+          "id": "D",
+          "text": "Ventrodorsal do crânio",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 19, posicionamento radiográfico da região",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de reconhecimento de protocolo; validar relevância clínica, distractores e fonte antes de aprovação."
+    },
+    {
+      "id": "QP-RX-TAR-009",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O médico solicita uma projeção dorsoplantar da articulação tarsal de um cão.",
+      "imaging_modality": "RX",
+      "question": "Qual direção de feixe corresponde à projeção?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Craniocaudal",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "B",
+          "text": "Caudocranial",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "C",
+          "text": "Mediolateral",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "D",
+          "text": "Dorsoplantar",
+          "rationale": "A incidência solicitada consta na página 22 do material."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 22, posicionamento radiográfico da região",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de reconhecimento de protocolo; validar relevância clínica, distractores e fonte antes de aprovação."
+    },
+    {
+      "id": "QP-RX-CER-010",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "A avaliação radiográfica da coluna cervical canina prevê incidência ventrodorsal.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção está documentada para essa região?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Ventrodorsal da coluna cervical",
+          "rationale": "A incidência solicitada consta na página 32 do material."
+        },
+        {
+          "id": "B",
+          "text": "Dorsoplantar do carpo",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "C",
+          "text": "Caudocranial do ombro",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        },
+        {
+          "id": "D",
+          "text": "Tangencial do joelho",
+          "rationale": "Esta incidência não corresponde à região/direção solicitada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 32, posicionamento radiográfico da região",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de reconhecimento de protocolo; validar relevância clínica, distractores e fonte antes de aprovação."
     }
   ]
 }
