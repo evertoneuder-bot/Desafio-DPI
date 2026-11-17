@@ -427,29 +427,29 @@
       "id": "INT-011",
       "species": "canino",
       "difficulty": "basico",
-      "clinical_context": "Cão com suspeita de nódulos pulmonares pequenos; o serviço segue o protocolo torácico de Baptista.",
+      "clinical_context": "Cão com suspeita de nódulos pulmonares pequenos.",
       "imaging_modality": "RX",
-      "question": "Qual conjunto de projeções o protocolo recomenda para avaliação pulmonar?",
+      "question": "Qual conjunto de projeções é mais adequado para avaliação pulmonar?",
       "alternatives": [
         {
           "id": "A",
           "text": "LLD, LLE e VD",
-          "rationale": "A opção A corresponde ao protocolo/à orientação documentada na fonte consultada (p. 19–20). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "B",
           "text": "Apenas LLD",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Somente VD",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Apenas uma oblíqua",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "A",
@@ -464,7 +464,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-012",
@@ -472,27 +472,27 @@
       "difficulty": "intermediario",
       "clinical_context": "Gato com opacidade torácica pouco caracterizada em LLD; há necessidade de estudar o pulmão contralateral.",
       "imaging_modality": "RX",
-      "question": "Qual projeção complementar é explicitamente valorizada no POP para avaliação dos lobos pulmonares direitos?",
+      "question": "Qual projeção complementar favorece para avaliação dos lobos pulmonares direitos?",
       "alternatives": [
         {
           "id": "A",
           "text": "CrCd do úmero",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "LLE",
-          "rationale": "A opção B corresponde ao protocolo/à orientação documentada na fonte consultada (p. 20). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "C",
           "text": "DPl do tarso",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "ML da escápula",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "B",
@@ -507,7 +507,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-013",
@@ -520,22 +520,22 @@
         {
           "id": "A",
           "text": "Descartar a imagem e não investigar",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Usar apenas radiografia abdominal",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Obter lateral contralateral e projeção ortogonal conforme a indicação",
-          "rationale": "A opção C corresponde ao protocolo/à orientação documentada na fonte consultada (p. 19–20). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "D",
           "text": "Trocar obrigatoriamente por radiografia de crânio",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "C",
@@ -550,35 +550,35 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-014",
       "species": "canino",
       "difficulty": "basico",
-      "clinical_context": "Cão com tosse; a equipe propõe um estudo dinâmico cervical baseado no POP de Baptista.",
+      "clinical_context": "Cão com tosse; a equipe propõe um estudo dinâmico cervical baseado.",
       "imaging_modality": "RX",
       "question": "Como interpretar a indicação de compressão traqueal descrita nessa fonte?",
       "alternatives": [
         {
           "id": "A",
           "text": "Como protocolo universal obrigatório",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Como substituto do exame clínico",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Como método isento de risco e aplicável a qualquer paciente",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Como técnica particular do autor, cuja pertinência e segurança precisam de avaliação individual",
-          "rationale": "A opção D corresponde ao protocolo/à orientação documentada na fonte consultada (p. 21). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         }
       ],
       "correct_id": "D",
@@ -593,7 +593,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-015",
@@ -601,27 +601,27 @@
       "difficulty": "intermediario",
       "clinical_context": "Gato com suspeita de alteração de vias aéreas intratorácicas e dúvida sobre distribuição pulmonar.",
       "imaging_modality": "RX",
-      "question": "No protocolo torácico consultado, qual projeção é usada para observar o tórax em decúbito dorsal?",
+      "question": "qual projeção é usada para observar o tórax em decúbito dorsal?",
       "alternatives": [
         {
           "id": "A",
           "text": "VD",
-          "rationale": "A opção A corresponde ao protocolo/à orientação documentada na fonte consultada (p. 20). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "B",
           "text": "LLE",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "LLD",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "DPl",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "A",
@@ -636,7 +636,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-016",
@@ -649,22 +649,22 @@
         {
           "id": "A",
           "text": "VD demonstra obrigatoriamente todas as lesões",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Uma projeção não permite avaliação multiplanar suficiente; completar com laterais conforme protocolo e condição clínica",
-          "rationale": "A opção B corresponde ao protocolo/à orientação documentada na fonte consultada (p. 19–20). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "C",
           "text": "Uma imagem de abdômen substitui o estudo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Projeções adicionais são sempre proibidas",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "B",
@@ -679,7 +679,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-017",
@@ -687,27 +687,27 @@
       "difficulty": "basico",
       "clinical_context": "Cão com avaliação radiográfica de abdômen; deseja-se caracterizar distribuição de gás gástrico.",
       "imaging_modality": "RX",
-      "question": "Qual combinação de decúbitos o POP propõe para estudo abdominal padrão?",
+      "question": "Qual combinação de decúbitos pode ser utilizada para estudo abdominal padrão?",
       "alternatives": [
         {
           "id": "A",
           "text": "Somente VD",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Somente LLE",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "LLD, LLE e VD ou DV",
-          "rationale": "A opção C corresponde ao protocolo/à orientação documentada na fonte consultada (p. 23–25). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "D",
           "text": "Apenas CrCd",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "C",
@@ -722,7 +722,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-018",
@@ -730,27 +730,27 @@
       "difficulty": "intermediario",
       "clinical_context": "Gato com suspeita de alteração do piloro; radiografias abdominais obtidas em diferentes decúbitos.",
       "imaging_modality": "RX",
-      "question": "Segundo o POP, qual lateral pode favorecer a avaliação do piloro?",
+      "question": "qual lateral pode favorecer a avaliação do piloro?",
       "alternatives": [
         {
           "id": "A",
           "text": "LLD",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "ML do úmero",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "DPl do carpo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "LLE",
-          "rationale": "A opção D corresponde ao protocolo/à orientação documentada na fonte consultada (p. 23). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         }
       ],
       "correct_id": "D",
@@ -765,7 +765,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-019",
@@ -773,27 +773,27 @@
       "difficulty": "basico",
       "clinical_context": "Cão com suspeita de alteração do fundo gástrico; há escolha entre as laterais do abdômen.",
       "imaging_modality": "RX",
-      "question": "Qual lateral é destacada no POP para avaliação do fundo gástrico?",
+      "question": "Qual lateral favorece para avaliação do fundo gástrico?",
       "alternatives": [
         {
           "id": "A",
           "text": "LLD",
-          "rationale": "A opção A corresponde ao protocolo/à orientação documentada na fonte consultada (p. 23). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "B",
           "text": "LLE",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "ML",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "CrCd",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "A",
@@ -808,7 +808,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-020",
@@ -816,27 +816,27 @@
       "difficulty": "basico",
       "clinical_context": "Cão com suspeita de doença urinária; o estudo abdominal simples não esclareceu a dúvida.",
       "imaging_modality": "RX",
-      "question": "Qual é a conduta técnica prevista no POP?",
+      "question": "Qual é a próxima conduta de imagem a considerar?",
       "alternatives": [
         {
           "id": "A",
           "text": "Concluir que não existe doença",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Considerar projeções complementares e/ou contraste positivo conforme a questão clínica",
-          "rationale": "A opção B corresponde ao protocolo/à orientação documentada na fonte consultada (p. 25). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "C",
           "text": "Substituir toda investigação por radiografia de escápula",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Dispensar correlação clínica",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "B",
@@ -851,7 +851,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-021",
@@ -859,27 +859,27 @@
       "difficulty": "intermediario",
       "clinical_context": "Gato com suspeita de alteração de posicionamento de vísceras abdominais.",
       "imaging_modality": "RX",
-      "question": "Qual objetivo é descrito para o estudo abdominal simples no POP?",
+      "question": "Qual aspecto pode ser avaliado na radiografia abdominal simples?",
       "alternatives": [
         {
           "id": "A",
           "text": "Avaliar exclusivamente o cérebro",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Diagnosticar sempre a etiologia da doença",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Avaliar silhuetas viscerais e relações de posicionamento",
-          "rationale": "A opção C corresponde ao protocolo/à orientação documentada na fonte consultada (p. 25). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "D",
           "text": "Determinar histologia hepática",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "C",
@@ -894,7 +894,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-022",
@@ -902,27 +902,27 @@
       "difficulty": "basico",
       "clinical_context": "Cão com suspeita de alteração de conteúdo gastrointestinal; um exame abdominal simples foi solicitado.",
       "imaging_modality": "RX",
-      "question": "O que a radiografia simples pode avaliar segundo o POP?",
+      "question": "O que a radiografia simples pode avaliar?",
       "alternatives": [
         {
           "id": "A",
           "text": "Apenas o tecido pulmonar",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Exclusivamente o osso navicular",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "A composição química exata do conteúdo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Características radiográficas do conteúdo do estômago e intestinos",
-          "rationale": "A opção D corresponde ao protocolo/à orientação documentada na fonte consultada (p. 25). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         }
       ],
       "correct_id": "D",
@@ -937,7 +937,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-023",
@@ -945,27 +945,27 @@
       "difficulty": "basico",
       "clinical_context": "Cão com dor focal na escápula após queda.",
       "imaging_modality": "RX",
-      "question": "Qual par de incidências é apresentado no POP para escápula?",
+      "question": "Qual par de incidências é adequado para escápula?",
       "alternatives": [
         {
           "id": "A",
           "text": "ML e CdCr",
-          "rationale": "A opção A corresponde ao protocolo/à orientação documentada na fonte consultada (p. 40). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "B",
           "text": "VD e DV do tórax",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "LLD e LLE abdominais",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "DPl e PlD do tarso",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "A",
@@ -980,7 +980,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-024",
@@ -988,27 +988,27 @@
       "difficulty": "intermediario",
       "clinical_context": "Cão com suspeita de lesão da articulação escapuloumeral.",
       "imaging_modality": "RX",
-      "question": "Qual combinação é apresentada para avaliação inicial do ombro no POP?",
+      "question": "Qual combinação é adequada para avaliação inicial do ombro?",
       "alternatives": [
         {
           "id": "A",
           "text": "Duas laterais idênticas",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "ML neutra e CdCr",
-          "rationale": "A opção B corresponde ao protocolo/à orientação documentada na fonte consultada (p. 41–42). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "C",
           "text": "Somente CrCd de carpo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "DPl flexionada de tarso",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "B",
@@ -1023,7 +1023,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-025",
@@ -1031,27 +1031,27 @@
       "difficulty": "basico",
       "clinical_context": "Cão com suspeita de fratura umeral.",
       "imaging_modality": "RX",
-      "question": "Qual par de incidências é indicado no POP para o úmero?",
+      "question": "Qual par de incidências é adequado para o úmero?",
       "alternatives": [
         {
           "id": "A",
           "text": "DPl e PlD",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "VD e DV",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "ML neutra e CrCd",
-          "rationale": "A opção C corresponde ao protocolo/à orientação documentada na fonte consultada (p. 43). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "D",
           "text": "Somente oblíqua",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "C",
@@ -1066,7 +1066,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-026",
@@ -1079,22 +1079,22 @@
         {
           "id": "A",
           "text": "Manter centro distante da articulação",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Dispensar segunda incidência",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Centralizar no abdômen",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Centralizar o feixe na articulação de interesse",
-          "rationale": "A opção D corresponde ao protocolo/à orientação documentada na fonte consultada (p. 39). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         }
       ],
       "correct_id": "D",
@@ -1109,7 +1109,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-027",
@@ -1117,27 +1117,27 @@
       "difficulty": "intermediario",
       "clinical_context": "Cão com fratura diafisária do rádio e ulna; a colimação excluiu o carpo.",
       "imaging_modality": "RX",
-      "question": "Qual correção é sustentada pelo princípio de Thrall?",
+      "question": "Qual correção é sustentada pelo princípio?",
       "alternatives": [
         {
           "id": "A",
           "text": "Incluir articulações adjacentes na avaliação da lesão óssea",
-          "rationale": "A opção A corresponde ao protocolo/à orientação documentada na fonte consultada (p. 557). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "B",
           "text": "Eliminar o cotovelo de todas as incidências",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Fazer apenas incidência lateral",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Focar apenas na pele lesionada",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "A",
@@ -1151,7 +1151,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-028",
@@ -1159,27 +1159,27 @@
       "difficulty": "basico",
       "clinical_context": "Equino com suspeita de lesão ao longo de osso longo que não cabe integralmente em uma imagem.",
       "imaging_modality": "RX",
-      "question": "Qual solução é descrita por Thrall?",
+      "question": "Qual solução é descrita?",
       "alternatives": [
         {
           "id": "A",
           "text": "Não avaliar as articulações",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Adquirir imagens separadas das porções proximal e distal e respectivas articulações",
-          "rationale": "A opção B corresponde ao protocolo/à orientação documentada na fonte consultada (p. 558). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "C",
           "text": "Dispensar identificação das imagens",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Usar somente ultrassonografia ocular",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "B",
@@ -1193,7 +1193,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-029",
@@ -1206,22 +1206,22 @@
         {
           "id": "A",
           "text": "Apenas aumentar a exposição",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Repetir a mesma projeção sem mudança",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Acrescentar oblíquas adequadas à anatomia",
-          "rationale": "A opção C corresponde ao protocolo/à orientação documentada na fonte consultada (p. 559). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "D",
           "text": "Radiografar o tórax",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "C",
@@ -1235,7 +1235,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-030",
@@ -1248,22 +1248,22 @@
         {
           "id": "A",
           "text": "Luvas tornam seguro colocar a mão no feixe primário",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "O feixe primário não produz exposição",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Basta usar óculos de chumbo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Nunca colocar as mãos no feixe primário; preferir suporte apropriado para detector",
-          "rationale": "A opção D corresponde ao protocolo/à orientação documentada na fonte consultada (p. 559). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         }
       ],
       "correct_id": "D",
@@ -1277,7 +1277,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-031",
@@ -1285,27 +1285,27 @@
       "difficulty": "basico",
       "clinical_context": "Equino com necessidade de projeções oblíquas do carpo.",
       "imaging_modality": "RX",
-      "question": "Qual faixa de angulação é descrita como usual para oblíquas de articulações complexas?",
+      "question": "Qual faixa de angulação pode ser utilizada para oblíquas de articulações complexas?",
       "alternatives": [
         {
           "id": "A",
           "text": "30° a 45° em relação à entrada da incidência DP/CrCd",
-          "rationale": "A opção A corresponde ao protocolo/à orientação documentada na fonte consultada (p. 559). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "B",
           "text": "Exatamente 90° para qualquer oblíqua",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Sempre 0°",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Sempre 180°",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "A",
@@ -1319,7 +1319,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-032",
@@ -1332,22 +1332,22 @@
         {
           "id": "A",
           "text": "DPl do tarso",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Cranioproximal–craniodistal do úmero proximal",
-          "rationale": "A opção B corresponde ao protocolo/à orientação documentada na fonte consultada (p. 557–558). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "C",
           "text": "Dorsopalmar do carpo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "VD do abdômen",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "B",
@@ -1361,7 +1361,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-033",
@@ -1374,22 +1374,22 @@
         {
           "id": "A",
           "text": "CdCr da escápula",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "VD da pelve",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "DPl flexionada do tarso",
-          "rationale": "A opção C corresponde ao protocolo/à orientação documentada na fonte consultada (p. 558). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "D",
           "text": "LLD do tórax",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "C",
@@ -1403,7 +1403,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-034",
@@ -1411,27 +1411,27 @@
       "difficulty": "basico",
       "clinical_context": "Cão com suspeita de remodelamento da borda acetabular dorsal.",
       "imaging_modality": "RX",
-      "question": "Qual incidência especial é descrita por Thrall?",
+      "question": "Qual incidência especial é descrita?",
       "alternatives": [
         {
           "id": "A",
           "text": "ML do úmero",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "DPl do carpo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "CrCd do antebraço",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Incidência da borda acetabular dorsal",
-          "rationale": "A opção D corresponde ao protocolo/à orientação documentada na fonte consultada (p. 558). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         }
       ],
       "correct_id": "D",
@@ -1445,7 +1445,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-035",
@@ -1458,22 +1458,22 @@
         {
           "id": "A",
           "text": "Para projetar tangencialmente margens que podem ficar ocultas nas incidências básicas",
-          "rationale": "A opção A corresponde ao protocolo/à orientação documentada na fonte consultada (p. 559). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "B",
           "text": "Para eliminar a necessidade de radioproteção",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Para substituir sempre todas as imagens laterais",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Para confirmar etiologia histológica",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "A",
@@ -1487,7 +1487,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-036",
@@ -1495,27 +1495,27 @@
       "difficulty": "intermediario",
       "clinical_context": "Cão com exame radiográfico de membro torácico; a equipe quer evitar distorções de posicionamento.",
       "imaging_modality": "RX",
-      "question": "Qual princípio de centralização consta no POP?",
+      "question": "Qual princípio de centralização deve ser seguido?",
       "alternatives": [
         {
           "id": "A",
           "text": "Centralizar sempre no diafragma",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Direcionar o feixe à região anatômica de interesse",
-          "rationale": "A opção B corresponde ao protocolo/à orientação documentada na fonte consultada (p. 39). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "C",
           "text": "Centralizar na área de menor espessura, mesmo fora da região",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Usar sempre colimação de corpo inteiro",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "B",
@@ -1530,7 +1530,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-037",
@@ -1538,27 +1538,27 @@
       "difficulty": "basico",
       "clinical_context": "Cão com suspeita de alteração da articulação escapuloumeral e solicitação de exame básico.",
       "imaging_modality": "RX",
-      "question": "Qual referência anatômica é citada pelo POP no posicionamento?",
+      "question": "Qual referência anatômica auxilia no posicionamento?",
       "alternatives": [
         {
           "id": "A",
           "text": "O osso navicular equino",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "O cólon descendente",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "A espinha da escápula e a relação com pescoço e manúbrio",
-          "rationale": "A opção C corresponde ao protocolo/à orientação documentada na fonte consultada (p. 41–42). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "D",
           "text": "A válvula ileocecal",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "C",
@@ -1573,7 +1573,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-038",
@@ -1586,22 +1586,22 @@
         {
           "id": "A",
           "text": "Imobilização e analgesia são sempre proibidas",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Manipular fragmentos agressivamente melhora o estudo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Dispensar radioproteção por ser trauma",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Adequar o posicionamento à segurança e conforto do paciente, mantendo incidências necessárias",
-          "rationale": "A opção D corresponde ao protocolo/à orientação documentada na fonte consultada (p. 43). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         }
       ],
       "correct_id": "D",
@@ -1616,7 +1616,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-039",
@@ -1624,27 +1624,27 @@
       "difficulty": "intermediario",
       "clinical_context": "Gato com suspeita de lesão óssea apendicular; foi obtida somente uma incidência.",
       "imaging_modality": "RX",
-      "question": "Qual é a principal limitação?",
+      "question": "Qual limitação deve ser considerada?",
       "alternatives": [
         {
           "id": "A",
           "text": "A avaliação espacial da lesão fica comprometida sem uma projeção ortogonal",
-          "rationale": "A opção A corresponde ao protocolo/à orientação documentada na fonte consultada (p. 557). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "B",
           "text": "Uma incidência sempre basta para excluir fraturas",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "C",
           "text": "Não é possível radiografar gatos",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "A radiografia necessariamente exige contraste positivo",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "A",
@@ -1658,7 +1658,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     },
     {
       "id": "INT-040",
@@ -1666,27 +1666,27 @@
       "difficulty": "basico",
       "clinical_context": "Equino com estudo radiográfico de extremidade e preocupação com exposição ocupacional.",
       "imaging_modality": "RX",
-      "question": "Qual equipamento auxiliar é recomendado por Thrall?",
+      "question": "Qual equipamento auxiliar é recomendado?",
       "alternatives": [
         {
           "id": "A",
           "text": "Suporte que aproxime as mãos do feixe",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "B",
           "text": "Suporte para cassete/detector que afaste as mãos do feixe primário",
-          "rationale": "A opção B corresponde ao protocolo/à orientação documentada na fonte consultada (p. 559). A aplicabilidade clínica deve ser individualizada; protocolos locais não são consensos universais."
+          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
         },
         {
           "id": "C",
           "text": "Luvas colocadas dentro do feixe",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         },
         {
           "id": "D",
           "text": "Nenhuma proteção quando o exame é digital",
-          "rationale": "Não corresponde à técnica descrita para o cenário; exige revisão editorial para tornar o distrator mais plausível."
+          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
         }
       ],
       "correct_id": "B",
@@ -1700,7 +1700,7 @@
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
-      "reviewer_notes": "Confrontar com segunda fonte e reescrever alternativas simplistas. Não liberar ao jogador antes de validação."
+      "reviewer_notes": "Revisar pertinência clínica, distratores e precisão científica antes da homologação. Autores e fontes ficam apenas nas referências."
     }
   ]
 }
