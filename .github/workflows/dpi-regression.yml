@@ -1,0 +1,31 @@
+name: DPI isolated regression checks
+
+on:
+  push:
+    branches:
+      - codex/diagnostico-audio-dpi-20261111
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dpi-regression-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  node-regression:
+    name: Node.js regression (no deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run all project regression tests
+        run: node --test tests/*.test.cjs
