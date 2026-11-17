@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "desafio-do-olhar",
-  "status": "em_preparacao",
+  "status": "roteiros_baseados_em_pdfs_aguardam_imagens_autorizadas",
   "cases": [
     {
       "id": "OLH-001",
@@ -257,6 +257,261 @@
       },
       "review_status": "bloqueado_sem_imagem_autorizada",
       "reviewer_notes": "Roteiro condicional, não é questão visual jogável. Não mostrar até possuir imagem licenciada, anonimizada e diagnóstico de referência; revalidar gabarito à luz da imagem real."
+    },
+    {
+      "id": "OLH-006",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Radiografia do antebraço canino em duas incidências ortogonais, com identificação dos ossos e articulações adjacentes.",
+      "imaging_modality": "RX",
+      "question": "Qual par de incidências ortogonais pode compor a avaliação inicial do antebraço canino?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Mediolateral e craniocaudal.",
+          "rationale": "Thrall recomenda ao menos duas projeções ortogonais para o esqueleto apendicular."
+        },
+        {
+          "id": "B",
+          "text": "Dorsoplantar e dorsopalmar.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "C",
+          "text": "Duas laterais idênticas.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "D",
+          "text": "Somente oblíquas do carpo.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Estudo de antebraço canino em mediolateral e craniocaudal, com articulações adjacentes incluídas.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro baseado em texto efetivamente consultado; requer imagem com permissão e revisão do gabarito após seleção do estudo real."
+    },
+    {
+      "id": "OLH-007",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Imagem da região proximal do úmero obtida para avaliar a superfície do sulco bicipital.",
+      "imaging_modality": "RX",
+      "question": "Qual estrutura deve estar demonstrada em uma projeção cranioproximal–craniodistal corretamente adquirida?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Tróclea do tálus.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "B",
+          "text": "Borda acetabular dorsal.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "C",
+          "text": "Sulco bicipital do úmero proximal.",
+          "rationale": "Thrall apresenta essa incidência como projeção auxiliar do sulco bicipital."
+        },
+        {
+          "id": "D",
+          "text": "Osso navicular equino.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Imagem original da incidência cranioproximal–craniodistal do úmero proximal com sulco bicipital identificado.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro baseado em texto efetivamente consultado; requer imagem com permissão e revisão do gabarito após seleção do estudo real."
+    },
+    {
+      "id": "OLH-008",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Imagem dorsoplantar flexionada do tarso canino obtida para avaliação de suspeita de osteocondrose.",
+      "imaging_modality": "RX",
+      "question": "Qual superfície deve estar mais bem demonstrada com menor sobreposição do calcâneo?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Tuberosidade isquiática.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "B",
+          "text": "Tróclea do tálus.",
+          "rationale": "Thrall descreve a projeção flexionada para demonstrar a tróclea do tálus."
+        },
+        {
+          "id": "C",
+          "text": "Sulco intertubercular umeral.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "D",
+          "text": "Processo ancôneo da ulna.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Incidência dorsoplantar flexionada do tarso canino, com tróclea do tálus visível.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro baseado em texto efetivamente consultado; requer imagem com permissão e revisão do gabarito após seleção do estudo real."
+    },
+    {
+      "id": "OLH-009",
+      "species": "canino",
+      "difficulty": "avancado",
+      "clinical_context": "Imagem da pelve canina em projeção especial da borda acetabular dorsal.",
+      "imaging_modality": "RX",
+      "question": "Qual aspecto ósseo é o alvo principal dessa incidência?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Osso acessório do carpo.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "B",
+          "text": "Sulco bicipital.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "C",
+          "text": "Côndilos do úmero.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "D",
+          "text": "Porção dorsolateral da borda acetabular.",
+          "rationale": "Thrall descreve a projeção da borda acetabular dorsal para avaliação de remodelamento lateral do acetábulo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Projeção DAR de pelve canina com borda acetabular dorsal identificável.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro baseado em texto efetivamente consultado; requer imagem com permissão e revisão do gabarito após seleção do estudo real."
+    },
+    {
+      "id": "OLH-010",
+      "species": "equino",
+      "difficulty": "intermediario",
+      "clinical_context": "Estudo radiográfico do carpo equino com incidências dorsopalmar, lateromedial e oblíquas.",
+      "imaging_modality": "RX",
+      "question": "Na incidência dorsolateral–palmaromedial, quais margens do carpo são projetadas de modo mais desobstruído?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Dorsomedial e palmarolateral.",
+          "rationale": "A geometria da projeção oblíqua é descrita por Thrall na tabela 14-1 e figuras correspondentes."
+        },
+        {
+          "id": "B",
+          "text": "Dorsolateral e palmaromedial.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "C",
+          "text": "Exclusivamente dorsal e palmar.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        },
+        {
+          "id": "D",
+          "text": "Exclusivamente lateral e medial.",
+          "rationale": "A estrutura ou incidência citada não corresponde ao objetivo técnico da projeção descrita."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Radiografia dorsolateral–palmaromedial do carpo equino com anatomia e orientação verificadas.",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro baseado em texto efetivamente consultado; requer imagem com permissão e revisão do gabarito após seleção do estudo real."
     }
   ]
 }
