@@ -228,6 +228,7 @@
 #elx-character-stage .elx-approved-mascot-motion{position:relative!important;display:block!important;animation:none!important;overflow:visible!important;isolation:isolate}
 #elx-character-stage .elx-mascot-motion-persona{--elx-persona-scale:1;position:absolute;inset:0;display:block;pointer-events:none;transform-origin:27% 94%;clip-path:inset(0 48.32% 0 0);transform:scale(var(--elx-persona-scale));animation:elxMascotIdle 5.8s ease-in-out infinite}
 #elx-character-stage .elx-mascot-motion-persona[data-persona="female"]{--elx-persona-scale:.5;transform-origin:75% 95%;clip-path:inset(0 0 0 51.68%);animation-delay:-2.1s}
+#elx-character-stage .elx-mascot-motion-persona[data-persona="female"]:has(> .dpi-acting-canvas){--elx-persona-scale:1}
 #elx-character-stage .elx-mascot-motion-persona img{display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center bottom;user-select:none;-webkit-user-drag:none}
 #elx-character-stage[data-active-persona="male"].is-speaking .elx-mascot-motion-persona[data-persona="male"],
 #elx-character-stage[data-active-persona="female"].is-speaking .elx-mascot-motion-persona[data-persona="female"]{animation:elxMascotSpeak 2.1s ease-in-out infinite}
