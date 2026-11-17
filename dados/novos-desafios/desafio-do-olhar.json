@@ -512,6 +512,2065 @@
       },
       "review_status": "bloqueado_sem_imagem_autorizada",
       "reviewer_notes": "Roteiro baseado em texto efetivamente consultado; requer imagem com permissão e revisão do gabarito após seleção do estudo real."
+    },
+    {
+      "id": "OLH-011",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: tórax canino em LLD.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção está representada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LLD",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "LLE",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 19–20",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Projeção lateral direita com identificação inequívoca do decúbito",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-012",
+      "species": "felino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tórax felino em LLE.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção está representada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LLD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "LLE",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "DV",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 20",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Projeção lateral esquerda identificada por marcador radiográfico",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-013",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tórax canino em VD.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção está representada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LLD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "LLE",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "VD",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "ML",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 20",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Tórax em decúbito dorsal com marcador e simetria adequada",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-014",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: abdômen canino em LLD.",
+      "imaging_modality": "RX",
+      "question": "Qual decúbito está documentado na imagem?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "LLE",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "DV",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "LLD",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 23",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Abdômen em decúbito lateral direito com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-015",
+      "species": "felino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: abdômen felino em LLE.",
+      "imaging_modality": "RX",
+      "question": "Qual decúbito está documentado na imagem?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LLE",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "LLD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 23",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Abdômen em decúbito lateral esquerdo com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-016",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: abdômen canino em VD.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção está representada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LLE",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "VD",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "LLD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "ML",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 23–25",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Abdômen em decúbito dorsal com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-017",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: escápula canina em ML.",
+      "imaging_modality": "RX",
+      "question": "Qual região e projeção estão demonstradas?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Carpo em DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Tarso em DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Escápula em ML",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "Pelve em VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 40",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Escápula em mediolateral com referências anatômicas",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-018",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: escápula canina em CdCr.",
+      "imaging_modality": "RX",
+      "question": "Qual incidência foi utilizada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "CrCd do úmero",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "ML da escápula",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "VD do tórax",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CdCr da escápula",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 40",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Escápula em caudocranial com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-019",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: ombro canino em ML.",
+      "imaging_modality": "RX",
+      "question": "Qual articulação e projeção estão representadas?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Escapuloumeral em ML",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "Coxofemoral em VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Társica em DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Cárpica em DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 41",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Ombro em ML neutra com cabeça umeral e glenoide",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-020",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: ombro canino em CdCr.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção do ombro está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "ML",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "CdCr",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 41–42",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Ombro em caudocranial com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-021",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: úmero canino em ML.",
+      "imaging_modality": "RX",
+      "question": "Qual região/projeção aparece no estudo?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Rádio e ulna em CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Carpo em DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Úmero em ML",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "Tórax em LLD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 43",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Úmero em ML com articulações adjacentes",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-022",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: úmero canino em CrCd.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção do úmero foi adquirida?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "ML",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "CdCr",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CrCd",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 43",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Úmero em craniocaudal com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-023",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: antebraço canino em ML.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção de rádio e ulna é demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "ML",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Antebraço canino em ML com cotovelo e carpo",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-024",
+      "species": "felino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: antebraço felino em CrCd.",
+      "imaging_modality": "RX",
+      "question": "Qual incidência do antebraço está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "ML",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "CrCd",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CdCr",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Antebraço felino em CrCd com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-025",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: carpo canino em DP.",
+      "imaging_modality": "RX",
+      "question": "Qual direção do feixe é compatível com a imagem identificada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "DP",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "ML",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Carpo canino em dorsopalmar",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-026",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tarso canino em DPl.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção está representada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "ML",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "DPl",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Tarso canino em dorsoplantar",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-027",
+      "species": "equino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: carpo equino em LM.",
+      "imaging_modality": "RX",
+      "question": "Qual incidência do carpo está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LM",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Carpo equino lateromedial com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-028",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: carpo equino em DP.",
+      "imaging_modality": "RX",
+      "question": "Qual incidência do carpo está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LM",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "DP",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CdCr",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Carpo equino dorsopalmar com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-029",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: carpo equino oblíquo DL-PaM.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção oblíqua está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "LM",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Dorsolateral–palmaromedial",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "Dorsomedial–palmarolateral",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Carpo equino dorsolateral–palmaromedial identificado",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-030",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: carpo equino oblíquo DM-PaL.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção oblíqua está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "LM",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Dorsolateral–palmaromedial",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Dorsomedial–palmarolateral",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Carpo equino dorsomedial–palmarolateral identificado",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-031",
+      "species": "equino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: tarso equino em DPl.",
+      "imaging_modality": "RX",
+      "question": "Qual incidência do tarso é demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DPl",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "ML",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CdCr",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 558–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Tarso equino dorsoplantar com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-032",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tarso equino em LM.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção do tarso está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "LM",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Tarso equino lateromedial com marcador",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-033",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tarso equino oblíquo DL-PlM.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção oblíqua está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "LM",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Dorsolateral–plantaromedial",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "Dorsomedial–plantarolateral",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Tarso equino dorsolateral–plantaromedial identificado",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-034",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tarso equino oblíquo DM-PlL.",
+      "imaging_modality": "RX",
+      "question": "Qual projeção oblíqua está demonstrada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "LM",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Dorsolateral–plantaromedial",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Dorsomedial–plantarolateral",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Tarso equino dorsomedial–plantarolateral identificado",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-035",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: sulco bicipital canino em incidência especial.",
+      "imaging_modality": "RX",
+      "question": "Qual estrutura é demonstrada pela incidência especial?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Sulco bicipital",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "Tróclea do tálus",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Borda acetabular",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Osso navicular",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557–558 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Sulco bicipital canino em Cranioproximal–craniodistal",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-036",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tróclea do tálus canino em DPl flexionada.",
+      "imaging_modality": "RX",
+      "question": "Qual estrutura é o alvo principal da projeção?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Sulco bicipital",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Tróclea do tálus",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "Borda acetabular",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Processo ancôneo",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 558 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Tarso canino flexionado em DPl com tróclea exposta",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-037",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: borda acetabular dorsal canina.",
+      "imaging_modality": "RX",
+      "question": "Qual estrutura deve ser identificada na projeção especial?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Sulco bicipital",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Tróclea do tálus",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Borda acetabular dorsal",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "Carpo",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 558 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Pelve canina em incidência DAR",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-038",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: antebraço canino com articulações adjacentes.",
+      "imaging_modality": "RX",
+      "question": "Quais articulações devem estar incluídas para avaliar suspeita de lesão diafisária?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Apenas ombro e quadril",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Somente carpo",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Somente cotovelo",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Cotovelo e carpo",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Radiografia de antebraço com articulações proximal e distal incluídas",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-039",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: úmero canino com articulações adjacentes.",
+      "imaging_modality": "RX",
+      "question": "Quais articulações são relevantes no campo de estudo do úmero?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Ombro e cotovelo",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "Carpo e tarso",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Quadril e joelho",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Cotovelos de ambos os lados",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Radiografia de úmero incluindo ombro e cotovelo",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-040",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tíbia equina em estudo segmentado.",
+      "imaging_modality": "RX",
+      "question": "Qual princípio de cobertura é demonstrado pela série de imagens?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Apenas a diáfise central é relevante",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Regiões proximal e distal podem exigir imagens separadas",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "A radiografia dispensa identificação",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Uma imagem sempre contém o osso inteiro",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 558 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Série equina com porções proximal e distal e respectivas articulações",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-041",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tórax canino LLD e LLE comparativas.",
+      "imaging_modality": "RX",
+      "question": "Qual diferença técnica distingue as duas imagens?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "São duas projeções VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Uma é abdominal",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Mudança de decúbito lateral direito para esquerdo",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "São imagens idênticas sem mudança de decúbito",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 19–20",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Par de laterais torácicas com marcadores D e E",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-042",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: abdômen canino LLD e LLE comparativas.",
+      "imaging_modality": "RX",
+      "question": "Qual fator explica diferenças de distribuição de gás entre as duas imagens?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Mudança da espécie",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Mudança de idade em minutos",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Alteração do detector",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Mudança do decúbito e deslocamento gravitacional do gás",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 23",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Par abdominal lateral direito/esquerdo com marcadores",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-043",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: tórax canino em duas projeções ortogonais.",
+      "imaging_modality": "RX",
+      "question": "Qual característica demonstra que as imagens são ortogonais?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Uma lateral e uma VD/DV",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "Duas laterais idênticas",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Duas imagens em VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Duas oblíquas do carpo",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 19–20",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Estudo torácico em lateral e VD ou DV com marcadores",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-044",
+      "species": "felino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: abdômen felino em VD e lateral.",
+      "imaging_modality": "RX",
+      "question": "Qual par de projeções é apresentado?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Duas VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Lateral e VD",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "Duas laterais",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Duas CrCd",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 23–25",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Abdômen felino em lateral e VD",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-045",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: escápula canina em duas incidências.",
+      "imaging_modality": "RX",
+      "question": "Qual par de projeções compõe o estudo descrito no POP?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "VD e DV",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "DPl e DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "ML e CdCr",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "LLD e LLE",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 40",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Par de imagens de escápula ML/CdCr",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-046",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: ombro canino em duas incidências.",
+      "imaging_modality": "RX",
+      "question": "Qual par de projeções compõe o estudo básico do POP?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LLD e LLE",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "VD e DV",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "DP e DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "ML e CdCr",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 41",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Par de ombro ML/CdCr",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-047",
+      "species": "canino",
+      "difficulty": "intermediario",
+      "clinical_context": "Roteiro visual dependente de imagem real: úmero canino em duas incidências.",
+      "imaging_modality": "RX",
+      "question": "Qual par de projeções compõe o estudo do POP?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "ML e CrCd",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "B",
+          "text": "ML e DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "DP e DPl",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "LLD e VD",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
+          "year": null,
+          "locator": "PDF consultado, páginas 43",
+          "verified": true,
+          "scope": "Protocolo técnico local"
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Par de úmero ML/CrCd",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-048",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: carpo equino com oblíquas opostas.",
+      "imaging_modality": "RX",
+      "question": "Qual recurso técnico diferencia as incidências complementares?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Troca de modalidade",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Mudança do ângulo de entrada do feixe",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "C",
+          "text": "Uso de ultrassom",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Ausência de posicionamento",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Par de oblíquas opostas do carpo equino",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-049",
+      "species": "equino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: tarso equino com oblíquas opostas.",
+      "imaging_modality": "RX",
+      "question": "Qual recurso técnico diferencia as incidências complementares?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Troca de modalidade",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Mudança da espécie",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Mudança do ângulo de entrada do feixe",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        },
+        {
+          "id": "D",
+          "text": "Retirada do detector",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 559–560 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Par de oblíquas opostas do tarso equino",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
+    },
+    {
+      "id": "OLH-050",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Roteiro visual dependente de imagem real: carpo canino com imagem lateral e DP.",
+      "imaging_modality": "RX",
+      "question": "Qual par ortogonal foi obtido?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Duas DP",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "B",
+          "text": "Duas LM",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "C",
+          "text": "Duas oblíquas",
+          "rationale": "Não corresponde à identificação prevista; confrontar com a imagem selecionada."
+        },
+        {
+          "id": "D",
+          "text": "Lateral e DP",
+          "rationale": "Compatível com a anatomia, projeção e identificação exigidas para o estudo."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 14, páginas 557 do PDF consultado",
+          "verified": true
+        }
+      ],
+      "images": [],
+      "image_requirement": {
+        "description": "Carpo canino com projeções lateral e dorsopalmar",
+        "source": null,
+        "license_or_permission": null,
+        "anonymized": null,
+        "modality": "RX",
+        "reference_diagnosis": null
+      },
+      "review_status": "bloqueado_sem_imagem_autorizada",
+      "reviewer_notes": "Roteiro de reconhecimento técnico, não jogo visual pronto. Selecionar imagem licenciada e revalidar gabarito após inspeção. Diversificar com US e achados patológicos antes da homologação."
     }
   ]
 }
