@@ -28,3 +28,10 @@ Não alterar o layout aprovado; não publicar em produção, mexer no DNS, expor
 
 ## Próxima ação
 Executar diagnóstico em navegador/Preview para separar latência do servidor e do cliente. Se não houver acesso, avançar em testes independentes e não inventar métricas reais.
+
+## Verificação complementar — navegador e Preview (17/11)
+- GitHub Actions do HEAD `5f6afbe7440184a21ad77b5621409c55c3f750b1`: execução `44002497030` concluída com sucesso (suíte Node); o HEAD inclui este relatório, não um novo deploy.
+- Navegador conectado: aba aberta `https://desafio-dpi-veterinario-v40-previe-git-ceb3de-evertoneuder-6390.vercel.app/dpi-r18.1/ABRA-ESTA-PREVIA` exibiu texto/elementos de uma interface com botão `Começar`, marca antiga de personagem em atributo alternativo e rota diretamente para o HTML legado. **Essa aba não comprova que a versão atual da branch foi implantada.** Não usar sua aparência para validar ou substituir o layout aprovado.
+- A integração de navegador disponível nesta sessão permite ler o conteúdo das abas, mas não executar JavaScript de instrumentação, reproduzir áudio ou medir eventos de reprodução. Nenhuma medição auditiva/latência real foi obtida.
+- Código de `api/tts.js` conferido: consulta sequencial de saldo/limite de créditos precede a síntese ElevenLabs; o MP3 é inteiramente carregado antes de ser enviado. Há métricas `Server-Timing` para consulta, cabeçalhos de síntese e buffer. Não eliminar a proteção contra cobranças nem atribuir os três segundos a uma etapa sem medição.
+- Próximo passo técnico: obter Preview efetivamente vinculado ao HEAD autorizado; medir `Server-Timing` e `playing` no navegador de teste, separando latência de rede, síntese e aplicação. A validação sonora real permanece pendente.
