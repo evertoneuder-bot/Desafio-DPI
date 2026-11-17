@@ -41,12 +41,12 @@
     for(const who of ['male','female'])style.textContent+=`#elx-character-stage.elx-motion-active[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"]{animation:${keyframes} ${timing}!important}`;
   }
   style.textContent+=`
-@keyframes dpi2DIdle{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-@keyframes dpi2DSpeak{0%,100%{transform:translateY(0) rotate(0)}40%{transform:translateY(-2px) rotate(.18deg)}70%{transform:translateY(-.8px) rotate(-.12deg)}}
-@keyframes dpi2DListen{0%,100%{transform:rotate(0)}50%{transform:rotate(.35deg)}}
-@keyframes dpi2DGreet{0%,100%{transform:translateY(0) rotate(0)}35%{transform:translateY(-3px) rotate(-.45deg)}70%{transform:translateY(-1px) rotate(.2deg)}}
-@keyframes dpi2DCheer{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-12px) rotate(1deg)}65%{transform:translateY(-2px) rotate(-.2deg)}}
-@keyframes dpi2DComfort{0%,100%{transform:translateY(0) rotate(0)}45%{transform:translateY(1px) rotate(-.4deg)}}
+@keyframes dpi2DIdle{0%,100%{transform:translateY(0) scale(var(--elx-persona-scale))}50%{transform:translateY(-3px) scale(var(--elx-persona-scale))}}
+@keyframes dpi2DSpeak{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}40%{transform:translateY(-2px) rotate(.18deg) scale(var(--elx-persona-scale))}70%{transform:translateY(-.8px) rotate(-.12deg) scale(var(--elx-persona-scale))}}
+@keyframes dpi2DListen{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}50%{transform:rotate(.35deg) scale(var(--elx-persona-scale))}}
+@keyframes dpi2DGreet{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}35%{transform:translateY(-3px) rotate(-.45deg) scale(var(--elx-persona-scale))}70%{transform:translateY(-1px) rotate(.2deg) scale(var(--elx-persona-scale))}}
+@keyframes dpi2DCheer{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}30%{transform:translateY(-12px) rotate(1deg) scale(var(--elx-persona-scale))}65%{transform:translateY(-2px) rotate(-.2deg) scale(var(--elx-persona-scale))}}
+@keyframes dpi2DComfort{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}45%{transform:translateY(1px) rotate(-.4deg) scale(var(--elx-persona-scale))}}
 #elx-character-stage[data-motion-paused="true"] .elx-mascot-motion-persona{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){html:not([data-dpi-mascot-motion="full"]) #elx-character-stage.elx-motion-active[data-active-persona][data-motion-state] .elx-mascot-motion-persona[data-persona]{animation:none!important}}
 `;
@@ -61,11 +61,11 @@
     for(const who of ['male','female'])style.textContent+=`#elx-character-stage[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"] .dpi-2d-head{animation:${anim};animation-delay:0s}`;
   }
   style.textContent+=`
-@keyframes dpiHeadIdle{0%,100%{transform:rotate(0)}42%{transform:rotate(.35deg)}68%{transform:rotate(-.25deg)}}
+@keyframes dpiHeadIdle{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}42%{transform:rotate(.35deg) scale(var(--elx-persona-scale))}68%{transform:rotate(-.25deg)}}
 @keyframes dpiHeadTalk{0%,100%{transform:rotate(0) translateY(0)}30%{transform:rotate(-.6deg) translateY(1px)}65%{transform:rotate(.8deg) translateY(-1px)}}
-@keyframes dpiHeadListen{0%,100%{transform:rotate(0)}50%{transform:rotate(1.2deg)}}
-@keyframes dpiHeadGreet{0%,100%{transform:rotate(0)}25%{transform:rotate(-1.6deg)}60%{transform:rotate(1.2deg)}}
-@keyframes dpiHeadConcern{0%,100%{transform:rotate(0)}35%{transform:rotate(-1.4deg) translateY(1px)}70%{transform:rotate(.6deg)}}
+@keyframes dpiHeadListen{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}50%{transform:rotate(1.2deg)}}
+@keyframes dpiHeadGreet{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}25%{transform:rotate(-1.6deg)}60%{transform:rotate(1.2deg)}}
+@keyframes dpiHeadConcern{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}35%{transform:rotate(-1.4deg) translateY(1px)}70%{transform:rotate(.6deg)}}
 @keyframes dpiBlink{0%,41%,45%,100%{transform:scaleY(1)}43%{transform:scaleY(.04)}}
 #elx-character-stage[data-motion-paused="true"] .dpi-2d-head,#elx-character-stage[data-motion-paused="true"] .dpi-2d-eye{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-head,html:not([data-dpi-mascot-motion="full"]) #elx-character-stage .dpi-2d-eye{animation:none!important}}
