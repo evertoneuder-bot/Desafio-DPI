@@ -212,6 +212,216 @@
       ],
       "review_status": "pendente_revisao_cientifica_1",
       "reviewer_notes": "Caso preliminar baseado no capítulo 14 efetivamente consultado; revisar distratores e confrontar segunda fonte antes de liberar."
+    },
+    {
+      "id": "INT-006",
+      "species": "canino",
+      "difficulty": "avancado",
+      "clinical_context": "Cão jovem com dieta caseira desequilibrada, claudicação e suspeita de doença óssea metabólica. Radiografias mostram redução difusa da opacidade óssea e adelgaçamento cortical.",
+      "imaging_modality": "RX",
+      "question": "Qual correlação clínico-radiográfica deve integrar a investigação?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Apenas fratura traumática aguda, excluindo causas metabólicas.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "B",
+          "text": "Hiperparatireoidismo secundário nutricional como diferencial, com avaliação dietética e metabólica.",
+          "rationale": "Thrall descreve deficiência ou desequilíbrio cálcio:fósforo na dieta associado à perda generalizada de mineralização, corticais delgadas e fraturas patológicas."
+        },
+        {
+          "id": "C",
+          "text": "Osteopetrose como única hipótese, por aumento da radiopacidade.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "D",
+          "text": "Doença respiratória como causa direta do adelgaçamento cortical.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, página 600 do PDF consultado — achados e diferenciais clínico-radiográficos",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Questão inicial baseada em trecho lido diretamente. Revisar plausibilidade de distratores e especificidade antes de integrar."
+    },
+    {
+      "id": "INT-007",
+      "species": "canino",
+      "difficulty": "avancado",
+      "clinical_context": "Cão jovem de crescimento desproporcional, membros curtos e curvados, com mineralização epifisária tardia.",
+      "imaging_modality": "RX",
+      "question": "Qual hipótese clínica pode ser investigada em associação a esses achados?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Hipotireoidismo congênito, considerando avaliação endócrina e sinais sistêmicos.",
+          "rationale": "Thrall descreve atraso na ossificação epifisária, alterações dos ossos do carpo e conformação desproporcional em hipotireoidismo congênito."
+        },
+        {
+          "id": "B",
+          "text": "Doença pulmonar metastática como explicação exclusiva.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "C",
+          "text": "Luxação traumática isolada sem alterações do desenvolvimento.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "D",
+          "text": "Fratura de costela como principal diagnóstico.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, página 601 do PDF consultado — achados e diferenciais clínico-radiográficos",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Questão inicial baseada em trecho lido diretamente. Revisar plausibilidade de distratores e especificidade antes de integrar."
+    },
+    {
+      "id": "INT-008",
+      "species": "canino",
+      "difficulty": "avancado",
+      "clinical_context": "Cão jovem apresenta baixa estatura, alterações faciais e displasia epifisária generalizada em exames radiográficos.",
+      "imaging_modality": "RX",
+      "question": "Qual raciocínio é mais adequado?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Diagnosticar definitivamente fratura traumática múltipla sem investigar doença sistêmica.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "B",
+          "text": "Atribuir todas as alterações à idade sem correlação clínica.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "C",
+          "text": "Considerar doença de depósito como mucopolissacaridose entre os diferenciais e correlacionar com achados multissistêmicos.",
+          "rationale": "Thrall descreve manifestações musculoesqueléticas e multissistêmicas de mucopolissacaridoses, com mineralização epifisária tardia e dismorfia facial."
+        },
+        {
+          "id": "D",
+          "text": "Presumir normalidade de todas as epífises.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, página 603 do PDF consultado — achados e diferenciais clínico-radiográficos",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Questão inicial baseada em trecho lido diretamente. Revisar plausibilidade de distratores e especificidade antes de integrar."
+    },
+    {
+      "id": "INT-009",
+      "species": "equino",
+      "difficulty": "avancado",
+      "clinical_context": "Equino com ferida perfurante na região do casco e suspeita de envolvimento navicular. Radiografias iniciais não demonstram alteração óssea.",
+      "imaging_modality": "RX",
+      "question": "Qual interpretação da ausência de alterações radiográficas é mais adequada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Exclui definitivamente infecção do osso navicular.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "B",
+          "text": "Dispensa reavaliação se a claudicação persistir.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "C",
+          "text": "Comprova que a ferida não atingiu estruturas profundas.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "D",
+          "text": "Não exclui infecção precoce; a evolução clínica pode exigir exames complementares e acompanhamento radiográfico.",
+          "rationale": "Thrall descreve atraso no aparecimento de alterações radiográficas em sepse navicular e a possibilidade de avaliação contrastada do trajeto fistuloso em situações selecionadas."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, página 1011 do PDF consultado — achados e diferenciais clínico-radiográficos",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Questão inicial baseada em trecho lido diretamente. Revisar plausibilidade de distratores e especificidade antes de integrar."
+    },
+    {
+      "id": "INT-010",
+      "species": "equino",
+      "difficulty": "avancado",
+      "clinical_context": "Equino apresenta imagem navicular com fragmentos de margens regulares e alterações semelhantes bilateralmente. A claudicação é discreta.",
+      "imaging_modality": "RX",
+      "question": "Qual diferencial deve ser considerado antes de classificar a imagem como fratura recente?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Ossificação multipartida congênita, correlacionando margens, bilateralidade e evolução clínica.",
+          "rationale": "Thrall descreve ossos naviculares multipartidos congênitos como diferenciais de fratura crônica, especialmente quando bilateralmente simétricos e com margens suaves."
+        },
+        {
+          "id": "B",
+          "text": "Ruptura traqueal, por ser a causa mais comum de fragmentos naviculares.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "C",
+          "text": "Displasia coxofemoral canina.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        },
+        {
+          "id": "D",
+          "text": "Osteopetrose, obrigatoriamente.",
+          "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "authors": "Donald E. Thrall",
+          "year": null,
+          "locator": "6ª edição, capítulo 15, página 1011 do PDF consultado — achados e diferenciais clínico-radiográficos",
+          "verified": true
+        }
+      ],
+      "review_status": "pendente_revisao_cientifica_1",
+      "reviewer_notes": "Questão inicial baseada em trecho lido diretamente. Revisar plausibilidade de distratores e especificidade antes de integrar."
     }
   ]
 }
