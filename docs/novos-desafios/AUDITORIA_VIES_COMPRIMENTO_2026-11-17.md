@@ -9,6 +9,12 @@ Data: 17/11/2026. Os valores abaixo foram recalculados nos JSONs presentes neste
 | Telerradiologia Clínica | 10 | 0 | 0% | A=4, B=3, C=1, D=2 |
 | Desafio do Olhar (roteiros) | 50 | 30 | 60% | A=14, B=12, C=12, D=12 |
 
+## Banco legado executado
+
+Auditoria adicional do banco clínico legado, extraído diretamente de `DPI_BANCO_BASE` no HTML: **299 de 300** respostas corretas são empatadas com a alternativa mais longa; a mediana da diferença entre o gabarito e a alternativa errada mais longa é **+60 caracteres**. Nas 25 questões adicionadas, o gabarito é mais longo em 19; no conjunto executado de 325, isso ocorre em **318 (97,8%)**, com 316 respostas na posição de maior comprimento.
+
+Essa associação torna previsível o gabarito e confirma a impressão reportada pelo usuário. O banco legado continua com 300 itens, mas o conteúdo das alternativas precisa de revisão editorial item a item. As alternativas corretas não devem ser encurtadas automaticamente nem os gabaritos alterados por distribuição estatística: preservar a precisão clínica, manter a explicação completa e só aprovar reformulações sustentadas pela fonte de cada item. Até essa revisão, o banco não está validado quanto a viés de extensão.
+
 ## Interpretação
 
 DPI Integrado e os roteiros do Olhar ainda mostram associação alta entre gabarito e alternativa mais longa. O banco de Telerradiologia foi reescrito após a auditoria anterior e agora não tem gabarito entre as alternativas mais longas; isso não prova equilíbrio geral nem validação pedagógica. O banco Qual Exame tem percentual inferior, mas ainda requer revisão de plausibilidade e semântica.
