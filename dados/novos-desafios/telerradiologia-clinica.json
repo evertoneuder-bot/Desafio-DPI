@@ -12,103 +12,105 @@
   "cases": [
     {
       "id": "TEL-001",
-      "question": "Um hospital envia imagens radiográficas de um cão com claudicação para interpretação remota. O exame contém somente uma incidência lateral do antebraço. Qual conduta técnica é mais adequada?",
+      "question": "Cão de 4 anos, atropelado, apresenta dor e aumento de volume no antebraço direito. A clínica enviou somente uma projeção mediolateral, na qual há suspeita de fratura do rádio distal. O que falta para avaliar adequadamente o alinhamento dos fragmentos?",
       "alternatives": [
         {
           "id": "A",
-          "text": "Emitir diagnóstico definitivo de fratura com uma única projeção."
+          "text": "Uma projeção craniocaudal do antebraço, incluindo as articulações adjacentes."
         },
         {
           "id": "B",
-          "text": "Solicitar projeção ortogonal complementar e verificar se o estudo inclui as articulações adjacentes."
+          "text": "Uma segunda imagem mediolateral com a mesma posição."
         },
         {
           "id": "C",
-          "text": "Dispensar o histórico clínico e avaliar apenas o nome do arquivo."
+          "text": "Uma radiografia torácica em DV para confirmar a fratura."
         },
         {
           "id": "D",
-          "text": "Substituir obrigatoriamente a radiografia por ultrassonografia."
-        }
-      ],
-      "correct_id": "B",
-      "rationale": "A interpretação remota depende de um estudo tecnicamente suficiente; Thrall descreve ao menos duas incidências ortogonais para o esqueleto apendicular e inclusão das articulações adjacentes quando há suspeita de lesão óssea.",
-      "references": [
-        {
-          "type": "livro",
-          "title": "Diagnóstico de Radiologia Veterinária",
-          "author": "Donald E. Thrall",
-          "edition": "6ª",
-          "locator": "Capítulo 14, páginas 557–559 do PDF consultado",
-          "scope": "Projeções ortogonais, centralização e técnica radiográfica; não valida promessas comerciais"
-        },
-        {
-          "type": "site_institucional",
-          "title": "EL-X Vet — Telerradiologia Veterinária",
-          "url": "https://www.elx-vet.com.br/",
-          "verified_on": "2026-11-17",
-          "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
-        }
-      ],
-      "review_status": "pendente_dupla_auditoria"
-    },
-    {
-      "id": "TEL-002",
-      "question": "Uma clínica solicita segunda opinião telerradiológica para radiografias de um cão com tosse crônica e piora recente. Quais dados adicionais mais contribuem para contextualizar os achados?",
-      "alternatives": [
-        {
-          "id": "A",
-          "text": "Somente a raça do paciente."
-        },
-        {
-          "id": "B",
-          "text": "A marca do equipamento radiográfico."
-        },
-        {
-          "id": "C",
-          "text": "Sinais, duração e evolução, exames anteriores e a pergunta clínica."
-        },
-        {
-          "id": "D",
-          "text": "Apenas a quantidade de imagens enviadas."
-        }
-      ],
-      "correct_id": "C",
-      "rationale": "Histórico e evolução clínica ajudam a interpretar achados no contexto do paciente; o site da EL-X Vet descreve essa integração como parte de seu fluxo. O enunciado não pressupõe que o histórico seja indispensável em todos os exames.",
-      "references": [
-        {
-          "type": "site_institucional",
-          "title": "EL-X Vet — Telerradiologia Veterinária",
-          "url": "https://www.elx-vet.com.br/",
-          "verified_on": "2026-11-17",
-          "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
-        }
-      ],
-      "review_status": "pendente_dupla_auditoria"
-    },
-    {
-      "id": "TEL-003",
-      "question": "Durante uma avaliação telerradiológica, o radiologista identifica rotação importante na projeção enviada, dificultando a análise de uma articulação. Qual é a resposta mais apropriada?",
-      "alternatives": [
-        {
-          "id": "A",
-          "text": "Informar a limitação técnica e, quando clinicamente viável, recomendar nova aquisição adequadamente posicionada."
-        },
-        {
-          "id": "B",
-          "text": "Ignorar a rotação e afirmar ausência de doença."
-        },
-        {
-          "id": "C",
-          "text": "Alterar digitalmente a imagem para simular uma projeção não adquirida."
-        },
-        {
-          "id": "D",
-          "text": "Concluir que toda radiografia com rotação deve ser substituída por TC."
+          "text": "Uma ultrassonografia abdominal para determinar o desvio ósseo."
         }
       ],
       "correct_id": "A",
-      "rationale": "Limitações de posicionamento devem ser comunicadas, pois podem comprometer a avaliação; a necessidade de repetição depende da dúvida clínica, da segurança do paciente e da qualidade restante do estudo.",
+      "rationale": "A projeção ortogonal permite avaliar o desvio em outro plano. A inclusão das articulações adjacentes auxilia na avaliação completa do segmento.",
+      "references": [
+        {
+          "type": "livro",
+          "title": "Diagnóstico de Radiologia Veterinária",
+          "author": "Donald E. Thrall",
+          "edition": "6ª",
+          "locator": "Capítulo 14, páginas 557–559 do PDF consultado",
+          "scope": "Projeções ortogonais, centralização e técnica radiográfica; não valida promessas comerciais"
+        },
+        {
+          "type": "site_institucional",
+          "title": "EL-X Vet — Telerradiologia Veterinária",
+          "url": "https://www.elx-vet.com.br/",
+          "verified_on": "2026-11-17",
+          "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
+        }
+      ],
+      "review_status": "pendente_dupla_auditoria",
+      "reviewer_notes": "Reescrita clínica específica; confrontar com fonte antes de homologar."
+    },
+    {
+      "id": "TEL-002",
+      "question": "Cão de 11 anos apresenta tosse crônica e intolerância ao exercício. As radiografias torácicas mostram espessamento difuso das paredes brônquicas, sem consolidação alveolar. Qual impressão radiográfica é mais apropriada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Pneumonia bacteriana confirmada pela radiografia."
+        },
+        {
+          "id": "B",
+          "text": "Achados compatíveis com broncopatia, a correlacionar com o quadro clínico."
+        },
+        {
+          "id": "C",
+          "text": "Edema pulmonar cardiogênico confirmado."
+        },
+        {
+          "id": "D",
+          "text": "Ausência de alterações torácicas relevantes."
+        }
+      ],
+      "correct_id": "B",
+      "rationale": "O padrão bronquial sugere doença das vias aéreas, mas a radiografia isolada não estabelece sua causa.",
+      "references": [
+        {
+          "type": "site_institucional",
+          "title": "EL-X Vet — Telerradiologia Veterinária",
+          "url": "https://www.elx-vet.com.br/",
+          "verified_on": "2026-11-17",
+          "scope": "Descrição de serviços e fluxo institucional; não é fonte de validação científica de condutas"
+        }
+      ],
+      "review_status": "pendente_dupla_auditoria",
+      "reviewer_notes": "Reescrita clínica específica; confrontar com fonte antes de homologar."
+    },
+    {
+      "id": "TEL-003",
+      "question": "Cão de 8 anos apresenta claudicação do membro pélvico esquerdo. A projeção ventrodorsal da pelve mostra rotação acentuada, com assimetria dos forames obturatórios. O solicitante deseja avaliar congruência coxofemoral. Qual é a principal limitação?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "A rotação pode produzir assimetria aparente e comprometer a comparação das articulações."
+        },
+        {
+          "id": "B",
+          "text": "A rotação impede exclusivamente a avaliação da bexiga."
+        },
+        {
+          "id": "C",
+          "text": "A rotação confirma luxação coxofemoral unilateral."
+        },
+        {
+          "id": "D",
+          "text": "A rotação não interfere na avaliação da congruência articular."
+        }
+      ],
+      "correct_id": "A",
+      "rationale": "O posicionamento assimétrico pode alterar a aparência das articulações coxofemorais. A repetição depende da condição clínica e da viabilidade técnica.",
       "references": [
         {
           "type": "site_institucional",
@@ -126,7 +128,8 @@
           "scope": "Projeções ortogonais, centralização e técnica radiográfica; não valida promessas comerciais"
         }
       ],
-      "review_status": "pendente_dupla_auditoria"
+      "review_status": "pendente_dupla_auditoria",
+      "reviewer_notes": "Reescrita clínica específica; confrontar com fonte antes de homologar."
     },
     {
       "id": "TEL-004",
