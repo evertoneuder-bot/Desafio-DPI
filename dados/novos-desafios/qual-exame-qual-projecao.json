@@ -45,6 +45,178 @@
       ],
       "review_status": "pendente_revisao_editorial",
       "reviewer_notes": "Página original inspecionada; verificar autoria e revisão científica antes da liberação."
+    },
+    {
+      "id": "QP-RX-ABD-002",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "É necessário obter uma radiografia abdominal ventrodorsal de um cão.",
+      "imaging_modality": "RX",
+      "question": "Qual decúbito corresponde ao posicionamento ilustrado no material?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Decúbito lateral direito.",
+          "rationale": "Corresponde a uma aquisição lateral, não VD."
+        },
+        {
+          "id": "B",
+          "text": "Decúbito esternal.",
+          "rationale": "Em geral utilizado para uma incidência DV."
+        },
+        {
+          "id": "C",
+          "text": "Decúbito dorsal.",
+          "rationale": "A página 5 mostra a projeção VD com o cão em decúbito dorsal."
+        },
+        {
+          "id": "D",
+          "text": "Posição quadrupedal.",
+          "rationale": "Não é o posicionamento mostrado para a projeção VD."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 5, legenda de posicionamento/projeção",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Conferir se a imagem ilustrativa pode ser reproduzida; o item textual não depende dela."
+    },
+    {
+      "id": "QP-RX-TOR-003",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O protocolo radiográfico torácico exige a aquisição de uma projeção dorsoventral (DV).",
+      "imaging_modality": "RX",
+      "question": "Qual é a direção do feixe na projeção solicitada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Do ventre para o dorso.",
+          "rationale": "Caracteriza VD, não DV."
+        },
+        {
+          "id": "B",
+          "text": "Da direita para a esquerda.",
+          "rationale": "Caracteriza uma direção lateral."
+        },
+        {
+          "id": "C",
+          "text": "Da cauda para o crânio.",
+          "rationale": "Caracteriza CdCr."
+        },
+        {
+          "id": "D",
+          "text": "Do dorso para o ventre.",
+          "rationale": "Corresponde à nomenclatura DV, mostrada na página 7."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 7, legenda de posicionamento/projeção",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Base de nomenclatura na página 1 e posicionamento torácico DV na página 7."
+    },
+    {
+      "id": "QP-RX-COT-004",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Uma solicitação prevê uma projeção craniocaudal do cotovelo e antebraço.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência solicitada?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "CrCd.",
+          "rationale": "É a abreviação de craniocaudal."
+        },
+        {
+          "id": "B",
+          "text": "CdCr.",
+          "rationale": "Designa caudocranial."
+        },
+        {
+          "id": "C",
+          "text": "ML.",
+          "rationale": "Designa mediolateral."
+        },
+        {
+          "id": "D",
+          "text": "VD.",
+          "rationale": "Designa ventrodorsal."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 11, legenda de posicionamento/projeção",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Página 11 documenta a projeção craniocaudal do cotovelo e antebraço."
+    },
+    {
+      "id": "QP-RX-OMB-005",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Para complementar a avaliação radiográfica do ombro, foi solicitada uma projeção caudocranial.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação representa essa direção?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "CrCd.",
+          "rationale": "Direção oposta."
+        },
+        {
+          "id": "B",
+          "text": "CdCr.",
+          "rationale": "A página 8 identifica o posicionamento caudocranial do ombro."
+        },
+        {
+          "id": "C",
+          "text": "LLD.",
+          "rationale": "Projeção laterolateral direita."
+        },
+        {
+          "id": "D",
+          "text": "DV.",
+          "rationale": "Direção dorsoventral."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 8, legenda de posicionamento/projeção",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Conferir se haverá necessidade de incluir a imagem e autorização correspondente."
     }
   ]
 }
