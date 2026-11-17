@@ -94,7 +94,7 @@
       if (typeof root.trackMission === 'function') root.trackMission(true, 10);
       if (typeof root.livelyFx === 'function') root.livelyFx(true);
       const progressNode = root.document.getElementById('dpiPairProgress');
-      if (progressNode) progressNode.textContent = association.matched.size + ' de ' + session.questions.length + ' pares concluídos';
+      if (progressNode) progressNode.textContent = (association.batchStart + association.matched.size) + ' de ' + session.questions.length + ' pares concluídos';
       updateAssociationProgress();
       if (association.matched.size === Math.min(4, session.questions.length - association.batchStart)) {
         const end = Math.min(association.batchStart + 4, session.questions.length);
