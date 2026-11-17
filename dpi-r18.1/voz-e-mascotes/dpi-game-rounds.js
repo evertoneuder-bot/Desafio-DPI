@@ -57,15 +57,15 @@
     const rights = batch.slice().sort(() => Math.random() - 0.5);
     const left = batch.map(q => '<button class="dpi-assoc-choice" data-side="left" data-pair="' + esc(q.id) + '" onclick="DpiGameRounds.pickPair(\'left\',\'' + esc(q.id) + '\')"><b>CONCEITO</b><span>' + esc(q.subtema) + '</span><small>' + esc(q.tema) + '</small></button>').join('');
     const right = rights.map(q => '<button class="dpi-assoc-choice" data-side="right" data-pair="' + esc(q.id) + '" onclick="DpiGameRounds.pickPair(\'right\',\'' + esc(q.id) + '\')"><b>DECISÃO</b><span>' + esc(q.resposta_correta_extenso) + '</span></button>').join('');
-    shell(modeNames.association, '<section class="dpi-round-session">' + progress() + '<h3 class="dpi-round-question">Relacione o conceito ao princípio técnico correspondente.</h3><p class="dpi-round-instruction">Toque em um conceito e depois na decisão correta. A rodada tem dez pares, em três telas para manter a leitura confortável.</p><p id="dpiPairProgress" class="dpi-round-source">' + association.matched.size + ' de ' + session.questions.length + ' pares concluídos</p><div class="dpi-assoc-grid"><div>' + left + '</div><div>' + right + '</div></div><div id="dpiRoundFeedback" aria-live="polite"></div><p class="dpi-round-source">Conteúdo para estudo · Fonte vinculada em cada registro do banco.</p>' + miniNav() + '</section>');
+    shell(modeNames.association, '<section class="dpi-round-session">' + progress() + '<h3 class="dpi-round-question">Relacione o conceito ao princípio técnico correspondente.</h3><p class="dpi-round-instruction">Toque em um conceito e depois na decisão correta. A rodada tem dez pares, em três telas para manter a leitura confortável.</p><p id="dpiPairProgress" class="dpi-round-source">' + (association.batchStart + association.matched.size) + ' de ' + session.questions.length + ' pares concluídos</p><div class="dpi-assoc-grid"><div>' + left + '</div><div>' + right + '</div></div><div id="dpiRoundFeedback" aria-live="polite"></div><p class="dpi-round-source">Conteúdo para estudo · Fonte vinculada em cada registro do banco.</p>' + miniNav() + '</section>');
   }
   function updateAssociationProgress() {
     const label = root.document.querySelector('.dpi-round-meter b');
     const stat = root.document.querySelector('.dpi-round-meter span');
     const bar = root.document.querySelector('.dpi-round-track i');
-    if (label) label.textContent = 'PARES ASSOCIADOS ' + association.matched.size + ' / ' + session.questions.length;
+    if (label) label.textContent = 'PARES ASSOCIADOS ' + (association.batchStart + association.matched.size) + ' / ' + session.questions.length;
     if (stat) stat.textContent = session.wrongAttempts + ' tentativas incorretas · ' + session.score + ' pts';
-    if (bar) bar.style.width = Math.round(association.matched.size / session.questions.length * 100) + '%';
+    if (bar) bar.style.width = Math.round((association.batchStart + association.matched.size) / session.questions.length * 100) + '%';
   }
   async function pickPair(side, id) {
     if (session.confirming || association.matched.has(id)) return;
