@@ -38,6 +38,7 @@ Na rota original da Arena, houve reprodução neural real com `data-dpi-voice-so
 - O check Vercel associado ao commit anterior indicou a prévia `https://desafio-dpi-veterinario-v40-previe-git-ceb3de-evertoneuder-6390.vercel.app`.
 - O check GitHub do commit `97faa2c` apresenta `Vercel: success` e aponta para o dashboard de deployment `https://vercel.com/evertoneuder-6390/desafio-dpi-veterinario-v40-preview/4jkQvtMTWzegQQTGjTpFJwD1kMz7`.
 - A API Vercel conectada lista a equipe correta, mas retorna zero projetos; a consulta pelo nome e pelo ID histórico do projeto retorna 404, e a listagem de deployments retorna 403. O check GitHub continua `success`, mas o deployment não pode ser inspecionado nem seu link de preview recuperado por esta conexão. O fallback CLI não está instalado.
+- A abertura do dashboard do último check, pelo navegador disponível, redirecionou para a tela de login da Vercel. Uma URL de prévia antiga já aberta no navegador mostrou a Arena; o caminho `/avaliacao/questoes` nessa URL retornou 404. Essa URL não foi associada ao commit atual, portanto não serve para validar o pacote recente.
 - O Chromium local não conseguiu iniciar neste ambiente gerenciado (`socket() failed: Operation not permitted`). Portanto, os 151 testes são regressão automatizada; a rechecagem interativa do novo pacote depende de acesso à prévia atualizada.
 - Nenhum deploy de produção, promoção, alteração de DNS ou mudança do layout aprovado foi feita.
 
