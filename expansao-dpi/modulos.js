@@ -1,67 +1,25 @@
 'use strict';
-// Isolated expansion: no changes to the approved game or its visual interface.
 const modules=[
 {title:'DPI Integrado',path:'../dados/novos-desafios/dpi-integrado.json'},
 {title:'Qual Exame? Qual Projeção?',path:'../dados/novos-desafios/qual-exame-qual-projecao.json'},
 {title:'Telerradiologia clínica',path:'../dados/novos-desafios/telerradiologia-clinica.json'},
-{title:'Desafio do Olhar',path:'../dados/novos-desafios/desafio-do-olhar.json',images:true}
+{title:'Desafio do Olhar',path:'../dados/novos-desafios/desafio-do-olhar.json',visual:true}
 ];
 const root=document.getElementById('modules');
-const nonempty=x=>typeof x==='string'&&x.trim().length>0;
-function validated(c,visual){
- const a=c?.alternatives,refs=c?.references;
- return c?.review_status==='validado'&&nonempty(c.id)&&nonempty(c.question)&&nonempty(c.correct_id)
- &&Array.isArray(a)&&a.length===4&&new Set(a.map(x=>x.id)).size===4
- &&a.every(x=>nonempty(x.id)&&nonempty(x.text)&&nonempty(x.rationale))
- &&a.some(x=>x.id===c.correct_id)
- &&Array.isArray(refs)&&refs.length>0&&refs.every(x=>nonempty(x.title)&&nonempty(x.locator)&&x.verified===true)
- &&(!visual||(Array.isArray(c.images)&&c.images.length>0&&c.images.every(i=>
- nonempty(i.path)&&nonempty(i.source)&&nonempty(i.license_or_permission)
- &&i.anonymized===true&&nonempty(i.reference_diagnosis))));
+const status=document.getElementById('error');
+const preview=new URLSearchParams(location.search).get('avaliacao')==='preliminar';
+function structurallyValid(c){const a=c?.alternatives;return typeof c?.question==='string'&&Array.isArray(a)&&a.length===4&&new Set(a.map(x=>x.id)).size===4&&a.some(x=>x.id===c.correct_id)&&Array.isArray(c.references)&&c.references.length>0;}
+function imageReady(c){return Array.isArray(c.images)&&c.images.length>0&&c.images.every(i=>i.path&&i.source&&i.license_or_permission&&i.anonymized===true&&i.reference_diagnosis);}
+function playable(c,visual){return structurallyValid(c)&&c.review_status==='validado'&&(!visual||imageReady(c));}
+function node(tag,content,cls){const e=document.createElement(tag);if(content!==undefined)e.textContent=content;if(cls)e.className=cls;return e;}
+function startQuiz(section,cases,visual){section.replaceChildren(node('h2',section.dataset.title));let index=0,score=0,answered=false;
+const progress=node('p');const question=node('h3');const answers=node('div');const feedback=node('p');feedback.setAttribute('aria-live','polite');const next=node('button','Próxima questão');next.type='button';next.hidden=true;const exit=node('button','Voltar aos módulos');exit.type='button';exit.addEventListener('click',()=>location.reload());section.append(progress,question,answers,feedback,next,exit);
+function render(){if(index>=cases.length){question.textContent='Rodada concluída';progress.textContent=`Pontuação: ${score} de ${cases.length}`;answers.replaceChildren();feedback.textContent='Resultado apenas desta sessão de avaliação; não altera ranking ou pontuação oficial.';next.hidden=true;return;}
+const c=cases[index];answered=false;progress.textContent=`Questão ${index+1} de ${cases.length} · Acertos: ${score}`;question.textContent=c.question;answers.replaceChildren();feedback.textContent='';next.hidden=true;
+if(visual){const img=document.createElement('img');img.src=c.images[0].path;img.alt=c.images[0].alt||'Imagem diagnóstica para interpretação';img.style.cssText='max-width:100%;height:auto';answers.append(img);}
+for(const a of c.alternatives){const btn=node('button',a.id+' — '+a.text);btn.type='button';btn.style.cssText='display:block;margin:8px 0;text-align:left;width:100%';btn.addEventListener('click',()=>{if(answered)return;answered=true;const correct=a.id===c.correct_id;if(correct)score++;feedback.textContent=(correct?'Resposta correta. ':'Resposta incorreta. ')+(c.rationale||c.alternatives.find(x=>x.id===c.correct_id)?.rationale||'')+' Gabarito: '+c.correct_id;for(const el of answers.querySelectorAll('button'))el.disabled=true;next.hidden=false;});answers.append(btn);}
 }
-function render(m,data){
- const all=Array.isArray(data.cases)?data.cases:[],valid=all.filter(c=>validated(c,!!m.images));
- const section=document.createElement('section'),h=document.createElement('h2'),p=document.createElement('p'),button=document.createElement('button');
- h.textContent=m.title;p.textContent=`${all.length} registros • ${valid.length} homologados`;
- button.type='button';button.disabled=valid.length===0;
- button.textContent=valid.length?'Iniciar módulo validado':'Aguardando auditoria e liberação';
- section.append(h,p,button);root.append(section);
- if(!valid.length)return;
- const area=document.createElement('div');area.setAttribute('aria-live','polite');section.append(area);
- let index=0,score=0;
- const show=()=>{
-  area.replaceChildren();
-  if(index>=valid.length){
-   const result=document.createElement('p');result.textContent=`Concluído: ${score} acertos em ${valid.length} questões.`;
-   const restart=document.createElement('button');restart.type='button';restart.textContent='Recomeçar';
-   restart.addEventListener('click',()=>{index=0;score=0;show();});area.append(result,restart);return;
-  }
-  const q=valid[index],title=document.createElement('h3'),context=document.createElement('p');
-  title.textContent=`Questão ${index+1} de ${valid.length}: ${q.question}`;
-  context.textContent=q.clinical_context||'';area.append(title,context);
-  if(m.images){
-   for(const im of q.images){const picture=document.createElement('img');picture.src=im.path;picture.alt=im.alt||'Imagem veterinária do desafio';picture.loading='eager';picture.style.maxWidth='100%';area.append(picture);}
-  }
-  const feedback=document.createElement('p'),next=document.createElement('button');
-  next.type='button';next.textContent='Próxima questão';next.hidden=true;
-  for(const a of q.alternatives){
-   const option=document.createElement('button');option.type='button';option.textContent=`${a.id}. ${a.text}`;option.style.display='block';option.style.margin='8px 0';
-   option.addEventListener('click',()=>{
-    if(!next.hidden)return;
-    const correct=a.id===q.correct_id;if(correct)score++;
-    feedback.textContent=(correct?'Correto. ':'Resposta incorreta. ')+q.alternatives.find(x=>x.id===q.correct_id).rationale;
-    next.hidden=false;
-   });area.append(option);
-  }
-  next.addEventListener('click',()=>{index++;show();});area.append(feedback,next);
- };
- button.addEventListener('click',()=>{button.hidden=true;show();});
-}
-async function main(){
- root.replaceChildren();
- for(const m of modules){
-  try{const response=await fetch(m.path,{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);render(m,await response.json());}
-  catch(error){const p=document.createElement('p');p.textContent=m.title+': indisponível ('+error.message+')';root.append(p);}
- }
-}
-main();
+next.addEventListener('click',()=>{index++;render();});render();}
+async function main(){root.replaceChildren();if(preview){root.append(node('p','AVALIAÇÃO PRELIMINAR: conteúdo não homologado. Os resultados não integram o jogo principal.','status'));}else{root.append(node('p','Modo seguro: somente questões com dupla revisão validada podem ser jogadas.','status'));}
+for(const m of modules){const section=node('section');section.dataset.title=m.title;root.append(section);section.append(node('h2',m.title));try{const response=await fetch(m.path,{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const data=await response.json();const all=Array.isArray(data.cases)?data.cases:[];const ready=all.filter(c=>playable(c,!!m.visual));const sample=!m.visual&&preview?all.filter(structurallyValid):ready;section.append(node('p',`${all.length} registros · ${ready.length} homologados · ${sample.length} disponíveis nesta visualização`));const button=node('button',sample.length?'Iniciar avaliação preliminar':'Aguardando validação');button.type='button';button.disabled=!sample.length;section.append(button);button.addEventListener('click',()=>startQuiz(section,sample,m.visual));if(m.visual&&!ready.length)section.append(node('p','Desafios visuais indisponíveis: imagens e licenças ainda não verificadas.','muted'));}catch(e){section.append(node('p','Falha ao carregar: '+e.message));status.textContent='Verifique a publicação dos arquivos JSON no mesmo domínio.';}}
+}main();
