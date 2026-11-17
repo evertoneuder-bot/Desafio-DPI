@@ -43,19 +43,19 @@ jobs:
           branch = subprocess.check_output(['git', 'branch', '--show-current'], text=True).strip()
           with zipfile.ZipFile(archive) as z:
               names = sorted(n for n in z.namelist() if not n.endswith('/'))
-              manifest = ''.join(hashlib.sha256(z.read(n)).hexdigest() + '  ' + n + '\\n' for n in names)
+              manifest = ''.join(hashlib.sha256(z.read(n)).hexdigest() + '  ' + n + '\n' for n in names)
               bad = z.testzip()
               if bad: raise SystemExit('Corrupted ZIP member: ' + bad)
           (base / 'MANIFESTO_SHA256.txt').write_text(manifest, encoding='utf-8')
-          (base / 'BRANCH_E_HEAD.txt').write_text('branch: ' + branch + '\\nHEAD: ' + sha + '\\n', encoding='utf-8')
+          (base / 'BRANCH_E_HEAD.txt').write_text('branch: ' + branch + '\nHEAD: ' + sha + '\n', encoding='utf-8')
           (base / 'LEIA_PRIMEIRO.md').write_text(
-              '# Continuidade Desafio DPI / EL-X Vet\\n\\n'
+              '# Continuidade Desafio DPI / EL-X Vet\n\n'
               'Este pacote foi produzido automaticamente no GitHub Actions, '
-              'sem credenciais ou arquivos locais nao rastreados.\\n'
-              'O ZIP CODIGO contem os arquivos rastreados no commit informado em BRANCH_E_HEAD.txt.\\n'
-              'O manifesto SHA-256 cobre individualmente cada arquivo dentro do ZIP.\\n'
+              'sem credenciais ou arquivos locais nao rastreados.\n'
+              'O ZIP CODIGO contem os arquivos rastreados no commit informado em BRANCH_E_HEAD.txt.\n'
+              'O manifesto SHA-256 cobre individualmente cada arquivo dentro do ZIP.\n'
               'Para retomar: consultar RELATORIO_CONTINUIDADE_AUTOMATIZADA_2026-11-17.md '
-              'e executar a regressao. Nenhum deploy ou homologacao auditiva e implicado.\\n',
+              'e executar a regressao. Nenhum deploy ou homologacao auditiva e implicado.\n',
               encoding='utf-8')
           with zipfile.ZipFile(base / 'DESAFIO_DPI_ELX_CONTINUIDADE.zip', 'w', compression=zipfile.ZIP_DEFLATED) as z:
               for p in sorted(base.iterdir()):
