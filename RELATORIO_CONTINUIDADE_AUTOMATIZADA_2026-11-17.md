@@ -35,3 +35,12 @@ Executar diagnóstico em navegador/Preview para separar latência do servidor e 
 - A integração de navegador disponível nesta sessão permite ler o conteúdo das abas, mas não executar JavaScript de instrumentação, reproduzir áudio ou medir eventos de reprodução. Nenhuma medição auditiva/latência real foi obtida.
 - Código de `api/tts.js` conferido: consulta sequencial de saldo/limite de créditos precede a síntese ElevenLabs; o MP3 é inteiramente carregado antes de ser enviado. Há métricas `Server-Timing` para consulta, cabeçalhos de síntese e buffer. Não eliminar a proteção contra cobranças nem atribuir os três segundos a uma etapa sem medição.
 - Próximo passo técnico: obter Preview efetivamente vinculado ao HEAD autorizado; medir `Server-Timing` e `playing` no navegador de teste, separando latência de rede, síntese e aplicação. A validação sonora real permanece pendente.
+
+## Verificação da integração Vercel — continuação
+- `list_projects` no escopo `evertoneuder-6390`: zero projetos retornados.
+- `list_deployments` filtrando a branch autorizada no mesmo escopo: zero deployments retornados.
+- `get_deployment` para o hostname visto na aba conectada: 404 `not_found`.
+- **Conclusão limitada:** a integração Vercel desta sessão não disponibilizou o projeto/deployment esperado. Isso não demonstra que o Preview inexiste; pode ser diferença de conexão/escopo. Não executar novo deploy nem afirmar correspondência do Preview com o HEAD.
+- GitHub Actions do HEAD anterior `3bd6b377b85d23a64d738f5971830d988bac8462`: run `44003489289` com conclusão `success`.
+- Ambiente local de arquivos/terminal indisponível nesta tentativa; não foi possível gerar ZIP verificável. O código permanece no GitHub com histórico e testes; o ZIP integral continua pendente.
+- Próxima ação independente: preservar e expandir testes estáticos do áudio e identificar caminho de Preview vinculado ao commit; para medir áudio real, será necessário navegador com instrumentação e permissão de acesso ao deployment correto.
