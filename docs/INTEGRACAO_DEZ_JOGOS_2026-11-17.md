@@ -1,40 +1,49 @@
 # Relatório de integração e validação do preview DPI
-Data: 17/11/2026
 
-## Estado de origem confirmado
-- Repositório: `evertoneuder-bot/Desafio-DPI`
-- Branch: `codex/diagnostico-audio-dpi-20261111`
-- Commit validado antes deste relatório: `aad3c95837ca5e46b07c8cc76c23080d2554016d`
-- A capa aprovada e os estilos originais não foram alterados pela integração da prévia.
+Atualizado: 17/11/2026. Branch: `codex/diagnostico-audio-dpi-20261111`.
 
-## Integração disponível
-- `ABRIR-PREVIA-INTEGRADA.html` oferece a Arena original e três protótipos adicionais: Questões clínicas, Desafio do Olhar e Detetive da Imagem.
-- A página do hub é uma rota separada. A capa original não ganhou controles novos nem teve cores, imagens, posições ou proporções alteradas.
-- Os protótipos adicionais continuam independentes do cadastro, pontuação e ranking da Arena.
-- O texto das páginas identifica os esquemas gráficos como sintéticos, sem alegar que sejam radiografias ou ultrassonografias reais.
+## Base e layout
 
-## Testes automatizados
-- Comando: `node --test tests/*.test.cjs tests/recovered/*.test.cjs`
-- Resultado local: 148 aprovados, 0 falhas.
-- GitHub Actions, execução `44034669294`, no commit `aad3c95837ca5e46b07c8cc76c23080d2554016d`: sucesso.
-- O check Vercel associado ao commit concluiu com sucesso e indicou a prévia `https://desafio-dpi-veterinario-v40-previe-git-ceb3de-evertoneuder-6390.vercel.app`.
+- Último estado confirmado no GitHub antes desta atualização: `7ffda52b51601d66fb982fdc136e50cdf496c4e2`.
+- O launcher de prévia oferece sete cartões de minijogos do jogo existente e três módulos novos, totalizando dez itens de integração. A Arena mantém também o modo independente `Feche o Diagnóstico`; ele foi preservado e não substitui nenhum dos dez itens.
+- A capa e o layout original permanecem inalterados. Os módulos novos abrem em rotas separadas e não interferem no cadastro, pontuação ou ranking originais.
 
-## Testes manuais no desktop
-Na prévia acima, o navegador abriu a capa e percorreu o cadastro como visitante, menu, Arena e hub integrado.
-- Questões clínicas: carregou o banco offline com 20 questões; uma resposta correta mostrou correção e feedback.
-- Desafio do Olhar: exibiu caso RX esquemático; a resposta correta atualizou acertos e justificativa. As imagens são esquemas didáticos.
-- Detetive da Imagem: a missão de fissura óssea aceitou a marcação do achado e registrou 100 pontos.
-- Arena original: abriram Relâmpago, Alvo, Eliminação, Associação, Caça-palavras, Forca clínica, Palavras cruzadas e Feche o Diagnóstico. Foram exercitadas respostas/associações em mais de um modo.
-- A execução completa das rodadas de todos os modos não foi feita.
+## Conteúdo que pode ser avaliado
 
-## Pendências comprovadas
-1. **Contagem:** o hub anuncia sete jogos originais; na Arena existem sete cartões, mas o cartão de palavras abre Caça-palavras e Forca clínica, e também há Feche o Diagnóstico. Portanto, os modos acionáveis observados na Arena são oito. O escopo “dez jogos” precisa ser reconciliado sem remover um modo já existente.
-2. **Navegação:** o hub é acessível pela rota direta, mas ainda não está ligado a um controle da navegação principal. A integração testada funciona como prévia independente.
-3. **Questões e fontes:** a demonstração de 20 questões está marcada como preliminar. A bibliografia apresentada é geral, não uma referência individual auditável em cada item. Os bancos remotos não foram validados nesta execução.
-4. **Imagens:** os dois jogos visuais usam esquemas sintéticos. Não foram inseridas imagens extraídas de livros/PDFs ou prontuários; é necessário confirmar licença e anonimização antes de redistribuir imagens reais no repositório/prévia.
-5. **Voz:** a execução no browser não comprova a voz neural aprovada nem sua latência/volume real.
-6. **Celular:** teste deliberadamente reservado para a etapa final, conforme instrução do usuário.
-7. **Vercel API:** a API conectada lista o time `evertoneuder-6390`, mas retorna zero projetos e 404 ao consultar o projeto histórico. Ainda assim, o check oficial do GitHub forneceu uma prévia funcional, testada no desktop. A gestão do projeto pelas ferramentas Vercel continua sem acesso verificável.
+- O banco preliminar de 20 questões offline continua disponível.
+- Foram incorporados os três bancos JSON que a página já anunciava: DPI Integrado (40), Qual Exame? Qual Projeção? (50) e Telerradiologia Clínica (10). O quiz agora carrega os arquivos locais do pacote, mostra contexto clínico, fontes/localizadores e situação editorial do item.
+- Os 100 itens novos continuam em revisão; nenhum está homologado. Não apresentar as contagens como conteúdo cientificamente aprovado.
+- Há mais 50 roteiros para o Desafio do Olhar. Todos permanecem bloqueados sem imagens licenciadas, anonimizadas e revisadas; nenhum dos 50 é apresentado como caso visual jogável.
+- O Detetive da Imagem mantém cinco missões sintéticas de demonstração, sem alegação de imagem clínica real.
+- A auditoria do banco documental de zoonoses corrigiu cinco gabaritos que contradiziam a justificativa e a fonte, com os localizadores consultados registrados em `docs/novos-desafios/AUDITORIA_GABARITOS_ZOONOSES_2026-11-17.md`. A contagem original de 325 questões permanece protegida por teste.
 
-## Segurança de publicação
-Nenhuma promoção ou alteração de produção foi feita nesta execução. Não foram adicionados ao repositório PDFs, imagens de pacientes, credenciais ou arquivos privados.
+## Testes automatizados locais
+
+- Comando: `node --test tests/*.test.cjs tests/recovered/*.test.cjs`.
+- Resultado atualizado: **150 aprovados, 0 falhas**.
+- Auditoria estrutural: 0 IDs/gabaritos/estruturas inválidos nos quatro JSONs (40 + 50 + 10 questões e 50 roteiros). Esse resultado não é homologação científica.
+- Contagem das respostas corretas entre as alternativas de maior comprimento: DPI Integrado 32/40 (80%); Qual Exame 14/50 (28%); Telerradiologia 0/10; Olhar 30/50 (60%). DPI Integrado e Olhar ainda exigem revisão do viés; ver `AUDITORIA_VIES_COMPRIMENTO_2026-11-17.md`.
+
+## Teste real em desktop
+
+Na prévia do commit `7ffda52`, o launcher, o banco offline de 20 questões, avanço e feedback foram exercitados. A resposta correta mostrou retorno visual e avançou o contador.
+
+Ao selecionar o banco DPI Integrado, a prévia ainda publicada respondeu HTTP 404 porque os JSONs não estavam incluídos no pacote dessa versão. Esta atualização corrige os caminhos e inclui os bancos; o reteste da versão atualizada depende do novo Preview gerado pelo GitHub.
+
+Na rota original da Arena, houve reprodução neural real com `data-dpi-voice-source=elevenlabs`. O primeiro evento de reprodução medido ocorreu **3.508 ms após a solicitação**. A latência permanece acima da meta de início próximo a 1 s. A suíte protege o limite de créditos e impede sobrecarga; não deve ser removida para acelerar o áudio.
+
+## Vercel e publicação
+
+- O check Vercel associado ao commit anterior indicou a prévia `https://desafio-dpi-veterinario-v40-previe-git-ceb3de-evertoneuder-6390.vercel.app`.
+- A API Vercel da conta conectada retorna zero projetos/deployments, mesmo sem filtro. A tentativa autorizada de link de proteção foi recusada com HTTP 403; o fallback `vercel` não está instalado. Sem acesso ao projeto, a prévia do novo commit ainda não foi comprovada.
+- Nenhum deploy de produção, promoção, alteração de DNS ou mudança do layout aprovado foi feita.
+
+## Pendências restantes
+
+1. Conferir o Preview da atualização e testar novamente os três bancos JSON (HTTP 200, carregamento, justificativa, fonte, situação editorial e progressão).
+2. Concluir revisão científica e editorial dupla dos 100 itens; revisar primeiro o viés de extensão em DPI Integrado e Olhar.
+3. Obter imagens RX/US reutilizáveis com direitos, anonimização e diagnóstico de referência para os 50 roteiros visuais; incorporar diversidade de modalidades e espécies sem inventar imagens clínicas.
+4. Corrigir e testar a latência neural no navegador, confirmando início, voz de Tom e Fernanda, volume e ausência de sobreposição.
+5. Executar a validação celular somente na etapa final, conforme solicitado.
+6. Resolver a permissão real do projeto Vercel para consultar builds e gerar link de compartilhamento. A conexão autenticada atual não tem permissão para isso.
+7. Conferir a redistribuição do Manual de Zoonoses: a cópia binária versionada falha na leitura PDF, enquanto a cópia do Drive abre. A substituição da cópia no repositório público ficou reservada, pois a licença é CC BY-NC-SA e a compatibilidade com distribuição comercial ainda não foi confirmada.

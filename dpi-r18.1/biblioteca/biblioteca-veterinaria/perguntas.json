@@ -27,11 +27,11 @@
       "C": "Tratar somente animais de produção",
       "D": "Identificar riscos e orientar prevenção e controle"
     },
-    "resposta_correta": "B",
+    "resposta_correta": "D",
     "explicacao": "A vigilância reúne informação e ações para prevenir e controlar riscos à saúde pública.",
     "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
     "ano": "Ministério da Saúde, 2016",
-    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "referencia_pagina": "p. 8–10; seção 1.1.1 — Vigilância",
     "dificuldade": "basica",
     "tipo": "multipla_escolha"
   },
@@ -63,11 +63,11 @@
       "C": "Apenas rapidez, sem registro",
       "D": "Contato direto sem proteção"
     },
-    "resposta_correta": "D",
+    "resposta_correta": "B",
     "explicacao": "O manual prevê cuidados de alojamento, alimentação, hidratação, higiene e biossegurança.",
     "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
     "ano": "Ministério da Saúde, 2016",
-    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "referencia_pagina": "p. 27–29; seção 2.2 — Alojamento e manutenção dos animais vertebrados recolhidos",
     "dificuldade": "basica",
     "tipo": "multipla_escolha"
   },
@@ -99,11 +99,11 @@
       "C": "Ignorar o caso se o animal parecer saudável",
       "D": "Seguir fluxo de vigilância e comunicar o serviço responsável"
     },
-    "resposta_correta": "B",
+    "resposta_correta": "D",
     "explicacao": "A suspeita deve ser manejada conforme os fluxos oficiais de vigilância e diagnóstico.",
     "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
     "ano": "Ministério da Saúde, 2016",
-    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "referencia_pagina": "p. 10–11; seções 1.1.1 e 1.1.2 — Vigilância ativa e passiva",
     "dificuldade": "basica",
     "tipo": "multipla_escolha"
   },
@@ -135,11 +135,11 @@
       "C": "Define que todas as regiões têm o mesmo risco",
       "D": "Substitui o diagnóstico laboratorial em todo caso"
     },
-    "resposta_correta": "D",
+    "resposta_correta": "B",
     "explicacao": "A avaliação e o monitoramento ajudam a escolher respostas compatíveis com o território.",
     "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
     "ano": "Ministério da Saúde, 2016",
-    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "referencia_pagina": "p. 8–10; seção 1.1 — avaliação do contexto e vigilância no território de atuação",
     "dificuldade": "basica",
     "tipo": "multipla_escolha"
   },
@@ -171,11 +171,11 @@
       "C": "Publicidade de produtos veterinários",
       "D": "Normas técnicas e orientações oficiais atualizadas"
     },
-    "resposta_correta": "B",
+    "resposta_correta": "D",
     "explicacao": "O manual é uma referência técnica oficial e deve ser articulado com orientações vigentes.",
     "fonte": "Manual de Vigilância, Prevenção e Controle de Zoonoses: Normas Técnicas e Operacionais",
     "ano": "Ministério da Saúde, 2016",
-    "referencia_pagina": "Seções sobre vigilância, raiva, leishmanioses, UVZ e biossegurança; conferir índice no PDF.",
+    "referencia_pagina": "p. 11; seção 1.1.2 — consulta a manuais técnicos e orientações vigentes",
     "dificuldade": "basica",
     "tipo": "multipla_escolha"
   }
