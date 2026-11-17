@@ -16,22 +16,22 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Uma projeção craniocaudal do antebraço, incluindo as articulações adjacentes."
+          "text": "Repetir a projeção ML com maior colimação, sem alterar a incidência."
         },
         {
           "id": "B",
-          "text": "Uma segunda imagem mediolateral com a mesma posição."
+          "text": "Obter uma projeção CrCd do antebraço, incluindo articulações adjacentes."
         },
         {
           "id": "C",
-          "text": "Uma radiografia torácica em DV para confirmar a fratura."
+          "text": "Adicionar uma incidência oblíqua do carpo sem abranger a diáfise."
         },
         {
           "id": "D",
-          "text": "Uma ultrassonografia abdominal para determinar o desvio ósseo."
+          "text": "Realizar imagem comparativa do membro oposto em incidência ML."
         }
       ],
-      "correct_id": "A",
+      "correct_id": "B",
       "rationale": "A projeção ortogonal permite avaliar o desvio em outro plano. A inclusão das articulações adjacentes auxilia na avaliação completa do segmento.",
       "references": [
         {
@@ -59,19 +59,19 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Pneumonia bacteriana confirmada pela radiografia."
+          "text": "Padrão intersticial difuso, sugestivo de edema pulmonar não cardiogênico."
         },
         {
           "id": "B",
-          "text": "Achados compatíveis com broncopatia, a correlacionar com o quadro clínico."
+          "text": "Padrão brônquico difuso, compatível com broncopatia a correlacionar clinicamente."
         },
         {
           "id": "C",
-          "text": "Edema pulmonar cardiogênico confirmado."
+          "text": "Padrão alveolar focal, sugestivo de consolidação pulmonar localizada."
         },
         {
           "id": "D",
-          "text": "Ausência de alterações torácicas relevantes."
+          "text": "Padrão vascular pulmonar, sugestivo de hipertensão arterial pulmonar."
         }
       ],
       "correct_id": "B",
@@ -94,19 +94,19 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "A rotação pode produzir assimetria aparente e comprometer a comparação das articulações."
+          "text": "A rotação pode simular assimetrias e limitar a avaliação da congruência."
         },
         {
           "id": "B",
-          "text": "A rotação impede exclusivamente a avaliação da bexiga."
+          "text": "A rotação compromete apenas a comparação das estruturas abdominais."
         },
         {
           "id": "C",
-          "text": "A rotação confirma luxação coxofemoral unilateral."
+          "text": "A rotação melhora a avaliação isolada do acetábulo contralateral."
         },
         {
           "id": "D",
-          "text": "A rotação não interfere na avaliação da congruência articular."
+          "text": "A rotação permite concluir sobre subluxação sem projeção adicional."
         }
       ],
       "correct_id": "A",
@@ -137,19 +137,19 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "A equipe remota passa a controlar fisicamente o posicionamento do paciente."
+          "text": "A equipe remota define a técnica e dispensa a revisão local da aquisição."
         },
         {
           "id": "B",
-          "text": "A telerradiologia elimina a necessidade de radioproteção no local de aquisição."
+          "text": "A equipe local adquire imagens, mas não precisa registrar o histórico clínico."
         },
         {
           "id": "C",
-          "text": "O envio remoto garante diagnóstico conclusivo mesmo com imagens inadequadas."
+          "text": "A equipe remota assume o controle físico da contenção durante a exposição."
         },
         {
           "id": "D",
-          "text": "A equipe local realiza a aquisição e fornece dados clínicos; o profissional remoto interpreta as imagens recebidas, reconhecendo limitações técnicas."
+          "text": "A equipe local adquire e documenta o estudo; a equipe remota interpreta com ressalvas técnicas."
         }
       ],
       "correct_id": "D",
@@ -179,22 +179,22 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Somente a data do envio."
+          "text": "Identificação do paciente, região examinada, histórico e pergunta clínica."
         },
         {
           "id": "B",
-          "text": "A suspeita clínica, os sinais relevantes e a pergunta que o exame deve responder."
+          "text": "Identificação do paciente, valor cobrado e prazo administrativo solicitado."
         },
         {
           "id": "C",
-          "text": "Um texto promocional da clínica."
+          "text": "Identificação do tutor, preferência terapêutica e hipótese não documentada."
         },
         {
           "id": "D",
-          "text": "A preferência pessoal do tutor por determinado diagnóstico."
+          "text": "Identificação da clínica, equipamento utilizado e nome do arquivo apenas."
         }
       ],
-      "correct_id": "B",
+      "correct_id": "A",
       "rationale": "A pergunta clínica e os dados relevantes ajudam a orientar a interpretação; esse fluxo é explicitamente descrito no site da EL-X Vet. A ausência de alguns dados não impede automaticamente toda análise.",
       "references": [
         {
@@ -213,19 +213,19 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Dispensar a aquisição de imagens no local."
+          "text": "Permitir laudos remotos sem necessidade de identificação do paciente."
         },
         {
           "id": "B",
-          "text": "Garantir que toda imagem seja diagnóstica independentemente da técnica."
+          "text": "Permitir laudos remotos sem controle da qualidade das incidências."
         },
         {
           "id": "C",
-          "text": "Permitir interpretação à distância de estudos adquiridos localmente, mantendo a necessidade de dados clínicos e qualidade técnica."
+          "text": "Permitir interpretação remota mantendo aquisição local e informações clínicas."
         },
         {
           "id": "D",
-          "text": "Eliminar a responsabilidade do clínico pela decisão terapêutica."
+          "text": "Permitir interpretação remota dispensando o registro da justificativa."
         }
       ],
       "correct_id": "C",
@@ -247,19 +247,19 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Imagens anteriores identificadas por data e incidência, acompanhadas da evolução clínica."
+          "text": "Estudos anteriores datados, com incidências identificadas e evolução clínica."
         },
         {
           "id": "B",
-          "text": "Somente o exame mais recente, sem indicação das projeções."
+          "text": "Estudos anteriores sem datas, mas com comentários subjetivos do tutor."
         },
         {
           "id": "C",
-          "text": "Um relato de que a paciente melhorou, sem datas."
+          "text": "Somente o exame atual, com comparação baseada na memória do solicitante."
         },
         {
           "id": "D",
-          "text": "Imagens de outro animal com quadro semelhante."
+          "text": "Somente laudos anteriores, sem acesso às imagens correspondentes."
         }
       ],
       "correct_id": "A",
@@ -281,19 +281,19 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Segurar o detector com as mãos diretamente no feixe primário para evitar tremor."
+          "text": "Priorizar contenção manual do detector quando houver movimento do equino."
         },
         {
           "id": "B",
-          "text": "Utilizar suporte apropriado para o detector, respeitar a radioproteção e obter as incidências indicadas para a região."
+          "text": "Usar suporte do detector, radioproteção e incidências adequadas à região."
         },
         {
           "id": "C",
-          "text": "Dispensar projeções oblíquas em qualquer estudo equino."
+          "text": "Substituir as incidências ortogonais por uma única imagem de triagem."
         },
         {
           "id": "D",
-          "text": "Deixar o paciente sem identificação porque os arquivos serão enviados eletronicamente."
+          "text": "Omitir a identificação das incidências para agilizar a transferência."
         }
       ],
       "correct_id": "B",
@@ -316,19 +316,19 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Emitir conclusão categórica sem ressalvas."
+          "text": "Emitir impressão definitiva, registrando a limitação apenas no rodapé."
         },
         {
           "id": "B",
-          "text": "Afirmar que a telerradiologia dispensa informações clínicas."
+          "text": "Solicitar novo estudo completo sem avaliar risco, região ou pergunta clínica."
         },
         {
           "id": "C",
-          "text": "Repetir automaticamente todo o estudo, mesmo se houver contraindicação clínica."
+          "text": "Interpretar apenas a projeção adequada, omitindo a existência da outra."
         },
         {
           "id": "D",
-          "text": "Esclarecer a pergunta clínica, indicar as limitações observadas e avaliar a necessidade de incidência complementar conforme segurança e pertinência."
+          "text": "Esclarecer a pergunta clínica e indicar limitações e incidências pertinentes."
         }
       ],
       "correct_id": "D",
@@ -358,19 +358,19 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Quando existe dúvida sobre posicionamento ou incidências necessárias para responder à pergunta clínica."
+          "text": "Quando há dúvida sobre posicionamento ou incidências antes da aquisição."
         },
         {
           "id": "B",
-          "text": "Quando o objetivo é substituir o exame físico."
+          "text": "Quando a imagem já é suficiente e a questão é exclusivamente financeira."
         },
         {
           "id": "C",
-          "text": "Sempre que se deseja omitir a justificativa do exame."
+          "text": "Quando há interesse em evitar a identificação do paciente no sistema."
         },
         {
           "id": "D",
-          "text": "Quando se pretende garantir um resultado positivo no laudo."
+          "text": "Quando o objetivo é substituir exame físico e histórico do paciente."
         }
       ],
       "correct_id": "A",
