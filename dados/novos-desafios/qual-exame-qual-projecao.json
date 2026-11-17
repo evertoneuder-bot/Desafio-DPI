@@ -439,42 +439,42 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção laterolateral do abdômen para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência laterolateral do abdômen?",
+      "question": "Um cão está sendo preparado para radiografias abdominais. Qual conjunto corresponde ao protocolo abdominal simples descrito no POP consultado?",
       "alternatives": [
         {
           "id": "A",
-          "text": "LL — laterolateral.",
-          "rationale": "Corresponde à legenda da página 2."
+          "text": "LLD, LLE e VD.",
+          "rationale": "O POP recomenda LLD, LLE e VD no protocolo abdominal simples."
         },
         {
           "id": "B",
-          "text": "VD — ventrodorsal.",
-          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+          "text": "Somente uma incidência lateral.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "C",
-          "text": "DV — dorsoventral.",
-          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+          "text": "ML e CrCd do abdômen.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "D",
-          "text": "ML — mediolateral.",
-          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+          "text": "Apenas uma incidência DV.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         }
       ],
       "correct_id": "A",
       "references": [
         {
-          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
-          "authors": null,
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
           "year": null,
-          "locator": "Página 2, legenda de projeção laterolateral do abdômen",
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/05 - POPs, Protocolos e Treinamentos/POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
           "verified": true,
-          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+          "locator": "Página do PDF 25, protocolo de radiografia da região"
         }
       ],
-      "review_status": "requer_aprofundamento_clinico",
-      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
+      "review_status": "confrontado_aguarda_auditoria_2",
+      "reviewer_notes": "Reformulado a partir de POP de Daniel dos Santos Baptista. Conferir com fonte acadêmica independente antes da aprovação final; recomendações do POP não são universais."
     },
     {
       "id": "QP-RX-PRO-012",
@@ -482,42 +482,42 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção ventrodorsal abdominal para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência ventrodorsal do abdômen?",
+      "question": "Para radiografia abdominal simples de um cão, qual par de laterais integra o protocolo de três projeções descrito no POP?",
       "alternatives": [
         {
           "id": "A",
-          "text": "LL — laterolateral.",
-          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+          "text": "Lateral direita apenas.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "B",
-          "text": "DV — dorsoventral.",
-          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+          "text": "Lateral direita e lateral esquerda.",
+          "rationale": "O POP descreve ambas as laterais e VD ou DV para o abdômen padrão."
         },
         {
           "id": "C",
-          "text": "ML — mediolateral.",
-          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+          "text": "Lateral esquerda e mediolateral do ombro.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "D",
-          "text": "VD — ventrodorsal.",
-          "rationale": "Corresponde à legenda da página 4."
+          "text": "Caudocranial e craniocaudal.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         }
       ],
-      "correct_id": "D",
+      "correct_id": "B",
       "references": [
         {
-          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
-          "authors": null,
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
           "year": null,
-          "locator": "Página 4, legenda de projeção ventrodorsal abdominal",
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/05 - POPs, Protocolos e Treinamentos/POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
           "verified": true,
-          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+          "locator": "Página do PDF 23, protocolo de radiografia da região"
         }
       ],
-      "review_status": "requer_aprofundamento_clinico",
-      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
+      "review_status": "confrontado_aguarda_auditoria_2",
+      "reviewer_notes": "Reformulado a partir de POP de Daniel dos Santos Baptista. Conferir com fonte acadêmica independente antes da aprovação final; recomendações do POP não são universais."
     },
     {
       "id": "QP-RX-PRO-013",
@@ -525,42 +525,42 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção laterolateral torácica para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência laterolateral do tórax?",
+      "question": "Um cão precisa de estudo radiográfico torácico para pesquisa de alterações pulmonares. Qual conduta é compatível com o protocolo do POP consultado?",
       "alternatives": [
         {
           "id": "A",
-          "text": "DV — dorsoventral.",
-          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+          "text": "Obter LLD, LLE e VD.",
+          "rationale": "O POP descreve três projeções torácicas para avaliação geral e pesquisa de metástases."
         },
         {
           "id": "B",
-          "text": "ML — mediolateral.",
-          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+          "text": "Realizar somente LLD.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "C",
-          "text": "LL — laterolateral.",
-          "rationale": "Corresponde à legenda da página 5."
+          "text": "Substituir o tórax por projeções do carpo.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "D",
-          "text": "VD — ventrodorsal.",
-          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+          "text": "Fazer apenas uma imagem VD.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         }
       ],
-      "correct_id": "C",
+      "correct_id": "A",
       "references": [
         {
-          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
-          "authors": null,
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
           "year": null,
-          "locator": "Página 5, legenda de projeção laterolateral torácica",
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/05 - POPs, Protocolos e Treinamentos/POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
           "verified": true,
-          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+          "locator": "Página do PDF 20, protocolo de radiografia da região"
         }
       ],
-      "review_status": "requer_aprofundamento_clinico",
-      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
+      "review_status": "confrontado_aguarda_auditoria_2",
+      "reviewer_notes": "Reformulado a partir de POP de Daniel dos Santos Baptista. Conferir com fonte acadêmica independente antes da aprovação final; recomendações do POP não são universais."
     },
     {
       "id": "QP-RX-PRO-014",
@@ -568,42 +568,42 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção ventrodorsal torácica para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência ventrodorsal do tórax?",
+      "question": "Um cão está sendo avaliado radiograficamente por suspeita de doença pulmonar. Qual conjunto de incidências é recomendado no POP para a avaliação dos campos pulmonares?",
       "alternatives": [
         {
           "id": "A",
-          "text": "ML — mediolateral.",
-          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+          "text": "Apenas LLD e VD.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "B",
-          "text": "VD — ventrodorsal.",
-          "rationale": "Corresponde à legenda da página 6."
+          "text": "Somente LLE.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "C",
-          "text": "LL — laterolateral.",
-          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+          "text": "LLD, LLE e VD.",
+          "rationale": "O POP recomenda ao menos três projeções para avaliar os campos pulmonares: LLD, LLE e VD."
         },
         {
           "id": "D",
-          "text": "DV — dorsoventral.",
-          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+          "text": "Apenas VD.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         }
       ],
-      "correct_id": "B",
+      "correct_id": "C",
       "references": [
         {
-          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
-          "authors": null,
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
           "year": null,
-          "locator": "Página 6, legenda de projeção ventrodorsal torácica",
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/05 - POPs, Protocolos e Treinamentos/POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
           "verified": true,
-          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+          "locator": "Página do PDF 19, protocolo de radiografia da região"
         }
       ],
-      "review_status": "requer_aprofundamento_clinico",
-      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
+      "review_status": "confrontado_aguarda_auditoria_2",
+      "reviewer_notes": "Reformulado a partir de POP de Daniel dos Santos Baptista. Conferir com fonte acadêmica independente antes da aprovação final; recomendações do POP não são universais."
     },
     {
       "id": "QP-RX-PRO-015",
@@ -654,42 +654,42 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção mediolateral do ombro e braço para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência mediolateral do ombro?",
+      "question": "Um cão apresenta suspeita de alteração na articulação escapuloumeral. Qual par de incidências compõe o estudo básico do ombro descrito no POP?",
       "alternatives": [
         {
           "id": "A",
-          "text": "LL — laterolateral.",
-          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+          "text": "CrCd e dorsopalmar.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "B",
-          "text": "VD — ventrodorsal.",
-          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+          "text": "ML neutra e CdCr.",
+          "rationale": "O POP descreve mediolateral neutra e caudocranial para o estudo básico do ombro."
         },
         {
           "id": "C",
-          "text": "DV — dorsoventral.",
-          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+          "text": "LLD e LLE.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "D",
-          "text": "ML — mediolateral.",
-          "rationale": "Corresponde à legenda da página 8."
+          "text": "DV e VD torácicas.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         }
       ],
-      "correct_id": "D",
+      "correct_id": "B",
       "references": [
         {
-          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
-          "authors": null,
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
           "year": null,
-          "locator": "Página 8, legenda de projeção mediolateral do ombro e braço",
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/05 - POPs, Protocolos e Treinamentos/POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
           "verified": true,
-          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+          "locator": "Página do PDF 41, protocolo de radiografia da região"
         }
       ],
-      "review_status": "requer_aprofundamento_clinico",
-      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
+      "review_status": "confrontado_aguarda_auditoria_2",
+      "reviewer_notes": "Reformulado a partir de POP de Daniel dos Santos Baptista. Conferir com fonte acadêmica independente antes da aprovação final; recomendações do POP não são universais."
     },
     {
       "id": "QP-RX-PRO-017",
@@ -697,42 +697,42 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção caudocranial do ombro e braço para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência caudocranial do ombro?",
+      "question": "Na avaliação radiográfica básica do ombro canino, qual incidência complementa a mediolateral neutra conforme o POP?",
       "alternatives": [
         {
           "id": "A",
-          "text": "VD — ventrodorsal.",
-          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+          "text": "Dorsoplantar.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "B",
-          "text": "DV — dorsoventral.",
-          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+          "text": "Ventrodorsal torácica.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "C",
-          "text": "CdCr — caudocranial.",
-          "rationale": "Corresponde à legenda da página 9."
+          "text": "Laterolateral abdominal.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "D",
-          "text": "LL — laterolateral.",
-          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+          "text": "Caudocranial.",
+          "rationale": "O POP cita a projeção caudocranial como complementar à mediolateral do ombro."
         }
       ],
-      "correct_id": "C",
+      "correct_id": "D",
       "references": [
         {
-          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
-          "authors": null,
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
           "year": null,
-          "locator": "Página 9, legenda de projeção caudocranial do ombro e braço",
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/05 - POPs, Protocolos e Treinamentos/POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
           "verified": true,
-          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+          "locator": "Página do PDF 42, protocolo de radiografia da região"
         }
       ],
-      "review_status": "requer_aprofundamento_clinico",
-      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
+      "review_status": "confrontado_aguarda_auditoria_2",
+      "reviewer_notes": "Reformulado a partir de POP de Daniel dos Santos Baptista. Conferir com fonte acadêmica independente antes da aprovação final; recomendações do POP não são universais."
     },
     {
       "id": "QP-RX-PRO-018",
@@ -740,42 +740,42 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção mediolateral do cotovelo para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência mediolateral do cotovelo?",
+      "question": "Na suspeita de doença articular do ombro canino, qual região deve ser centralizada para reduzir distorções, segundo a orientação geral do POP para membros torácicos?",
       "alternatives": [
         {
           "id": "A",
-          "text": "DV — dorsoventral.",
-          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+          "text": "Todo o tórax.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "B",
-          "text": "ML — mediolateral.",
-          "rationale": "Corresponde à legenda da página 10."
+          "text": "Somente a extremidade distal do membro.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "C",
-          "text": "LL — laterolateral.",
-          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+          "text": "A pelve.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "D",
-          "text": "VD — ventrodorsal.",
-          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+          "text": "A articulação escapuloumeral, região de interesse.",
+          "rationale": "O POP orienta direcionar o feixe à região anatômica de interesse."
         }
       ],
-      "correct_id": "B",
+      "correct_id": "D",
       "references": [
         {
-          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
-          "authors": null,
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
           "year": null,
-          "locator": "Página 10, legenda de projeção mediolateral do cotovelo",
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/05 - POPs, Protocolos e Treinamentos/POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
           "verified": true,
-          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+          "locator": "Página do PDF 39, protocolo de radiografia da região"
         }
       ],
-      "review_status": "requer_aprofundamento_clinico",
-      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
+      "review_status": "confrontado_aguarda_auditoria_2",
+      "reviewer_notes": "Reformulado a partir de POP de Daniel dos Santos Baptista. Conferir com fonte acadêmica independente antes da aprovação final; recomendações do POP não são universais."
     },
     {
       "id": "QP-RX-PRO-019",
@@ -783,42 +783,42 @@
       "difficulty": "basico",
       "clinical_context": "O serviço solicita uma projeção craniocaudal do cotovelo e antebraço para estudo radiográfico.",
       "imaging_modality": "RX",
-      "question": "Qual abreviação identifica a incidência craniocaudal do antebraço?",
+      "question": "Um cão sofreu trauma do úmero e há suspeita de fratura. Quais incidências são indicadas no protocolo do POP para o estudo dessa região?",
       "alternatives": [
         {
           "id": "A",
-          "text": "CrCd — craniocaudal.",
-          "rationale": "Corresponde à legenda da página 11."
+          "text": "LLD e LLE torácicas.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "B",
-          "text": "LL — laterolateral.",
-          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+          "text": "VD e DV abdominais.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         },
         {
           "id": "C",
-          "text": "VD — ventrodorsal.",
-          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+          "text": "ML neutra e CrCd do úmero.",
+          "rationale": "O POP descreve mediolateral neutra e craniocaudal para avaliação de fratura do úmero."
         },
         {
           "id": "D",
-          "text": "DV — dorsoventral.",
-          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+          "text": "Dorsopalmar e dorsoplantar.",
+          "rationale": "Não corresponde ao protocolo descrito na referência consultada."
         }
       ],
-      "correct_id": "A",
+      "correct_id": "C",
       "references": [
         {
-          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
-          "authors": null,
+          "title": "P.O.P. de Radiologia Veterinária",
+          "authors": "Daniel dos Santos Baptista",
           "year": null,
-          "locator": "Página 11, legenda de projeção craniocaudal do cotovelo e antebraço",
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/05 - POPs, Protocolos e Treinamentos/POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf",
           "verified": true,
-          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+          "locator": "Página do PDF 43, protocolo de radiografia da região"
         }
       ],
-      "review_status": "requer_aprofundamento_clinico",
-      "reviewer_notes": "AUDITORIA 1: questão centrada em abreviação; não avalia escolha de exame ou posicionamento a partir de suspeita clínica. Converter em caso contextualizado após consultar fontes específicas."
+      "review_status": "confrontado_aguarda_auditoria_2",
+      "reviewer_notes": "Reformulado a partir de POP de Daniel dos Santos Baptista. Conferir com fonte acadêmica independente antes da aprovação final; recomendações do POP não são universais."
     },
     {
       "id": "QP-RX-PRO-020",
