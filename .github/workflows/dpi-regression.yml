@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '22'
       - name: Run all project regression tests
-        run: node --test tests/*.test.cjs
+        run: node --test tests/*.test.cjs tests/recovered/*.test.cjs
 
       - name: Build reproducible continuity archive
         shell: bash
