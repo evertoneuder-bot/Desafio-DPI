@@ -17,7 +17,7 @@ test('approved art is retained, with independent male and female layers', () => 
 });
 test('Fernanda is smaller than Tom in every animation state', () => {
   assert.match(css, /--elx-persona-scale:1;/);
-  assert.match(css, /data-persona="female"\]\{--elx-persona-scale:\.88;/);
+  assert.match(css, /data-persona="female"\]\{--elx-persona-scale:\.5;/);
   for (const state of ['elxMascotIdle','elxMascotSpeak','elxMascotListen','elxMascotGreet','elxMascotCheer','elxMascotComfort']) {
     const match = css.match(new RegExp('@keyframes '+ state +'\\{([^\\n]+)'));
     assert.ok(match, 'Missing motion state '+state);
@@ -35,6 +35,11 @@ test('speech only animates the selected persona; both retain rest animation', ()
   assert.match(css, /data-active-persona="female"\]\.is-speaking/);
   assert.match(motion, /event\.detail\?\.persona/);
   assert.match(motion, /elx-speech-end/);
+  for (const state of ['dpi2DIdle','dpi2DSpeak','dpi2DListen','dpi2DGreet','dpi2DCheer','dpi2DComfort']) {
+    const keyframe = motion.split('@keyframes '+state+'{')[1]?.split('}\\n')[0];
+    assert.ok(keyframe, 'Missing articulated motion '+state);
+    assert.match(keyframe, /scale\\(var\\(--elx-persona-scale\\)\\)/, 'Scale must survive '+state);
+  }
 });
 
 test('one persona reacts at a time, while the other keeps natural idle animation', () => {
