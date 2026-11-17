@@ -3,7 +3,7 @@ const modules=[
 {title:'DPI Integrado',path:'../dados/novos-desafios/dpi-integrado.json'},
 {title:'Qual Exame? Qual Projeção?',path:'../dados/novos-desafios/qual-exame-qual-projecao.json'},
 {title:'Telerradiologia clínica',path:'../dados/novos-desafios/telerradiologia-clinica.json'},
-{title:'Desafio do Olhar',path:'../dados/novos-desafios/desafio-do-olhar.json',visual:true}
+{title:'Olhar Diagnóstico',path:'../dados/novos-desafios/desafio-do-olhar.json',visual:true}
 ];
 const root=document.getElementById('modules');
 const sectionFilter=new URLSearchParams(location.search).get('secao')||'quiz';
