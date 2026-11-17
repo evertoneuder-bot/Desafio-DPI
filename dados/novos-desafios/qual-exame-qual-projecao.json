@@ -432,6 +432,1597 @@
       ],
       "review_status": "pendente_revisao_editorial",
       "reviewer_notes": "Questão preliminar de reconhecimento de protocolo; validar relevância clínica, distractores e fonte antes de aprovação."
+    },
+    {
+      "id": "QP-RX-PRO-011",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção laterolateral do abdômen para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência laterolateral da região abdômen?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LL — laterolateral.",
+          "rationale": "Corresponde à legenda da página 2."
+        },
+        {
+          "id": "B",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "ML — mediolateral.",
+          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 2, legenda de projeção laterolateral do abdômen",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-012",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção ventrodorsal abdominal para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência ventrodorsal da região abdômen?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "ML — mediolateral.",
+          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Corresponde à legenda da página 4."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 4, legenda de projeção ventrodorsal abdominal",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-013",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção laterolateral torácica para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência laterolateral da região tórax?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "ML — mediolateral.",
+          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "LL — laterolateral.",
+          "rationale": "Corresponde à legenda da página 5."
+        },
+        {
+          "id": "D",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 5, legenda de projeção laterolateral torácica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-014",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção ventrodorsal torácica para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência ventrodorsal da região tórax?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "ML — mediolateral.",
+          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Corresponde à legenda da página 6."
+        },
+        {
+          "id": "C",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 6, legenda de projeção ventrodorsal torácica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-015",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção dorsoventral torácica para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência dorsoventral da região tórax?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DV — dorsoventral.",
+          "rationale": "Corresponde à legenda da página 7."
+        },
+        {
+          "id": "B",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "ML — mediolateral.",
+          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 7, legenda de projeção dorsoventral torácica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-016",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção mediolateral do ombro e braço para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência mediolateral da região ombro?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "ML — mediolateral.",
+          "rationale": "Corresponde à legenda da página 8."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 8, legenda de projeção mediolateral do ombro e braço",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-017",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção caudocranial do ombro e braço para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência caudocranial da região ombro?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "CdCr — caudocranial.",
+          "rationale": "Corresponde à legenda da página 9."
+        },
+        {
+          "id": "D",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 9, legenda de projeção caudocranial do ombro e braço",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-018",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção mediolateral do cotovelo para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência mediolateral da região cotovelo?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "ML — mediolateral.",
+          "rationale": "Corresponde à legenda da página 10."
+        },
+        {
+          "id": "C",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 10, legenda de projeção mediolateral do cotovelo",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-019",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção craniocaudal do cotovelo e antebraço para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência craniocaudal da região antebraço?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "CrCd — craniocaudal.",
+          "rationale": "Corresponde à legenda da página 11."
+        },
+        {
+          "id": "B",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 11, legenda de projeção craniocaudal do cotovelo e antebraço",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-020",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção mediolateral do carpo para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência mediolateral da região carpo?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "ML — mediolateral.",
+          "rationale": "Corresponde à legenda da página 12."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 12, legenda de projeção mediolateral do carpo",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-021",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção oblíqua mediopalmar-dorsolateral do carpo para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência oblíqua mediopalmar-dorsolateral da região carpo?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "MPa-DL — oblíqua mediopalmar-dorsolateral.",
+          "rationale": "Corresponde à legenda da página 13."
+        },
+        {
+          "id": "D",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 13, legenda de projeção oblíqua mediopalmar-dorsolateral do carpo",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-022",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção dorsopalmar do carpo para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência dorsopalmar da região carpo?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "DPa — dorsopalmar.",
+          "rationale": "Corresponde à legenda da página 14."
+        },
+        {
+          "id": "C",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 14, legenda de projeção dorsopalmar do carpo",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-023",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção laterolateral da pelve para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência laterolateral da região pelve?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LL — laterolateral.",
+          "rationale": "Corresponde à legenda da página 16."
+        },
+        {
+          "id": "B",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "ML — mediolateral.",
+          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 16, legenda de projeção laterolateral da pelve",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-024",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção ventrodorsal da pelve para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência ventrodorsal da região pelve?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "ML — mediolateral.",
+          "rationale": "Identifica a incidência mediolateral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Corresponde à legenda da página 17."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 17, legenda de projeção ventrodorsal da pelve",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-025",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção mediolateral da coxa e joelho para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência mediolateral da região joelho?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "ML — mediolateral.",
+          "rationale": "Corresponde à legenda da página 18."
+        },
+        {
+          "id": "D",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 18, legenda de projeção mediolateral da coxa e joelho",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-026",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção craniocaudal do joelho para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência craniocaudal da região joelho?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "CrCd — craniocaudal.",
+          "rationale": "Corresponde à legenda da página 19."
+        },
+        {
+          "id": "C",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 19, legenda de projeção craniocaudal do joelho",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-027",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção tangencial do joelho para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência tangencial (skyline) da região joelho?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "TAN — tangencial (skyline).",
+          "rationale": "Corresponde à legenda da página 20."
+        },
+        {
+          "id": "B",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 20, legenda de projeção tangencial do joelho",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-028",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção mediolateral do tarso para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência mediolateral da região tarso?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "ML — mediolateral.",
+          "rationale": "Corresponde à legenda da página 21."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 21, legenda de projeção mediolateral do tarso",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-029",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção dorsoplantar do tarso para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência dorsoplantar da região tarso?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "C",
+          "text": "DPl — dorsoplantar.",
+          "rationale": "Corresponde à legenda da página 22."
+        },
+        {
+          "id": "D",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 22, legenda de projeção dorsoplantar do tarso",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-PRO-030",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "O serviço solicita uma projeção oblíqua dorsolateral-medioplantar do tarso para estudo radiográfico.",
+      "imaging_modality": "RX",
+      "question": "Qual abreviação identifica a incidência oblíqua dorsolateral-medioplantar da região tarso?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "DV — dorsoventral.",
+          "rationale": "Identifica a incidência dorsoventral, diferente da solicitada."
+        },
+        {
+          "id": "B",
+          "text": "DL-MPl — oblíqua dorsolateral-medioplantar.",
+          "rationale": "Corresponde à legenda da página 23."
+        },
+        {
+          "id": "C",
+          "text": "LL — laterolateral.",
+          "rationale": "Identifica a incidência laterolateral, diferente da solicitada."
+        },
+        {
+          "id": "D",
+          "text": "VD — ventrodorsal.",
+          "rationale": "Identifica a incidência ventrodorsal, diferente da solicitada."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 23, legenda de projeção oblíqua dorsolateral-medioplantar do tarso",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Questão preliminar de nomenclatura; revisar relevância, alternativas e bibliografia antes de publicar."
+    },
+    {
+      "id": "QP-RX-FEI-031",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção laterolateral do abdômen, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção laterolateral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Incide pela face um lado e emerge pela face lado oposto.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 2, exemplo de projeção laterolateral do abdômen",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-032",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção ventrodorsal abdominal, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção ventrodorsal?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "Incide pela face ventre e emerge pela face dorso.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 4, exemplo de projeção ventrodorsal abdominal",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-033",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção laterolateral torácica, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção laterolateral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "Incide pela face um lado e emerge pela face lado oposto.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "D",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 5, exemplo de projeção laterolateral torácica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-034",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção ventrodorsal torácica, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção ventrodorsal?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "Incide pela face ventre e emerge pela face dorso.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "C",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 6, exemplo de projeção ventrodorsal torácica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-035",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção dorsoventral torácica, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção dorsoventral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Incide pela face dorso e emerge pela face ventre.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 7, exemplo de projeção dorsoventral torácica",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-036",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção mediolateral do ombro e braço, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção mediolateral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "Incide pela face medial e emerge pela face lateral.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 8."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 8, nomenclatura; página 8, exemplo de projeção mediolateral do ombro e braço",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-037",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção caudocranial do ombro e braço, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção caudocranial?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "Incide pela face caudal e emerge pela face cranial.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "D",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 9, exemplo de projeção caudocranial do ombro e braço",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-038",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção mediolateral do cotovelo, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção mediolateral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "Incide pela face medial e emerge pela face lateral.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 8."
+        },
+        {
+          "id": "C",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 8, nomenclatura; página 10, exemplo de projeção mediolateral do cotovelo",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-039",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção craniocaudal do cotovelo e antebraço, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção craniocaudal?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Incide pela face cranial e emerge pela face caudal.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 11, exemplo de projeção craniocaudal do cotovelo e antebraço",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-040",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção mediolateral do carpo, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção mediolateral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "Incide pela face medial e emerge pela face lateral.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 8."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 8, nomenclatura; página 12, exemplo de projeção mediolateral do carpo",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-042",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção dorsopalmar do carpo, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção dorsopalmar?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "Incide pela face dorsal e emerge pela face palmar.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "C",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 14, exemplo de projeção dorsopalmar do carpo",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-043",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção laterolateral da pelve, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção laterolateral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "Incide pela face um lado e emerge pela face lado oposto.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "A",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 16, exemplo de projeção laterolateral da pelve",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-044",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção ventrodorsal da pelve, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção ventrodorsal?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "Incide pela face ventre e emerge pela face dorso.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 17, exemplo de projeção ventrodorsal da pelve",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-045",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção mediolateral da coxa e joelho, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção mediolateral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "Incide pela face medial e emerge pela face lateral.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 8."
+        },
+        {
+          "id": "D",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 8, nomenclatura; página 18, exemplo de projeção mediolateral da coxa e joelho",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-046",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção craniocaudal do joelho, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção craniocaudal?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "Incide pela face cranial e emerge pela face caudal.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "C",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "B",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 19, exemplo de projeção craniocaudal do joelho",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-048",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção mediolateral do tarso, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção mediolateral?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "D",
+          "text": "Incide pela face medial e emerge pela face lateral.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 8."
+        }
+      ],
+      "correct_id": "D",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 8, nomenclatura; página 21, exemplo de projeção mediolateral do tarso",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
+    },
+    {
+      "id": "QP-RX-FEI-049",
+      "species": "canino",
+      "difficulty": "basico",
+      "clinical_context": "Durante o planejamento de projeção dorsoplantar do tarso, é necessário compreender a nomenclatura da direção do feixe.",
+      "imaging_modality": "RX",
+      "question": "Qual afirmação descreve corretamente a direção do feixe em uma projeção dorsoplantar?",
+      "alternatives": [
+        {
+          "id": "A",
+          "text": "O nome da incidência é definido pela região examinada, não pelo trajeto da radiação.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "B",
+          "text": "A incidência pode ser nomeada sem considerar a entrada do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        },
+        {
+          "id": "C",
+          "text": "Incide pela face dorsal e emerge pela face plantar.",
+          "rationale": "A nomenclatura se baseia na face de entrada e de saída do feixe; consultar página 1."
+        },
+        {
+          "id": "D",
+          "text": "O nome da incidência depende apenas do decúbito, independentemente do feixe.",
+          "rationale": "A nomenclatura não é determinada dessa maneira."
+        }
+      ],
+      "correct_id": "C",
+      "references": [
+        {
+          "title": "Posicionamento Radiográfico e Anatomia Radiográfica em Pequenos Animais",
+          "authors": null,
+          "year": null,
+          "locator": "Página 1, nomenclatura; página 22, exemplo de projeção dorsoplantar do tarso",
+          "verified": true,
+          "source_path": "/Google Drive/04_Biblioteca Veterinária/01 - Radiologia Veterinária/02 - Posicionamento e Anatomia/POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf"
+        }
+      ],
+      "review_status": "pendente_revisao_editorial",
+      "reviewer_notes": "Item de nomenclatura; conferir redação anatômica e redundância com outros itens."
     }
   ]
 }
