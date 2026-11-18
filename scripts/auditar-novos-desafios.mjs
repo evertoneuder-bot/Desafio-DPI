@@ -22,18 +22,21 @@ for(const file of files){
   if(!alternativesDistinct)duplicateAlternatives++;
   if(!valid||!alternativesDistinct)invalid++;
   if(a.some(x=>!nonempty(x?.rationale)))missingRationales++;
-  if(globalIds.has(c.id))duplicateAcrossBanks++;
+  const repeatedId=globalIds.has(c.id);
+  if(repeatedId)duplicateAcrossBanks++;
   globalIds.add(c.id);
   const normalized=normalizeQuestion(c.question);
-  if(normalized&&globalQuestions.has(normalized))duplicateQuestions++;
+  const repeatedQuestion=Boolean(normalized&&globalQuestions.has(normalized));
+  if(repeatedQuestion)duplicateQuestions++;
   else if(normalized)globalQuestions.set(normalized,c.id);
   ids.add(c.id);
   const visual=file==='desafio-do-olhar';
+  const uniqueAcrossBanks=!repeatedId&&!repeatedQuestion;
   const imageOK=!visual||(Array.isArray(c.images)&&c.images.length===1&&c.images.every(imageValid));
   if(c.review_status==='validado')declaredValidated++;
   if(Array.isArray(c.images)&&c.images.length)withImages++;
-  if(valid&&alternativesDistinct&&reviewed(c)&&sources(c)&&imageOK&&a.every(x=>nonempty(x.rationale)))eligible++;
-  if(c.review_status==='validado'&&!(valid&&alternativesDistinct&&reviewed(c)&&sources(c)&&imageOK&&a.every(x=>nonempty(x.rationale))))unverifiedValidated++;
+  if(valid&&alternativesDistinct&&uniqueAcrossBanks&&reviewed(c)&&sources(c)&&imageOK&&a.every(x=>nonempty(x.rationale)))eligible++;
+  if(c.review_status==='validado'&&!(valid&&alternativesDistinct&&uniqueAcrossBanks&&reviewed(c)&&sources(c)&&imageOK&&a.every(x=>nonempty(x.rationale))))unverifiedValidated++;
   if(a.length===4){
    const lengths=a.map(x=>String(x.text||'').trim().length);
    const max=Math.max(...lengths);
