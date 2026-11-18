@@ -24,7 +24,7 @@ const imageValid=i=>nonempty(i?.path)&&/^\.\.\/assets\/[a-zA-Z0-9_./-]+\.(?:png|
 for(const file of files){
  const data=JSON.parse(readFileSync(new URL('../dados/novos-desafios/'+file+'.json',import.meta.url),'utf8'));
  const cases=data.cases||[],ids=new Set();
- let longest=0,tiedLongest=0,duplicateAlternatives=0,invalid=0,declaredValidated=0,eligible=0,withImages=0,unverifiedValidated=0,missingRationales=0,duplicateAcrossBanks=0,duplicateQuestions=0;
+ let longest=0,tiedLongest=0,duplicateAlternatives=0,invalid=0,declaredValidated=0,eligible=0,withImages=0,unverifiedValidated=0,missingRationales=0,duplicateAcrossBanks=0,duplicateQuestions=0,invalidImages=0;
  for(const c of cases){
   const a=c.alternatives||[];
   const valid=nonempty(c.id)&&!ids.has(normalizeId(c.id))&&nonempty(c.question)&&a.length===4&&a.every(x=>['A','B','C','D'].includes(x?.id)&&nonempty(x?.text))&&new Set(a.map(x=>x.id)).size===4&&a.some(x=>x.id===c.correct_id)&&Array.isArray(c.references)&&c.references.length>0;
@@ -42,6 +42,7 @@ for(const file of files){
   const visual=file==='desafio-do-olhar';
   const uniqueAcrossBanks=!repeatedId&&!repeatedQuestion;
   const imageOK=!visual||(Array.isArray(c.images)&&c.images.length===1&&c.images.every(imageValid));
+  if(!imageOK)invalidImages++;
   if(c.review_status==='validado')declaredValidated++;
   if(Array.isArray(c.images)&&c.images.length)withImages++;
   if(valid&&alternativesDistinct&&uniqueAcrossBanks&&reviewed(c)&&sources(c)&&imageOK&&a.every(x=>nonempty(x.rationale)))eligible++;
@@ -54,7 +55,7 @@ for(const file of files){
    if(correctLength===max){if(winners===1)longest++;else tiedLongest++;}
   }
  }
- console.log(JSON.stringify({file,total:cases.length,invalid,duplicateAlternatives,missingRationales,duplicateAcrossBanks,duplicateQuestions,declaredValidated,eligible,unverifiedValidated,withImages,correctIsUniquelyLongest:longest,correctTiedForLongest:tiedLongest,percentUniquelyLongest:cases.length?Math.round(longest*100/cases.length):0}));
- if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||unverifiedValidated)failures++;
+ console.log(JSON.stringify({file,total:cases.length,invalid,duplicateAlternatives,missingRationales,duplicateAcrossBanks,duplicateQuestions,invalidImages,declaredValidated,eligible,unverifiedValidated,withImages,correctIsUniquelyLongest:longest,correctTiedForLongest:tiedLongest,percentUniquelyLongest:cases.length?Math.round(longest*100/cases.length):0}));
+ if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||invalidImages||unverifiedValidated)failures++;
 }
 if(failures)process.exitCode=1;
