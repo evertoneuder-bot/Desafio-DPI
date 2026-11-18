@@ -1,5 +1,5 @@
 // Auditoria estrutural e de elegibilidade; não substitui conferência científica dos PDFs.
-import {readFileSync} from 'node:fs';
+import {readFileSync, existsSync} from 'node:fs';
 const files=['dpi-integrado','qual-exame-qual-projecao','telerradiologia-clinica','desafio-do-olhar'];
 let failures=0;
 const globalIdCounts=new Map();
@@ -20,7 +20,7 @@ for(const file of files){
   if(key)globalQuestionCounts.set(key,(globalQuestionCounts.get(key)||0)+1);
  }
 }
-const imageValid=i=>nonempty(i?.path)&&/^\.\.\/assets\/[a-zA-Z0-9_./-]+\.(?:png|jpe?g|webp)$/i.test(i.path)&&!i.path.slice('../assets/'.length).split('/').includes('..')&&nonempty(i.source)&&nonempty(i.license_or_permission)&&i.anonymized===true&&nonempty(i.reference_diagnosis);
+const imageValid=i=>nonempty(i?.path)&&/^\.\.\/assets\/[a-zA-Z0-9_./-]+\.(?:png|jpe?g|webp)$/i.test(i.path)&&!i.path.slice('../assets/'.length).split('/').includes('..')&&nonempty(i.source)&&nonempty(i.license_or_permission)&&i.anonymized===true&&nonempty(i.reference_diagnosis)&&existsSync(new URL('../expansao-dpi/'+i.path,import.meta.url));
 for(const file of files){
  const data=JSON.parse(readFileSync(new URL('../dados/novos-desafios/'+file+'.json',import.meta.url),'utf8'));
  const cases=data.cases||[],ids=new Set();
