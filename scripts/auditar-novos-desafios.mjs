@@ -20,7 +20,7 @@ for(const file of files){
   globalIds.add(c.id);
   ids.add(c.id);
   const visual=file==='desafio-do-olhar';
-  const imageOK=!visual||(Array.isArray(c.images)&&c.images.length>=1&&c.images.every(imageValid));
+  const imageOK=!visual||(Array.isArray(c.images)&&c.images.length===1&&c.images.every(imageValid));
   if(c.review_status==='validado')declaredValidated++;
   if(Array.isArray(c.images)&&c.images.length)withImages++;
   if(valid&&reviewed(c)&&sources(c)&&imageOK&&a.every(x=>nonempty(x.rationale)))eligible++;
