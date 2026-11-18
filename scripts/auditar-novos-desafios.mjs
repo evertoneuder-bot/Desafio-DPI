@@ -6,6 +6,7 @@ const globalIdCounts=new Map();
 const globalQuestionCounts=new Map();
 const normalizeQuestion=x=>String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 const nonempty=x=>typeof x==='string'&&x.trim().length>0;
+const normalizeId=x=>String(x||'').trim().toLowerCase();
 const normalizedAlternative=x=>normalizeQuestion(x?.text);
 const reviewed=c=>c.review_status==='validado'&&c.scientific_review_1?.status==='aprovado'&&c.scientific_review_2?.status==='aprovado'&&c.editorial_review?.status==='aprovado';
 const sources=c=>Array.isArray(c.references)&&c.references.length>0&&c.references.every(r=>r?.verified===true&&nonempty(r.title)&&nonempty(r.locator));
@@ -14,7 +15,7 @@ const sources=c=>Array.isArray(c.references)&&c.references.length>0&&c.reference
 for(const file of files){
  const data=JSON.parse(readFileSync(new URL('../dados/novos-desafios/'+file+'.json',import.meta.url),'utf8'));
  for(const c of data.cases||[]){
-  if(nonempty(c.id))globalIdCounts.set(c.id,(globalIdCounts.get(c.id)||0)+1);
+  if(nonempty(c.id)){const id=normalizeId(c.id);globalIdCounts.set(id,(globalIdCounts.get(id)||0)+1);}
   const key=normalizeQuestion(c.question);
   if(key)globalQuestionCounts.set(key,(globalQuestionCounts.get(key)||0)+1);
  }
@@ -26,18 +27,18 @@ for(const file of files){
  let longest=0,tiedLongest=0,duplicateAlternatives=0,invalid=0,declaredValidated=0,eligible=0,withImages=0,unverifiedValidated=0,missingRationales=0,duplicateAcrossBanks=0,duplicateQuestions=0;
  for(const c of cases){
   const a=c.alternatives||[];
-  const valid=nonempty(c.id)&&!ids.has(c.id)&&nonempty(c.question)&&a.length===4&&a.every(x=>['A','B','C','D'].includes(x?.id)&&nonempty(x?.text))&&new Set(a.map(x=>x.id)).size===4&&a.some(x=>x.id===c.correct_id)&&Array.isArray(c.references)&&c.references.length>0;
+  const valid=nonempty(c.id)&&!ids.has(normalizeId(c.id))&&nonempty(c.question)&&a.length===4&&a.every(x=>['A','B','C','D'].includes(x?.id)&&nonempty(x?.text))&&new Set(a.map(x=>x.id)).size===4&&a.some(x=>x.id===c.correct_id)&&Array.isArray(c.references)&&c.references.length>0;
   const alternativeTexts=a.map(normalizedAlternative);
   const alternativesDistinct=a.length===4&&alternativeTexts.every(Boolean)&&new Set(alternativeTexts).size===4;
   if(!alternativesDistinct)duplicateAlternatives++;
   if(!valid||!alternativesDistinct)invalid++;
   if(a.some(x=>!nonempty(x?.rationale)))missingRationales++;
-  const repeatedId=nonempty(c.id)&&(globalIdCounts.get(c.id)||0)>1;
+  const repeatedId=nonempty(c.id)&&(globalIdCounts.get(normalizeId(c.id))||0)>1;
   if(repeatedId)duplicateAcrossBanks++;
   const normalized=normalizeQuestion(c.question);
   const repeatedQuestion=Boolean(normalized&&(globalQuestionCounts.get(normalized)||0)>1);
   if(repeatedQuestion)duplicateQuestions++;
-  ids.add(c.id);
+  ids.add(normalizeId(c.id));
   const visual=file==='desafio-do-olhar';
   const uniqueAcrossBanks=!repeatedId&&!repeatedQuestion;
   const imageOK=!visual||(Array.isArray(c.images)&&c.images.length===1&&c.images.every(imageValid));
