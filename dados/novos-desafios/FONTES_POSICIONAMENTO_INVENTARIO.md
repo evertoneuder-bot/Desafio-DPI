@@ -46,3 +46,9 @@ Busca de metadados diretamente no Google Drive, sem leitura das páginas e sem c
 | POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf | `15CBAzZyxKUkEdt8SKt88qiR8xYNf3Trx` | 43.445.821 bytes | Arquivo confirmado; conteúdo/páginas não auditados |
 
 Esses identificadores evitam confundir arquivos homônimos em pastas diferentes. **Nenhum item passa para aprovado com base nesta reconferência**; continuam necessários hash dos bytes, identificação de edição, páginas examinadas e duas passagens independentes documentadas.
+
+## Leitura textual direta da fonte principal (19/11/2026)
+
+O conector Google Drive retornou texto extraído do PDF de ID `1goNl34PwFLNoMjvQJiIei8TSAJP3eyRT`, confirmando que seu conteúdo descreve a convenção de entrada/saída do feixe (DV, VD, laterais, CrCa/CaCr, DP/PD) e apresenta legendas de projeções para tórax, abdômen, ombro, cotovelo, carpo, pelve, joelho, tarso, crânio e coluna. Entre as legendas efetivamente presentes estão carpo oblíquo mediopalmar–dorsolateral, joelho tangencial (*skyline*) e tarso dorsolateral–medioplantar.
+
+**Limite da evidência:** a extração textual recebida não contém separadores confiáveis de página, hash SHA-256 dos bytes nem confirmação de autoria/edição; tampouco demonstra indicações clínicas para escolher modalidade. Portanto, não atribuir páginas a esses trechos, não marcar questões como cientificamente aprovadas e não considerar figuras autorizadas para reprodução. Esta leitura complementa, mas não substitui, a inspeção visual das páginas e a dupla auditoria por item.
