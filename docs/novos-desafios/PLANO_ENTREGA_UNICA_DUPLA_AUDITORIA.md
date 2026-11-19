@@ -3,7 +3,7 @@
 Status: trabalho em curso. **Não representa conteúdo finalizado ou validado.**
 
 ## Abrangência do banco
-Casos encadeados de decisão sobre indicação de imagem, escolha de modalidade, posicionamento e projeções, com contexto clínico, espécie, restrições de segurança e justificativa. Incluir pequenos animais, equinos, ruminantes, suínos, aves, silvestres e exóticos, quando houver fonte verificável. Priorizar cobertura científica sobre quantidade. Os cinco itens atuais são preliminares e não compõem lote aprovado.
+Casos encadeados de decisão sobre indicação de imagem, escolha de modalidade, posicionamento e projeções, com contexto clínico, espécie, restrições de segurança e justificativa. Incluir pequenos animais, equinos, ruminantes, suínos, aves, silvestres e exóticos, quando houver fonte verificável. Priorizar cobertura científica sobre quantidade. O banco JSON contém atualmente 50 registros preliminares, conforme inventário anterior; nenhum registro deve ser contabilizado como homologado sem as duas conferências documentadas. A meta mínima de trabalho é 50 questões cientificamente sustentadas e editorialmente aprovadas, escolhida para oferecer cobertura inicial de espécies, modalidades e decisões de posicionamento; a meta não equivale a jogo implementado ou entregue.
 
 ## Produção
 Cada caso recebe ID estável, dados clínicos suficientes, perguntas e alternativas sem pistas por comprimento, resposta correta, explicação individual das alternativas, referência à obra e página/seção consultada, e status de revisão. Incluir opções de não realizar imagem imediatamente quando indicado. Não incorporar material protegido nem imagens clínicas sem permissão.
