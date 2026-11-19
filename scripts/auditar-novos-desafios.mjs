@@ -13,7 +13,7 @@ const sources=c=>Array.isArray(c.references)&&c.references.length>0&&c.reference
 // Evidência rastreável por item: metadados "verified" e flags de revisão não bastam.
 // O relatório externo ainda precisa ser conferido manualmente contra os PDFs.
 const validReviewDate=value=>{
- if(typeof value!=='string'||!/^\\d{4}-\\d{2}-\\d{2}$/.test(value))return false;
+ if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
  const [year,month,day]=value.split('-').map(Number);
  const date=new Date(Date.UTC(year,month-1,day));
  return date.getUTCFullYear()===year&&date.getUTCMonth()===month-1&&date.getUTCDate()===day;
