@@ -16,9 +16,12 @@ const evidence=c=>{
  const e=c.scientific_evidence;
  return Boolean(e&&nonempty(e.drive_file_id)&&/^[a-f0-9]{64}$/i.test(String(e.sha256||''))&&
  Number.isInteger(e.pdf_page)&&e.pdf_page>0&&nonempty(e.support_summary)&&
- nonempty(e.first_pass?.date)&&e.first_pass?.status==='aprovado'&&
- nonempty(e.second_pass?.date)&&e.second_pass?.status==='aprovado'&&
- nonempty(e.audit_report_path));
+ /^\\d{4}-\\d{2}-\\d{2}$/.test(String(e.first_pass?.date||''))&&e.first_pass?.status==='aprovado'&&
+ /^\\d{4}-\\d{2}-\\d{2}$/.test(String(e.second_pass?.date||''))&&e.second_pass?.status==='aprovado'&&
+ e.second_pass.date>=e.first_pass.date&&
+ nonempty(e.audit_report_path)&&/^docs\\/novos-desafios\\/[a-zA-Z0-9_./-]+\\.md$/.test(e.audit_report_path)&&
+ !e.audit_report_path.split('/').includes('..')&&
+ existsSync(new URL('../'+e.audit_report_path,import.meta.url)));
 };
 // Precompute global occurrences so duplicates invalidate every occurrence,
 // regardless of which bank happens to be processed first.
