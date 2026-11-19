@@ -34,3 +34,15 @@ Há registros preliminares em `dados/novos-desafios/`; a existência de JSON e d
 ## Política
 
 Registrar identificador de arquivo, versão, hash quando bytes disponíveis, autoria, edição, página consultada, conclusão científica e direitos de uso. Não copiar PDFs completos para o repositório nem publicar imagens sem autorização. Preservar branch original e layout final aprovado.
+
+## Reconferência de arquivos por ID (19/11/2026)
+
+Busca de metadados diretamente no Google Drive, sem leitura das páginas e sem cálculo de hash do conteúdo:
+
+| Fonte | ID Google Drive | Tamanho informado | Situação |
+|---|---|---:|---|
+| POSICIONAMENTO RADIOGRÁFICO E ANATOMIA RADIOGRÁFICA EM PEQUENOS ANIMAIS.pdf | `1goNl34PwFLNoMjvQJiIei8TSAJP3eyRT` | 1.475.571 bytes | Arquivo confirmado; conteúdo/páginas não auditados |
+| Posicionamentos radiográficos.pdf | `1xuU6vCLNfdJ6Ww3MU2Cf57tMPgzaBQeP` | 257.633 bytes | Arquivo confirmado; conteúdo/páginas não auditados |
+| POPMANUALDERADIOLOGIAVETERINARIARAIOXVET.pdf | `15CBAzZyxKUkEdt8SKt88qiR8xYNf3Trx` | 43.445.821 bytes | Arquivo confirmado; conteúdo/páginas não auditados |
+
+Esses identificadores evitam confundir arquivos homônimos em pastas diferentes. **Nenhum item passa para aprovado com base nesta reconferência**; continuam necessários hash dos bytes, identificação de edição, páginas examinadas e duas passagens independentes documentadas.
