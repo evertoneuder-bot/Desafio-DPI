@@ -78,7 +78,7 @@ for(const file of files){
   }
  }
  console.log(JSON.stringify({file,total:cases.length,invalid,duplicateAlternatives,missingRationales,duplicateAcrossBanks,duplicateQuestions,invalidImages,missingEvidence,declaredValidated,eligible,unverifiedValidated,withImages,correctIsUniquelyLongest:longest,correctTiedForLongest:tiedLongest,percentUniquelyLongest:cases.length?Math.round(longest*100/cases.length):0}));
- if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||invalidImages||unverifiedValidated||(requireEligible&&eligible!==cases.length))failures++;
+ if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||invalidImages||unverifiedValidated||(requireEligible&&(cases.length===0||eligible!==cases.length)))failures++;
 }
 if(requireEligible)console.log(JSON.stringify({mode:'homologacao',result:failures?'reprovado':'aprovado',note:'Elegibilidade estrutural não substitui conferência humana das páginas dos PDFs.'}));
 if(failures)process.exitCode=1;
