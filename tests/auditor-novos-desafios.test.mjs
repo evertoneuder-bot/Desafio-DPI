@@ -9,7 +9,7 @@ const auditor=fileURLToPath(new URL('../scripts/auditar-novos-desafios.mjs',impo
 function run(args=[]){
  const result=spawnSync(process.execPath,[auditor,...args],{cwd:root,encoding:'utf8'});
  assert.equal(result.error,undefined,result.error?.message);
- const rows=result.stdout.trim().split(/\\r?\\n/).filter(Boolean).map(line=>JSON.parse(line));
+ const rows=result.stdout.trim().split(/\r?\n/).filter(Boolean).map(line=>JSON.parse(line));
  return {result,rows};
 }
 test('modo normal informa elegibilidade sem afirmar homologação',()=>{
