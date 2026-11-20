@@ -2,6 +2,8 @@
 import {readFileSync, existsSync} from 'node:fs';
 const files=['dpi-integrado','qual-exame-qual-projecao','telerradiologia-clinica','desafio-do-olhar'];
 let failures=0;
+// Modo de homologação: rascunhos podem ser estruturalmente válidos, mas não aprovados.
+const requireEligible=process.argv.includes('--require-eligible');
 const globalIdCounts=new Map();
 const globalQuestionCounts=new Map();
 const normalizeQuestion=x=>String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
@@ -76,6 +78,7 @@ for(const file of files){
   }
  }
  console.log(JSON.stringify({file,total:cases.length,invalid,duplicateAlternatives,missingRationales,duplicateAcrossBanks,duplicateQuestions,invalidImages,missingEvidence,declaredValidated,eligible,unverifiedValidated,withImages,correctIsUniquelyLongest:longest,correctTiedForLongest:tiedLongest,percentUniquelyLongest:cases.length?Math.round(longest*100/cases.length):0}));
- if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||invalidImages||unverifiedValidated)failures++;
+ if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||invalidImages||unverifiedValidated||(requireEligible&&eligible!==cases.length))failures++;
 }
+if(requireEligible)console.log(JSON.stringify({mode:'homologacao',result:failures?'reprovado':'aprovado',note:'Elegibilidade estrutural não substitui conferência humana das páginas dos PDFs.'}));
 if(failures)process.exitCode=1;
