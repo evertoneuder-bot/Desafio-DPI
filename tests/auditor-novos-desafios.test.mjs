@@ -25,7 +25,10 @@ test('modo normal informa elegibilidade sem afirmar homologação',()=>{
 test('modo rigoroso reprova enquanto existirem itens sem elegibilidade',()=>{
  const {result,rows}=run(['--require-eligible']);
  assert.equal(rows.length,5);
- const missing=rows.slice(0,4).some(row=>row.total===0||row.eligible!==row.total);
+ const missing=rows.slice(0,4).some(row=>
+  row.total===0||row.eligible!==row.total||row.invalid>0||
+  row.missingRationales>0||row.duplicateAcrossBanks>0||
+  row.duplicateQuestions>0||row.invalidImages>0||row.unverifiedValidated>0);
  assert.equal(rows[4].mode,'homologacao');
  if(missing){
   assert.notEqual(result.status,0);
