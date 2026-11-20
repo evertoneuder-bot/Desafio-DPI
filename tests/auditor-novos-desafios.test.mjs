@@ -13,14 +13,18 @@ function run(args=[]){
  return {result,rows};
 }
 test('modo normal informa elegibilidade sem afirmar homologação',()=>{
- const {rows}=run();
+ const {result,rows}=run();
  assert.equal(rows.length,4);
  for(const row of rows){
   assert.ok(Number.isInteger(row.total));
   assert.ok(Number.isInteger(row.eligible));
   assert.ok(row.eligible<=row.total);
   assert.ok(row.missingEvidence>=0);
+  assert.ok(row.eligible>=0);
+  assert.ok(row.unverifiedValidated<=row.declaredValidated);
  }
+ const structuralFailure=rows.some(row=>row.invalid>0||row.missingRationales>0||row.duplicateAcrossBanks>0||row.duplicateQuestions>0||row.invalidImages>0||row.unverifiedValidated>0);
+ assert.equal(result.status===0,!structuralFailure,'status do processo deve refletir falhas estruturais mesmo no modo normal');
 });
 test('modo rigoroso reprova enquanto existirem itens sem elegibilidade',()=>{
  const {result,rows}=run(['--require-eligible']);
