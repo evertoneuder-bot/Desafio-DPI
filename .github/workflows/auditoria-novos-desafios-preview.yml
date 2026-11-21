@@ -37,6 +37,20 @@ jobs:
           echo "Auditoria estrutural: exit $structural_exit" >> "$GITHUB_STEP_SUMMARY"
           echo "Homologacao: exit $homologation_exit (nao bloqueia CI enquanto houver rascunhos)" >> "$GITHUB_STEP_SUMMARY"
           exit 0
+      - name: Validar integridade dos relatórios JSONL
+        if: always()
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          for (const [path,expected] of [['auditoria-novos-desafios.jsonl',4],['homologacao-novos-desafios.jsonl',5]]) {
+            const lines=readFileSync(path,'utf8').trim().split(/\\r?\\n/).filter(Boolean);
+            if(lines.length!==expected) throw new Error(`Relatório incompleto: ${path} (${lines.length}/${expected})`);
+            const rows=lines.map(line=>JSON.parse(line));
+            if(rows.slice(0,4).some(row=>!row.file||!Number.isInteger(row.total))) throw new Error(`Linhas inválidas: ${path}`);
+            if(expected===5&&rows[4].mode!=='homologacao') throw new Error('Resultado de homologação ausente');
+          }
+          NODE
       - name: Preservar evidencia
         if: always()
         uses: actions/upload-artifact@v4
