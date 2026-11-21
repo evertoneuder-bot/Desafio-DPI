@@ -23,7 +23,7 @@ test('modo normal informa elegibilidade sem afirmar homologação',()=>{
   assert.ok(row.eligible>=0);
   assert.ok(row.unverifiedValidated<=row.declaredValidated);
  }
- const structuralFailure=rows.some(row=>row.invalid>0||row.missingRationales>0||row.duplicateAcrossBanks>0||row.duplicateQuestions>0||row.invalidImages>0||row.unverifiedValidated>0);
+ const structuralFailure=rows.some(row=>row.invalid>0||row.missingRationales>0||row.duplicateAcrossBanks>0||row.duplicateQuestions>0||row.invalidImages>0||row.unverifiedValidated>0||row.lengthBiasReviewRequired);
  assert.equal(result.status===0,!structuralFailure,'status do processo deve refletir falhas estruturais mesmo no modo normal');
 });
 test('modo rigoroso reprova enquanto existirem itens sem elegibilidade',()=>{
