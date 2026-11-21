@@ -1,0 +1,38 @@
+name: Auditoria novos desafios - preview isolado
+on:
+  push:
+    branches: [preview/recuperacao-isolada-20261117]
+    paths:
+      - 'scripts/auditar-novos-desafios.mjs'
+      - 'tests/auditor-novos-desafios.test.mjs'
+      - 'dados/novos-desafios/**'
+      - 'docs/novos-desafios/**'
+      - '.github/workflows/auditoria-novos-desafios-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regressao:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Testes de regressao
+        run: node --test tests/auditor-novos-desafios.test.mjs
+      - name: Auditoria estrutural
+        run: node scripts/auditar-novos-desafios.mjs
+      - name: Gerar relatorio JSONL
+        if: always()
+        run: node scripts/auditar-novos-desafios.mjs > auditoria-novos-desafios.jsonl
+      - name: Preservar evidencia
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-novos-desafios-jsonl
+          path: auditoria-novos-desafios.jsonl
+          if-no-files-found: warn
