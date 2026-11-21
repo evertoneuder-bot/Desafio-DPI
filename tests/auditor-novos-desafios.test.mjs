@@ -49,6 +49,7 @@ test('filas editoriais identificam exatamente os registros problemáticos',()=>{
   const q=row.editorialQueue;
   assert.ok(q&&typeof q==='object');
   for(const [field,count] of [
+   ['duplicateIdIds',row.duplicateAcrossBanks],
    ['duplicateQuestionIds',row.duplicateQuestions],
    ['missingRationaleIds',row.missingRationales],
    ['longestCorrectIds',row.correctIsUniquelyLongest],
