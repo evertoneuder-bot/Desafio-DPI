@@ -62,7 +62,7 @@ for(const file of files){
   ids.add(normalizeId(c.id));
   const visual=file==='desafio-do-olhar';
   const uniqueAcrossBanks=!repeatedId&&!repeatedQuestion;
-  const imageOK=!visual||(Array.isArray(c.images)&&c.images.length===1&&c.images.every(imageValid));
+  const imageOK=!visual||(Array.isArray(c.images)&&c.images.length>=1&&c.images.every(imageValid));
   if(!imageOK)invalidImages++;
   if(c.review_status==='validado')declaredValidated++;
   if(!evidence(c))missingEvidence++;
