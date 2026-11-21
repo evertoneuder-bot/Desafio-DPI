@@ -42,3 +42,25 @@ test('modo rigoroso reprova enquanto existirem itens sem elegibilidade',()=>{
   assert.equal(rows[4].result,'aprovado');
  }
 });
+
+test('filas editoriais identificam exatamente os registros problemáticos',()=>{
+ const {rows}=run();
+ for(const row of rows){
+  const q=row.editorialQueue;
+  assert.ok(q&&typeof q==='object');
+  for(const [field,count] of [
+   ['duplicateQuestionIds',row.duplicateQuestions],
+   ['missingRationaleIds',row.missingRationales],
+   ['longestCorrectIds',row.correctIsUniquelyLongest],
+   ['missingEvidenceIds',row.missingEvidence],
+   ['invalidImageIds',row.invalidImages]
+  ]){
+   assert.ok(Array.isArray(q[field]),field);
+   assert.equal(q[field].length,count,`${row.file}: ${field}`);
+   assert.ok(q[field].every(id=>typeof id==='string'&&id.trim()),field);
+   assert.equal(new Set(q[field]).size,q[field].length,`${row.file}: IDs repetidos em ${field}`);
+  }
+  const expected=row.total>=10&&row.percentUniquelyLongest>=50;
+  assert.equal(row.lengthBiasReviewRequired,expected,row.file);
+ }
+});
