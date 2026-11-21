@@ -46,7 +46,7 @@ for(const file of files){
  const data=JSON.parse(readFileSync(new URL('../dados/novos-desafios/'+file+'.json',import.meta.url),'utf8'));
  const cases=data.cases||[],ids=new Set();
  let longest=0,tiedLongest=0,duplicateAlternatives=0,invalid=0,declaredValidated=0,eligible=0,withImages=0,unverifiedValidated=0,missingRationales=0,duplicateAcrossBanks=0,duplicateQuestions=0,invalidImages=0,missingEvidence=0;
- const editorialQueue={duplicateQuestionIds:[],missingRationaleIds:[],longestCorrectIds:[],missingEvidenceIds:[],invalidImageIds:[]};
+ const editorialQueue={duplicateIdIds:[],duplicateQuestionIds:[],missingRationaleIds:[],longestCorrectIds:[],missingEvidenceIds:[],invalidImageIds:[]};
  for(const c of cases){
   const a=c.alternatives||[];
   const valid=nonempty(c.id)&&!ids.has(normalizeId(c.id))&&nonempty(c.question)&&a.length===4&&a.every(x=>['A','B','C','D'].includes(x?.id)&&nonempty(x?.text))&&new Set(a.map(x=>x.id)).size===4&&a.some(x=>x.id===c.correct_id)&&Array.isArray(c.references)&&c.references.length>0;
@@ -56,7 +56,7 @@ for(const file of files){
   if(!valid||!alternativesDistinct)invalid++;
   if(a.some(x=>!nonempty(x?.rationale))){missingRationales++;editorialQueue.missingRationaleIds.push(c.id);}
   const repeatedId=nonempty(c.id)&&(globalIdCounts.get(normalizeId(c.id))||0)>1;
-  if(repeatedId)duplicateAcrossBanks++;
+  if(repeatedId){duplicateAcrossBanks++;editorialQueue.duplicateIdIds.push(c.id);}
   const normalized=normalizeQuestion(c.question);
   const repeatedQuestion=Boolean(normalized&&(globalQuestionCounts.get(normalized)||0)>1);
   if(repeatedQuestion){duplicateQuestions++;editorialQueue.duplicateQuestionIds.push(c.id);}
