@@ -24,9 +24,6 @@ jobs:
           node-version: '24'
       - name: Testes de regressao
         run: node --test tests/auditor-novos-desafios.test.mjs
-      - name: Auditoria estrutural (pendencias conhecidas nao bloqueiam regressao)
-        continue-on-error: true
-        run: node scripts/auditar-novos-desafios.mjs
       - name: Gerar relatorio estrutural e resultado de homologacao
         if: always()
         shell: bash
