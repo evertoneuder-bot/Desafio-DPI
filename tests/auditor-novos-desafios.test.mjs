@@ -23,7 +23,7 @@ test('modo normal informa elegibilidade sem afirmar homologação',()=>{
   assert.ok(row.eligible>=0);
   assert.ok(row.unverifiedValidated<=row.declaredValidated);
  }
- const structuralFailure=rows.some(row=>row.invalid>0||row.missingRationales>0||row.duplicateAcrossBanks>0||row.duplicateQuestions>0||row.invalidImages>0||row.unverifiedValidated>0||row.lengthBiasReviewRequired);
+ const structuralFailure=rows.some(row=>row.invalid>0||row.missingRationales>0||row.duplicateAcrossBanks>0||row.duplicateQuestions>0||row.invalidImages>0||row.unverifiedValidated>0);
  assert.equal(result.status===0,!structuralFailure,'status do processo deve refletir falhas estruturais mesmo no modo normal');
 });
 test('modo rigoroso reprova enquanto existirem itens sem elegibilidade',()=>{
@@ -32,7 +32,7 @@ test('modo rigoroso reprova enquanto existirem itens sem elegibilidade',()=>{
  const missing=rows.slice(0,4).some(row=>
   row.total===0||row.eligible!==row.total||row.invalid>0||
   row.missingRationales>0||row.duplicateAcrossBanks>0||
-  row.duplicateQuestions>0||row.invalidImages>0||row.unverifiedValidated>0);
+  row.duplicateQuestions>0||row.invalidImages>0||row.unverifiedValidated>0||row.lengthBiasReviewRequired);
  assert.equal(rows[4].mode,'homologacao');
  if(missing){
   assert.notEqual(result.status,0);
