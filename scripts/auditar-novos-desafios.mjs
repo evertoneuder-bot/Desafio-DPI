@@ -83,7 +83,7 @@ for(const file of files){
  // Amostras pequenas (<10 itens) não são classificadas por porcentagem.
  const lengthBiasReviewRequired=cases.length>=10&&percentUniquelyLongest>=50;
  console.log(JSON.stringify({file,total:cases.length,invalid,duplicateAlternatives,missingRationales,duplicateAcrossBanks,duplicateQuestions,invalidImages,missingEvidence,declaredValidated,eligible,unverifiedValidated,withImages,correctIsUniquelyLongest:longest,correctTiedForLongest:tiedLongest,percentUniquelyLongest,lengthBiasReviewRequired,editorialQueue}));
- if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||invalidImages||unverifiedValidated||(requireEligible&&(cases.length===0||eligible!==cases.length)))failures++;
+ if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||invalidImages||unverifiedValidated||(requireEligible&&(cases.length===0||eligible!==cases.length||lengthBiasReviewRequired)))failures++;
 }
 if(requireEligible)console.log(JSON.stringify({mode:'homologacao',result:failures?'reprovado':'aprovado',note:'Elegibilidade estrutural não substitui conferência humana das páginas dos PDFs.'}));
 if(failures)process.exitCode=1;
