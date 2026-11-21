@@ -26,13 +26,26 @@ jobs:
         run: node --test tests/auditor-novos-desafios.test.mjs
       - name: Auditoria estrutural
         run: node scripts/auditar-novos-desafios.mjs
-      - name: Gerar relatorio JSONL
+      - name: Gerar relatorio estrutural e resultado de homologacao
         if: always()
-        run: node scripts/auditar-novos-desafios.mjs > auditoria-novos-desafios.jsonl
+        shell: bash
+        run: |
+          set +e
+          node scripts/auditar-novos-desafios.mjs > auditoria-novos-desafios.jsonl
+          structural_exit=$?
+          node scripts/auditar-novos-desafios.mjs --require-eligible > homologacao-novos-desafios.jsonl
+          homologation_exit=$?
+          printf 'structural_exit=%s\nhomologation_exit=%s\n' "$structural_exit" "$homologation_exit" > auditoria-status.txt
+          echo "Auditoria estrutural: exit $structural_exit" >> "$GITHUB_STEP_SUMMARY"
+          echo "Homologacao: exit $homologation_exit (nao bloqueia CI enquanto houver rascunhos)" >> "$GITHUB_STEP_SUMMARY"
+          exit 0
       - name: Preservar evidencia
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: auditoria-novos-desafios-jsonl
-          path: auditoria-novos-desafios.jsonl
+          path: |
+            auditoria-novos-desafios.jsonl
+            homologacao-novos-desafios.jsonl
+            auditoria-status.txt
           if-no-files-found: warn
