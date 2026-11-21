@@ -46,6 +46,7 @@ for(const file of files){
  const data=JSON.parse(readFileSync(new URL('../dados/novos-desafios/'+file+'.json',import.meta.url),'utf8'));
  const cases=data.cases||[],ids=new Set();
  let longest=0,tiedLongest=0,duplicateAlternatives=0,invalid=0,declaredValidated=0,eligible=0,withImages=0,unverifiedValidated=0,missingRationales=0,duplicateAcrossBanks=0,duplicateQuestions=0,invalidImages=0,missingEvidence=0;
+ const editorialQueue={duplicateQuestionIds:[],missingRationaleIds:[],longestCorrectIds:[],missingEvidenceIds:[],invalidImageIds:[]};
  for(const c of cases){
   const a=c.alternatives||[];
   const valid=nonempty(c.id)&&!ids.has(normalizeId(c.id))&&nonempty(c.question)&&a.length===4&&a.every(x=>['A','B','C','D'].includes(x?.id)&&nonempty(x?.text))&&new Set(a.map(x=>x.id)).size===4&&a.some(x=>x.id===c.correct_id)&&Array.isArray(c.references)&&c.references.length>0;
@@ -53,19 +54,19 @@ for(const file of files){
   const alternativesDistinct=a.length===4&&alternativeTexts.every(Boolean)&&new Set(alternativeTexts).size===4;
   if(!alternativesDistinct)duplicateAlternatives++;
   if(!valid||!alternativesDistinct)invalid++;
-  if(a.some(x=>!nonempty(x?.rationale)))missingRationales++;
+  if(a.some(x=>!nonempty(x?.rationale))){missingRationales++;editorialQueue.missingRationaleIds.push(c.id);}
   const repeatedId=nonempty(c.id)&&(globalIdCounts.get(normalizeId(c.id))||0)>1;
   if(repeatedId)duplicateAcrossBanks++;
   const normalized=normalizeQuestion(c.question);
   const repeatedQuestion=Boolean(normalized&&(globalQuestionCounts.get(normalized)||0)>1);
-  if(repeatedQuestion)duplicateQuestions++;
+  if(repeatedQuestion){duplicateQuestions++;editorialQueue.duplicateQuestionIds.push(c.id);}
   ids.add(normalizeId(c.id));
   const visual=file==='desafio-do-olhar';
   const uniqueAcrossBanks=!repeatedId&&!repeatedQuestion;
   const imageOK=!visual||(Array.isArray(c.images)&&c.images.length>=1&&c.images.every(imageValid));
-  if(!imageOK)invalidImages++;
+  if(!imageOK){invalidImages++;editorialQueue.invalidImageIds.push(c.id);}
   if(c.review_status==='validado')declaredValidated++;
-  if(!evidence(c))missingEvidence++;
+  if(!evidence(c)){missingEvidence++;editorialQueue.missingEvidenceIds.push(c.id);}
   if(Array.isArray(c.images)&&c.images.length)withImages++;
   if(valid&&alternativesDistinct&&uniqueAcrossBanks&&reviewed(c)&&sources(c)&&evidence(c)&&imageOK&&a.every(x=>nonempty(x.rationale)))eligible++;
   if(c.review_status==='validado'&&!(valid&&alternativesDistinct&&uniqueAcrossBanks&&reviewed(c)&&sources(c)&&evidence(c)&&imageOK&&a.every(x=>nonempty(x.rationale))))unverifiedValidated++;
@@ -74,14 +75,14 @@ for(const file of files){
    const max=Math.max(...lengths);
    const winners=lengths.filter(n=>n===max).length;
    const correctLength=String(a.find(x=>x.id===c.correct_id)?.text||'').trim().length;
-   if(correctLength===max){if(winners===1)longest++;else tiedLongest++;}
+   if(correctLength===max){if(winners===1){longest++;editorialQueue.longestCorrectIds.push(c.id);}else tiedLongest++;}
   }
  }
  const percentUniquelyLongest=cases.length?Math.round(longest*100/cases.length):0;
  // Sinalização editorial, não homologação: respostas longas podem denunciar o gabarito.
  // Amostras pequenas (<10 itens) não são classificadas por porcentagem.
  const lengthBiasReviewRequired=cases.length>=10&&percentUniquelyLongest>=50;
- console.log(JSON.stringify({file,total:cases.length,invalid,duplicateAlternatives,missingRationales,duplicateAcrossBanks,duplicateQuestions,invalidImages,missingEvidence,declaredValidated,eligible,unverifiedValidated,withImages,correctIsUniquelyLongest:longest,correctTiedForLongest:tiedLongest,percentUniquelyLongest,lengthBiasReviewRequired}));
+ console.log(JSON.stringify({file,total:cases.length,invalid,duplicateAlternatives,missingRationales,duplicateAcrossBanks,duplicateQuestions,invalidImages,missingEvidence,declaredValidated,eligible,unverifiedValidated,withImages,correctIsUniquelyLongest:longest,correctTiedForLongest:tiedLongest,percentUniquelyLongest,lengthBiasReviewRequired,editorialQueue}));
  if(invalid||missingRationales||duplicateAcrossBanks||duplicateQuestions||invalidImages||unverifiedValidated||(requireEligible&&(cases.length===0||eligible!==cases.length)))failures++;
 }
 if(requireEligible)console.log(JSON.stringify({mode:'homologacao',result:failures?'reprovado':'aprovado',note:'Elegibilidade estrutural não substitui conferência humana das páginas dos PDFs.'}));
