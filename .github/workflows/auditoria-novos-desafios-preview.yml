@@ -43,6 +43,9 @@ jobs:
         run: |
           node --input-type=module <<'NODE'
           import {readFileSync} from 'node:fs';
+          const statuses = Object.fromEntries(readFileSync('auditoria-status.txt','utf8').trim().split(/\r?\n/).map(line => line.split('=')));
+          if (statuses.structural_exit !== '0') throw new Error(`Auditoria estrutural falhou (exit ${statuses.structural_exit})`);
+          if (!/^\d+$/.test(statuses.homologation_exit ?? '')) throw new Error('Status da homologação inválido');
           for (const [path,expected] of [['auditoria-novos-desafios.jsonl',4],['homologacao-novos-desafios.jsonl',5]]) {
             const lines=readFileSync(path,'utf8').trim().split(/\r?\n/).filter(Boolean);
             if(lines.length!==expected) throw new Error(`Relatório incompleto: ${path} (${lines.length}/${expected})`);
