@@ -59,7 +59,9 @@ test('filas editoriais identificam exatamente os registros problemáticos',()=>{
    assert.ok(Array.isArray(q[field]),field);
    assert.equal(q[field].length,count,`${row.file}: ${field}`);
    assert.ok(q[field].every(id=>typeof id==='string'&&id.trim()),field);
-   assert.equal(new Set(q[field]).size,q[field].length,`${row.file}: IDs repetidos em ${field}`);
+   // A fila registra ocorrências, não IDs únicos: duas entradas com o mesmo ID
+   // devem permanecer visíveis para corrigir ambas sem mascarar duplicações.
+   // A cardinalidade por ocorrência já é verificada contra o contador acima.
   }
   const expected=row.total>=10&&row.percentUniquelyLongest>=50;
   assert.equal(row.lengthBiasReviewRequired,expected,row.file);
