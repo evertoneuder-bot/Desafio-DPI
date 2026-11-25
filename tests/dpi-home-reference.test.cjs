@@ -23,7 +23,7 @@ test('a capa recuperada mantém sua marca SVG, mascotes e fundo, sem antecipar j
   assert.match(html, /class="dpi-hero-mascot everton"/);
   assert.match(html, /class="dpi-hero-mascot fernanda"/);
   assert.match(css, /url\("\.\/clinic-background\.webp"\)/);
-  assert.match(css, /\.dpi-hero-mascot\.fernanda\{[^}]*transform:scale\(\.5\);transform-origin:bottom center/);
+  assert.match(css, /\.dpi-hero-mascot\.fernanda\{[^}]*transform:scale\(\.8\);transform-origin:bottom center/);
   assert.ok(fs.statSync(path.join(root,'assets/clinic-background.webp')).size > 100000);
   assert.doesNotMatch(html, /class="dpi-action (?:quiz|challenges|plantao|achievements)"/);
   assert.match(html, /data-launch="start"/);

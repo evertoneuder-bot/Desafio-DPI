@@ -402,7 +402,7 @@ test('feedback speech cannot inherit the previous question reader latency baseli
   const block = router.slice(from,to);
   assert.ok(from >= 0 && to > from);
   assert.match(block, /lastPublicReadAt = null;\s*latestQuestionAt = 0;[\s\S]*?speak\(explanation/);
-  assert.ok(block.indexOf('lastPublicReadAt = null;') < block.indexOf('speak(explanation)'));
+  assert.ok(block.indexOf('lastPublicReadAt = null;') < block.indexOf('speak(explanation,'));
 });
 
 test('late fallback suppression uses rendered question identity, not a clock window', () => {

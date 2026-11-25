@@ -19,7 +19,7 @@ let renderer=fs.readFileSync(require('node:path').resolve(__dirname,root+'assets
 const {SpriteRenderer}=await import('data:text/javascript;base64,'+Buffer.from(renderer).toString('base64'));
 const clip={src:'sprite',stageWidth:400,stageHeight:480,frames:[{x:0,y:0,w:400,h:480,anchorX:200,anchorY:465,duration:1}]};
 const draws=[];for(const persona of ['male','female']){let call;const canvas={dataset:{persona},width:800,height:960,getContext:()=>({drawImage:(...args)=>call=args})};const r=new SpriteRenderer(canvas,{IDLE_QUIZ:clip});r.images.set('sprite',{});r.drawClip('IDLE_QUIZ',0,1);draws.push(call);}
-assert.equal(draws[1][7],draws[0][7]/2);assert.equal(draws[1][8],draws[0][8]/2);
-assert.equal(draws[1][6]+465,draws[0][6]+930);
-console.log('OK: legendas não adiam fala; reflexão aguarda silêncio; Fernanda mede 50% com base dos pés preservada.');
+assert.equal(draws[1][7],draws[0][7]*.8);assert.equal(draws[1][8],draws[0][8]*.8);
+assert.equal(draws[1][6]+744,draws[0][6]+930);
+console.log('OK: legendas não adiam fala; reflexão aguarda silêncio; Fernanda mede 80% com base dos pés preservada.');
 })().catch(e=>{console.error(e);process.exitCode=1});
