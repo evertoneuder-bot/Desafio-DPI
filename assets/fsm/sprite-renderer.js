@@ -6,7 +6,7 @@ export class SpriteRenderer {
     this.context = canvas.getContext('2d');
     if (!this.context) throw new Error('Canvas 2D não disponível.');
     this.clips = clips;
-    this.characterScale = canvas.dataset.persona === 'female' ? .5 : 1;
+    this.characterScale = canvas.dataset.persona === 'female' ? .8 : 1;
     this.images = new Map();
   }
   async load() {

@@ -17,7 +17,7 @@ test('approved art is retained, with independent male and female layers', () => 
 });
 test('Fernanda is smaller than Tom in every animation state', () => {
   assert.match(css, /--elx-persona-scale:1;/);
-  assert.match(css, /data-persona="female"\]\{--elx-persona-scale:\.5;/);
+  assert.match(css, /data-persona="female"\]\{--elx-persona-scale:\.8;/);
   for (const state of ['elxMascotIdle','elxMascotSpeak','elxMascotListen','elxMascotGreet','elxMascotCheer','elxMascotComfort']) {
     const match = css.match(new RegExp('@keyframes '+ state +'\\{([^\\n]+)'));
     assert.ok(match, 'Missing motion state '+state);
@@ -25,13 +25,13 @@ test('Fernanda is smaller than Tom in every animation state', () => {
   }
   assert.match(css, /prefers-reduced-motion:reduce\)\{#elx-character-stage \.elx-mascot-motion-persona\{animation:none!important;transform:scale\(var\(--elx-persona-scale\)\)/);
 });
-test('canvas renderer halves Fernanda exactly once; fallback image retains CSS half-scale', () => {
+test('canvas renderer scales Fernanda to 80% exactly once; fallback image uses the same ratio', () => {
   const renderer = fs.readFileSync(path.join(__dirname, '../assets/fsm/sprite-renderer.js'), 'utf8');
   const artwork = fs.readFileSync(path.join(__dirname, '../assets/dpi-2d-art.js'), 'utf8');
-  assert.match(renderer, /characterScale = canvas\.dataset\.persona === 'female' \? \.5 : 1/);
+  assert.match(renderer, /characterScale = canvas\.dataset\.persona === 'female' \? \.8 : 1/);
   assert.match(artwork, /dpi-acting-canvas/);
   assert.ok(css.includes('[data-persona="female"]:has(> .dpi-acting-canvas){--elx-persona-scale:1}'));
-  assert.ok(css.includes('[data-persona="female"]{--elx-persona-scale:.5;'));
+  assert.ok(css.includes('[data-persona="female"]{--elx-persona-scale:.8;'));
 });
 test('motion is slower and eased rather than a mechanically looping bounce', () => {
   assert.match(css, /animation:elxMascotIdle 5\.8s ease-in-out infinite/);

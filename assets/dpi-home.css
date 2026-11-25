@@ -23,9 +23,9 @@ button,a{font:inherit;-webkit-tap-highlight-color:transparent}
 .dpi-hero:after{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse at center,#0a587044 0,transparent 70%)}
 .dpi-tagline{position:relative;z-index:2;margin:0;color:#dffaff;font-size:clamp(12px,1.2vw,15px);font-weight:850;letter-spacing:.08em;text-align:center;text-shadow:0 0 8px #15c9ff}
 .dpi-hero-scene{position:relative;z-index:1;width:min(100%,860px);height:236px;display:grid;grid-template-columns:minmax(0,1fr) minmax(144px,190px) minmax(0,1fr);align-items:center;justify-items:center}
-.dpi-hero-mascot{width:auto;aspect-ratio:.6;height:220px;justify-self:center;background-image:url("../dpi-r18.1/voz-e-mascotes/mascotes-radioprotecao-aprovados.png");background-repeat:no-repeat;background-size:auto 100%;filter:drop-shadow(0 10px 10px #00111b88);animation:mascot-arrive .55s ease-out both,mascot-bob 4.2s ease-in-out .55s infinite;will-change:transform}
+.dpi-hero-mascot{width:auto;aspect-ratio:.6;height:220px;justify-self:center;background-image:url("../dpi-r18.1/voz-e-mascotes/mascotes-radioprotecao-aprovados.png");background-repeat:no-repeat;background-size:auto 100%;filter:drop-shadow(0 10px 10px #00111b88);animation:mascot-arrive .55s ease-out both;will-change:transform}
 .dpi-hero-mascot.everton{background-position:left center;transform-origin:bottom right}
-.dpi-hero-mascot.fernanda{background-position:right center;animation-delay:.12s,1s;transform:scale(.5);transform-origin:bottom center}
+.dpi-hero-mascot.fernanda{background-position:right center;animation-delay:.12s;transform:scale(.8);transform-origin:bottom center}
 .dpi-emblem{width:100%;display:flex;align-items:center;justify-content:center;margin:0;text-align:center}
 .dpi-emblem img{display:block;width:min(100%,190px);height:auto;object-fit:contain;filter:drop-shadow(0 0 11px #52f22a55)}
 .dpi-hero h1{position:relative;margin:2px 0 0;display:flex;flex-direction:column;align-items:center;text-align:center;font-style:italic;line-height:.98;letter-spacing:.07em;text-shadow:0 0 8px #22d8ff}
@@ -93,7 +93,6 @@ button,a{font:inherit;-webkit-tap-highlight-color:transparent}
   .dpi-footer b{font-size:12px}.dpi-footer small{font-size:11px}.dpi-legal{font-size:10px;line-height:1.35}
 }
 @keyframes mascot-arrive{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
-@keyframes mascot-bob{0%,100%{translate:0 0}50%{translate:0 -4px}}
 
 .dpi-start-section{display:grid;gap:8px;padding:14px 12px;background:linear-gradient(180deg,#031a2c,#052438);text-align:center}.dpi-start-section p{margin:0;color:var(--muted);font-size:12px}.dpi-start{width:100%;min-height:54px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid #20dc92;border-radius:14px;background:linear-gradient(100deg,#087b61,#04a977);color:#fff;font-weight:950;letter-spacing:.08em;cursor:pointer;box-shadow:0 4px 16px #05a86d44}.dpi-start b{font-size:20px}.dpi-start:hover,.dpi-start:focus-visible{outline:2px solid #eafff5;outline-offset:2px;filter:brightness(1.1)}.dpi-share-dialog{width:min(92vw,420px);border:1px solid #83d5e6;border-radius:20px;background:#f3fbfc;color:#15374a;padding:24px;box-shadow:0 20px 80px #00121dcc}.dpi-share-dialog::backdrop{background:#00101cc9;backdrop-filter:blur(5px)}.dpi-share-close{float:right;width:40px;height:40px;border:1px solid #aacbd4;border-radius:50%;background:#fff;color:#173a4c;font-size:26px;cursor:pointer}.dpi-share-dialog h2{font-size:22px}.dpi-share-options{display:grid;gap:10px}.dpi-share-options a,.dpi-share-options button{display:block;padding:14px;border:1px solid #9fc3cf;border-radius:11px;background:#fff;color:#113b50;text-decoration:none;text-align:center;font:inherit;font-weight:750;cursor:pointer}
 @media screen and (max-width:600px){.dpi-values{min-height:66px}.dpi-values button{font-size:10px}.dpi-start-section{padding:12px 10px}.dpi-start{min-height:52px}}

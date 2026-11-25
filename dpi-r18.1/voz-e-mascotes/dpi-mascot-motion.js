@@ -41,7 +41,7 @@
     for(const who of ['male','female'])style.textContent+=`#elx-character-stage.elx-motion-active[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"]{animation:${keyframes} ${timing}!important}`;
   }
   style.textContent+=`
-@keyframes dpi2DIdle{0%,100%{transform:translateY(0) scale(var(--elx-persona-scale))}50%{transform:translateY(-3px) scale(var(--elx-persona-scale))}}
+@keyframes dpi2DIdle{0%,100%{transform:translateY(0) scale(var(--elx-persona-scale))}50%{transform:scale(var(--elx-persona-scale))}}
 @keyframes dpi2DSpeak{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}40%{transform:translateY(-2px) rotate(.18deg) scale(var(--elx-persona-scale))}70%{transform:translateY(-.8px) rotate(-.12deg) scale(var(--elx-persona-scale))}}
 @keyframes dpi2DListen{0%,100%{transform:rotate(0) scale(var(--elx-persona-scale))}50%{transform:rotate(.35deg) scale(var(--elx-persona-scale))}}
 @keyframes dpi2DGreet{0%,100%{transform:translateY(0) rotate(0) scale(var(--elx-persona-scale))}35%{transform:translateY(-3px) rotate(-.45deg) scale(var(--elx-persona-scale))}70%{transform:translateY(-1px) rotate(.2deg) scale(var(--elx-persona-scale))}}
@@ -57,7 +57,7 @@
 #elx-character-stage .elx-mascot-motion-persona[data-persona="female"] .dpi-2d-head{animation-delay:-1.6s}
 #elx-character-stage .elx-mascot-motion-persona[data-persona="female"] .dpi-2d-eye{animation-delay:-2.1s}
 `;
-  for(const [state,anim] of [['speaking','dpiHeadTalk 1.15s ease-in-out infinite'],['greeting','dpiHeadGreet 1.5s ease-in-out 1'],['celebrate','dpiHeadGreet 1.5s ease-in-out 1'],['incorrect','dpiHeadConcern 1.5s ease-in-out 1'],['listening','dpiHeadListen 2.5s ease-in-out infinite'],['hover','dpiHeadListen 2.5s ease-in-out infinite']]){
+  for(const [state,anim] of [['speaking','dpiHeadTalk 1.45s ease-in-out 1'],['greeting','dpiHeadGreet 1.5s ease-in-out 1'],['celebrate','dpiHeadGreet 1.5s ease-in-out 1'],['incorrect','dpiHeadConcern 1.5s ease-in-out 1'],['listening','dpiHeadListen 2.5s ease-in-out infinite'],['hover','dpiHeadListen 2.5s ease-in-out infinite']]){
     for(const who of ['male','female'])style.textContent+=`#elx-character-stage[data-active-persona="${who}"][data-motion-state="${state}"] .elx-mascot-motion-persona[data-persona="${who}"] .dpi-2d-head{animation:${anim};animation-delay:0s}`;
   }
   style.textContent+=`
