@@ -556,40 +556,40 @@
       "id": "INT-014",
       "species": "canino",
       "difficulty": "basico",
-      "clinical_context": "Cão com tosse; a equipe propõe um estudo dinâmico cervical baseado.",
+      "clinical_context": "Cão com tosse e suspeita de colapso traqueal intermitente. A radiografia estática foi inconclusiva.",
       "imaging_modality": "RX",
-      "question": "Como interpretar a indicação de compressão traqueal descrita nessa fonte?",
+      "question": "Qual exame permite observar a variação do calibre traqueal em tempo real?",
       "alternatives": [
         {
           "id": "A",
-          "text": "Como protocolo universal obrigatório",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "Radiografia torácica VD",
+          "rationale": "A incidência VD registra uma exposição estática do tórax."
         },
         {
           "id": "B",
-          "text": "Como substituto do exame clínico",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "Radiografia cervical lateral isolada",
+          "rationale": "Uma lateral isolada registra apenas um momento do ciclo respiratório."
         },
         {
           "id": "C",
-          "text": "Como método isento de risco e aplicável a qualquer paciente",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "Radiografia oblíqua do tórax",
+          "rationale": "A oblíqua altera a superposição anatômica, mas continua sendo uma imagem estática."
         },
         {
           "id": "D",
-          "text": "Como técnica particular do autor, cuja pertinência e segurança precisam de avaliação individual",
-          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
+          "text": "Fluoroscopia da traqueia",
+          "rationale": "A fluoroscopia permite acompanhar o calibre traqueal durante o ciclo respiratório."
         }
       ],
       "correct_id": "D",
       "references": [
         {
-          "title": "P.O.P. de Radiologia Veterinária",
-          "authors": "Daniel dos Santos Baptista",
-          "year": null,
-          "locator": "PDF consultado, páginas 21",
-          "verified": true,
-          "scope": "Protocolo do autor; não equivale a consenso universal"
+          "title": "Fluoroscopic and radiographic evaluation of tracheal collapse in dogs: 62 cases (2001-2006)",
+          "authors": "Macready et al.",
+          "year": 2007,
+          "locator": "PMID 17571993, resumo",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17571993/",
+          "verified": true
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
@@ -1029,40 +1029,40 @@
       "id": "INT-025",
       "species": "canino",
       "difficulty": "basico",
-      "clinical_context": "Cão com suspeita de fratura umeral.",
+      "clinical_context": "Cão com suspeita de fratura diafisária do úmero. Planeja-se uma lateral e uma ortogonal com o paciente em decúbito dorsal e entrada do feixe pela face caudal do membro.",
       "imaging_modality": "RX",
-      "question": "Qual par de incidências é adequado para o úmero?",
+      "question": "Quais projeções correspondem ao planejamento?",
       "alternatives": [
         {
           "id": "A",
-          "text": "DPl e PlD",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "ML e CrCd",
+          "rationale": "Na CrCd, o feixe entra pela face cranial."
         },
         {
           "id": "B",
-          "text": "VD e DV",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "ML e uma oblíqua",
+          "rationale": "A oblíqua não é a incidência ortogonal descrita no enunciado."
         },
         {
           "id": "C",
-          "text": "ML neutra e CrCd",
-          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
+          "text": "ML e CdCr",
+          "rationale": "Na CdCr, o feixe entra pela face caudal. A ML complementa a série em um plano perpendicular."
         },
         {
           "id": "D",
-          "text": "Somente oblíqua",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "ML e outra lateral",
+          "rationale": "Outra lateral não fornece o plano ortogonal solicitado."
         }
       ],
       "correct_id": "C",
       "references": [
         {
-          "title": "P.O.P. de Radiologia Veterinária",
-          "authors": "Daniel dos Santos Baptista",
-          "year": null,
-          "locator": "PDF consultado, páginas 43",
+          "title": "Small Animal Radiography of the Scapula, Shoulder, & Humerus",
+          "authors": "Today's Veterinary Practice",
+          "year": 2011,
+          "url": "https://todaysveterinarypractice.com/radiology-imaging/1475/",
           "verified": true,
-          "scope": "Protocolo do autor; não equivale a consenso universal"
+          "locator": "Humerus, Mediolateral Image e Caudocranial Image"
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
@@ -1283,38 +1283,39 @@
       "id": "INT-031",
       "species": "equino",
       "difficulty": "basico",
-      "clinical_context": "Equino com necessidade de projeções oblíquas do carpo.",
+      "clinical_context": "Em um equino, o protocolo selecionado inclui uma incidência D45°L–PaMO do carpo.",
       "imaging_modality": "RX",
-      "question": "Qual faixa de angulação pode ser utilizada para oblíquas de articulações complexas?",
+      "question": "Qual angulação nominal o código indica em relação à dorsopalmar?",
       "alternatives": [
         {
           "id": "A",
-          "text": "30° a 45° em relação à entrada da incidência DP/CrCd",
-          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
+          "text": "45°",
+          "rationale": "O número 45 identifica a angulação nominal da oblíqua dorsolateral em relação à dorsopalmar."
         },
         {
           "id": "B",
-          "text": "Exatamente 90° para qualquer oblíqua",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "30°",
+          "rationale": "Uma oblíqua de 30° teria outra angulação indicada na sigla."
         },
         {
           "id": "C",
-          "text": "Sempre 0°",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "60°",
+          "rationale": "O ângulo de 60° pode pertencer a outro protocolo, mas não à projeção indicada."
         },
         {
           "id": "D",
-          "text": "Sempre 180°",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "90°",
+          "rationale": "Uma rotação de 90° corresponde a um plano lateral em relação à dorsopalmar."
         }
       ],
       "correct_id": "A",
       "references": [
         {
-          "title": "Diagnóstico de Radiologia Veterinária",
-          "authors": "Donald E. Thrall",
-          "year": null,
-          "locator": "6ª edição, PDF consultado, páginas 559",
+          "title": "Veterinary Pre-Import Examination Protocol",
+          "authors": "The Hong Kong Jockey Club",
+          "year": 2025,
+          "locator": "Versão 4.0, seção Carpus",
+          "url": "https://www.hkjc.com/english/pp_formsheet/Veterinary_Pre-Import_Exam_Protocol_Version_Eng.pdf",
           "verified": true
         }
       ],
@@ -1536,40 +1537,40 @@
       "id": "INT-037",
       "species": "canino",
       "difficulty": "basico",
-      "clinical_context": "Cão com suspeita de alteração da articulação escapuloumeral e solicitação de exame básico.",
+      "clinical_context": "Cão posicionado em decúbito dorsal para uma radiografia CdCr do ombro.",
       "imaging_modality": "RX",
-      "question": "Qual referência anatômica auxilia no posicionamento?",
+      "question": "Qual referência palpável indica onde centralizar o feixe?",
       "alternatives": [
         {
           "id": "A",
-          "text": "O osso navicular equino",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "O olécrano do membro examinado",
+          "rationale": "O olécrano ajuda a orientar a rotação do membro e está distante do centro do ombro."
         },
         {
           "id": "B",
-          "text": "O cólon descendente",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "O ponto médio da diáfise humeral",
+          "rationale": "O ponto médio da diáfise é uma referência para cobrir o úmero, não para centralizar a articulação."
         },
         {
           "id": "C",
-          "text": "A espinha da escápula e a relação com pescoço e manúbrio",
-          "rationale": "A escolha depende da anatomia, do objetivo diagnóstico e das limitações técnicas do paciente."
+          "text": "A depressão entre a cabeça umeral e a escápula",
+          "rationale": "A depressão palpável entre a cabeça umeral e a extremidade distal da escápula localiza a articulação."
         },
         {
           "id": "D",
-          "text": "A válvula ileocecal",
-          "rationale": "Esta alternativa não atende tão bem ao objetivo diagnóstico apresentado; revisar após confronto com a literatura."
+          "text": "A borda cranial do manúbrio",
+          "rationale": "A borda do manúbrio é um marco torácico e não localiza diretamente a articulação."
         }
       ],
       "correct_id": "C",
       "references": [
         {
-          "title": "P.O.P. de Radiologia Veterinária",
-          "authors": "Daniel dos Santos Baptista",
-          "year": null,
-          "locator": "PDF consultado, páginas 41–42",
+          "title": "Small Animal Radiography of the Scapula, Shoulder, & Humerus",
+          "authors": "Today's Veterinary Practice",
+          "year": 2011,
+          "url": "https://todaysveterinarypractice.com/radiology-imaging/1475/",
           "verified": true,
-          "scope": "Protocolo do autor; não equivale a consenso universal"
+          "locator": "Shoulder Joint, Caudocranial Image, Collimation"
         }
       ],
       "review_status": "rascunho_pendente_dupla_auditoria",
