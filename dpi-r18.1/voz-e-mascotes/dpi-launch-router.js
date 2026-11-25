@@ -333,7 +333,7 @@
         finally { removeResult(); }
       };
       close.addEventListener('click', dismiss);
-      overlay.addEventListener('keydown', event => { if (event.key === 'Escape' && !close.disabled) dismiss(); });
+      overlay.addEventListener('keydown', event => { if (event.key === 'Escape' && !close.hidden && !close.disabled) dismiss(); });
       card.append(close, node);
       overlay.append(card);
       doc.body.append(overlay);
@@ -348,18 +348,22 @@
       const voice = assistant();
       if (!voice?.isEnabled?.() || !explanation) return;
 
-      const controls = [close, ...node.querySelectorAll('button')];
-      const enabled = controls.filter(control => !control.disabled);
+      const controls = [close, ...node.querySelectorAll('button, a[href]')];
+      const visibility = controls.map(control => ({
+        control,
+        hidden: control.hidden,
+        display: control.style.getPropertyValue('display'),
+        priority: control.style.getPropertyPriority('display')
+      }));
+      const enabled = controls.filter(control => 'disabled' in control && !control.disabled);
       enabled.forEach(control => { control.disabled = true; });
-      const previousDisplay = next?.style.getPropertyValue('display');
-      const displayPriority = next?.style.getPropertyPriority('display');
-      if (next) {
-        next.hidden = true;
-        next.style.setProperty('display', 'none', 'important');
-      }
+      visibility.forEach(({control}) => {
+        control.hidden = true;
+        control.style.setProperty('display', 'none', 'important');
+      });
       const status = doc.createElement('p');
       status.setAttribute('role', 'status');
-      status.textContent = 'Preparando a leitura da explicação…';
+      status.textContent = 'Aguarde o final da explicação para prosseguir.';
       card.append(status);
       card.tabIndex = -1;
       card.focus({ preventScroll:true });
@@ -369,8 +373,9 @@
       let started = false;
       const voiceTimeout = root.setTimeout(() => {
         voice.stop?.();
+        root.DPISpeechStream?.cancel?.();
         unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
-      }, 60000);
+      }, 120000);
       let unlocked = false;
       function unlock(message) {
         if (unlocked) return;
@@ -380,10 +385,10 @@
         root.removeEventListener('elx-speech-end', onEnd);
         background.forEach(element => { element.inert = false; });
         enabled.forEach(control => { control.disabled = false; });
-        if (next) {
-          next.hidden = false;
-          next.style.setProperty('display', previousDisplay, displayPriority);
-        }
+        visibility.forEach(({control, hidden, display, priority}) => {
+          control.hidden = hidden;
+          control.style.setProperty('display', display, priority);
+        });
         status.textContent = message;
         (next || close).focus({ preventScroll:true });
       }
@@ -392,7 +397,7 @@
         if (started || !text || !explanation.startsWith(text)) return;
         started = true;
         playback = event.detail?.speechId;
-        status.textContent = 'Lendo a explicação…';
+
       }
       function onEnd(event) {
         if (!started || (playback != null && event.detail?.speechId !== playback)) return;
@@ -403,7 +408,7 @@
       try {
         const pending = speak(explanation);
         if (pending?.then) pending.then(result => {
-          if (result === true && started) unlock('Leitura concluída.');
+          if (result !== false && started) unlock('Leitura concluída.');
           else if (result === false) unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
         }, () => unlock('Áudio indisponível. Leia a explicação na tela para continuar.'));
       } catch {
