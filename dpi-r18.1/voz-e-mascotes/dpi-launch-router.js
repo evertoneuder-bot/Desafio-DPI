@@ -338,9 +338,11 @@
       overlay.append(card);
       doc.body.append(overlay);
       close.focus({ preventScroll:true });
-      const copy = node.cloneNode(true);
-      copy.querySelectorAll('button, a, small').forEach(control => control.remove());
-      const explanation = copy.textContent.replace(/\s+/g, ' ').trim();
+      const paragraphs = [...node.querySelectorAll('p')]
+        .map(paragraph => paragraph.textContent.replace(/\s+/g, ' ').trim())
+        .filter(text => text && !/^(Sua escolha|Resposta correta|Resposta do banco|Fonte|Pontuação)\b/i.test(text))
+        .map(text => text.replace(/^Por que:\s*/i, ''));
+      const explanation = [...new Set(paragraphs)].join(' ');
       lastPublicReadAt = null;
       latestQuestionAt = 0;
       const voice = assistant();
@@ -401,7 +403,8 @@
       try {
         const pending = speak(explanation);
         if (pending?.then) pending.then(result => {
-          if (result === false && !started) unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
+          if (result === true && started) unlock('Leitura concluída.');
+          else if (result === false) unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
         }, () => unlock('Áudio indisponível. Leia a explicação na tela para continuar.'));
       } catch {
         unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
