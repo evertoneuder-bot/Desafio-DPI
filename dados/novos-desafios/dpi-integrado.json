@@ -13,12 +13,12 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Uma incidência lateral apenas, com colimação restrita ao ponto doloroso.",
+          "text": "Uma lateral do antebraço com colimação restrita ao ponto de maior dor.",
           "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
         },
         {
           "id": "B",
-          "text": "Duas projeções ortogonais do antebraço, abrangendo articulações proximal e distal.",
+          "text": "Duas incidências ortogonais do antebraço, com cotovelo e carpo.",
           "rationale": "A avaliação radiográfica inicial de ossos longos deve incluir duas projeções ortogonais e, diante de suspeita de lesão óssea, as articulações adjacentes."
         },
         {
@@ -60,12 +60,12 @@
         },
         {
           "id": "B",
-          "text": "Dispensar as projeções ortogonais e fazer apenas uma imagem oblíqua.",
+          "text": "Fazer apenas uma incidência oblíqua do carpo e dispensar todas as projeções ortogonais.",
           "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
         },
         {
           "id": "C",
-          "text": "Obter incidências básicas e acrescentar oblíquas pertinentes à região, com radioproteção e suporte de detector.",
+          "text": "Incidências básicas e oblíquas pertinentes, com suporte de detector e radioproteção.",
           "rationale": "Thrall descreve a importância das incidências oblíquas para articulações complexas, especialmente em equinos, e orienta medidas de radioproteção."
         },
         {
@@ -102,7 +102,7 @@
         },
         {
           "id": "B",
-          "text": "Dorsoplantar flexionada do tarso.",
+          "text": "Dorsoplantar do tarso com a articulação em flexão.",
           "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
         },
         {
@@ -139,7 +139,7 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Craniocaudal do úmero.",
+          "text": "Craniocaudal do segmento proximal do úmero.",
           "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
         },
         {
@@ -154,7 +154,7 @@
         },
         {
           "id": "D",
-          "text": "Dorsoplantar flexionada do tarso.",
+          "text": "Dorsoplantar do tarso em flexão.",
           "rationale": "Thrall descreve a projeção dorsoplantar flexionada do tarso para avaliar a tróclea do tálus sem a sobreposição do calcâneo."
         }
       ],
@@ -181,7 +181,7 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Dorsopalmar do carpo.",
+          "text": "Projeção dorsopalmar da articulação do carpo.",
           "rationale": "Não é a projeção ou o protocolo indicado para a dúvida clínica apresentada."
         },
         {
@@ -223,12 +223,12 @@
       "alternatives": [
         {
           "id": "A",
-          "text": "Apenas fratura traumática aguda, excluindo causas metabólicas.",
+          "text": "Considerar apenas fratura traumática aguda, excluindo desde o início as causas metabólicas.",
           "rationale": "A alternativa não corresponde à correlação principal descrita na fonte para este cenário."
         },
         {
           "id": "B",
-          "text": "Hiperparatireoidismo secundário nutricional como diferencial, com avaliação dietética e metabólica.",
+          "text": "Considerar hiperparatireoidismo nutricional secundário e avaliar a dieta.",
           "rationale": "Thrall descreve deficiência ou desequilíbrio cálcio:fósforo na dieta associado à perda generalizada de mineralização, corticais delgadas e fraturas patológicas."
         },
         {
