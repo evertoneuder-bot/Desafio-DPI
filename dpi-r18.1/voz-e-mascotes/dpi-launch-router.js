@@ -270,9 +270,9 @@
       } catch (_) { /* PerformanceObserver is optional. */ }
     }
     const assistant = () => root.ELXAssistentes;
-    const speak = text => {
+    const speak = (text, done) => {
       const voice = assistant();
-      if (voice?.isEnabled?.() && text) return voice.speak(text, voice.getPersona?.() || 'male', true);
+      if (voice?.isEnabled?.() && text) return voice.speak(text, voice.getPersona?.() || 'male', true, done);
     };
     // Plantão phases use the existing label as their source of truth. Explain
     // the learning objective, not a clinical diagnosis or a prescribed action.
@@ -369,20 +369,16 @@
       card.focus({ preventScroll:true });
       const background = [...doc.body.children].filter(element => element !== overlay && !element.inert);
       background.forEach(element => { element.inert = true; });
-      let playback;
-      let started = false;
-      const voiceTimeout = root.setTimeout(() => {
-        voice.stop?.();
-        root.DPISpeechStream?.cancel?.();
-        unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
-      }, 120000);
       let unlocked = false;
+      const voiceTimeout = root.setTimeout(() => {
+        voice.stop();
+        unavailable();
+      }, 120000);
       function unlock(message) {
         if (unlocked) return;
         unlocked = true;
         root.clearTimeout(voiceTimeout);
-        root.removeEventListener('elx-speech-start', onStart);
-        root.removeEventListener('elx-speech-end', onEnd);
+        root.removeEventListener('elx-voice-unavailable', unavailable);
         background.forEach(element => { element.inert = false; });
         enabled.forEach(control => { control.disabled = false; });
         visibility.forEach(({control, hidden, display, priority}) => {
@@ -392,27 +388,15 @@
         status.textContent = message;
         (next || close).focus({ preventScroll:true });
       }
-      function onStart(event) {
-        const text = String(event.detail?.text || '').trim();
-        if (started || !text || !explanation.startsWith(text)) return;
-        started = true;
-        playback = event.detail?.speechId;
-
-      }
-      function onEnd(event) {
-        if (!started || (playback != null && event.detail?.speechId !== playback)) return;
-        unlock('Leitura concluída.');
-      }
-      root.addEventListener('elx-speech-start', onStart);
-      root.addEventListener('elx-speech-end', onEnd);
-      try {
-        const pending = speak(explanation);
-        if (pending?.then) pending.then(result => {
-          if (result !== false && started) unlock('Leitura concluída.');
-          else if (result === false) unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
-        }, () => unlock('Áudio indisponível. Leia a explicação na tela para continuar.'));
-      } catch {
+      function unavailable() {
         unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
+      }
+      voice.stop();
+      root.addEventListener('elx-voice-unavailable', unavailable);
+      try {
+        if (!speak(explanation, () => unlock('Leitura concluída.'))) unavailable();
+      } catch {
+        unavailable();
       }
     };
     let lastSpokenPrompt = '';
