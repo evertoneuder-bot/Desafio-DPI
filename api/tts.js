@@ -43,7 +43,8 @@ module.exports = async function tts(req, res) {
   if (text.length > MAX_TEXT_LENGTH) return json(res, 413, { error: 'text-too-long' });
   if (gender !== 'female' && gender !== 'male') return json(res, 400, { error: 'invalid-voice' });
 
-  const apiKey = String(process.env.ELEVENLABS_API_KEY || '').trim();
+  const apiKey = (String(process.env.ELEVENLABS_API_KEY || '').trim() ||
+    String(process.env.CHAVE_API_ELEVENLABS || '').trim());
   const voiceId = String(
     process.env[gender === 'female' ? 'ELEVENLABS_VOICE_FEMALE' : 'ELEVENLABS_VOICE_MALE'] ||
     process.env[gender === 'female' ? 'ELEVENLABS_VOZ_FEMININA' : 'ELEVENLABS_VOZ_MASCULINA'] ||

@@ -7,7 +7,8 @@ module.exports = function audioStatus(req, res) {
     return res.status(405).json({ error: 'method-not-allowed' });
   }
   const activation = String(process.env.ELX_TTS_ENABLED ?? process.env.ELX_TTS_ATIVADO ?? '').trim().toLowerCase();
-  const apiKey = String(process.env.ELEVENLABS_API_KEY || '').trim();
+  const apiKey = (String(process.env.ELEVENLABS_API_KEY || '').trim() ||
+    String(process.env.CHAVE_API_ELEVENLABS || '').trim());
   const enabled = ['true', '1', 'sim', 'on'].includes(activation) && Boolean(apiKey);
   const femaleVoice = process.env.ELEVENLABS_VOICE_FEMALE || process.env.ELEVENLABS_VOZ_FEMININA || '';
   const maleVoice = process.env.ELEVENLABS_VOICE_MALE || process.env.ELEVENLABS_VOZ_MASCULINA || '';
