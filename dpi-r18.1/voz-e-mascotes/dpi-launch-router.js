@@ -350,7 +350,7 @@
       close.focus({ preventScroll:true });
       const paragraphs = [...node.querySelectorAll('p')]
         .map(paragraph => paragraph.textContent.replace(/\s+/g, ' ').trim())
-        .filter(text => text && !/^(Sua escolha|Resposta correta|Resposta do banco|Fonte|Pontuação)\b/i.test(text))
+        .filter(text => text && !/^(Sua escolha|Resposta|Fonte|Pontuação)\b/i.test(text))
         .map(text => text.replace(/^Por que:\s*/i, ''));
       const explanation = [...new Set(paragraphs)].join(' ');
       lastPublicReadAt = null;

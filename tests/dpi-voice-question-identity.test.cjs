@@ -69,6 +69,16 @@ test('narration timing uses the detection time of its own question', () => {
   assert.doesNotMatch(router, /msAfterQuestionDetected: Math\.round\(now\(\) - latestQuestionAt\)/);
 });
 
+test('feedback narration skips the standalone answer line to avoid speaking it twice', () => {
+  const from = router.indexOf("const paragraphs = [...node.querySelectorAll('p')]");
+  const to = router.indexOf('lastPublicReadAt = null;', from);
+  assert.ok(from >= 0 && to > from);
+  const extraction = router.slice(from, to);
+  const exclusion = extraction.match(/\.filter\(text => text && !\/([^\n]+)\/i\.test\(text\)\)/);
+  assert.ok(exclusion, 'feedback paragraph exclusion must exist');
+  assert.match(exclusion[1], /\|Resposta\|/);
+});
+
 test('answer feedback takes priority over scheduling question narration', () => {
   const scanBody = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
   assert.ok(scanBody.indexOf('const result = internal.querySelector(resultSelector)') < scanBody.indexOf('const question = internal.querySelector'));
