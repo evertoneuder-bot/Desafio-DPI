@@ -177,7 +177,7 @@
       "difficulty": "intermediario",
       "clinical_context": "Cão com suspeita de remodelamento da borda acetabular dorsal; o exame básico da pelve não caracterizou adequadamente essa superfície.",
       "imaging_modality": "RX",
-      "question": "Qual incidência especial pode complementar o estudo?",
+      "question": "Qual incidência complementar é indicada para a avaliação pélvica deste cão?",
       "alternatives": [
         {
           "id": "A",
@@ -1327,7 +1327,7 @@
       "difficulty": "basico",
       "clinical_context": "Cão com suspeita de alteração do sulco bicipital; projeções convencionais do ombro não esclareceram o caso.",
       "imaging_modality": "RX",
-      "question": "Qual incidência especial pode complementar o estudo?",
+      "question": "Qual incidência adicional pode investigar a alteração suspeita no ombro deste cão?",
       "alternatives": [
         {
           "id": "A",
