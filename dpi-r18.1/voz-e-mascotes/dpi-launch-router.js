@@ -328,6 +328,16 @@
         if (node.isConnected) node.remove();
       };
       next?.addEventListener('click', removeResult, { once:true });
+      let exit = [...node.querySelectorAll('button')].find(button => /\bSAIR\b/i.test(button.textContent));
+      if (!exit && next && typeof root.showHome === 'function') {
+        exit = doc.createElement('button');
+        exit.type = 'button';
+        exit.className = 'btn secondary';
+        exit.textContent = '← SAIR';
+        exit.addEventListener('click', () => root.showHome());
+        next.insertAdjacentElement('afterend', exit);
+      }
+      exit?.addEventListener('click', removeResult, { once:true });
       const dismiss = () => {
         try { if (next && !next.disabled) next.click(); }
         finally { removeResult(); }
