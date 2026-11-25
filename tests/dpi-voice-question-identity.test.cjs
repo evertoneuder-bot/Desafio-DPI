@@ -401,8 +401,8 @@ test('feedback speech cannot inherit the previous question reader latency baseli
   const to = router.indexOf('    let lastSpokenPrompt =',from);
   const block = router.slice(from,to);
   assert.ok(from >= 0 && to > from);
-  assert.match(block, /lastPublicReadAt = null;\s*latestQuestionAt = 0;\s*speak\(\[heading, explanation\]/);
-  assert.ok(block.indexOf('lastPublicReadAt = null;') < block.indexOf('speak([heading, explanation]'));
+  assert.match(block, /lastPublicReadAt = null;\s*latestQuestionAt = 0;[\s\S]*?speak\(explanation/);
+  assert.ok(block.indexOf('lastPublicReadAt = null;') < block.indexOf('speak(explanation)'));
 });
 
 test('late fallback suppression uses rendered question identity, not a clock window', () => {
@@ -420,7 +420,7 @@ test('feedback resets question identity while preserving already-read duplicate 
 
 test('question timing resets before feedback speech and after disappearing question', () => {
   const feedback = router.slice(router.indexOf('    const openResult = node => {'), router.indexOf('    let lastSpokenPrompt ='));
-  assert.match(feedback, /latestQuestionAt = 0;\s*speak\(\[heading, explanation\]/);
+  assert.match(feedback, /latestQuestionAt = 0;[\s\S]*?speak\(explanation/);
   const scan = router.slice(router.indexOf('const scan = () => {'), router.indexOf('// Coalesce frequent DOM changes'));
   assert.match(scan, /if \(!prompt\) \{[\s\S]*?lastPublicReadAt = null;\s*latestQuestionAt = 0;\s*return;/);
   assert.match(router, /msAfterQuestionDetected: latestQuestionAt \? Math\.round\(at - latestQuestionAt\) : null/);

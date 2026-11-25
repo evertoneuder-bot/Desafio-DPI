@@ -272,7 +272,7 @@
     const assistant = () => root.ELXAssistentes;
     const speak = text => {
       const voice = assistant();
-      if (voice?.isEnabled?.() && text) voice.speak(text, voice.getPersona?.() || 'male', true);
+      if (voice?.isEnabled?.() && text) return voice.speak(text, voice.getPersona?.() || 'male', true);
     };
     // Plantão phases use the existing label as their source of truth. Explain
     // the learning objective, not a clinical diagnosis or a prescribed action.
@@ -333,18 +333,79 @@
         finally { removeResult(); }
       };
       close.addEventListener('click', dismiss);
-      overlay.addEventListener('keydown', event => { if (event.key === 'Escape') dismiss(); });
+      overlay.addEventListener('keydown', event => { if (event.key === 'Escape' && !close.disabled) dismiss(); });
       card.append(close, node);
       overlay.append(card);
       doc.body.append(overlay);
       close.focus({ preventScroll:true });
-      const heading = node.querySelector('strong,b')?.textContent?.trim() || 'Vamos revisar esta resposta.';
-      const explanation = [...node.querySelectorAll('p')].map(p => p.textContent.replace(/\s+/g,' ').trim()).filter(Boolean).slice(0,2).join('. ');
-      // Feedback has its own narration; do not attribute its playback to the
-      // earlier question's public reader when measuring audio latency.
+      const copy = node.cloneNode(true);
+      copy.querySelectorAll('button, a, small').forEach(control => control.remove());
+      const explanation = copy.textContent.replace(/\s+/g, ' ').trim();
       lastPublicReadAt = null;
       latestQuestionAt = 0;
-      speak([heading, explanation].filter(Boolean).join('. ').slice(0,650));
+      const voice = assistant();
+      if (!voice?.isEnabled?.() || !explanation) return;
+
+      const controls = [close, ...node.querySelectorAll('button')];
+      const enabled = controls.filter(control => !control.disabled);
+      enabled.forEach(control => { control.disabled = true; });
+      const previousDisplay = next?.style.getPropertyValue('display');
+      const displayPriority = next?.style.getPropertyPriority('display');
+      if (next) {
+        next.hidden = true;
+        next.style.setProperty('display', 'none', 'important');
+      }
+      const status = doc.createElement('p');
+      status.setAttribute('role', 'status');
+      status.textContent = 'Preparando a leitura da explicação…';
+      card.append(status);
+      card.tabIndex = -1;
+      card.focus({ preventScroll:true });
+      const background = [...doc.body.children].filter(element => element !== overlay && !element.inert);
+      background.forEach(element => { element.inert = true; });
+      let playback;
+      let started = false;
+      const voiceTimeout = root.setTimeout(() => {
+        voice.stop?.();
+        unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
+      }, 60000);
+      let unlocked = false;
+      function unlock(message) {
+        if (unlocked) return;
+        unlocked = true;
+        root.clearTimeout(voiceTimeout);
+        root.removeEventListener('elx-speech-start', onStart);
+        root.removeEventListener('elx-speech-end', onEnd);
+        background.forEach(element => { element.inert = false; });
+        enabled.forEach(control => { control.disabled = false; });
+        if (next) {
+          next.hidden = false;
+          next.style.setProperty('display', previousDisplay, displayPriority);
+        }
+        status.textContent = message;
+        (next || close).focus({ preventScroll:true });
+      }
+      function onStart(event) {
+        const text = String(event.detail?.text || '').trim();
+        if (started || !text || !explanation.startsWith(text)) return;
+        started = true;
+        playback = event.detail?.speechId;
+        status.textContent = 'Lendo a explicação…';
+      }
+      function onEnd(event) {
+        if (!started || (playback != null && event.detail?.speechId !== playback)) return;
+        unlock('Leitura concluída.');
+      }
+      root.addEventListener('elx-speech-start', onStart);
+      root.addEventListener('elx-speech-end', onEnd);
+      try {
+        const pending = speak(explanation);
+        if (pending?.then) pending.then(result => {
+          if (result === false && !started) unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
+        }, () => unlock('Áudio indisponível. Leia a explicação na tela para continuar.'));
+      } catch {
+        unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
+      }
     };
     let lastSpokenPrompt = '';
     let lastSpokenQuestion = null;
