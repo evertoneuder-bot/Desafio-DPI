@@ -322,10 +322,15 @@
       close.title = 'Fechar resultado';
       close.textContent = '×';
       Object.assign(close.style, { position:'sticky', float:'right', top:'0', zIndex:'2', width:'42px', height:'42px', margin:'-10px -8px 6px 10px', border:'1px solid #8cb8c5', borderRadius:'50%', background:'#fff', color:'#17364d', font:'700 26px/1 Arial,sans-serif', cursor:'pointer' });
+      const next = node.querySelector('button[onclick*="nextQuestion"],button[onclick*="caseRender"],button[onclick*="DpiGameRounds.next"],button[onclick*="nextAssociation"]');
+      const removeResult = () => {
+        overlay.remove();
+        if (node.isConnected) node.remove();
+      };
+      next?.addEventListener('click', removeResult, { once:true });
       const dismiss = () => {
-        const next = node.querySelector('button[onclick*="nextQuestion"],button[onclick*="caseRender"],button[onclick*="DpiGameRounds.next"],button[onclick*="nextAssociation"]');
         try { if (next && !next.disabled) next.click(); }
-        finally { overlay.remove(); if (node.isConnected) node.remove(); }
+        finally { removeResult(); }
       };
       close.addEventListener('click', dismiss);
       overlay.addEventListener('keydown', event => { if (event.key === 'Escape') dismiss(); });
