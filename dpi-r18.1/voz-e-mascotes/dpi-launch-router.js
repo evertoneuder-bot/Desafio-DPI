@@ -519,12 +519,32 @@
     }, true);
   }
 
+  function extendMenu(action, insertBefore, extraMarkup) {
+    const original = root[action];
+    if (typeof original !== 'function' || typeof root.shell !== 'function') return;
+    root[action] = function () {
+      const shell = root.shell;
+      root.shell = function (title, body, ...args) {
+        return shell.call(this, title, body.replace(insertBefore, extraMarkup + insertBefore), ...args);
+      };
+      try { return original.apply(this, arguments); }
+      finally { root.shell = shell; }
+    };
+  }
+
+  extendMenu('challenges', '</div><div class="navrow">', `
+    <button class="dpi-minigame-card" onclick="route('plantao')"><i>🚨</i><span><b>Plantão DPI</b><small>Conduza casos e decisões clínicas.</small></span><em>↗</em></button>
+    <button class="dpi-minigame-card" onclick="location.assign('/expansao-dpi?secao=desafios#olhar-diagnostico')"><i>◎</i><span><b>Olhar Diagnóstico</b><small>Consulte a disponibilidade das questões com imagem.</small></span><em>↗</em></button>
+    <button class="dpi-minigame-card" onclick="location.assign('/expansao-dpi/detetive-da-imagem')"><i>⌕</i><span><b>Detetive da Imagem</b><small>Prévia técnica com cinco missões ilustrativas.</small></span><em>↗</em></button>`);
+  extendMenu('quizMenu', '<div class="navrow">', `
+    <button class="btn secondary" onclick="location.assign('/expansao-dpi?secao=quiz')">MÓDULOS DO QUIZ</button>`);
+
   if (!mode || !Object.prototype.hasOwnProperty.call(actions, mode)) return;
   root.document.documentElement.classList.add('dpi-route-pending');
 
   function showDpiModeMenu() {
     if (typeof root.shell !== 'function') return false;
-    root.shell('Escolha como quer jogar', `<p class="dpi-game-intro">Escolha um caminho: estude no quiz, pratique nos minijogos ou conduza um caso no Plantão.</p><div class="dpi-choice-grid dpi-mode-choice-grid"><button type="button" class="dpi-choice-card" onclick="route('quiz')"><span>10 / 25 / 50</span><b>Quiz diagnóstico</b><small>Escolha uma rodada de 10, 25 ou 50 questões.</small></button><button type="button" class="dpi-choice-card" onclick="route('challenges')"><span>7</span><b>Desafios</b><small>Pratique em sete formatos de jogo.</small></button><button type="button" class="dpi-choice-card" onclick="route('plantao')"><span>🚨</span><b>Plantão DPI</b><small>Conduza casos e decisões clínicas.</small></button><button type="button" class="dpi-choice-card" onclick="achievements()"><span>✦</span><b>Minhas conquistas</b><small>Acompanhe pontos e progresso.</small></button></div>`);
+    root.shell('Escolha como quer jogar', `<p class="dpi-game-intro">Escolha um caminho: estude no quiz, pratique nos minijogos ou conduza um caso no Plantão.</p><div class="dpi-choice-grid dpi-mode-choice-grid"><button type="button" class="dpi-choice-card" onclick="route('quiz')"><span>10 / 25 / 50</span><b>Quiz diagnóstico</b><small>Escolha uma rodada de 10, 25 ou 50 questões.</small></button><button type="button" class="dpi-choice-card" onclick="route('challenges')"><span>10</span><b>Desafios</b><small>Explore os jogos e os desafios em avaliação.</small></button><button type="button" class="dpi-choice-card" onclick="route('plantao')"><span>🚨</span><b>Plantão DPI</b><small>Conduza casos e decisões clínicas.</small></button><button type="button" class="dpi-choice-card" onclick="achievements()"><span>✦</span><b>Minhas conquistas</b><small>Acompanhe pontos e progresso.</small></button></div>`);
     const internal = root.document.getElementById('internal');
     internal?.querySelectorAll('button').forEach(button => {
       if (!/VOLTAR\s+(?:À|A)\s+CAPA/i.test(button.textContent || '')) return;
