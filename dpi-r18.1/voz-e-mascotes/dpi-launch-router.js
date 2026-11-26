@@ -403,11 +403,20 @@
       }
       voice.stop();
       root.addEventListener('elx-voice-unavailable', unavailable);
-      try {
-        if (!speak(explanation, () => unlock('Leitura concluída.'))) unavailable();
-      } catch {
-        unavailable();
-      }
+      // Prepare the first clip while the result is being presented. The
+      // voice engine emits the caption event when audio actually starts.
+      try { prepareQuestionSpeech?.(explanation); } catch (_) { /* Playback can prepare it on demand. */ }
+      root.setTimeout(() => {
+        if (unlocked || !overlay.isConnected || !node.isConnected || !voice.isEnabled()) {
+          unavailable();
+          return;
+        }
+        try {
+          if (!speak(explanation, () => unlock('Leitura concluída.'))) unavailable();
+        } catch {
+          unavailable();
+        }
+      }, 1000);
     };
     let lastSpokenPrompt = '';
     let lastSpokenQuestion = null;
