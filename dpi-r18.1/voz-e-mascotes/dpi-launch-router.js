@@ -178,6 +178,7 @@
     diagnostics.mediaStarts ||= [];
     diagnostics.narrationCalls ||= [];
     diagnostics.publicReads ||= [];
+    diagnostics.explanationStarts ||= [];
     const keep = (collection, entry) => {
       collection.push(entry);
       if (collection.length > 30) collection.shift();
@@ -347,6 +348,7 @@
       card.append(close, node);
       overlay.append(card);
       doc.body.append(overlay);
+      const openedAt = now();
       close.focus({ preventScroll:true });
       const paragraphs = [...node.querySelectorAll('p')]
         .map(paragraph => paragraph.textContent.replace(/\s+/g, ' ').trim())
@@ -381,14 +383,15 @@
       background.forEach(element => { element.inert = true; });
       let unlocked = false;
       const voiceTimeout = root.setTimeout(() => {
-        voice.stop();
         unavailable();
+        voice.stop();
       }, 120000);
       function unlock(message) {
         if (unlocked) return;
         unlocked = true;
         root.clearTimeout(voiceTimeout);
         root.removeEventListener('elx-voice-unavailable', unavailable);
+        root.removeEventListener('elx-speech-start', recordExplanationStart);
         background.forEach(element => { element.inert = false; });
         enabled.forEach(control => { control.disabled = false; });
         visibility.forEach(({control, hidden, display, priority}) => {
@@ -401,6 +404,15 @@
       function unavailable() {
         unlock('Áudio indisponível. Leia a explicação na tela para continuar.');
       }
+      function recordExplanationStart() {
+        const at = now();
+        keep(diagnostics.explanationStarts, {
+          at: Math.round(at),
+          msAfterDialogOpened: Math.round(at - openedAt),
+          msAfterPlaybackRequested: Math.round(at - playbackRequestedAt)
+        });
+      }
+      let playbackRequestedAt;
       voice.stop();
       root.addEventListener('elx-voice-unavailable', unavailable);
       // Prepare the first clip while the result is being presented. The
@@ -412,11 +424,13 @@
           return;
         }
         try {
+          playbackRequestedAt = now();
+          root.addEventListener('elx-speech-start', recordExplanationStart, { once:true });
           if (!speak(explanation, () => unlock('Leitura concluída.'))) unavailable();
         } catch {
           unavailable();
         }
-      }, 1000);
+      }, Math.max(0, 1000 - (now() - openedAt)));
     };
     let lastSpokenPrompt = '';
     let lastSpokenQuestion = null;
