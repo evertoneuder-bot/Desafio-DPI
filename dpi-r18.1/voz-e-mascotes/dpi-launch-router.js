@@ -625,8 +625,8 @@
 
   extendMenu('challenges', '</div><div class="navrow">', `
     <button class="dpi-minigame-card" onclick="route('plantao')"><i>🚨</i><span><b>Plantão DPI</b><small>Conduza casos e decisões clínicas.</small></span><em>↗</em></button>
-    <button class="dpi-minigame-card" onclick="location.assign('/expansao-dpi?secao=desafios#olhar-diagnostico')"><i>◎</i><span><b>Olhar Diagnóstico</b><small>Consulte a disponibilidade das questões com imagem.</small></span><em>↗</em></button>
-    <button class="dpi-minigame-card" onclick="location.assign('/expansao-dpi/detetive-da-imagem')"><i>⌕</i><span><b>Detetive da Imagem</b><small>Prévia técnica com cinco missões ilustrativas.</small></span><em>↗</em></button>`);
+    <button class="dpi-minigame-card" onclick="location.assign('/expansao-dpi/rodadas-70.html?jogo=Olhar%20Diagn%C3%B3stico')"><i>◎</i><span><b>Olhar Diagnóstico</b><small>10 questões com radiografias.</small></span><em>↗</em></button>
+    <button class="dpi-minigame-card" onclick="location.assign('/expansao-dpi/rodadas-70.html?jogo=Detetive%20da%20Imagem')"><i>⌕</i><span><b>Detetive da Imagem</b><small>10 missões com radiografias.</small></span><em>↗</em></button>`);
   extendMenu('quizMenu', '<div class="navrow">', `
     <button class="btn secondary" onclick="location.assign('/expansao-dpi?secao=quiz')">MÓDULOS DO QUIZ</button>`);
 
